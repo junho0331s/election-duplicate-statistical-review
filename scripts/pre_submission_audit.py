@@ -1,0 +1,193 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import csv
+import json
+import re
+from dataclasses import asdict, dataclass
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "outputs"
+
+
+@dataclass
+class AuditCheck:
+    check: str
+    expected: str
+    actual: str
+    status: str
+
+
+def read_text(path: str) -> str:
+    return (ROOT / path).read_text(encoding="utf-8", errors="ignore")
+
+
+def check(condition: bool, name: str, expected: str, actual: str) -> AuditCheck:
+    return AuditCheck(
+        check=name,
+        expected=expected,
+        actual=actual,
+        status="pass" if condition else "fail",
+    )
+
+
+def text_files() -> list[Path]:
+    suffixes = {".md", ".py", ".txt", ".csv", ".json", ".tex", ".cls"}
+    skipped_parts = {".git", "data", "dist"}
+    return [
+        path
+        for path in ROOT.rglob("*")
+        if (
+            path.is_file()
+            and path.suffix.lower() in suffixes
+            and not any(part in skipped_parts for part in path.relative_to(ROOT).parts)
+        )
+    ]
+
+
+def forbidden_patterns_absent() -> AuditCheck:
+    patterns = [
+        "유" + "튜브",
+        "You" + "Tube",
+        "you" + "tube",
+        "자" + "막",
+        "반박" + "불가",
+        "아무도 " + "반박",
+        "부정선거 " + "확정",
+        "조작 " + "확정",
+        "범죄 " + "확정",
+        "fraud " + "proven",
+        "ir" + "refutable",
+        "cannot be " + "refuted",
+        "election fraud " + "occurred",
+        "ghp" + "_",
+        "github_pat" + "_",
+        "gho" + "_",
+    ]
+    hits: list[str] = []
+    for path in text_files():
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for pattern in patterns:
+            if pattern in text:
+                hits.append(f"{path.relative_to(ROOT)}:{pattern}")
+    return check(not hits, "forbidden patterns absent", "0 hits", f"{len(hits)} hits")
+
+
+def checklist_items_complete() -> AuditCheck:
+    checklist_paths = [
+        "FINAL_SUBMISSION_CHECKLIST_ko.md",
+        "FINAL_SUBMISSION_CHECKLIST_en.md",
+    ]
+    incomplete = []
+    for path in checklist_paths:
+        count = read_text(path).count("[ ]")
+        if count:
+            incomplete.append(f"{path}:{count}")
+    return check(not incomplete, "final checklist items complete", "0 unchecked boxes", ", ".join(incomplete) or "0 unchecked boxes")
+
+
+def core_claims_pass() -> AuditCheck:
+    data = json.loads((OUT / "core_claims_verification.json").read_text(encoding="utf-8"))
+    status = data.get("status")
+    check_count = int(data.get("check_count", 0))
+    return check(
+        status == "pass" and check_count == 45,
+        "core claims verification",
+        "status pass, 45 checks",
+        f"status {status}, {check_count} checks",
+    )
+
+
+def english_pdf_has_no_korean() -> AuditCheck:
+    try:
+        import fitz  # type: ignore[import-not-found]
+    except ImportError:
+        return check(False, "English PDF Korean text scan", "PyMuPDF available, 0 Korean fragments", "PyMuPDF unavailable")
+
+    pdf = fitz.open(ROOT / "latex" / "en" / "main_en.pdf")
+    text = "\n".join(page.get_text() for page in pdf)
+    korean_count = len(re.findall(r"[가-힣]", text))
+    has_exact = "Exact Pair-Collision" in text and "0.0012190884" in text
+    return check(
+        korean_count == 0 and has_exact,
+        "English PDF translation coverage",
+        "0 Korean characters and exact-collision section present",
+        f"{korean_count} Korean characters, exact section {'present' if has_exact else 'missing'}",
+    )
+
+
+def submission_sources_present() -> AuditCheck:
+    required = {
+        "paper_statistical_implausibility_ko.md",
+        "paper_statistical_implausibility_en.md",
+        "latex/ieie/main.pdf",
+        "latex/en/main_en.pdf",
+        "outputs/core_claims_verification.json",
+        "FINAL_SUBMISSION_CHECKLIST_ko.md",
+        "FINAL_SUBMISSION_CHECKLIST_en.md",
+    }
+    missing = sorted(rel for rel in required if not (ROOT / rel).exists())
+    return check(
+        not missing,
+        "submission source files present",
+        "required source files present",
+        f"missing {len(missing)}",
+    )
+
+
+def exact_collision_output_present() -> AuditCheck:
+    rows = list(csv.DictReader((OUT / "probability_exact_collision.csv").open(encoding="utf-8")))
+    by_threshold = {int(row["threshold"]): row for row in rows}
+    row5 = by_threshold.get(5)
+    actual = row5["exact_probability"] if row5 else "missing"
+    return check(
+        actual == "0.0012190883791786122",
+        "exact collision probability output",
+        "threshold 5 exact probability 0.0012190883791786122",
+        f"threshold 5 exact probability {actual}",
+    )
+
+
+def audit_checks() -> list[AuditCheck]:
+    return [
+        checklist_items_complete(),
+        forbidden_patterns_absent(),
+        core_claims_pass(),
+        exact_collision_output_present(),
+        english_pdf_has_no_korean(),
+        submission_sources_present(),
+    ]
+
+
+def write_outputs(rows: list[AuditCheck]) -> None:
+    OUT.mkdir(exist_ok=True)
+    data = {
+        "status": "pass" if all(row.status == "pass" for row in rows) else "fail",
+        "check_count": len(rows),
+        "scope": "pre-submission package readiness",
+        "checks": [asdict(row) for row in rows],
+    }
+    (OUT / "pre_submission_audit.json").write_text(
+        json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    with (OUT / "pre_submission_audit.csv").open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["check", "expected", "actual", "status"])
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(asdict(row))
+
+
+def main() -> None:
+    rows = audit_checks()
+    write_outputs(rows)
+    status = "passed" if all(row.status == "pass" for row in rows) else "failed"
+    print(f"Pre-submission audit {status} with {len(rows)} checks.")
+    if status != "passed":
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

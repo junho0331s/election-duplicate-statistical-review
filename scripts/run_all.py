@@ -17,6 +17,7 @@ SCRIPTS = [
     "probability_sensitivity.py",
     "analyze_early_day_assembly.py",
     "verify_core_claims.py",
+    "pre_submission_audit.py",
     "generate_checksums.py",
     "create_submission_zip.py",
     "validate_package.py",
@@ -53,6 +54,8 @@ def main() -> None:
         ROOT / "outputs" / "early_day_assembly_twoparty.csv",
         ROOT / "outputs" / "core_claims_verification.csv",
         ROOT / "outputs" / "core_claims_verification.json",
+        ROOT / "outputs" / "pre_submission_audit.csv",
+        ROOT / "outputs" / "pre_submission_audit.json",
         ROOT / "outputs" / "checksums_sha256.csv",
         ROOT / "dist" / "election_duplicate_ieie_submission.zip",
     ]

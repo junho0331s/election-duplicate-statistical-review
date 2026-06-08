@@ -57,6 +57,7 @@ REQUIRED_FILES = [
     "scripts/probability_sensitivity.py",
     "scripts/analyze_early_day_assembly.py",
     "scripts/verify_core_claims.py",
+    "scripts/pre_submission_audit.py",
     "scripts/generate_checksums.py",
     "scripts/run_all.py",
     "scripts/validate_package.py",
@@ -79,6 +80,8 @@ REQUIRED_FILES = [
     "outputs/early_day_assembly_summary.csv",
     "outputs/core_claims_verification.csv",
     "outputs/core_claims_verification.json",
+    "outputs/pre_submission_audit.csv",
+    "outputs/pre_submission_audit.json",
     "outputs/checksums_sha256.csv",
     "dist/election_duplicate_ieie_submission.zip",
 ]
@@ -337,6 +340,36 @@ def assert_core_claims_verification() -> None:
         raise AssertionError(f"Core claim verification CSV missing claims: {', '.join(missing_csv_claims)}")
 
 
+def assert_pre_submission_audit() -> None:
+    path = ROOT / "outputs" / "pre_submission_audit.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if data.get("status") != "pass":
+        raise AssertionError(f"Pre-submission audit status is not pass: {data.get('status')}")
+    if int(data.get("check_count", 0)) < 6:
+        raise AssertionError(f"Pre-submission audit has too few checks: {data.get('check_count')}")
+    required = {
+        "final checklist items complete",
+        "forbidden patterns absent",
+        "core claims verification",
+        "exact collision probability output",
+        "English PDF translation coverage",
+        "submission source files present",
+    }
+    checks = data.get("checks")
+    if not isinstance(checks, list):
+        raise AssertionError("Pre-submission audit checks are missing")
+    actual = {row.get("check") for row in checks}
+    missing = sorted(required - actual)
+    if missing:
+        raise AssertionError(f"Pre-submission audit missing checks: {', '.join(missing)}")
+    if any(row.get("status") != "pass" for row in checks):
+        raise AssertionError("Pre-submission audit contains non-pass status")
+
+    csv_rows = list(csv.DictReader((ROOT / "outputs" / "pre_submission_audit.csv").open(encoding="utf-8")))
+    if len(csv_rows) != data.get("check_count"):
+        raise AssertionError("Pre-submission audit CSV row count does not match check_count")
+
+
 def assert_checksums() -> None:
     path = ROOT / "outputs" / "checksums_sha256.csv"
     rows = list(csv.DictReader(path.open(encoding="utf-8")))
@@ -378,6 +411,8 @@ def assert_checksums() -> None:
         "outputs/nec_2026_reported_duplicate_cases.csv",
         "outputs/core_claims_verification.csv",
         "outputs/core_claims_verification.json",
+        "outputs/pre_submission_audit.csv",
+        "outputs/pre_submission_audit.json",
         "outputs/probability_core.csv",
         "outputs/probability_exact_collision.csv",
     ]
@@ -483,6 +518,8 @@ def assert_zip_package() -> None:
         "outputs/nec_2026_reported_duplicate_cases.csv",
         "outputs/core_claims_verification.csv",
         "outputs/core_claims_verification.json",
+        "outputs/pre_submission_audit.csv",
+        "outputs/pre_submission_audit.json",
         "outputs/probability_exact_collision.csv",
         "evidence_matrix_ko.md",
         "evidence_matrix_en.md",
@@ -504,6 +541,7 @@ def assert_zip_package() -> None:
         "LOOK_ELSEWHERE_ROBUSTNESS_en.md",
         "FINAL_SUBMISSION_CHECKLIST_ko.md",
         "FINAL_SUBMISSION_CHECKLIST_en.md",
+        "scripts/pre_submission_audit.py",
     }
     with ZipFile(zip_path) as zf:
         names = set(zf.namelist())
@@ -528,6 +566,7 @@ def main() -> None:
     assert_songdo_probability()
     assert_manifest_json()
     assert_core_claims_verification()
+    assert_pre_submission_audit()
     assert_checksums()
     assert_artifact_freshness()
     assert_english_pdf_translation_coverage()

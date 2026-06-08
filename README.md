@@ -158,6 +158,8 @@ python3 scripts/create_submission_zip.py
 - `outputs/early_day_assembly_twoparty.csv`
 - `outputs/core_claims_verification.csv`
 - `outputs/core_claims_verification.json`
+- `outputs/pre_submission_audit.csv`
+- `outputs/pre_submission_audit.json`
 - `outputs/checksums_sha256.csv`
 
 ## 현재 검증된 핵심 숫자
@@ -178,6 +180,8 @@ python3 scripts/create_submission_zip.py
 - 비복원 재표본추출 `C >= 5`: `0`회, 관측해상도 기준 `<0.0005%`, 3의 법칙 95% 상한 약 `0.0015%`
 - 선관위 선거통계시스템 공식 HTML에서 재확인한 2026년 사건행: `12`
 - 선관위 선거통계시스템 공식 HTML에서 재확인한 2026년 동일 득표쌍: `6`
+- 핵심 주장 검증: `45`개 항목 `pass`
+- 제출 전 자동 감사: `6`개 항목 `pass`
 
 ## 출처 정책
 

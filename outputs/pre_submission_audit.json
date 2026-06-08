@@ -1,0 +1,43 @@
+{
+  "status": "pass",
+  "check_count": 6,
+  "scope": "pre-submission package readiness",
+  "checks": [
+    {
+      "check": "final checklist items complete",
+      "expected": "0 unchecked boxes",
+      "actual": "0 unchecked boxes",
+      "status": "pass"
+    },
+    {
+      "check": "forbidden patterns absent",
+      "expected": "0 hits",
+      "actual": "0 hits",
+      "status": "pass"
+    },
+    {
+      "check": "core claims verification",
+      "expected": "status pass, 45 checks",
+      "actual": "status pass, 45 checks",
+      "status": "pass"
+    },
+    {
+      "check": "exact collision probability output",
+      "expected": "threshold 5 exact probability 0.0012190883791786122",
+      "actual": "threshold 5 exact probability 0.0012190883791786122",
+      "status": "pass"
+    },
+    {
+      "check": "English PDF translation coverage",
+      "expected": "0 Korean characters and exact-collision section present",
+      "actual": "0 Korean characters, exact section present",
+      "status": "pass"
+    },
+    {
+      "check": "submission source files present",
+      "expected": "required source files present",
+      "actual": "missing 0",
+      "status": "pass"
+    }
+  ]
+}
