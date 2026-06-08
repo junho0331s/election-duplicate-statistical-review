@@ -21,6 +21,12 @@ The papers argue that the repeated identical in-district early-vote pairs are no
 
 한글 원고의 결론은 특정 개인이나 기관의 범죄를 통계만으로 법적으로 단정하는 것이 아니라, 우연가설만으로 해소되지 않는 통계적 이상치이므로 원자료 공개와 독립 감사가 필요하다는 것이다.
 
+## Source Policy
+
+The repository intentionally excludes informal video-platform materials and video-derived claims as evidentiary sources. The core analysis uses official election files, NEC election-statistics HTML pages, reproducible parsing scripts, and explicitly named media reports only to define the initially reported 2026 event rows before official-page rechecking.
+
+이 저장소는 비공식 영상 플랫폼 자료와 영상 기반 비공식 주장을 증거 출처로 쓰지 않는다. 핵심 분석은 공식 선거자료, 선관위 선거통계시스템 HTML, 재현 가능한 파싱 스크립트, 그리고 2026년 사건행 정의를 위한 명시적 보도자료에 한정한다.
+
 ## 주요 문서
 
 - `paper_statistical_implausibility_ko.md`: 학술 원고 본문

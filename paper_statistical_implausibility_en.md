@@ -122,7 +122,15 @@ Second, the result is not a legal finding. Statistical abnormality can justify a
 
 Third, the random-chance explanation is weak. A model calibrated from historical Korean election records does not naturally generate five repeated pairs in the relevant 2026 context. The observed result is therefore better described as an unresolved statistical anomaly than as ordinary noise.
 
-## 8. Required Audit Materials
+## 8. Multiple-Comparison and Falsification Issues
+
+The strongest predictable objection is the multiple-comparison objection: if one searches enough elections, candidates, offices, regions, and counting-unit definitions, rare-looking coincidences will eventually appear. This objection is valid in principle, so the paper does not treat the entire universe of possible coincidences as if it had been fixed in advance.
+
+The analysis responds in three ways. First, the main claim is narrowed to the Gwangju-Jeonnam cluster: same election, same office type, same in-district early-vote category, same top-two candidate pair, and five repeated pairs within the officially counted unit set. Second, the historical benchmark uses actual Korean election data rather than a purely theoretical uniform model. Third, the paper separates the Songdo pair from the Gwangju-Jeonnam cluster instead of adding it mechanically into one inflated headline probability.
+
+The result is also falsifiable. The anomaly would be substantially weakened if official raw records showed that the equal final pairs were produced by documented, independently verifiable recount or reclassification steps whose first-pass records, review logs, and final arithmetic reconcile unit by unit. It would also be weakened if an independently reproduced national baseline with the same event definition showed that five-pair clusters are common in comparable Korean in-district early-vote contests. Until such evidence is produced, the ordinary-randomness explanation remains statistically inadequate.
+
+## 9. Required Audit Materials
 
 To resolve the anomaly, the following materials should be released or independently inspected:
 
@@ -135,7 +143,6 @@ To resolve the anomaly, the following materials should be released or independen
 
 Without these records, public explanation remains incomplete.
 
-## 9. Conclusion
+## 10. Conclusion
 
 The repeated identical in-district early-vote pairs in the 2026 Korean local election are not adequately explained by ordinary chance under the statistical tests reported here. The Gwangju-Jeonnam cluster is far above the historical pattern, and the Songdo case adds an independent low-probability exact match. These facts do not establish a legal conclusion of election fraud by themselves. They do establish a statistically serious anomaly requiring official raw-data disclosure and independent audit.
-
