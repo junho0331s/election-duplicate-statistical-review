@@ -40,11 +40,11 @@ python3 scripts/validate_package.py
 기대 출력은 다음과 같다.
 
 ```text
-Core claim verification passed with 41 checks.
+Core claim verification passed with 45 checks.
 Package validation passed.
 ```
 
-`verify_core_claims.py`는 핵심 숫자 41개를 산출물과 대조한다. `validate_package.py`는 필수 파일, 금지 출처 문자열, 핵심 CSV·JSON 값, 영문 PDF 번역 커버리지, 체크섬, ZIP 포함 여부를 함께 점검한다.
+`verify_core_claims.py`는 핵심 숫자 45개를 산출물과 대조한다. `validate_package.py`는 필수 파일, 금지 출처 문자열, 핵심 CSV·JSON 값, 영문 PDF 번역 커버리지, 체크섬, ZIP 포함 여부, 외부 로컬 ZIP 재현 감사를 함께 점검한다.
 
 ## 2. 전체 재현
 

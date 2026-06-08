@@ -70,6 +70,7 @@ REQUIRED_FILES = [
     "scripts/run_all.py",
     "scripts/validate_package.py",
     "scripts/create_submission_zip.py",
+    "scripts/zip_reproduction_audit.py",
     "outputs/duplicate_summary.csv",
     "outputs/dataset_counts.csv",
     "outputs/governor_actual_top2_summary.csv",
@@ -616,13 +617,16 @@ def assert_local_ci_validation_report() -> None:
     validate = data.get("validate_package", {})
     if not validate.get("passed") or validate.get("returncode") != 0:
         raise AssertionError("Local CI validation report did not pass validate_package.py")
+    zip_reproduction = data.get("zip_reproduction_audit", {})
+    if not zip_reproduction.get("passed") or zip_reproduction.get("returncode") != 0:
+        raise AssertionError("Local CI validation report did not pass zip_reproduction_audit.py")
     sidecar = data.get("zip_sidecar", {})
     for key in ["manifest_sha256_matches", "manifest_bytes_matches", "sha256_sidecar_matches", "passed"]:
         if not sidecar.get(key):
             raise AssertionError(f"Local CI validation report sidecar check failed: {key}")
 
     md_text = (ROOT / "outputs" / "local_ci_validation_report.md").read_text(encoding="utf-8")
-    for phrase in ["Local CI Validation Report", "ZIP SHA256", "validate_package.py Output Tail"]:
+    for phrase in ["Local CI Validation Report", "ZIP SHA256", "validate_package.py Output Tail", "zip_reproduction_audit.py Output Tail"]:
         if phrase not in md_text:
             raise AssertionError(f"Local CI markdown missing phrase: {phrase}")
 
@@ -666,6 +670,7 @@ def assert_checksums() -> None:
         "scripts/verify_core_claims.py",
         "scripts/statistical_robustness_audit.py",
         "scripts/video_source_exclusion_audit.py",
+        "scripts/zip_reproduction_audit.py",
         "outputs/governor_bootstrap_summary.csv",
         "outputs/nec_2026_reported_duplicate_cases.csv",
         "outputs/core_claims_verification.csv",
@@ -846,6 +851,7 @@ def assert_zip_package() -> None:
         "FINAL_SUBMISSION_CHECKLIST_en.md",
         "scripts/pre_submission_audit.py",
         "scripts/video_source_exclusion_audit.py",
+        "scripts/zip_reproduction_audit.py",
         "scripts/claim_boundary_audit.py",
         "scripts/objection_coverage_audit.py",
     }

@@ -40,6 +40,14 @@ def main() -> None:
         stderr=subprocess.STDOUT,
         check=False,
     )
+    zip_reproduction = subprocess.run(
+        [sys.executable, "scripts/zip_reproduction_audit.py"],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        check=False,
+    )
 
     digest = sha256(ZIP_PATH)
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
@@ -52,7 +60,7 @@ def main() -> None:
     )
 
     report = {
-        "status": "pass" if validate.returncode == 0 and sidecar_pass else "fail",
+        "status": "pass" if validate.returncode == 0 and zip_reproduction.returncode == 0 and sidecar_pass else "fail",
         "scope": "local equivalent of .github/workflows/validate-submission.yml",
         "validate_package": {
             "command": "python scripts/validate_package.py",
@@ -70,6 +78,12 @@ def main() -> None:
             "file_count": manifest.get("file_count"),
             "passed": sidecar_pass,
         },
+        "zip_reproduction_audit": {
+            "command": "python scripts/zip_reproduction_audit.py",
+            "returncode": zip_reproduction.returncode,
+            "passed": zip_reproduction.returncode == 0,
+            "output_tail": zip_reproduction.stdout.strip().splitlines()[-20:],
+        },
     }
 
     json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -83,6 +97,8 @@ def main() -> None:
         f"- Validation return code: `{report['validate_package']['returncode']}`",
         f"- ZIP file count: `{report['zip_sidecar']['file_count']}`",
         f"- ZIP SHA256: `{report['zip_sidecar']['sha256']}`",
+        f"- ZIP reproduction audit command: `{report['zip_reproduction_audit']['command']}`",
+        f"- ZIP reproduction audit return code: `{report['zip_reproduction_audit']['returncode']}`",
         f"- Manifest SHA256 matches ZIP: `{report['zip_sidecar']['manifest_sha256_matches']}`",
         f"- Manifest byte count matches ZIP: `{report['zip_sidecar']['manifest_bytes_matches']}`",
         f"- SHA256 sidecar matches ZIP: `{report['zip_sidecar']['sha256_sidecar_matches']}`",
@@ -91,6 +107,8 @@ def main() -> None:
         "",
     ]
     md_lines.extend(f"- `{line}`" for line in report["validate_package"]["output_tail"])
+    md_lines.extend(["", "## zip_reproduction_audit.py Output Tail", ""])
+    md_lines.extend(f"- `{line}`" for line in report["zip_reproduction_audit"]["output_tail"])
     md_lines.append("")
     md_path.write_text("\n".join(md_lines), encoding="utf-8")
 

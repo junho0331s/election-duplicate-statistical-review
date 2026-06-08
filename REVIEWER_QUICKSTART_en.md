@@ -40,11 +40,11 @@ python3 scripts/validate_package.py
 Expected output:
 
 ```text
-Core claim verification passed with 41 checks.
+Core claim verification passed with 45 checks.
 Package validation passed.
 ```
 
-`verify_core_claims.py` checks 41 core numerical claims against the output files. `validate_package.py` checks required files, forbidden informal-source strings, core CSV and JSON values, English PDF translation coverage, checksums, and ZIP package contents.
+`verify_core_claims.py` checks 45 core numerical claims against the output files. `validate_package.py` checks required files, forbidden informal-source strings, core CSV and JSON values, English PDF translation coverage, checksums, ZIP package contents, and the external local ZIP-reproduction audit.
 
 ## 2. Full Reproduction
 

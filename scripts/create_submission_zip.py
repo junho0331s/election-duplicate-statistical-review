@@ -71,6 +71,7 @@ INCLUDE_FILES = [
     "scripts/run_all.py",
     "scripts/validate_package.py",
     "scripts/create_submission_zip.py",
+    "scripts/zip_reproduction_audit.py",
 ]
 
 INCLUDE_DIRS = [
@@ -93,6 +94,8 @@ EXCLUDE_NAMES = {
 EXCLUDE_RELATIVE = {
     "outputs/local_ci_validation_report.md",
     "outputs/local_ci_validation_report.json",
+    "outputs/zip_reproduction_audit.md",
+    "outputs/zip_reproduction_audit.json",
 }
 
 

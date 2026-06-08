@@ -1,0 +1,69 @@
+{
+  "status": "pass",
+  "scope": "fresh extraction of the submission ZIP into an isolated temporary directory",
+  "package": "election_duplicate_ieie_submission.zip",
+  "required_extracted_files": {
+    "checked": 11,
+    "missing": []
+  },
+  "commands": [
+    {
+      "command": "python scripts/verify_core_claims.py",
+      "returncode": 0,
+      "passed": true,
+      "output_tail": [
+        "Core claim verification passed with 45 checks.",
+        "Wrote outputs/core_claims_verification.json",
+        "Wrote outputs/core_claims_verification.csv"
+      ]
+    },
+    {
+      "command": "python scripts/statistical_robustness_audit.py",
+      "returncode": 0,
+      "passed": true,
+      "output_tail": [
+        "Statistical robustness audit passed with 10 checks."
+      ]
+    },
+    {
+      "command": "python scripts/video_source_exclusion_audit.py",
+      "returncode": 0,
+      "passed": true,
+      "output_tail": [
+        "Video source exclusion audit passed for 23 files."
+      ]
+    },
+    {
+      "command": "python scripts/source_provenance_audit.py",
+      "returncode": 0,
+      "passed": true,
+      "output_tail": [
+        "Source provenance audit passed with 15 URLs."
+      ]
+    },
+    {
+      "command": "python scripts/claim_boundary_audit.py",
+      "returncode": 0,
+      "passed": true,
+      "output_tail": [
+        "Claim-boundary audit passed with 18 checks."
+      ]
+    },
+    {
+      "command": "python scripts/objection_coverage_audit.py",
+      "returncode": 0,
+      "passed": true,
+      "output_tail": [
+        "Objection coverage audit passed with 22 checks."
+      ]
+    },
+    {
+      "command": "python scripts/pre_submission_audit.py",
+      "returncode": 0,
+      "passed": true,
+      "output_tail": [
+        "Pre-submission audit passed with 15 checks."
+      ]
+    }
+  ]
+}
