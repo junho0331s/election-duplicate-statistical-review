@@ -40,6 +40,7 @@ The repository intentionally excludes informal video-platform materials and vide
 - `REPRODUCIBILITY_CHECKLIST_ko.md`: 독립 검증자용 재현성 점검표
 - `REPRODUCIBILITY_CHECKLIST_en.md`: English reproducibility checklist
 - `STATISTICAL_CALCULATION_NOTE_ko.md`: 핵심 확률값의 공식·입력값·출력 파일 연결 노트
+- `STATISTICAL_CALCULATION_NOTE_en.md`: English statistical calculation note
 - `data_availability_2026_ko.md`: 2026년 공식 개표자료 가용성 점검 메모
 - `latex/ieie/main.tex`: IEIE 템플릿 기반 LaTeX 원고
 - `latex/ieie/main.pdf`: 컴파일된 PDF 원고

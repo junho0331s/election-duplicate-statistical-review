@@ -24,6 +24,7 @@ REQUIRED_FILES = [
     "REPRODUCIBILITY_CHECKLIST_ko.md",
     "REPRODUCIBILITY_CHECKLIST_en.md",
     "STATISTICAL_CALCULATION_NOTE_ko.md",
+    "STATISTICAL_CALCULATION_NOTE_en.md",
     "data_availability_2026_ko.md",
     "latex/convert_to_ieie.py",
     "latex/ieie/IEIE.cls",
