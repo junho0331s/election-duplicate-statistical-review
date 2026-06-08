@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 9,
+  "check_count": 10,
   "scope": "pre-submission package readiness",
   "checks": [
     {
@@ -49,6 +49,12 @@
       "check": "English source translation scan",
       "expected": "0 Korean fragments in *_en.md and latex/en/main_en.tex",
       "actual": "0 files with Korean fragments",
+      "status": "pass"
+    },
+    {
+      "check": "English PDF evidence-matrix reference",
+      "expected": "evidence_matrix_en.md present and evidence_matrix_ko.md absent",
+      "actual": "en reference present, ko reference absent",
       "status": "pass"
     },
     {

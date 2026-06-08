@@ -167,6 +167,27 @@ def english_sources_have_no_korean() -> AuditCheck:
     )
 
 
+def english_pdf_references_english_evidence_matrix() -> AuditCheck:
+    try:
+        import fitz  # type: ignore[import-not-found]
+    except ImportError:
+        return check(False, "English PDF evidence-matrix reference", "PyMuPDF available and English matrix referenced", "PyMuPDF unavailable")
+
+    pdf = fitz.open(ROOT / "latex" / "en" / "main_en.pdf")
+    text = "\n".join(page.get_text() for page in pdf)
+    ok = "evidence_matrix_en.md" in text and "evidence_matrix_ko.md" not in text
+    actual = (
+        f"en reference {'present' if 'evidence_matrix_en.md' in text else 'missing'}, "
+        f"ko reference {'present' if 'evidence_matrix_ko.md' in text else 'absent'}"
+    )
+    return check(
+        ok,
+        "English PDF evidence-matrix reference",
+        "evidence_matrix_en.md present and evidence_matrix_ko.md absent",
+        actual,
+    )
+
+
 def submission_sources_present() -> AuditCheck:
     required = {
         "paper_statistical_implausibility_ko.md",
@@ -283,6 +304,7 @@ def audit_checks() -> list[AuditCheck]:
         manuscript_core_numbers_present(),
         english_pdf_has_no_korean(),
         english_sources_have_no_korean(),
+        english_pdf_references_english_evidence_matrix(),
         submission_sources_present(),
     ]
 

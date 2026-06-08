@@ -360,6 +360,7 @@ def assert_pre_submission_audit() -> None:
         "manuscript core number consistency",
         "English PDF translation coverage",
         "English source translation scan",
+        "English PDF evidence-matrix reference",
         "submission source files present",
     }
     checks = data.get("checks")
@@ -491,6 +492,7 @@ def assert_english_pdf_translation_coverage() -> None:
         "candidate allocation",
         "reviewed ballots",
         "core verification material",
+        "evidence_matrix_en.md",
     ]
     missing = [phrase for phrase in required_phrases if phrase not in text]
     if missing:
@@ -499,6 +501,7 @@ def assert_english_pdf_translation_coverage() -> None:
     stale_phrases = [
         "2016 National Assembly 229 118 111",
         "about 0.35",
+        "evidence_matrix_ko.md",
     ]
     stale = [phrase for phrase in stale_phrases if phrase in text]
     if stale:
