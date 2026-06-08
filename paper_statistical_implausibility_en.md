@@ -1,7 +1,7 @@
 # Repeated Identical In-District Early-Vote Pairs That Overwhelm the Random-Chance Hypothesis: Statistical Anomalies in the 2026 Korean Local Election and the Need for Raw-Data Audit
 
-Junho Kim  
-No affiliation  
+Junho Kim
+No affiliation
 junhokim0331@gmail.com
 
 ## Abstract
@@ -382,40 +382,54 @@ The core verification material for Songdo is therefore not the final published t
 
 ## 8. Statistical Anomaly Versus Evidence of Misconduct
 
-It is important to separate two propositions:
+The results of this study support the following proposition:
 
-1. The repeated identical vote-pair pattern is statistically anomalous under the historical benchmark.
-2. A specific person or institution committed a specific act of misconduct.
+> The Gwangju-Jeonnam five-pair identical-vote event is a very low-probability event under the random-chance hypothesis.
 
-This paper supports the first proposition. It does not, by itself, prove the second. The phrase "evidence" should therefore be used in two layers. First, identical vote-pair repetition is statistical evidence against the ordinary-randomness explanation. Second, it is not direct evidence identifying a perpetrator, intent, method, or legal violation.
+They do not automatically support the stronger proposition:
 
-This distinction does not weaken the audit conclusion. It makes the conclusion harder to dismiss. A statistical anomaly need not prove a crime in order to justify raw-data disclosure. Election administration is a public trust system; when an official result produces a rare pattern under a transparent benchmark, the institution must be able to show the records that explain it.
+> The Gwangju-Jeonnam five-pair identical-vote event is, by itself, proof of election fraud.
+
+The word "evidence" must therefore be used in two layers. First, repeated identical vote pairs are statistical evidence that weakens the ordinary-randomness explanation. Second, they are not direct evidence that a specific person manipulated the count in a specific way. Both three-pair repetition and five-pair repetition are worth examining in the first sense, but their strength differs. Three pairs are a rare historical upper value observed inside the historical data; five pairs exceed that observed upper value. Calling both three pairs and five pairs a legal conclusion would overstate the evidence. Calling both of them meaningless coincidence would discard statistical information.
+
+A statistical anomaly creates a question about cause. Several causes are possible:
+
+1. a very low-probability coincidence;
+2. an original counting-statement preparation or data-entry error;
+3. a display error in the public system;
+4. systematic skew in the reviewed-ballot processing stage;
+5. actual misconduct.
+
+The currently public materials cannot select one of these five explanations conclusively. However, explanation 1, pure coincidence, is statistically weak. Raw-data disclosure and audit are therefore required.
 
 ## 9. Raw Materials Required for Verification
 
-To transform the statistical question into an administrative or legal conclusion, the following records are needed:
+To transform the statistical question into administrative or legal evidence, the following records are needed:
 
-1. Original counting statements for all twelve event rows.
-2. Ballot-sorter first-pass results for the affected units.
-3. Reviewed-ballot counts and candidate allocation records.
-4. Manual recount or hand-count logs, if any.
-5. Data-entry logs, correction logs, and publication/export logs.
-6. Ballot-box movement and chain-of-custody records.
-7. Hashable raw exports for the official integrated counting-unit files.
+1. original counting statements for all twelve event rows;
+2. candidate-by-candidate first-pass ballot-sorter results for each affected counting unit;
+3. the number of reviewed ballots in each affected counting unit;
+4. candidate-by-candidate final allocation of the reviewed ballots;
+5. invalid votes, abstentions, and third-candidate vote counts;
+6. counting-division, sorter, review/aggregation desk, data-entry operator, and time logs;
+7. reconciliation between the NEC public-system values and original counting statements;
+8. whether party- or candidate-recommended observers raised objections.
 
-If these records show a coherent unit-by-unit path from first pass to final publication, the anomaly can be explained. If they do not, the statistical anomaly becomes stronger. The present paper cannot resolve that factual question without access to those raw materials.
+The especially important comparison is the difference between first-pass results and final results. If the Gwangju-Jeonnam five pairs, like the Songdo case, had different first-pass results but became identical only through reviewed ballots or final aggregation, that would be a stronger audit trigger than simple coincidence.
 
 ## 10. Limitations
 
-The study has several limitations.
+This paper has the following limitations.
 
-First, the 2026 integrated XLSX file comparable to the historical public-data files was not available at the time of writing. The 2026 event rows are rechecked through official NEC HTML pages, but future work should repeat the analysis using the official integrated file or original counting statements.
+First, the official integrated XLSX counting file for the 2026 local election from the public-data portal has not yet been parsed directly. However, the 2026 event values were checked by saving and parsing the NEC election-statistics system's official counting-unit HTML pages. The present limitation is therefore not "the paper used only press-reported values." It is more precise to say: "official screen values have been checked, but the integrated XLSX file and original counting statements have not yet been obtained." A final administrative or legal judgment requires comparison against the NEC integrated file, original counting statements, and first-pass sorter results.
 
-Second, the Poisson model simplifies the data-generating process. Real voting units are not identical independent draws. Size, geography, turnout, age composition, political preference, and local campaign effects matter. That is why the paper also uses historical actual-pair resampling rather than relying only on a theoretical model.
+This limitation does not discard the current analysis. It defines the scope of the conclusion. Under the official screen values, the twelve event rows and six identical pairs are reproducible. Once the integrated XLSX file is released, the event definition and reproduction scripts in this paper can be applied directly to recompute the number of repeated identical vote pairs.
 
-Third, the early-vote versus election-day vote-share analysis is auxiliary. A systematic early-vote advantage for one party can arise from voter self-selection, party mobilization, demographic differences, pandemic-era voting behavior, and other lawful causes. The analysis is included because the one-directional pattern is statistically notable, not because it independently proves misconduct.
+Second, the Poisson approximation is a simplified model. Real eup, myeon, and dong vote pairs are not independently generated under identical conditions. Regional preference, voter count, number of candidates, urban/rural structure, and early-vote turnout all matter.
 
-Fourth, the paper does not claim to identify a mechanism. The candidates include possibilities such as ordinary coincidence, administrative correction, display error, data-entry error, review-ballot allocation, or deliberate manipulation. Mechanism identification requires raw records.
+Third, the effective vote-pair space \(K\) is not a directly observed natural constant. This paper estimates it empirically from historical governor-election data. Conservative sensitivity analyses are provided, but a final study should also be strengthened through repeated resampling of historical data or a hierarchical model that reflects regional size differences.
+
+Fourth, the nationwide twelve cases were found after scanning multiple contests and regions, so they are exposed to a post-search problem. The statistically strongest object in this paper is the five-pair repetition inside the Gwangju-Jeonnam contest environment.
 
 ## 11. Early-Vote Versus Election-Day Vote-Share Difference
 
@@ -451,9 +465,9 @@ For each constituency, the script computes:
 
 where \(p_E\) is the Democratic candidate's share of Democratic-plus-conservative two-party votes in early voting, and \(p_D\) is the same two-party share in election-day voting. Early voting combines in-district and out-of-district early votes. Election-day voting includes only election-day polling-station votes. Residential/shipboard, overseas, subtotal, and aggregate rows are excluded.
 
-The output `outputs/early_day_assembly_summary.csv` reports:
+Direct calculation gives:
 
-| Election | Constituencies | Mean early-day difference | Median | Democratic early advantage | Democratic early disadvantage | \(|z|>5\) | \(|z|>10\) | Max \(|z|\) |
+| Election | Constituencies | Mean early-day difference | Median | Democratic early advantage | Democratic early disadvantage | Absolute z > 5 | Absolute z > 10 | Max absolute z |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | 2016 National Assembly | 229 | +3.90%p | +3.43%p | 211 | 18 | 158 | 88 | 31.94 |
 | 2020 National Assembly | 236 | +10.88%p | +11.21%p | 236 | 0 | 236 | 234 | 55.77 |
@@ -489,91 +503,94 @@ Therefore the June 3 identical-vote-pair problem should not be treated as an iso
 
 ## 12. Expected Objections and Responses
 
+This section anticipates objections that a skeptical reviewer may raise and defines the range within which the paper's conclusion remains valid.
+
 ### 12.1 "With many counting units, identical vote pairs can always appear."
 
-Yes, a single duplicate can appear. The paper does not deny that. The question is whether five repeated top-two pairs in the same defined contest environment are ordinary. The historical benchmark and probability calculations show that five is not the same as one.
+Correct. This study does not treat the occurrence of a single identical vote pair as anomalous. When there are many counting units, the number of possible comparisons grows quickly, so one identical vote pair can occur naturally. The target of this study is not "the existence of an identical vote pair," but the concentration of five repeated identical top-two vote pairs inside the same contest, vote type, and candidate combination. In the expanded historical benchmark, the maximum repetition inside any one of 51 past governor contests was three pairs. The Gwangju-Jeonnam five-pair event should therefore be treated as an event exceeding the historical empirical upper bound, not as a mere duplicate.
 
 ### 12.2 "If 2014 is included, historical duplicates become more common."
 
-Correct. This is why the paper includes 2014 rather than excluding it. The inclusion makes the benchmark more conservative. Even with 2014 included, the historical maximum within one governor contest is three, not five.
+Correct. When the 2014 local election is added, governor-election identical vote pairs increase from 3 to 15, and the estimated probability is relaxed from about 0.0004% to about 0.115%. This revision is unfavorable to this paper's thesis. Even so, the maximum repetition inside one contest in the expanded benchmark remains three pairs, and no case of five or more pairs is observed. Therefore, even under the conservative benchmark that includes 2014, the 2026 Gwangju-Jeonnam five-pair repetition lies outside the historical empirical distribution.
 
 ### 12.3 "If three historical pairs are acceptable, five should also be acceptable."
 
-Not under the same probability model. Three or more and five or more have substantially different tail probabilities. Three is a rare but observed historical upper value. Five exceeds that observed upper value and is approximately 37 times rarer than three under the \(N=393, K=100,945\) Poisson calculation.
+No. This objection arises from comparing three pairs and five pairs linearly. Repeated identical vote pairs are tail events whose probability falls rapidly as one additional pair is added. Under this paper's conservative benchmark, three or more pairs have probability about 4.23%, which is rare but within the range that can be observed once across 51 historical contests. Five or more pairs have probability about 0.115%, about 37 times rarer than three or more. The historical maximum of three pairs is therefore a baseline for how much repetition has actually been observed naturally; the 2026 Gwangju-Jeonnam five-pair event exceeds that baseline.
+
+This study also does not hide or exclude the three-pair case. On the contrary, it includes 2014 and acknowledges more historical duplicates, then shows that five or more pairs still do not appear. That is a conservative test that includes evidence unfavorable to the researcher.
 
 ### 12.4 "Unit sizes and regional preferences invalidate the simple probability calculation."
 
-They may affect the calculation, which is why the paper does not rely only on a uniform theoretical model. It estimates \(K\) from actual Korean governor-election data and performs resampling from historical actual vote pairs. A critic who argues that regional structure fully explains the anomaly should provide a better model and show that it generates five-pair clusters with non-negligible frequency.
+Correct in part. Eup, myeon, and dong vote pairs are not fully independent and do not follow the same distribution. For that reason, this paper does not invent an arbitrary theoretical range under a uniform distribution. It uses an empirical \(K\) reverse-estimated from actual historical governor in-district early-vote data. It also presents a sensitivity analysis with a smaller effective pair space such as \(K=50,000\). Even in that case, the probability of five or more pairs is about 2.05%, which is still not a common event.
 
 ### 12.5 "The nationwide twelve cases were found after searching, so the probability is overstated."
 
-This is a serious objection to the nationwide headline. The paper therefore places the main probability claim on the Gwangju-Jeonnam internal cluster rather than the entire nationwide set. The Songdo case is reported separately.
+Correct. The nationwide twelve cases were found after scanning multiple elections and regions, so the post-search problem is real. That is why this paper does not use the nationwide six pairs as the core test. The core test is the internal Gwangju-Jeonnam five-pair event. Because it is concentrated in the same candidate combination, same in-district early-vote category, and same metropolitan/provincial contest environment, the post-search objection is much smaller. The nationwide twelve cases are contextual, not the probability target of this paper.
 
 ### 12.6 "The 2026 data are not yet from an official integrated file."
 
-This is the most important limitation. The present package rechecks the event rows from official NEC election-statistics HTML, not from a historical-style integrated XLSX file. Therefore the conclusion is not a final legal determination. It is a statistical audit trigger. When the integrated file or original counting statements are released, the event definition should be reapplied.
+This objection was valid against the earliest draft, but it no longer applies in that form. This study extracts the 2026 twelve event rows directly from the NEC election-statistics system's counting-unit result HTML. The reproduction script `scripts/fetch_nec_2026_duplicate_cases.py` performs POST queries with election ID `0020260603`, menu `VCCP08`, and election type `metropolitan/provincial governor election`, then parses candidate vote counts from in-district early-vote rows. The result is `outputs/nec_2026_reported_duplicate_cases.csv` for the twelve event rows and `outputs/nec_2026_reported_duplicate_pairs.csv` for the six identical vote pairs.
+
+The remaining limitation is therefore not "press-report based." It is "based on official screen HTML extraction, but not yet cross-checked against the integrated XLSX file and original counting statements." This clarifies the level of the conclusion rather than weakening it. The identical vote-pair repetition is reproducible from official NEC election-statistics screen values. A legal conclusion about a specific misconduct mechanism still requires original counting statements, first-pass sorter results, reviewed-ballot allocation records, and input logs.
 
 ### 12.7 "Early-vote and election-day differences can be caused by voter self-selection."
 
-Yes. That is why the early-vote analysis is not used as direct proof of misconduct. It is an auxiliary test. A full explanation should include age, occupation, mobility, region, party mobilization, pandemic-era effects, and other variables.
+Partly yes. For that reason, this paper does not use the early/election-day vote-share analysis as independent proof of misconduct. It is an auxiliary test. However, the fact that every analyzable constituency in the 2020 and 2024 National Assembly elections moves in the same direction is difficult to explain as simple sampling error. For the voter self-selection hypothesis to be sufficient, it must show that the remaining difference disappears after age, occupation, regional mobility, party-specific early-vote mobilization, COVID-era effects, and similar variables are accounted for.
 
 ### 12.8 "Rare events do sometimes occur."
 
-Yes. Statistical rarity alone is not impossibility. But public election administration does not require impossibility before audit. A rare official-result pattern can justify raw-data disclosure, especially when the records needed to resolve the question are held by the election-management institution.
+Correct. Low probability does not mean impossibility. This paper therefore does not infer specific misconduct from low probability alone. In election-integrity settings, however, a low-probability structural anomaly is a reasonable trigger for raw-data audit. The conclusion of this study is not punishment or invalidation. It is an audit proposition: original counting statements, first-pass sorter results, reviewed-ballot allocation records, and data-entry logs should be disclosed.
 
 ### 12.9 "How can the claim be falsified?"
 
-The claim is falsifiable. It would be weakened if:
+The claim is falsifiable. The conclusion should be weakened or withdrawn if any of the following is confirmed:
 
-1. Official integrated counting-unit files show that the event rows were misreported or misread.
-2. Original counting statements and first-pass machine outputs reconcile the final equal pairs through documented review steps.
-3. A broader independently reproduced baseline using the same event definition shows that five-pair clusters commonly occur in comparable contests.
-4. A covariate-adjusted model explains the early-vote/election-day pattern without leaving systematic residual anomalies.
+1. the reported values for the twelve 2026 identical-vote rows differ from the official original counting statements;
+2. the Gwangju-Jeonnam five pairs were not in the same contest, same candidate combination, and same in-district early-vote category;
+3. many cases of five or more repeated pairs inside one contest are found in comparable in-district early-vote governor data outside 2014, 2018, and 2022;
+4. for all five 2026 pairs, first-pass sorter results, reviewed-ballot allocation, and input logs are independently consistent and document that the identical final values arose naturally through the counting process.
+
+These falsification conditions are stated to make clear that this study is a testable statistical claim, not a political assertion.
 
 ## 13. Raw-Data Audit Decision Criteria
 
-An audit should not be vague. The minimum decision criteria should be:
+Whether a statistical anomaly connects to an actual administrative or counting-process cause cannot be determined from public screen values alone. The practical proposal of this study is therefore not a vague allegation, but a comparison of the following raw materials under the same event definition.
 
-- Do the official integrated files match the HTML page values?
-- Do original counting statements match the published results?
-- Do ballot-sorter first-pass results differ from final results, and if so, are all differences explained by review logs?
-- Are reviewed ballots allocated by candidate in a way that reproduces the final equality?
-- Are data-entry and correction logs consistent with the published timeline?
-- Are all twelve event rows traceable from ballot-level or batch-level records to final publication?
+| Raw material | Question to answer | Result weakening the chance explanation | Result restoring the chance explanation |
+| --- | --- | --- | --- |
+| Original counting statements | Are the official screen values for the twelve event rows identical to the originals? | The originals also show the same twelve event rows and six identical pairs | The screen values differ from the originals and the identical pairs disappear |
+| First-pass sorter results | Did the final identical pairs exist from the first sorting stage? | The first-pass results differed, but review/aggregation produced identical pairs | The values are independently consistent from first pass to final publication |
+| Candidate allocation of reviewed ballots | Were reviewed ballots repeatedly allocated in a particular candidate direction? | Multiple pairs show repeated adjustment in the same candidate direction | Reviewed-ballot allocation is random-like and unrelated to the creation of identical pairs |
+| Data-entry logs | Are input/correction timing and operator flows natural? | Abnormal correction or re-entry patterns concentrate in identical-pair rows | Logs are chronological and show no correction irregularity |
+| Separated in-district/out-of-district data | Are identical pairs concentrated only in in-district early voting? | Identical pairs for the same candidate combination concentrate in in-district early voting | Similar repetition appears in in-district, out-of-district, and election-day data |
 
-If these criteria are met, the anomaly can be administratively explained. If they are not met, the anomaly remains unresolved.
+The purpose of this decision table is not to predetermine the conclusion. It also states what evidence would weaken this study. For example, if the original counting statements differ from the official screen values, or if the Gwangju-Jeonnam five pairs are not in the same candidate combination and in-district early-vote category, the core conclusion must be revised. Conversely, if the original records match the current screen values and the changes between first-pass results and final results repeatedly move toward identical pairs, the present statistical anomaly conclusion would be strengthened into a causal investigation.
+
+The audit requested here is therefore not a total and abstract political audit. A limited disclosure for the twelve event rows, especially the Gwangju-Jeonnam five pairs, would narrow which explanation remains among coincidence, display error, reviewed-ballot allocation, and data-entry problems.
 
 ## 14. Conclusion
 
-The 2026 Gwangju-Jeonnam repeated identical in-district early-vote pairs are not adequately explained by ordinary chance under the tests reported here. The historical governor benchmark contains 51 constituency contests and 1,514,172 actual top-two comparisons, yet no contest reaches five repeated pairs. The Poisson approximation gives about 0.115% for five or more repeated pairs under \(N=393\) and \(K=100,944.8\). The nonparametric resampling test produces zero five-pair trials in 200,000 repetitions.
+The repeated identical in-district early-vote pairs reported in the 2026 local election are statistically highly implausible. In particular, the report that five identical vote pairs appeared inside the Gwangju-Jeonnam contest environment, with the same candidate combination and same in-district early-vote category, is a strong anomaly under both the historical governor-election empirical distribution and the duplicate-probability model.
 
-The Incheon Songdo case adds a separate low-probability exact match whose final equality appears alongside different auxiliary counts. The early-vote/election-day analysis adds a broader directional pattern in recent National Assembly elections. None of these facts alone identifies a culprit or proves a criminal act. Together, however, they create a statistically serious anomaly that cannot be closed by the word "coincidence" without raw evidence.
+Across 51 past governor-election contests, the maximum observed number of repeated identical pairs inside one contest was three. The reported Gwangju-Jeonnam event has five pairs. When the effective vote-pair space is estimated from historical data, the Poisson approximation gives about 0.115% for such an event. In a separate nonparametric resampling test, zero out of 200,000 trials produced five or more pairs, and the rule-of-three 95% upper bound was about 0.0015%. This makes the simple coincidence explanation statistically very weak.
 
-The proper conclusion is therefore: the current public data do not prove a legal finding of misconduct, but they do establish a strong statistical basis for official raw-data disclosure and independent audit.
+However, statistical improbability is not direct evidence of a specific act of misconduct. The event should be characterized as a statistical anomaly that is difficult to explain under the random-chance hypothesis, not as a final legal judgment. This distinction is not meant to weaken the conclusion. Even under the most skeptical interpretation, the currently public data do not provide a sufficient chance explanation. If election-management authorities wish to close the matter as mere coincidence or visual illusion, they must prove that explanation with raw records. To resolve the issue, the NEC or relevant institutions should disclose the original counting statements for all twelve rows, first-pass sorter results, candidate-by-candidate reviewed-ballot allocation records, and data-entry logs.
+
+The core conclusion of the paper can be summarized in one sentence:
+
+> The twelve 2026 in-district early-vote identical-pair rows, especially the five-pair repetition in Gwangju-Jeonnam, are too low-probability to be statistically closed as coincidence without raw-data disclosure and independent verification.
 
 ## 15. Data and Code Availability
 
-The reproduction package contains the historical public election files, NEC HTML cache for the 2026 checks, parsing scripts, probability scripts, output CSVs, checksums, the Korean paper, this English paper, and compiled PDFs. The main reproduction command is:
+The historical baseline analysis in this study is based on public National Election Commission and public-data portal records. The raw files used in the analysis, parsing scripts, probability scripts, and output CSVs are organized inside the submission package. The core outputs can be reproduced by following the procedure in `README.md`.
 
-```bash
-python3 scripts/run_all.py
-```
-
-The submission package can be rebuilt with:
-
-```bash
-python3 scripts/create_submission_zip.py
-```
-
-Package validation can be run with:
-
-```bash
-python3 scripts/validate_package.py
-```
+The 2026 local-election identical-vote-pair event values were checked by direct extraction from the NEC election-statistics system's counting-unit result HTML. The original HTML cache is included in `data/nec_2026_official_html/`, and parsed results are included in `outputs/nec_2026_reported_duplicate_cases.csv` and `outputs/nec_2026_reported_duplicate_pairs.csv`. Once the public-data portal's official integrated XLSX counting file or original counting statements are released, the scripts in this study should be applied under the same event definition to recompute the event values and repetition counts.
 
 ## 16. Research Ethics and Conflict of Interest
 
-This study uses public election data and public reports. It does not process private voter-level data. The author declares no institutional affiliation. The purpose of the study is to define a reproducible statistical anomaly and the raw records needed to resolve it. The paper should not be read as a legal accusation against a specific person without the additional raw administrative records identified above.
+This study uses only public election data and public reports, and does not analyze personally identifying information or nonpublic personal data. The author does not assert the legal responsibility of any specific candidate, party, or election-management institution. The purpose of the study is to define the scope of raw-data disclosure and independent verification required when a low-probability repeated pattern is found.
+
+The conclusion of this study is not "misconduct has been legally proven." It is the testable proposition that "the currently public data do not provide a sufficient chance explanation, and an official raw-data audit is required." This distinction is important for research ethics. The study should neither exaggerate a statistical anomaly into direct criminal evidence nor reduce a statistical anomaly to meaningless coincidence.
 
 ## Appendix A. Intuitive Meaning of Key Terms
 
