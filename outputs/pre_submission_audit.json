@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 14,
+  "check_count": 15,
   "scope": "pre-submission package readiness",
   "checks": [
     {
@@ -31,6 +31,12 @@
       "check": "statistical robustness audit",
       "expected": "status pass with 10 checks",
       "actual": "status pass, 10 checks",
+      "status": "pass"
+    },
+    {
+      "check": "video source exclusion audit",
+      "expected": "status pass with 23 checked files and 0 failures",
+      "actual": "status pass, 23 files, 0 failures",
       "status": "pass"
     },
     {

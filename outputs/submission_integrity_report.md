@@ -4,10 +4,11 @@
 - Scope: submission package integrity summary excluding final zip self-hash
 - Core-claims verification: `pass`, 45 checks
 - Statistical robustness audit: `pass`, 10 checks
+- Video/source exclusion audit: `pass`, 23 files
 - Source provenance audit: `pass`, 15 URLs
 - Claim-boundary audit: `pass`, 18 checks
 - Objection coverage audit: `pass`, 22 checks
-- Pre-submission audit: `pass`, 14 checks
+- Pre-submission audit: `pass`, 15 checks
 
 ## PDF Artifacts
 

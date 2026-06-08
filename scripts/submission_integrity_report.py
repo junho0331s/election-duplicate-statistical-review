@@ -31,6 +31,7 @@ def main() -> None:
 
     core = json.loads((OUT / "core_claims_verification.json").read_text(encoding="utf-8"))
     statistical = json.loads((OUT / "statistical_robustness_audit.json").read_text(encoding="utf-8"))
+    video = json.loads((OUT / "video_source_exclusion_audit.json").read_text(encoding="utf-8"))
     source = json.loads((OUT / "source_provenance_audit.json").read_text(encoding="utf-8"))
     claim_boundary = json.loads((OUT / "claim_boundary_audit.json").read_text(encoding="utf-8"))
     objection_coverage = json.loads((OUT / "objection_coverage_audit.json").read_text(encoding="utf-8"))
@@ -54,6 +55,8 @@ def main() -> None:
         "core_claims_check_count": core.get("check_count"),
         "statistical_robustness_audit_status": statistical.get("status"),
         "statistical_robustness_audit_check_count": statistical.get("check_count"),
+        "video_source_exclusion_status": video.get("status"),
+        "video_source_exclusion_check_count": video.get("check_count"),
         "source_provenance_status": source.get("status"),
         "source_provenance_url_count": source.get("url_count"),
         "claim_boundary_audit_status": claim_boundary.get("status"),
@@ -107,6 +110,7 @@ def main() -> None:
         f"- Scope: {summary['scope']}",
         f"- Core-claims verification: `{summary['core_claims_status']}`, {summary['core_claims_check_count']} checks",
         f"- Statistical robustness audit: `{summary['statistical_robustness_audit_status']}`, {summary['statistical_robustness_audit_check_count']} checks",
+        f"- Video/source exclusion audit: `{summary['video_source_exclusion_status']}`, {summary['video_source_exclusion_check_count']} files",
         f"- Source provenance audit: `{summary['source_provenance_status']}`, {summary['source_provenance_url_count']} URLs",
         f"- Claim-boundary audit: `{summary['claim_boundary_audit_status']}`, {summary['claim_boundary_audit_check_count']} checks",
         f"- Objection coverage audit: `{summary['objection_coverage_audit_status']}`, {summary['objection_coverage_audit_check_count']} checks",

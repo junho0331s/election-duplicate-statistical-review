@@ -106,6 +106,7 @@ python3 scripts/probability_sensitivity.py
 python3 scripts/analyze_early_day_assembly.py
 python3 scripts/verify_core_claims.py
 python3 scripts/statistical_robustness_audit.py
+python3 scripts/video_source_exclusion_audit.py
 python3 scripts/source_provenance_audit.py
 python3 scripts/claim_boundary_audit.py
 python3 scripts/objection_coverage_audit.py
@@ -173,6 +174,8 @@ python3 scripts/create_submission_zip.py
 - `outputs/core_claims_verification.json`
 - `outputs/statistical_robustness_audit.csv`
 - `outputs/statistical_robustness_audit.json`
+- `outputs/video_source_exclusion_audit.csv`
+- `outputs/video_source_exclusion_audit.json`
 - `outputs/source_provenance_audit.csv`
 - `outputs/source_provenance_audit.json`
 - `outputs/claim_boundary_audit.csv`

@@ -149,6 +149,22 @@ def source_provenance_pass() -> AuditCheck:
     )
 
 
+def video_source_exclusion_pass() -> AuditCheck:
+    path = OUT / "video_source_exclusion_audit.json"
+    if not path.exists():
+        return check(False, "video source exclusion audit", "status pass with 23 checked files", "missing video_source_exclusion_audit.json")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    status = data.get("status")
+    check_count = int(data.get("check_count", 0))
+    failures = data.get("failures", [])
+    return check(
+        status == "pass" and check_count == 23 and not failures,
+        "video source exclusion audit",
+        "status pass with 23 checked files and 0 failures",
+        f"status {status}, {check_count} files, {len(failures)} failures",
+    )
+
+
 def statistical_robustness_pass() -> AuditCheck:
     path = OUT / "statistical_robustness_audit.json"
     if not path.exists():
@@ -364,6 +380,7 @@ def audit_checks() -> list[AuditCheck]:
         privacy_and_credential_scan(),
         core_claims_pass(),
         statistical_robustness_pass(),
+        video_source_exclusion_pass(),
         source_provenance_pass(),
         claim_boundary_pass(),
         objection_coverage_pass(),
