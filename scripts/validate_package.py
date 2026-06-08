@@ -578,6 +578,40 @@ def assert_zip_package() -> None:
             + ", ".join(mismatches[:20])
         )
 
+    text_suffixes = {".md", ".py", ".txt", ".csv", ".json", ".tex", ".cls"}
+    allowed_emails = {"junhokim0331@gmail.com"}
+    email_pattern = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
+    token_patterns = [
+        re.compile(r"gh[pousr]_[A-Za-z0-9_]{20,}"),
+        re.compile(r"github" + r"_pat_[A-Za-z0-9_]{20,}"),
+    ]
+    phone_pattern = re.compile(r"\b01[016789]-?\d{3,4}-?\d{4}\b")
+    korean_rrn_pattern = re.compile(r"\b\d{6}-[1-4]\d{6}\b")
+    zip_text_hits: list[str] = []
+    with ZipFile(zip_path) as zf:
+        for name in sorted(names):
+            if Path(name).suffix.lower() not in text_suffixes:
+                continue
+            text = zf.read(name).decode("utf-8", errors="ignore")
+            for pattern in FORBIDDEN_PATTERNS:
+                if pattern in text:
+                    zip_text_hits.append(f"{name}: forbidden pattern")
+            for email in email_pattern.findall(text):
+                if email not in allowed_emails:
+                    zip_text_hits.append(f"{name}: unexpected email {email}")
+            for pattern in token_patterns:
+                if pattern.search(text):
+                    zip_text_hits.append(f"{name}: credential token pattern")
+            if phone_pattern.search(text):
+                zip_text_hits.append(f"{name}: phone number pattern")
+            if korean_rrn_pattern.search(text):
+                zip_text_hits.append(f"{name}: Korean resident-number pattern")
+    if zip_text_hits:
+        raise AssertionError(
+            "Zip text entries contain forbidden/privacy patterns: "
+            + "; ".join(zip_text_hits[:20])
+        )
+
 
 def main() -> None:
     assert_required_files()
