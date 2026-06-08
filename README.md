@@ -34,6 +34,7 @@ The repository intentionally excludes informal video-platform materials and vide
 - `cover_letter_ko.md`: 학회 제출용 커버레터
 - `submission_memo_ko.md`: 제출 메모, 주장 범위, 한계, 재현 절차, 예상 반론 요약
 - `reviewer_response_ko.md`: 심사자 반론 대응 메모
+- `reviewer_response_en.md`: English reviewer objection response memo
 - `evidence_matrix_ko.md`: 핵심 주장과 재현 파일의 대응표
 - `REPRODUCIBILITY_CHECKLIST_ko.md`: 독립 검증자용 재현성 점검표
 - `STATISTICAL_CALCULATION_NOTE_ko.md`: 핵심 확률값의 공식·입력값·출력 파일 연결 노트

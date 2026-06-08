@@ -18,6 +18,7 @@ REQUIRED_FILES = [
     "cover_letter_ko.md",
     "submission_memo_ko.md",
     "reviewer_response_ko.md",
+    "reviewer_response_en.md",
     "evidence_matrix_ko.md",
     "REPRODUCIBILITY_CHECKLIST_ko.md",
     "STATISTICAL_CALCULATION_NOTE_ko.md",
