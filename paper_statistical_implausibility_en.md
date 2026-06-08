@@ -218,39 +218,69 @@ This study does not estimate \(N\) from administrative intuition. It counts \(N\
 
 \(K=100,945\) is also not arbitrary. In the historical governor baseline, there are 1,514,172 actual top-two comparison pairs and 15 observed identical vote pairs. Reversing the rare-collision formula gives \(K\) near 100,945.
 
+\[
+\hat{K} \approx \frac{1,514,172}{15} \approx 100,945
+\]
+
+Thus \(N=393\) and \(K=100,945\) are not numbers inserted for convenience. They combine the Gwangju-Jeonnam in-district early-vote unit count measured from official NEC pages with the empirically inferred effective pair space from historical governor data.
+
 Using these values:
 
 \[
-\lambda = \frac{393 \times 392}{2 \times 100,944.8} \approx 0.763.
+\lambda = \frac{393 \times 392}{2 \times 100,945} \approx 0.76307.
 \]
 
 The computed probabilities are:
 
-| Threshold | Probability | Approximate odds |
+| Event | Probability | Reciprocal interpretation |
 | --- | ---: | ---: |
-| \(P(C \geq 3)\) | 0.042260772 | about 1 in 23.7 |
-| \(P(C \geq 4)\) | 0.007734837 | about 1 in 129 |
-| \(P(C \geq 5)\) | 0.001148406 | about 1 in 871 |
-| \(P(C \geq 6)\) | 0.000143224 | about 1 in 6,982 |
+| At least 5 pairs | about 0.115% | about 1 in 871 |
+| At least 6 pairs | about 0.0143% | about 1 in 6,982 |
 
-Thus the five-pair Gwangju-Jeonnam case is estimated at approximately 0.115% under the baseline model. This does not mean impossibility. It means the event is in the extreme tail under a model already calibrated from real historical Korean election data.
+In this calculation, five pairs refers to the internal Gwangju-Jeonnam event. Six pairs is a simplified reference value for the nationwide reported event. The nationwide six-pair figure requires additional multiple-search adjustment because it was found after looking across more than one contest.
 
 ### 5.3 Sensitivity to the Effective Pair Space
 
-If \(K\) is smaller, collisions become easier; if \(K\) is larger, collisions become harder. The package therefore reports sensitivity values in `outputs/probability_k_sensitivity.csv`. The central point remains that the observed five-pair cluster is not an ordinary one-pair birthday-problem event. It is an upper-tail event even under a historical-collision calibration that already allows past duplicate pairs.
+The probability changes depending on how the effective pair space \(K\) is set. With \(N=393\), the sensitivity calculation is:
+
+| Effective pair space \(K\) | \(P(C \geq 5)\) | \(P(C \geq 6)\) |
+| ---: | ---: | ---: |
+| 50,000 | 2.0550% | 0.5056% |
+| 100,000 | 0.1197% | 0.0151% |
+| 100,945 | 0.1148% | 0.0143% |
+| 200,000 | 0.0051% | 0.00033% |
+| 337,354 | 0.00043% | 0.000016% |
+| 500,000 | 0.000064% | 0.0000016% |
+
+Even under a highly conservative \(K=50,000\) assumption, which makes duplicate pairs much easier to produce, the probability of at least five pairs is about 2.05%. That is not impossibility, but it remains a low-tail event. Under the expanded historical governor benchmark, \(K=100,945\), the probability is about 0.115%. This is sufficiently rare to function as an audit trigger even after including the smaller early-vote scale of 2014 in the historical baseline.
 
 ### 5.4 Sensitivity to the Number of Counting Units
 
-The paper also checks values around \(N=393\), reported in `outputs/probability_n_sensitivity.csv`. This addresses the objection that a small counting error in the potential unit count could change the conclusion. The exact probability varies with \(N\), but the qualitative conclusion is stable: five repeated pairs is a rare event relative to the historical governor benchmark.
+The official HTML-based baseline is \(N=393\). To check whether the conclusion depends narrowly on that value, the paper also holds \(K=100,945\) fixed and varies \(N\) from 350 to 450.
+
+| In-district early-vote units \(N\) | \(\lambda\) | \(P(C \geq 5)\) | Reciprocal interpretation |
+| ---: | ---: | ---: | ---: |
+| 350 | 0.6050 | 0.0410% | about 1 in 2,441 |
+| 390 | 0.7515 | 0.1074% | about 1 in 931 |
+| 393 | 0.7631 | 0.1148% | about 1 in 871 |
+| 400 | 0.7905 | 0.1340% | about 1 in 746 |
+| 430 | 0.9137 | 0.2500% | about 1 in 400 |
+| 450 | 1.0008 | 0.3672% | about 1 in 272 |
+
+The table shows that the assumed unit count changes the exact probability but not the direction of the conclusion. Even at \(N=450\), at least five repeated pairs remains below 0.4%. The Gwangju-Jeonnam five-pair result therefore does not depend only on the single \(N=393\) baseline.
 
 ### 5.5 Nonparametric Resampling Test
 
-The Poisson approximation is useful but simplified. To reduce dependence on a theoretical model, this paper also performs a nonparametric resampling test. The procedure is:
+The Poisson approximation is useful because it is easy to interpret, but it still contains the model assumption of an effective pair space \(K\). To reduce model dependence, this paper directly resamples actual historical top-two vote pairs from governor in-district early-vote data.
 
-1. Build the pool of actual historical governor top-two vote pairs.
+The procedure is:
+
+1. Build the pool of 10,322 actual top-two candidate vote pairs from the 2014, 2018, and 2022 governor in-district early-vote data.
 2. Draw 393 units without replacement.
 3. Count the number of repeated vote pairs in the draw.
-4. Repeat the procedure 200,000 times.
+4. Repeat this procedure 200,000 times with a fixed random seed.
+
+Sampling without replacement prevents artificial duplicates caused by drawing the same historical unit more than once. The test directly asks: if 393 units are drawn from actual past governor early-vote units, how often do five or more repeated pairs appear?
 
 The observed simulation results are:
 
@@ -260,40 +290,95 @@ The observed simulation results are:
 | \(C \geq 4\) | 4 | 0.000020 |
 | \(C \geq 5\) | 0 | 0 at simulation resolution |
 
-Zero hits in 200,000 trials does not prove mathematical impossibility. It means that the event is below the simulation resolution. Applying the rule of three gives a rough 95% upper bound of about \(3/200,000 = 0.000015\), or 0.0015%.
+Zero hits in 200,000 trials does not prove mathematical impossibility. It means that the event is below the simulation resolution. The observable resolution is \(1/200,000=0.0005\%\), and a conservative plus-one estimate is \(1/200,001\), also about 0.0005%. Applying the rule of three gives a rough 95% upper bound of about \(3/200,000 = 0.000015\), or 0.0015%.
+
+This result is stronger than the Poisson approximation, but the paper does not rely on it alone. The main point is convergence across approaches: the historical maximum is three pairs, the Poisson approximation gives 0.115% for five or more pairs, and direct resampling yields zero occurrences in 200,000 trials. All three checks reject the interpretation that the Gwangju-Jeonnam five-pair cluster is an ordinary event.
 
 ## 6. Why One Pair and Five Pairs Are Different
 
-The familiar birthday-problem intuition says that duplicate values are not surprising once many comparisons are made. That intuition is correct for "at least one duplicate somewhere." It is not enough to dismiss five repeated top-two vote pairs in the same contest environment.
+The most common misunderstanding in identical-vote-pair discussions is a linear comparison: if one pair can occur, then several pairs can also occur. But the event tested here is not whether at least one identical pair exists. The tested event is how many identical pairs accumulate within the same contest, same candidate combination, and same in-district early-vote category. The former is a broad collision event. The latter is an upper-tail repetition event.
 
-The difference is the level of aggregation and repetition. One duplicate pair can occur in a large dataset. Five duplicate pairs in the same election, same vote type, same candidate combination, and same regional contest require a different calculation. The relevant probability is not "can a duplicate ever occur?" but "how many duplicate pairs should appear in this defined comparison set?"
+When the number of counting units is large, one identical pair can easily appear because the number of possible unit-to-unit comparisons grows quickly.
+
+\[
+\binom{N}{2} = \frac{N(N-1)}{2}
+\]
+
+For \(N=393\), there are 77,028 unit pairs. In a comparison space that large, one matching vote pair somewhere is not by itself an anomaly. This paper therefore does not treat one identical pair as suspicious by itself.
+
+Five pairs are a different object. If \(C\) is the number of identical vote-pair collisions in the contest environment, the relevant question is not \(C \ge 1\), but \(C \ge 5\). In the Poisson approximation, the probability of at least \(m\) repeated pairs is:
+
+\[
+P(C \ge m) = 1 - e^{-\lambda}\sum_{c=0}^{m-1}\frac{\lambda^c}{c!}
+\]
+
+As \(m\) rises from 1 to 3, 4, and 5, the probability does not decline in a merely linear way. It moves rapidly into the tail.
 
 The distinction is visible in the numbers. Under the baseline model, \(P(C \geq 3)\) is about 4.23%, while \(P(C \geq 5)\) is about 0.115%. Both are below the center of the distribution, but five is roughly 37 times rarer than three under the same assumptions. Historical data also show this difference: three pairs occurred as the historical maximum; five did not occur in any historical governor contest in the baseline.
 
+| Threshold | Probability | Intuitive frequency | Interpretation |
+| --- | ---: | ---: | --- |
+| \(C \ge 1\) | about 53.37% | about 1 in 1.9 | one pair is plausible |
+| \(C \ge 2\) | about 17.88% | about 1 in 5.6 | uncommon but unsurprising |
+| \(C \ge 3\) | about 4.23% | about 1 in 23.7 | observed historical upper end |
+| \(C \ge 4\) | about 0.773% | about 1 in 129 | strong audit signal |
+| \(C \ge 5\) | about 0.115% | about 1 in 871 | event above the historical maximum |
+
+Thus the difference between three pairs and five pairs is not merely "two more pairs." Under the same baseline, at least five pairs is about 37 times rarer than at least three pairs. More importantly, three pairs is the rare upper end actually observed in the historical governor data, whereas five pairs exceeds that upper end.
+
+This distinction matters for rebuttal. Saying "if three pairs occurred historically, five pairs are also fine" is like saying that because 38 degrees Celsius has occurred historically, 40 degrees must be the same kind of event. The numeric difference may look small, but exceeding the historical maximum changes the statistical interpretation. In the same way, three pairs set the observed benchmark, while five pairs test and exceed it.
+
 Another key issue is post-search scope. If one searches all elections, all offices, all candidates, all vote types, and all regions, then a rare-looking coincidence will eventually be found. This paper therefore places the main claim on the Gwangju-Jeonnam internal five-pair cluster rather than the entire nationwide set. The Gwangju-Jeonnam cluster is defined by the same office, same top-two candidate pair, same in-district early-vote category, and the same contest environment.
+
+In conclusion, this paper does not say that one identical pair is suspicious by itself. One pair is possible. Three pairs are also acknowledged as a rare historical upper end. The problem is that five pairs are concentrated in the same structure and exceed both the historical maximum and the tail-probability benchmark.
 
 ## 7. Specificity of the Incheon Songdo Case
 
 The Incheon Songdo case is not simply another row to be mechanically added to the Gwangju-Jeonnam cluster. It belongs to a different contest and should be analyzed separately.
 
-The reported final in-district early-vote result is:
+Reports state that Songdo 1-dong and Songdo 2-dong had the same final in-district early-vote result for the two leading candidates: Park Chan-dae 3,030 votes and Yoo Jeong-bok 1,440 votes. However, the electorate counts, third-candidate votes, invalid votes, and abstentions differed. Public election-management explanations also stated that the first-pass ballot-sorter results were not identical, and that the final equality emerged only after reviewed ballots were hand-counted and added.
+
+The reported first-pass results were:
+
+| Unit | Park Chan-dae first pass | Yoo Jeong-bok first pass | Reviewed ballots |
+| --- | ---: | ---: | ---: |
+| Songdo 1-dong | 3,016 | 1,427 | 44 |
+| Songdo 2-dong | 3,011 | 1,429 | 53 |
+
+The final result was:
 
 | Unit | Park Chan-dae final | Yoo Jeong-bok final |
 | --- | ---: | ---: |
 | Songdo 1-dong | 3,030 | 1,440 |
 | Songdo 2-dong | 3,030 | 1,440 |
 
-The surrounding counts are not identical. The package output `outputs/songdo_official_rows.csv` records different electorate counts, third-candidate counts, invalid votes, and abstentions. In addition, public explanations by the Incheon election-management side stated that the ballot-sorter first-pass results were not identical, and that the final equality emerged after reviewed ballots were hand-counted and added.
+The statistical specificity of Songdo can be viewed in two ways. First, using the same \(K=100,944.8\) benchmark, Yeonsu-gu has 15 in-district early-vote units in the official HTML parsing. The number of unit comparisons is \(\binom{15}{2}=105\), and:
 
-This makes the case statistically interesting rather than automatically exculpatory or automatically incriminating. If different first-pass results and different auxiliary quantities lead to identical final top-two results in exactly the two named Songdo units, the review-ballot allocation records become essential.
+\[
+\lambda_{\text{Yeonsu}} = \frac{105}{100,944.8} \approx 0.001040
+\]
 
-The reproduction script estimates:
+Therefore the probability that at least one identical vote pair appears somewhere inside the 15 Yeonsu in-district early-vote units is:
 
-- Yeonsu in-district early-vote units: 15.
-- Probability of at least one duplicate pair among the 15 units: about 0.103963%, or about 1 in 962.
-- Conditional probability that the specific Songdo 1-dong and Songdo 2-dong pair matches: about 0.0009906%, or about 1 in 100,945.
+\[
+P(C \ge 1) \approx 1-e^{-0.001040} \approx 0.104\%
+\]
 
-The Songdo case is therefore best treated as a separate low-probability observation that strengthens the demand for raw records. It should not be merged into the Gwangju-Jeonnam probability calculation without adjustment.
+This is about 1 in 962.
+
+Second, if Songdo 1-dong and Songdo 2-dong are treated as the already specified pair of interest, the conditional probability that those two units have the same top-two vote pair is:
+
+\[
+\frac{1}{K} \approx \frac{1}{100,944.8} \approx 0.000991\%
+\]
+
+This is about 1 in 100,945. That number is appropriate only when the two Songdo units are treated as pre-specified. If the event is instead defined after searching nationwide, post-search adjustment is required.
+
+The Songdo case is therefore not part of the same primary test as the Gwangju-Jeonnam five-pair cluster, but it is a strong auxiliary audit signal. The key question is not only whether final numbers can happen to match. It is how different first-pass results and reviewed-ballot pools produced the same final top-two vote pair.
+
+The same fact can be read in two directions. From the election-management perspective, different first-pass results and reviewed-ballot counts can be offered as an explanation that the final equality was not a simple copy or display error. From an audit perspective, the same explanation makes the reviewed-ballot candidate allocation records essential.
+
+The core verification material for Songdo is therefore not the final published table alone. It is the candidate-by-candidate allocation of the reviewed ballots.
 
 ## 8. Statistical Anomaly Versus Evidence of Misconduct
 
@@ -334,23 +419,73 @@ Fourth, the paper does not claim to identify a mechanism. The candidates include
 
 ## 11. Early-Vote Versus Election-Day Vote-Share Difference
 
-The same reproduction package also checks National Assembly elections from 2016, 2020, and 2024. For each constituency, the script compares the Democratic candidate's two-party vote share in in-district early voting against the same candidate's two-party vote share on election day.
+Separate from repeated identical vote pairs, this study uses early-vote versus election-day vote-share differences as an auxiliary test. The purpose is to check whether early voting reflects the same direction and scale of political choice as election-day voting. For a given constituency, let \(p_E\) be a candidate's early-vote share, \(p_D\) the same candidate's election-day vote share, \(n_E\) the early-vote count, and \(n_D\) the election-day vote count. Under a null hypothesis that the two vote groups are random samples from the same underlying support rate \(p\), the standard two-proportion z statistic is:
 
-The output `outputs/early_day_assembly_summary.csv` reports:
+\[
+z = \frac{p_E - p_D}{\sqrt{\hat{p}(1-\hat{p})(1/n_E + 1/n_D)}}
+\]
 
-| Election | Analyzed constituencies | Democratic early-vote advantage | Democratic early-vote disadvantage | Approximate one-sided binomial p-value |
-| --- | ---: | ---: | ---: | ---: |
-| 2016 National Assembly | 229 | 118 | 111 | about 0.35 |
-| 2020 National Assembly | 236 | 236 | 0 | about \(9.06 \times 10^{-72}\) |
-| 2024 National Assembly | 245 | 245 | 0 | about \(1.77 \times 10^{-74}\) |
+where \(\hat{p}\) is the pooled candidate vote share. When sample sizes are in the thousands or tens of thousands, the denominator becomes small. Therefore even several percentage-point differences can produce very large z values. This is why "large vote-share differences in large samples" are difficult to explain by ordinary sampling error alone.
+
+This test has an important assumption: early voters and election-day voters must be random samples from the same voter population. In real elections, this assumption may fail. Early voters may self-select by age, occupation, mobility, party preference, campaign mobilization, and other factors. Therefore a large early-vote/election-day difference alone does not prove misconduct.
+
+Still, the test is not meaningless. Suspicion becomes stronger when:
+
+1. the early/election-day difference repeats in the same party direction across many constituencies;
+2. the difference suddenly becomes larger than in earlier elections in the same country;
+3. large residual differences remain after accounting for age, gender, region, urban/rural structure, and early-vote rates;
+4. in-district and out-of-district early-vote patterns differ from each other;
+5. the same election or region also shows separate anomalies such as identical vote pairs, ballot shortages, or counting-statement inconsistencies.
+
+This paper therefore treats early-vote versus election-day vote-share differences as an auxiliary test. Identical vote-pair repetition is a discrete count-collision problem; early/election-day vote-share difference is a two-sample proportion problem. They have different statistical structures. But if both appear in the same election environment, a single ordinary-randomness explanation becomes weaker.
 
 ### 11.1 Check Against Official National Assembly Data
 
-This calculation uses official National Assembly counting files and is reproducible through `scripts/analyze_early_day_assembly.py`. The 2016 result does not show a uniform direction. The 2020 and 2024 results do. This makes the pattern difficult to dismiss as ordinary sampling noise alone.
+This study directly parses official counting data for the 2016, 2020, and 2024 National Assembly elections. The analyzed constituencies are those in which both a Democratic-party candidate and a conservative-party candidate are present. The conservative party is defined as Saenuri Party in 2016, United Future Party in 2020, and People Power Party in 2024.
+
+For each constituency, the script computes:
+
+\[
+\Delta = p_E - p_D
+\]
+
+where \(p_E\) is the Democratic candidate's share of Democratic-plus-conservative two-party votes in early voting, and \(p_D\) is the same two-party share in election-day voting. Early voting combines in-district and out-of-district early votes. Election-day voting includes only election-day polling-station votes. Residential/shipboard, overseas, subtotal, and aggregate rows are excluded.
+
+The output `outputs/early_day_assembly_summary.csv` reports:
+
+| Election | Constituencies | Mean early-day difference | Median | Democratic early advantage | Democratic early disadvantage | \(|z|>5\) | \(|z|>10\) | Max \(|z|\) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2016 National Assembly | 229 | +3.90%p | +3.43%p | 211 | 18 | 158 | 88 | 31.94 |
+| 2020 National Assembly | 236 | +10.88%p | +11.21%p | 236 | 0 | 236 | 234 | 55.77 |
+| 2024 National Assembly | 245 | +10.35%p | +10.80%p | 245 | 0 | 245 | 245 | 60.92 |
+
+These results show two things at once.
+
+First, the simplified claim that "the law of large numbers held perfectly in 2016 and broke only from 2020" does not fit the official data. In 2016, the Democratic candidate's early-vote two-party share was also higher than the election-day share by an average of 3.90 percentage points, and 211 of 229 constituencies showed a Democratic early-vote advantage.
+
+Second, the 2020 and 2024 patterns are much stronger than 2016. In 2020, all 236 analyzable constituencies showed a Democratic early-vote advantage. In 2024, all 245 analyzable constituencies showed the same direction. The average difference also expanded to roughly 10 to 11 percentage points.
+
+The defensible claim from the direct calculation is therefore:
+
+> A Democratic early-vote advantage already existed in 2016, but in 2020 and 2024 the direction expanded to every analyzable constituency and the average magnitude grew to about three times the 2016 level.
+
+This claim is statistically strong. It is still not direct proof of misconduct. Alternative explanations such as voter self-selection, party-specific early-vote mobilization, age, occupation, regional mobility, and COVID-era voting behavior must be evaluated. However, the 2020 and 2024 all-constituency directional pattern is difficult to explain as ordinary sampling error alone, and it is a valid target for independent audit or additional statistical modeling.
+
+The directionality issue is often described as a "law of large numbers" issue. More precisely, the question is whether the same-direction pattern would arise from sampling error if early votes and election-day votes were samples from the same underlying electorate. This paper uses it only as an auxiliary test, with detailed assumptions and results also summarized in Appendix B.
 
 ### 11.2 Connection to the 2026 Local Election
 
-This auxiliary result does not establish the same mechanism as the 2026 identical-pair event. However, it is relevant to the broader audit question because it points to repeated, directionally uniform early-vote differences in recent Korean elections. A strong benign explanation must show why these differences arise from voter self-selection, party mobilization, age structure, occupation, urban/rural composition, or other lawful factors. Without such covariate-adjusted explanation, the pattern remains an additional reason to request raw-data transparency.
+The twelve reported identical-vote rows in the June 3, 2026 local election are separate from the early/election-day vote-share difference issue. But both phenomena arise in early-vote data.
+
+This paper focuses on the June 3 local election for the following reasons:
+
+1. the Songdo 1-dong/Songdo 2-dong identical pair occurred in in-district early voting;
+2. the ten Gwangju-Jeonnam rows, or five identical pairs, also occurred in in-district early voting;
+3. in past official governor data, the maximum identical-pair repetition within one contest was three pairs;
+4. the June 3 reported case reaches five pairs within one contest environment, exceeding the expanded historical benchmark;
+5. in the 2020 and 2024 National Assembly elections, early voting also showed systematic directionality relative to election-day voting.
+
+Therefore the June 3 identical-vote-pair problem should not be treated as an isolated coincidence without further checking. Combined with the systematic early-vote deviations observed in 2020 and 2024, it points to a broader audit question: repeated statistical anomalies are appearing in early-vote data, and official raw records are needed to separate lawful voter behavior from administrative or counting-process explanations.
 
 ## 12. Expected Objections and Responses
 
@@ -444,20 +579,58 @@ This study uses public election data and public reports. It does not process pri
 
 | Term | Intuitive meaning |
 | --- | --- |
+| Null hypothesis | The default assumption that the observed pattern could arise by chance |
+| Alternative hypothesis | The competing assumption that the pattern is difficult to treat as ordinary chance and requires another explanation |
+| Poisson approximation | A standard approximation used to calculate how often rare events repeat |
 | Counting unit | The smallest official result row used for comparison, such as an eup, myeon, or dong in-district early-vote row |
 | In-district early voting | Early votes cast by voters within their registered district |
 | Identical vote pair | Two counting units have the same first-candidate count and same second-candidate count |
-| Effective pair space \(K\) | The empirically inferred range of possible top-two vote pairs |
-| Tail probability | The probability of observing at least the reported level of repetition |
-| Poisson approximation | A convenient approximation for rare collision counts |
-| Nonparametric resampling | A simulation that samples from actual historical vote pairs rather than a purely theoretical distribution |
+| Effective pair space \(K\) | The practical range of first- and second-place candidate vote-count combinations that can actually appear in in-district early voting |
+| Sensitivity analysis | A check of whether the conclusion remains similar when assumptions such as \(K\) or \(N\) are changed |
+| Nonparametric resampling without replacement | A simulation that draws actual historical counting units without drawing the same unit twice |
+| Rule of three | A conservative rule of thumb: if an event is observed zero times in \(n\) trials, its rough 95% upper bound is \(3/n\) |
+| Tail probability | The probability of observing an extreme event far from the average case |
+| Law of large numbers | The principle that, as sample size grows, the proportion in a random sample approaches the population proportion |
+| Sign test | A nonparametric test that focuses on how often the direction of a difference repeats, rather than the size of the difference |
 | Audit trigger | A signal strong enough to require raw-data disclosure and independent verification, without itself proving misconduct |
 
 ## Appendix B. Early Voting and the Law of Large Numbers
 
-Public discussions sometimes claim that the "law of large numbers" should force early-vote and election-day vote shares to be nearly identical. That is not generally correct. The law of large numbers applies when samples are drawn from the same underlying distribution or from comparable random processes. Early voters and election-day voters are not random samples from a single identical population; they may differ by age, occupation, geography, political interest, party mobilization, and other factors.
+Public discussions often invoke the "law of large numbers" in early-vote debates, but that phrase alone cannot prove misconduct. The law of large numbers says that as sample size grows, the proportion in a random sample tends to approach the population proportion. To apply that principle to early voting, early voters and election-day voters would have to be randomly split from the same population. In real elections, this premise is incomplete because voters choose whether to vote early.
 
-Therefore a single early-vote advantage is not suspicious by itself. The more relevant question is whether the direction and size of the difference repeat so uniformly that voter self-selection alone becomes insufficient. In the official National Assembly data checked here, 2020 and 2024 show Democratic early-vote two-party advantages in all analyzable constituencies. Under a simple equal-direction benchmark, the one-sided binomial probabilities are extremely small. This is not used as direct proof of a specific misconduct mechanism, but it supports the need for a covariate-adjusted explanation or raw-data audit.
+Nevertheless, the law-of-large-numbers discussion is not meaningless. If sample sizes are large and nearly every constituency shows an early-vote advantage in the same party direction, that pattern is difficult to treat as sampling error alone. This appendix checks that point using the simplest sign test.
+
+For each constituency, the calculation asks whether the Democratic candidate's early-vote two-party share is higher than the same candidate's election-day two-party share. The null hypothesis is:
+
+> If the early/election-day difference is not tilted toward one party direction, the probability that a constituency shows a Democratic early-vote advantage is roughly \(1/2\).
+
+Under this null hypothesis, the probability that at least \(x\) out of \(n\) constituencies show a Democratic early-vote advantage is the one-sided tail probability:
+
+\[
+P(X \ge x) = \sum_{k=x}^{n} \binom{n}{k}\left(\frac{1}{2}\right)^n
+\]
+
+The same idea can be described in terms of the random variable:
+
+\[
+\Delta = p_E - p_D
+\]
+
+where \(\Delta\) is the difference between the early-vote share and election-day share. If simple sampling error is the main cause, the distribution of \(\Delta\) should fluctuate around zero. If most constituencies have \(\Delta>0\), and the center of the distribution moves toward roughly +10 percentage points, the pattern indicates systematic directionality. Whether that directionality is caused by voter self-selection, party mobilization, administrative processes, or another mechanism requires separate data. But the claim that it is not a statistical issue is difficult to sustain.
+
+Direct parsing of official National Assembly data gives:
+
+| Election | Constituencies | Democratic early advantage | Democratic early disadvantage | One-sided sign-test p-value | Intuitive frequency |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2016 National Assembly | 229 | 211 | 18 | \(2.99 \times 10^{-43}\) | about 1 in \(3.35 \times 10^{42}\) |
+| 2020 National Assembly | 236 | 236 | 0 | \(9.06 \times 10^{-72}\) | about 1 in \(1.10 \times 10^{71}\) |
+| 2024 National Assembly | 245 | 245 | 0 | \(1.77 \times 10^{-74}\) | about 1 in \(5.65 \times 10^{73}\) |
+
+The meaning of this calculation is limited but clear. If early/election-day differences were merely moving up and down like sampling error, the probability of seeing Democratic early-vote advantages in all 236 analyzable constituencies in 2020 and all 245 analyzable constituencies in 2024 would be extremely small under this simple model. Therefore "it only looked that way because the sample was large" is not a sufficient explanation under the symmetric sign-test null.
+
+This result must not be read as direct proof of misconduct. The sign test does not remove alternative explanations such as voter self-selection, party-specific early-vote mobilization, age, occupation, regional mobility, or COVID-period voting effects. If those factors were strongly operating, the symmetric \(1/2\) null hypothesis would be weakened.
+
+The appendix conclusion is therefore narrow. The same-direction early-vote pattern in the 2020 and 2024 National Assembly elections is statistically extremely unlikely under a simple sampling-error model. But it is an auxiliary anomaly indicator that supports the identical-vote-pair analysis; legal or administrative conclusions require constituency-level voter composition, campaign-mobilization evidence, separated in-district/out-of-district early-vote data, original counting statements, and first-pass sorter records.
 
 ## References
 
@@ -497,4 +670,3 @@ Key files in the package include:
 - `outputs/early_day_assembly_summary.csv`
 - `outputs/early_day_assembly_twoparty.csv`
 - `outputs/checksums_sha256.csv`
-
