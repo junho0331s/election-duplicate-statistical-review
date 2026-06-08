@@ -47,6 +47,8 @@ The repository intentionally excludes informal video-platform materials and vide
 - `data_availability_2026_en.md`: English 2026 data availability memo
 - `AUDIT_PROTOCOL_ko.md`: 독립 원자료 감사 프로토콜
 - `AUDIT_PROTOCOL_en.md`: English independent raw-data audit protocol
+- `FINAL_SUBMISSION_CHECKLIST_ko.md`: 최종 제출 전 점검표
+- `FINAL_SUBMISSION_CHECKLIST_en.md`: English final pre-submission checklist
 - `latex/ieie/main.tex`: IEIE 템플릿 기반 LaTeX 원고
 - `latex/ieie/main.pdf`: 컴파일된 PDF 원고
 - `latex/en/main_en.tex`: English LaTeX source
@@ -183,6 +185,8 @@ python3 scripts/create_submission_zip.py
 - `data_availability_2026_en.md`
 - `AUDIT_PROTOCOL_ko.md`
 - `AUDIT_PROTOCOL_en.md`
+- `FINAL_SUBMISSION_CHECKLIST_ko.md`
+- `FINAL_SUBMISSION_CHECKLIST_en.md`
 - `README.md`
 - `requirements.txt`
 - `latex/`
