@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import json
 import math
+import re
 from pathlib import Path
 from zipfile import ZipFile
 
@@ -342,6 +343,50 @@ def assert_artifact_freshness() -> None:
         raise AssertionError("submission zip is older than checksums_sha256.csv")
 
 
+def assert_english_pdf_translation_coverage() -> None:
+    """Guard against stale or partially translated English PDF submissions."""
+    try:
+        import fitz  # type: ignore[import-not-found]
+    except ImportError as exc:
+        raise AssertionError("PyMuPDF is required to validate English PDF text coverage") from exc
+
+    pdf_path = ROOT / "latex" / "en" / "main_en.pdf"
+    pdf = fitz.open(pdf_path)
+    text = "\n".join(page.get_text() for page in pdf)
+
+    if pdf.page_count < 18:
+        raise AssertionError(f"English PDF appears too short for the full translated manuscript: {pdf.page_count} pages")
+
+    korean = re.findall(r"[가-힣]+", text)
+    if korean:
+        sample = ", ".join(korean[:10])
+        raise AssertionError(f"English PDF contains Korean text fragments: {sample}")
+
+    required_phrases = [
+        "+3.90%p",
+        "211",
+        "0.000991%",
+        "Appendix B",
+        "Rule of three",
+        "Law of large numbers",
+        "Reproduction Outputs",
+        "candidate allocation",
+        "reviewed ballots",
+        "core verification material",
+    ]
+    missing = [phrase for phrase in required_phrases if phrase not in text]
+    if missing:
+        raise AssertionError(f"English PDF missing expected translated content: {', '.join(missing)}")
+
+    stale_phrases = [
+        "2016 National Assembly 229 118 111",
+        "about 0.35",
+    ]
+    stale = [phrase for phrase in stale_phrases if phrase in text]
+    if stale:
+        raise AssertionError(f"English PDF contains stale pre-translation values: {', '.join(stale)}")
+
+
 def assert_zip_package() -> None:
     zip_path = ROOT / "dist" / "election_duplicate_ieie_submission.zip"
     required = {
@@ -398,6 +443,7 @@ def main() -> None:
     assert_manifest_json()
     assert_checksums()
     assert_artifact_freshness()
+    assert_english_pdf_translation_coverage()
     assert_zip_package()
     print("Package validation passed.")
 
