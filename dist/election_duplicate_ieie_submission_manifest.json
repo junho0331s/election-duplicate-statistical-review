@@ -1,7 +1,7 @@
 {
   "package": "election_duplicate_ieie_submission.zip",
-  "bytes": 54373889,
-  "sha256": "02f7f81e3afb5852ac7a0a499680b3af746050cecaa92597ae514ed432ab456c",
+  "bytes": 54374127,
+  "sha256": "6be0d6fbc9182062f088d6bff81efeb7b92269c2bcddbb44ba15507a11bacde6",
   "file_count": 116,
   "zip_entry_timestamp": "2026-6-9-0-0-0",
   "scope": "submission zip sidecar manifest; not embedded in the zip"

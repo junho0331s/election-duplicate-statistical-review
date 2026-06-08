@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 8,
+  "check_count": 9,
   "scope": "pre-submission package readiness",
   "checks": [
     {
@@ -43,6 +43,12 @@
       "check": "English PDF translation coverage",
       "expected": "0 Korean characters and exact-collision section present",
       "actual": "0 Korean characters, exact section present",
+      "status": "pass"
+    },
+    {
+      "check": "English source translation scan",
+      "expected": "0 Korean fragments in *_en.md and latex/en/main_en.tex",
+      "actual": "0 files with Korean fragments",
       "status": "pass"
     },
     {

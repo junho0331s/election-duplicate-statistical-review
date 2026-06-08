@@ -359,6 +359,7 @@ def assert_pre_submission_audit() -> None:
         "exact collision probability output",
         "manuscript core number consistency",
         "English PDF translation coverage",
+        "English source translation scan",
         "submission source files present",
     }
     checks = data.get("checks")

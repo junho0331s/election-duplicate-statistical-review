@@ -151,6 +151,22 @@ def english_pdf_has_no_korean() -> AuditCheck:
     )
 
 
+def english_sources_have_no_korean() -> AuditCheck:
+    english_sources = sorted(ROOT.glob("*_en.md")) + [ROOT / "latex" / "en" / "main_en.tex"]
+    hits: list[str] = []
+    for path in english_sources:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        korean = re.findall(r"[가-힣]+", text)
+        if korean:
+            hits.append(f"{path.relative_to(ROOT)}:{', '.join(korean[:5])}")
+    return check(
+        not hits,
+        "English source translation scan",
+        "0 Korean fragments in *_en.md and latex/en/main_en.tex",
+        f"{len(hits)} files with Korean fragments",
+    )
+
+
 def submission_sources_present() -> AuditCheck:
     required = {
         "paper_statistical_implausibility_ko.md",
@@ -266,6 +282,7 @@ def audit_checks() -> list[AuditCheck]:
         exact_collision_output_present(),
         manuscript_core_numbers_present(),
         english_pdf_has_no_korean(),
+        english_sources_have_no_korean(),
         submission_sources_present(),
     ]
 
