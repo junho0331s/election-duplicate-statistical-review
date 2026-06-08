@@ -2,12 +2,13 @@
 from __future__ import annotations
 
 from pathlib import Path
-from zipfile import ZIP_DEFLATED, ZipFile
+from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 PACKAGE_NAME = "election_duplicate_ieie_submission.zip"
+ZIP_TIMESTAMP = (2026, 6, 9, 0, 0, 0)
 
 INCLUDE_FILES = [
     "README.md",
@@ -108,7 +109,11 @@ def main() -> None:
     paths = package_paths()
     with ZipFile(zip_path, "w", compression=ZIP_DEFLATED) as zf:
         for path in paths:
-            zf.write(path, path.relative_to(ROOT))
+            rel = path.relative_to(ROOT).as_posix()
+            info = ZipInfo(rel, date_time=ZIP_TIMESTAMP)
+            info.compress_type = ZIP_DEFLATED
+            info.external_attr = 0o644 << 16
+            zf.writestr(info, path.read_bytes())
 
     with ZipFile(zip_path) as zf:
         names = set(zf.namelist())
