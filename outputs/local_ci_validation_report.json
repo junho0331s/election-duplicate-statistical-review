@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "scope": "local equivalent of .github/workflows/validate-submission.yml",
+  "validate_package": {
+    "command": "python scripts/validate_package.py",
+    "returncode": 0,
+    "passed": true,
+    "output_tail": [
+      "Package validation passed."
+    ]
+  },
+  "zip_sidecar": {
+    "package": "election_duplicate_ieie_submission.zip",
+    "bytes": 54384973,
+    "sha256": "6c2b624d707b8820ab35538d236d8908d8e35a0d0ee9b7e848421bc707abc5e9",
+    "manifest_sha256_matches": true,
+    "manifest_bytes_matches": true,
+    "sha256_sidecar_matches": true,
+    "file_count": 123,
+    "passed": true
+  }
+}

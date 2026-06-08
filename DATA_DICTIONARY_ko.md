@@ -50,6 +50,8 @@
 | `outputs/pre_submission_audit.json` | JSON 감사 요약 | 제출 전 감사 11개 항목의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/submission_integrity_report.md` | 무결성 리포트 1개 | PDF, 핵심 검증, 제출 전 감사, 핵심 재현 수치를 한 파일에서 확인 | Markdown sections |
 | `outputs/submission_integrity_report.json` | JSON 무결성 리포트 | 최종 ZIP self-hash를 제외한 제출 패키지 무결성 요약 | `status`, `core_claims_check_count`, `pre_submission_audit_check_count`, `korean_pdf`, `english_pdf`, `key_claims` |
+| `outputs/local_ci_validation_report.md` | 제출 ZIP 외부 로컬 CI 리포트 1개 | GitHub Actions 검증 워크플로와 같은 검증을 로컬에서 사람이 읽을 수 있게 요약. ZIP self-hash 순환을 피하려고 ZIP에는 넣지 않음 | Markdown sections |
+| `outputs/local_ci_validation_report.json` | 제출 ZIP 외부 JSON 로컬 CI 리포트 | `validate_package.py`와 최종 ZIP sidecar 일치 여부의 기계가독 검증. ZIP self-hash 순환을 피하려고 ZIP에는 넣지 않음 | `status`, `validate_package`, `zip_sidecar` |
 | `outputs/checksums_sha256.csv` | 패키지 파일 1개 | 제출 패키지 파일 무결성 확인 | `path`, `bytes`, `sha256` |
 | `dist/election_duplicate_ieie_submission.zip.sha256` | 제출 ZIP 1개 | 제출 ZIP 자체의 SHA256 sidecar | `sha256  filename` |
 | `dist/election_duplicate_ieie_submission_manifest.json` | JSON 제출 ZIP 요약 | 제출 ZIP 자체의 크기, SHA256, 내부 파일 수 확인 | `package`, `bytes`, `sha256`, `file_count` |
@@ -80,6 +82,7 @@
 | 원고 출처 URL은 승인된 공식자료 또는 명시적 공개 보도 도메인을 사용한다. | `outputs/source_provenance_audit.csv`, `outputs/source_provenance_audit.json` |
 | 최종 제출 전 감사 항목이 통과한다. | `outputs/pre_submission_audit.csv`, `outputs/pre_submission_audit.json` |
 | 최종 PDF와 제출 무결성 요약이 서로 일관된다. | `outputs/submission_integrity_report.md`, `outputs/submission_integrity_report.json` |
+| GitHub Actions 검증 워크플로와 같은 로컬 검증이 통과한다. | `outputs/local_ci_validation_report.md`, `outputs/local_ci_validation_report.json` |
 | 제출 ZIP 자체의 SHA256과 내부 파일 수가 검증된다. | `dist/election_duplicate_ieie_submission.zip.sha256`, `dist/election_duplicate_ieie_submission_manifest.json` |
 
 ## 심사자에게 중요한 경계

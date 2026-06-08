@@ -62,6 +62,8 @@ EXCLUDE_NAMES = {
 
 EXCLUDE_RELATIVE = {
     "outputs/checksums_sha256.csv",
+    "outputs/local_ci_validation_report.md",
+    "outputs/local_ci_validation_report.json",
 }
 
 

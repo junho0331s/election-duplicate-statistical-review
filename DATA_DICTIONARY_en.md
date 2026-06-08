@@ -50,6 +50,8 @@ This document explains the core CSV and JSON outputs under `outputs/`. Its purpo
 | `outputs/pre_submission_audit.json` | JSON audit summary | Machine-readable result of the 11 pre-submission audit checks. | `status`, `check_count`, `scope`, `checks` |
 | `outputs/submission_integrity_report.md` | One integrity report | Human-readable final integrity summary for PDFs, core checks, audit checks, and key reproducible numbers. | Markdown sections |
 | `outputs/submission_integrity_report.json` | JSON integrity report | Machine-readable final integrity summary excluding the final ZIP self-hash. | `status`, `core_claims_check_count`, `pre_submission_audit_check_count`, `korean_pdf`, `english_pdf`, `key_claims` |
+| `outputs/local_ci_validation_report.md` | One local CI report outside the submission ZIP | Human-readable local equivalent of the GitHub Actions validation workflow. Excluded from the ZIP to avoid a self-hash cycle. | Markdown sections |
+| `outputs/local_ci_validation_report.json` | JSON local CI report outside the submission ZIP | Machine-readable validation of `validate_package.py` and final ZIP sidecar consistency. Excluded from the ZIP to avoid a self-hash cycle. | `status`, `validate_package`, `zip_sidecar` |
 | `outputs/checksums_sha256.csv` | One package file | Verifies integrity of submission-package files. | `path`, `bytes`, `sha256` |
 | `dist/election_duplicate_ieie_submission.zip.sha256` | One submission ZIP | SHA256 sidecar for the submission ZIP itself. | `sha256  filename` |
 | `dist/election_duplicate_ieie_submission_manifest.json` | JSON submission ZIP summary | Verifies the ZIP file's byte size, SHA256, and internal file count. | `package`, `bytes`, `sha256`, `file_count` |
@@ -80,6 +82,7 @@ This document explains the core CSV and JSON outputs under `outputs/`. Its purpo
 | Manuscript-facing source URLs use approved official or explicitly named public-report domains. | `outputs/source_provenance_audit.csv`, `outputs/source_provenance_audit.json` |
 | The final pre-submission audit checks pass. | `outputs/pre_submission_audit.csv`, `outputs/pre_submission_audit.json` |
 | The final PDF and submission integrity summary are internally consistent. | `outputs/submission_integrity_report.md`, `outputs/submission_integrity_report.json` |
+| The local equivalent of the GitHub Actions validation workflow passes. | `outputs/local_ci_validation_report.md`, `outputs/local_ci_validation_report.json` |
 | The submission ZIP's SHA256 and internal file count are verified. | `dist/election_duplicate_ieie_submission.zip.sha256`, `dist/election_duplicate_ieie_submission_manifest.json` |
 
 ## Boundary Important for Reviewers

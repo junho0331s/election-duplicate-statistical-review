@@ -22,6 +22,7 @@ SCRIPTS = [
     "submission_integrity_report.py",
     "generate_checksums.py",
     "create_submission_zip.py",
+    "local_ci_validation_report.py",
     "validate_package.py",
 ]
 
@@ -62,6 +63,8 @@ def main() -> None:
         ROOT / "outputs" / "pre_submission_audit.json",
         ROOT / "outputs" / "submission_integrity_report.md",
         ROOT / "outputs" / "submission_integrity_report.json",
+        ROOT / "outputs" / "local_ci_validation_report.md",
+        ROOT / "outputs" / "local_ci_validation_report.json",
         ROOT / "outputs" / "checksums_sha256.csv",
         ROOT / "dist" / "election_duplicate_ieie_submission.zip",
         ROOT / "dist" / "election_duplicate_ieie_submission.zip.sha256",

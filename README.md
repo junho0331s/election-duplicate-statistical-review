@@ -109,6 +109,8 @@ python3 scripts/source_provenance_audit.py
 python3 scripts/pre_submission_audit.py
 python3 scripts/submission_integrity_report.py
 python3 scripts/generate_checksums.py
+python3 scripts/create_submission_zip.py
+python3 scripts/local_ci_validation_report.py
 ```
 
 2026년 선관위 공식 HTML 캐시를 새로 내려받아 재검증하려면 다음처럼 실행한다.
@@ -172,9 +174,13 @@ python3 scripts/create_submission_zip.py
 - `outputs/pre_submission_audit.json`
 - `outputs/submission_integrity_report.md`
 - `outputs/submission_integrity_report.json`
+- `outputs/local_ci_validation_report.md`
+- `outputs/local_ci_validation_report.json`
 - `outputs/checksums_sha256.csv`
 - `dist/election_duplicate_ieie_submission.zip.sha256`
 - `dist/election_duplicate_ieie_submission_manifest.json`
+
+`outputs/local_ci_validation_report.*`는 최종 ZIP을 검증하는 외부 리포트이므로 제출 ZIP 내부에는 포함하지 않는다. ZIP 내부에 넣으면 리포트가 기록한 ZIP 해시가 다시 바뀌는 순환 문제가 생긴다.
 
 ## 현재 검증된 핵심 숫자
 

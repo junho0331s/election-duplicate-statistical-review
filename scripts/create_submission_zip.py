@@ -62,6 +62,7 @@ INCLUDE_FILES = [
     "scripts/source_provenance_audit.py",
     "scripts/pre_submission_audit.py",
     "scripts/submission_integrity_report.py",
+    "scripts/local_ci_validation_report.py",
     "scripts/generate_checksums.py",
     "scripts/run_all.py",
     "scripts/validate_package.py",
@@ -85,8 +86,16 @@ EXCLUDE_NAMES = {
     "__pycache__",
 }
 
+EXCLUDE_RELATIVE = {
+    "outputs/local_ci_validation_report.md",
+    "outputs/local_ci_validation_report.json",
+}
+
 
 def should_include(path: Path) -> bool:
+    rel = path.relative_to(ROOT).as_posix()
+    if rel in EXCLUDE_RELATIVE:
+        return False
     if any(part in EXCLUDE_NAMES for part in path.parts):
         return False
     if path.suffix in EXCLUDE_SUFFIXES:

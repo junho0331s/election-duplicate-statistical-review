@@ -130,7 +130,16 @@ def read_text_files() -> list[Path]:
 
 
 def assert_required_files() -> None:
-    missing = [rel for rel in REQUIRED_FILES if not (ROOT / rel).exists()]
+    required = REQUIRED_FILES
+    if os.environ.get("LOCAL_CI_VALIDATION_IN_PROGRESS") == "true":
+        required = [
+            rel for rel in REQUIRED_FILES
+            if rel not in {
+                "outputs/local_ci_validation_report.md",
+                "outputs/local_ci_validation_report.json",
+            }
+        ]
+    missing = [rel for rel in required if not (ROOT / rel).exists()]
     if missing:
         raise AssertionError(f"Missing required files: {', '.join(missing)}")
 
@@ -442,6 +451,28 @@ def assert_submission_integrity_report() -> None:
             raise AssertionError(f"Submission integrity markdown missing phrase: {phrase}")
 
 
+def assert_local_ci_validation_report() -> None:
+    if os.environ.get("LOCAL_CI_VALIDATION_IN_PROGRESS") == "true":
+        return
+
+    path = ROOT / "outputs" / "local_ci_validation_report.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if data.get("status") != "pass":
+        raise AssertionError(f"Local CI validation report status is not pass: {data.get('status')}")
+    validate = data.get("validate_package", {})
+    if not validate.get("passed") or validate.get("returncode") != 0:
+        raise AssertionError("Local CI validation report did not pass validate_package.py")
+    sidecar = data.get("zip_sidecar", {})
+    for key in ["manifest_sha256_matches", "manifest_bytes_matches", "sha256_sidecar_matches", "passed"]:
+        if not sidecar.get(key):
+            raise AssertionError(f"Local CI validation report sidecar check failed: {key}")
+
+    md_text = (ROOT / "outputs" / "local_ci_validation_report.md").read_text(encoding="utf-8")
+    for phrase in ["Local CI Validation Report", "ZIP SHA256", "validate_package.py Output Tail"]:
+        if phrase not in md_text:
+            raise AssertionError(f"Local CI markdown missing phrase: {phrase}")
+
+
 def assert_checksums() -> None:
     path = ROOT / "outputs" / "checksums_sha256.csv"
     rows = list(csv.DictReader(path.open(encoding="utf-8")))
@@ -738,6 +769,7 @@ def main() -> None:
     assert_source_provenance_audit()
     assert_pre_submission_audit()
     assert_submission_integrity_report()
+    assert_local_ci_validation_report()
     assert_checksums()
     assert_artifact_freshness()
     assert_english_pdf_translation_coverage()
