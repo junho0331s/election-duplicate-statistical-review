@@ -41,6 +41,8 @@ The repository intentionally excludes informal video-platform materials and vide
 - `evidence_matrix_en.md`: English claim-to-evidence matrix
 - `DATA_DICTIONARY_ko.md`: 핵심 출력 CSV·JSON 데이터 사전
 - `DATA_DICTIONARY_en.md`: English output data dictionary
+- `REVIEWER_QUICKSTART_ko.md`: 심사자용 5~10분 핵심 재현 Quickstart
+- `REVIEWER_QUICKSTART_en.md`: English reviewer reproduction quickstart
 - `REPRODUCIBILITY_CHECKLIST_ko.md`: 독립 검증자용 재현성 점검표
 - `REPRODUCIBILITY_CHECKLIST_en.md`: English reproducibility checklist
 - `STATISTICAL_CALCULATION_NOTE_ko.md`: 핵심 확률값의 공식·입력값·출력 파일 연결 노트
@@ -85,6 +87,11 @@ The repository intentionally excludes informal video-platform materials and vide
 python3 -m pip install -r requirements.txt
 python3 scripts/run_all.py
 ```
+
+심사자가 핵심 수치만 빠르게 검산하려면 다음 문서를 먼저 보면 된다.
+
+- `REVIEWER_QUICKSTART_ko.md`
+- `REVIEWER_QUICKSTART_en.md`
 
 개별 스크립트를 직접 실행할 수도 있다.
 
@@ -191,6 +198,8 @@ python3 scripts/create_submission_zip.py
 - `evidence_matrix_en.md`
 - `DATA_DICTIONARY_ko.md`
 - `DATA_DICTIONARY_en.md`
+- `REVIEWER_QUICKSTART_ko.md`
+- `REVIEWER_QUICKSTART_en.md`
 - `REPRODUCIBILITY_CHECKLIST_ko.md`
 - `REPRODUCIBILITY_CHECKLIST_en.md`
 - `STATISTICAL_CALCULATION_NOTE_ko.md`

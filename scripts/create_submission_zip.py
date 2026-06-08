@@ -24,6 +24,8 @@ INCLUDE_FILES = [
     "evidence_matrix_en.md",
     "DATA_DICTIONARY_ko.md",
     "DATA_DICTIONARY_en.md",
+    "REVIEWER_QUICKSTART_ko.md",
+    "REVIEWER_QUICKSTART_en.md",
     "REPRODUCIBILITY_CHECKLIST_ko.md",
     "REPRODUCIBILITY_CHECKLIST_en.md",
     "STATISTICAL_CALCULATION_NOTE_ko.md",
