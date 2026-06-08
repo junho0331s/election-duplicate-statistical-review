@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 6,
+  "check_count": 7,
   "scope": "pre-submission package readiness",
   "checks": [
     {
@@ -25,6 +25,12 @@
       "check": "exact collision probability output",
       "expected": "threshold 5 exact probability 0.0012190883791786122",
       "actual": "threshold 5 exact probability 0.0012190883791786122",
+      "status": "pass"
+    },
+    {
+      "check": "manuscript core number consistency",
+      "expected": "core numbers present in Korean/English Markdown and PDFs",
+      "actual": "0 missing markers",
       "status": "pass"
     },
     {

@@ -352,6 +352,7 @@ def assert_pre_submission_audit() -> None:
         "forbidden patterns absent",
         "core claims verification",
         "exact collision probability output",
+        "manuscript core number consistency",
         "English PDF translation coverage",
         "submission source files present",
     }

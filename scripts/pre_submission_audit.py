@@ -150,12 +150,87 @@ def exact_collision_output_present() -> AuditCheck:
     )
 
 
+def manuscript_core_numbers_present() -> AuditCheck:
+    try:
+        import fitz  # type: ignore[import-not-found]
+    except ImportError:
+        return check(False, "manuscript core number consistency", "PyMuPDF available and core numbers present", "PyMuPDF unavailable")
+
+    sources: dict[str, str] = {
+        "paper_statistical_implausibility_ko.md": read_text("paper_statistical_implausibility_ko.md"),
+        "paper_statistical_implausibility_en.md": read_text("paper_statistical_implausibility_en.md"),
+    }
+    for pdf_path in ["latex/ieie/main.pdf", "latex/en/main_en.pdf"]:
+        pdf = fitz.open(ROOT / pdf_path)
+        sources[pdf_path] = "\n".join(page.get_text() for page in pdf)
+
+    required_by_source = {
+        "paper_statistical_implausibility_ko.md": [
+            "81,701",
+            "1,514,172",
+            "0.0011484064",
+            "0.0012190884",
+            "200,000",
+            "0회",
+            "393",
+            "12개",
+            "6개",
+        ],
+        "paper_statistical_implausibility_en.md": [
+            "81,701",
+            "1,514,172",
+            "0.0011484064",
+            "0.0012190884",
+            "200,000",
+            "zero",
+            "393",
+            "twelve",
+            "six",
+        ],
+        "latex/ieie/main.pdf": [
+            "81,701",
+            "1,514,172",
+            "0.0011484064",
+            "0.0012190884",
+            "200,000",
+            "0회",
+            "393",
+            "12개",
+            "6개",
+        ],
+        "latex/en/main_en.pdf": [
+            "81,701",
+            "1,514,172",
+            "0.0011484064",
+            "0.0012190884",
+            "200,000",
+            "zero",
+            "393",
+            "twelve",
+            "six",
+        ],
+    }
+    missing: list[str] = []
+    for source, needles in required_by_source.items():
+        text = sources[source]
+        for needle in needles:
+            if needle not in text:
+                missing.append(f"{source}:{needle}")
+    return check(
+        not missing,
+        "manuscript core number consistency",
+        "core numbers present in Korean/English Markdown and PDFs",
+        f"{len(missing)} missing markers",
+    )
+
+
 def audit_checks() -> list[AuditCheck]:
     return [
         checklist_items_complete(),
         forbidden_patterns_absent(),
         core_claims_pass(),
         exact_collision_output_present(),
+        manuscript_core_numbers_present(),
         english_pdf_has_no_korean(),
         submission_sources_present(),
     ]
