@@ -504,6 +504,21 @@ def assert_english_pdf_translation_coverage() -> None:
         raise AssertionError(f"English PDF contains stale pre-translation values: {', '.join(stale)}")
 
 
+def assert_english_sources_have_no_korean() -> None:
+    """Ensure English-facing manuscript files are fully translated."""
+    english_sources = sorted(ROOT.glob("*_en.md")) + [ROOT / "latex" / "en" / "main_en.tex"]
+    offenders: list[str] = []
+    for path in english_sources:
+        text = path.read_text(encoding="utf-8")
+        fragments = re.findall(r"[가-힣]+", text)
+        if fragments:
+            rel = path.relative_to(ROOT)
+            sample = ", ".join(fragments[:5])
+            offenders.append(f"{rel}: {sample}")
+    if offenders:
+        raise AssertionError("English source files contain untranslated Korean text: " + "; ".join(offenders))
+
+
 def assert_zip_package() -> None:
     zip_path = ROOT / "dist" / "election_duplicate_ieie_submission.zip"
     manifest_path = ROOT / "dist" / "election_duplicate_ieie_submission_manifest.json"
@@ -652,6 +667,7 @@ def main() -> None:
     assert_checksums()
     assert_artifact_freshness()
     assert_english_pdf_translation_coverage()
+    assert_english_sources_have_no_korean()
     assert_zip_package()
     print("Package validation passed.")
 

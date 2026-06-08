@@ -27,7 +27,7 @@ This document explains which official 2026 materials were available for the in-d
 
 ### 3. Public Data Portal search for the 9th nationwide local election
 
-- Search terms checked: `중앙선거관리위원회 제9회 전국동시지방선거 개표결과`, `제9회 전국동시지방선거 개표결과`
+- Search terms checked: Korean-language queries for the National Election Commission 9th nationwide local-election vote-count result and the 9th nationwide local-election vote-count result.
 - Check result: at the time of review, the package did not identify an official integrated XLSX file corresponding to the 9th nationwide local-election vote-count result.
 
 ### 4. NEC election-statistics system: counting-unit result page
@@ -66,4 +66,3 @@ Wording to avoid:
 > The official integrated 2026 vote-count file has already proven a specific act of misconduct.
 
 That statement exceeds the current evidence. The package's strength is not a final legal attribution. Its strength is that public official-page values, historical official-data baselines, and reproducible probability calculations narrowly and strongly support the need for raw-data audit.
-
