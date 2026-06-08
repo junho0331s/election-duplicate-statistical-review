@@ -105,6 +105,7 @@ python3 scripts/analyze_songdo_probability.py
 python3 scripts/probability_sensitivity.py
 python3 scripts/analyze_early_day_assembly.py
 python3 scripts/verify_core_claims.py
+python3 scripts/source_provenance_audit.py
 python3 scripts/pre_submission_audit.py
 python3 scripts/submission_integrity_report.py
 python3 scripts/generate_checksums.py
@@ -165,6 +166,8 @@ python3 scripts/create_submission_zip.py
 - `outputs/early_day_assembly_twoparty.csv`
 - `outputs/core_claims_verification.csv`
 - `outputs/core_claims_verification.json`
+- `outputs/source_provenance_audit.csv`
+- `outputs/source_provenance_audit.json`
 - `outputs/pre_submission_audit.csv`
 - `outputs/pre_submission_audit.json`
 - `outputs/submission_integrity_report.md`
@@ -192,7 +195,7 @@ python3 scripts/create_submission_zip.py
 - 선관위 선거통계시스템 공식 HTML에서 재확인한 2026년 사건행: `12`
 - 선관위 선거통계시스템 공식 HTML에서 재확인한 2026년 동일 득표쌍: `6`
 - 핵심 주장 검증: `45`개 항목 `pass`
-- 제출 전 자동 감사: `8`개 항목 `pass`
+- 제출 전 자동 감사: `11`개 항목 `pass`
 
 ## 출처 정책
 

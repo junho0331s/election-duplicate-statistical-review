@@ -2,7 +2,7 @@
 
 This checklist is for the final pass before academic submission. It verifies that the manuscript and reproduction package state the same conclusion, numbers, limitations, and audit request.
 
-Verification status: as of 2026-06-09 KST, `python3 scripts/run_all.py` and `python3 scripts/validate_package.py` pass. The core-claim verification file `outputs/core_claims_verification.json` reports `pass` with 45 checks. The pre-submission audit file `outputs/pre_submission_audit.json` reports `pass` with 10 checks.
+Verification status: as of 2026-06-09 KST, `python3 scripts/run_all.py` and `python3 scripts/validate_package.py` pass. The core-claim verification file `outputs/core_claims_verification.json` reports `pass` with 45 checks. The pre-submission audit file `outputs/pre_submission_audit.json` reports `pass` with 11 checks.
 
 ## 1. Claim Boundary
 

@@ -1,0 +1,16 @@
+file,url,domain,source_class,status
+paper_statistical_implausibility_ko.md,https://news.tvchosun.com/site/data/html_dir/2026/06/08/2026060890338.html,news.tvchosun.com,public report used for event definition or explanation,pass
+paper_statistical_implausibility_ko.md,https://v.daum.net/v/20260606113452062,v.daum.net,public report used for event definition or explanation,pass
+paper_statistical_implausibility_ko.md,https://www.hani.co.kr/arti/area/capital/1262526.html,hani.co.kr,public report used for event definition or explanation,pass
+paper_statistical_implausibility_ko.md,https://www.data.go.kr/data/15048207/fileData.do,data.go.kr,official election/public-data source,pass
+paper_statistical_implausibility_ko.md,https://www.data.go.kr/data/15000900/openapi.do,data.go.kr,official election/public-data source,pass
+paper_statistical_implausibility_ko.md,https://data.nec.go.kr/,data.nec.go.kr,official election/public-data source,pass
+paper_statistical_implausibility_ko.md,https://www.data.go.kr/,data.go.kr,official election/public-data source,pass
+paper_statistical_implausibility_ko.md,https://www.data.go.kr/data/3082663/fileData.do,data.go.kr,official election/public-data source,pass
+paper_statistical_implausibility_ko.md,https://www.jeonnam.go.kr/contentsView.do?menuId=jeonnam0602030000,jeonnam.go.kr,official administrative geography source,pass
+data_availability_2026_ko.md,https://www.data.go.kr/data/15000900/openapi.do,data.go.kr,official election/public-data source,pass
+data_availability_2026_ko.md,https://www.data.go.kr/data/15101509/fileData.do,data.go.kr,official election/public-data source,pass
+data_availability_2026_ko.md,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08,info.nec.go.kr,official election/public-data source,pass
+data_availability_2026_en.md,https://www.data.go.kr/data/15000900/openapi.do,data.go.kr,official election/public-data source,pass
+data_availability_2026_en.md,https://www.data.go.kr/data/15101509/fileData.do,data.go.kr,official election/public-data source,pass
+data_availability_2026_en.md,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08,info.nec.go.kr,official election/public-data source,pass

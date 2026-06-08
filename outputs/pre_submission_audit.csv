@@ -3,6 +3,7 @@ final checklist items complete,0 unchecked boxes,0 unchecked boxes,pass
 forbidden patterns absent,0 hits,0 hits,pass
 privacy and credential scan,"only allowed author email; 0 credential, phone, or resident-number patterns",0 hits,pass
 core claims verification,"status pass, 45 checks","status pass, 45 checks",pass
+source provenance audit,status pass with approved source domains only,"status pass, 15 URLs, 0 failures",pass
 exact collision probability output,threshold 5 exact probability 0.0012190883791786122,threshold 5 exact probability 0.0012190883791786122,pass
 manuscript core number consistency,core numbers present in Korean/English Markdown and PDFs,0 missing markers,pass
 English PDF translation coverage,0 Korean characters and exact-collision section present,"0 Korean characters, exact section present",pass

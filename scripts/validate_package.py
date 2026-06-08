@@ -59,6 +59,7 @@ REQUIRED_FILES = [
     "scripts/probability_sensitivity.py",
     "scripts/analyze_early_day_assembly.py",
     "scripts/verify_core_claims.py",
+    "scripts/source_provenance_audit.py",
     "scripts/pre_submission_audit.py",
     "scripts/submission_integrity_report.py",
     "scripts/generate_checksums.py",
@@ -83,6 +84,8 @@ REQUIRED_FILES = [
     "outputs/early_day_assembly_summary.csv",
     "outputs/core_claims_verification.csv",
     "outputs/core_claims_verification.json",
+    "outputs/source_provenance_audit.csv",
+    "outputs/source_provenance_audit.json",
     "outputs/pre_submission_audit.csv",
     "outputs/pre_submission_audit.json",
     "outputs/submission_integrity_report.md",
@@ -359,6 +362,7 @@ def assert_pre_submission_audit() -> None:
         "forbidden patterns absent",
         "privacy and credential scan",
         "core claims verification",
+        "source provenance audit",
         "exact collision probability output",
         "manuscript core number consistency",
         "English PDF translation coverage",
@@ -381,6 +385,23 @@ def assert_pre_submission_audit() -> None:
         raise AssertionError("Pre-submission audit CSV row count does not match check_count")
 
 
+def assert_source_provenance_audit() -> None:
+    path = ROOT / "outputs" / "source_provenance_audit.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if data.get("status") != "pass":
+        raise AssertionError(f"Source provenance audit status is not pass: {data.get('status')}")
+    if int(data.get("url_count", 0)) <= 0:
+        raise AssertionError("Source provenance audit did not find source URLs")
+    if data.get("failures"):
+        raise AssertionError(f"Source provenance audit contains failures: {data.get('failures')}")
+
+    rows = list(csv.DictReader((ROOT / "outputs" / "source_provenance_audit.csv").open(encoding="utf-8")))
+    if len(rows) != data.get("url_count"):
+        raise AssertionError("Source provenance audit CSV row count does not match url_count")
+    if any(row.get("status") != "pass" for row in rows):
+        raise AssertionError("Source provenance audit CSV contains non-pass status")
+
+
 def assert_submission_integrity_report() -> None:
     path = ROOT / "outputs" / "submission_integrity_report.json"
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -388,8 +409,12 @@ def assert_submission_integrity_report() -> None:
         raise AssertionError(f"Submission integrity report status is not pass: {data.get('status')}")
     if data.get("core_claims_check_count") != 45:
         raise AssertionError("Submission integrity report does not record 45 core checks")
-    if data.get("pre_submission_audit_check_count") != 10:
-        raise AssertionError("Submission integrity report does not record 10 audit checks")
+    if data.get("source_provenance_status") != "pass":
+        raise AssertionError("Submission integrity report does not record passing source provenance audit")
+    if int(data.get("source_provenance_url_count", 0)) <= 0:
+        raise AssertionError("Submission integrity report does not record source URLs")
+    if data.get("pre_submission_audit_check_count") != 11:
+        raise AssertionError("Submission integrity report does not record 11 audit checks")
 
     english_pdf = data.get("english_pdf", {})
     if english_pdf.get("korean_character_count") != 0:
@@ -458,6 +483,8 @@ def assert_checksums() -> None:
         "outputs/nec_2026_reported_duplicate_cases.csv",
         "outputs/core_claims_verification.csv",
         "outputs/core_claims_verification.json",
+        "outputs/source_provenance_audit.csv",
+        "outputs/source_provenance_audit.json",
         "outputs/pre_submission_audit.csv",
         "outputs/pre_submission_audit.json",
         "outputs/submission_integrity_report.md",
@@ -708,6 +735,7 @@ def main() -> None:
     assert_songdo_probability()
     assert_manifest_json()
     assert_core_claims_verification()
+    assert_source_provenance_audit()
     assert_pre_submission_audit()
     assert_submission_integrity_report()
     assert_checksums()

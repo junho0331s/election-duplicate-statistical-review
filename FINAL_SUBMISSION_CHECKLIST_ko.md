@@ -2,7 +2,7 @@
 
 이 점검표는 학회 제출 직전에 원고와 재현 패키지가 같은 결론, 같은 숫자, 같은 한계를 말하는지 확인하기 위한 것이다.
 
-검증 상태: 2026-06-09 KST 기준 `python3 scripts/run_all.py`와 `python3 scripts/validate_package.py` 통과. 핵심 주장 검증 파일 `outputs/core_claims_verification.json`은 `pass`, 45개 검증 항목을 기록한다. 제출 전 감사 파일 `outputs/pre_submission_audit.json`은 `pass`, 10개 검증 항목을 기록한다.
+검증 상태: 2026-06-09 KST 기준 `python3 scripts/run_all.py`와 `python3 scripts/validate_package.py` 통과. 핵심 주장 검증 파일 `outputs/core_claims_verification.json`은 `pass`, 45개 검증 항목을 기록한다. 제출 전 감사 파일 `outputs/pre_submission_audit.json`은 `pass`, 11개 검증 항목을 기록한다.
 
 ## 1. 주장 범위
 

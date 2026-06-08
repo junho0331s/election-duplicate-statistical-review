@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "scope": "source provenance audit for manuscript-facing references and source-policy documents",
+  "checked_files": [
+    "paper_statistical_implausibility_ko.md",
+    "paper_statistical_implausibility_en.md",
+    "README.md",
+    "data_availability_2026_ko.md",
+    "data_availability_2026_en.md",
+    "evidence_matrix_ko.md",
+    "evidence_matrix_en.md"
+  ],
+  "url_count": 15,
+  "allowed_domain_suffixes": [
+    "data.go.kr",
+    "hani.co.kr",
+    "jeonnam.go.kr",
+    "nec.go.kr",
+    "news.tvchosun.com",
+    "v.daum.net"
+  ],
+  "source_classes": [
+    "official administrative geography source",
+    "official election/public-data source",
+    "public report used for event definition or explanation"
+  ],
+  "failures": []
+}

@@ -133,6 +133,22 @@ def core_claims_pass() -> AuditCheck:
     )
 
 
+def source_provenance_pass() -> AuditCheck:
+    path = OUT / "source_provenance_audit.json"
+    if not path.exists():
+        return check(False, "source provenance audit", "status pass", "missing source_provenance_audit.json")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    status = data.get("status")
+    url_count = int(data.get("url_count", 0))
+    failures = data.get("failures", [])
+    return check(
+        status == "pass" and url_count > 0 and not failures,
+        "source provenance audit",
+        "status pass with approved source domains only",
+        f"status {status}, {url_count} URLs, {len(failures)} failures",
+    )
+
+
 def english_pdf_has_no_korean() -> AuditCheck:
     try:
         import fitz  # type: ignore[import-not-found]
@@ -300,6 +316,7 @@ def audit_checks() -> list[AuditCheck]:
         forbidden_patterns_absent(),
         privacy_and_credential_scan(),
         core_claims_pass(),
+        source_provenance_pass(),
         exact_collision_output_present(),
         manuscript_core_numbers_present(),
         english_pdf_has_no_korean(),

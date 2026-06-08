@@ -3,7 +3,8 @@
 - Status: `pass`
 - Scope: submission package integrity summary excluding final zip self-hash
 - Core-claims verification: `pass`, 45 checks
-- Pre-submission audit: `pass`, 10 checks
+- Source provenance audit: `pass`, 15 URLs
+- Pre-submission audit: `pass`, 11 checks
 
 ## PDF Artifacts
 

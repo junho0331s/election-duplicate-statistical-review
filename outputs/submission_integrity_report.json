@@ -3,8 +3,10 @@
   "scope": "submission package integrity summary excluding final zip self-hash",
   "core_claims_status": "pass",
   "core_claims_check_count": 45,
+  "source_provenance_status": "pass",
+  "source_provenance_url_count": 15,
   "pre_submission_audit_status": "pass",
-  "pre_submission_audit_check_count": 10,
+  "pre_submission_audit_check_count": 11,
   "korean_pdf": {
     "path": "latex/ieie/main.pdf",
     "pages": 15,
