@@ -3,15 +3,16 @@
 - Status: `pass`
 - Scope: submission package integrity summary excluding final zip self-hash
 - Core-claims verification: `pass`, 45 checks
+- Statistical robustness audit: `pass`, 10 checks
 - Source provenance audit: `pass`, 15 URLs
 - Claim-boundary audit: `pass`, 18 checks
 - Objection coverage audit: `pass`, 22 checks
-- Pre-submission audit: `pass`, 13 checks
+- Pre-submission audit: `pass`, 14 checks
 
 ## PDF Artifacts
 
 - Korean PDF: `latex/ieie/main.pdf`, 15 pages, sha256 `3d74423670e56158e665ab36f754e00e17274d596fb29268b0028e3387ba3683`
-- English PDF: `latex/en/main_en.pdf`, 18 pages, sha256 `d18950ef30e0666d801acf90bc2143cd0aca1f02497b1760e76ad60e702c2851`
+- English PDF: `latex/en/main_en.pdf`, 18 pages, sha256 `4b778bd13f239b3153d3ac7da1a2ef18371f767883f0ffd6348420ff2adac584`
 - English PDF Korean-character count: `0`
 - English PDF references `evidence_matrix_en.md`: `True`
 - English PDF references `evidence_matrix_ko.md`: `False`

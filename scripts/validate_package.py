@@ -59,6 +59,7 @@ REQUIRED_FILES = [
     "scripts/probability_sensitivity.py",
     "scripts/analyze_early_day_assembly.py",
     "scripts/verify_core_claims.py",
+    "scripts/statistical_robustness_audit.py",
     "scripts/source_provenance_audit.py",
     "scripts/claim_boundary_audit.py",
     "scripts/objection_coverage_audit.py",
@@ -86,6 +87,8 @@ REQUIRED_FILES = [
     "outputs/early_day_assembly_summary.csv",
     "outputs/core_claims_verification.csv",
     "outputs/core_claims_verification.json",
+    "outputs/statistical_robustness_audit.csv",
+    "outputs/statistical_robustness_audit.json",
     "outputs/source_provenance_audit.csv",
     "outputs/source_provenance_audit.json",
     "outputs/claim_boundary_audit.csv",
@@ -377,6 +380,7 @@ def assert_pre_submission_audit() -> None:
         "forbidden patterns absent",
         "privacy and credential scan",
         "core claims verification",
+        "statistical robustness audit",
         "source provenance audit",
         "claim-boundary audit",
         "objection coverage audit",
@@ -417,6 +421,42 @@ def assert_source_provenance_audit() -> None:
         raise AssertionError("Source provenance audit CSV row count does not match url_count")
     if any(row.get("status") != "pass" for row in rows):
         raise AssertionError("Source provenance audit CSV contains non-pass status")
+
+
+def assert_statistical_robustness_audit() -> None:
+    path = ROOT / "outputs" / "statistical_robustness_audit.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if data.get("status") != "pass":
+        raise AssertionError(f"Statistical robustness audit status is not pass: {data.get('status')}")
+    if int(data.get("check_count", 0)) != 10:
+        raise AssertionError(f"Statistical robustness audit check count mismatch: {data.get('check_count')}")
+    checks = data.get("checks")
+    if not isinstance(checks, list) or len(checks) != data.get("check_count"):
+        raise AssertionError("Statistical robustness audit checks list does not match check_count")
+    required = {
+        "historical empirical upper bound",
+        "Poisson baseline probability",
+        "exact collision probability",
+        "Poisson and exact agreement",
+        "nonparametric resampling threshold 5",
+        "rule-of-three upper bound",
+        "effective-pair-space sensitivity",
+        "K sensitivity monotonicity",
+        "counting-unit N sensitivity",
+        "N sensitivity upper range",
+    }
+    actual = {row.get("check") for row in checks}
+    missing = sorted(required - actual)
+    if missing:
+        raise AssertionError(f"Statistical robustness audit missing checks: {', '.join(missing)}")
+    if any(row.get("status") != "pass" for row in checks):
+        raise AssertionError("Statistical robustness audit contains non-pass status")
+
+    rows = list(csv.DictReader((ROOT / "outputs" / "statistical_robustness_audit.csv").open(encoding="utf-8")))
+    if len(rows) != data.get("check_count"):
+        raise AssertionError("Statistical robustness audit CSV row count does not match check_count")
+    if any(row.get("status") != "pass" for row in rows):
+        raise AssertionError("Statistical robustness audit CSV contains non-pass status")
 
 
 def assert_claim_boundary_audit() -> None:
@@ -499,6 +539,10 @@ def assert_submission_integrity_report() -> None:
         raise AssertionError("Submission integrity report does not record passing source provenance audit")
     if int(data.get("source_provenance_url_count", 0)) <= 0:
         raise AssertionError("Submission integrity report does not record source URLs")
+    if data.get("statistical_robustness_audit_status") != "pass":
+        raise AssertionError("Submission integrity report does not record passing statistical robustness audit")
+    if data.get("statistical_robustness_audit_check_count") != 10:
+        raise AssertionError("Submission integrity report does not record 10 statistical robustness checks")
     if data.get("claim_boundary_audit_status") != "pass":
         raise AssertionError("Submission integrity report does not record passing claim-boundary audit")
     if data.get("claim_boundary_audit_check_count") != 18:
@@ -507,8 +551,8 @@ def assert_submission_integrity_report() -> None:
         raise AssertionError("Submission integrity report does not record passing objection coverage audit")
     if data.get("objection_coverage_audit_check_count") != 22:
         raise AssertionError("Submission integrity report does not record 22 objection coverage checks")
-    if data.get("pre_submission_audit_check_count") != 13:
-        raise AssertionError("Submission integrity report does not record 13 audit checks")
+    if data.get("pre_submission_audit_check_count") != 14:
+        raise AssertionError("Submission integrity report does not record 14 audit checks")
 
     english_pdf = data.get("english_pdf", {})
     if english_pdf.get("korean_character_count") != 0:
@@ -595,10 +639,13 @@ def assert_checksums() -> None:
         "latex/en/main_en.pdf",
         "scripts/bootstrap_governor_duplicates.py",
         "scripts/verify_core_claims.py",
+        "scripts/statistical_robustness_audit.py",
         "outputs/governor_bootstrap_summary.csv",
         "outputs/nec_2026_reported_duplicate_cases.csv",
         "outputs/core_claims_verification.csv",
         "outputs/core_claims_verification.json",
+        "outputs/statistical_robustness_audit.csv",
+        "outputs/statistical_robustness_audit.json",
         "outputs/source_provenance_audit.csv",
         "outputs/source_provenance_audit.json",
         "outputs/claim_boundary_audit.csv",
@@ -738,6 +785,8 @@ def assert_zip_package() -> None:
         "outputs/nec_2026_reported_duplicate_cases.csv",
         "outputs/core_claims_verification.csv",
         "outputs/core_claims_verification.json",
+        "outputs/statistical_robustness_audit.csv",
+        "outputs/statistical_robustness_audit.json",
         "outputs/pre_submission_audit.csv",
         "outputs/pre_submission_audit.json",
         "outputs/claim_boundary_audit.csv",
@@ -863,6 +912,7 @@ def main() -> None:
     assert_songdo_probability()
     assert_manifest_json()
     assert_core_claims_verification()
+    assert_statistical_robustness_audit()
     assert_source_provenance_audit()
     assert_claim_boundary_audit()
     assert_objection_coverage_audit()

@@ -1,0 +1,11 @@
+check,expected,actual,status
+historical empirical upper bound,51 governor contests and historical maximum 3 repeated pairs,"51 contests, max 3",pass
+Poisson baseline probability,P(C>=5) equals 0.0011484064248148407,0.0011484064248148407,pass
+exact collision probability,exact P(C>=5) equals 0.0012190883791786122,0.0012190883791786122,pass
+Poisson and exact agreement,absolute difference below 0.0001,diff 7.068195436377156e-05,pass
+nonparametric resampling threshold 5,"0 exceedances in 200,000 trials",0 exceedances in 200000 trials,pass
+rule-of-three upper bound,95% upper bound equals 0.000015,1.5e-05,pass
+effective-pair-space sensitivity,"K=50,000 remains below 2.1%, baseline below 0.12%, K=200,000 below 0.006%","K50 0.02054999234891819, baseline 0.0011484064248148407, K200 5.130716523893408e-05",pass
+K sensitivity monotonicity,probability decreases as K increases,"K50 0.02054999234891819, baseline 0.0011484064248148407, K200 5.130716523893408e-05",pass
+counting-unit N sensitivity,probability increases with N but stays below 0.37% through N=450,"N350 0.0004096177139301105, N393 0.0011484064248148407, N450 0.003672039591659959",pass
+N sensitivity upper range,all reported N-sensitivity probabilities for threshold 5 below 0.4%,max 0.003672039591659959,pass

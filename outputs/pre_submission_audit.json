@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 13,
+  "check_count": 14,
   "scope": "pre-submission package readiness",
   "checks": [
     {
@@ -25,6 +25,12 @@
       "check": "core claims verification",
       "expected": "status pass, 45 checks",
       "actual": "status pass, 45 checks",
+      "status": "pass"
+    },
+    {
+      "check": "statistical robustness audit",
+      "expected": "status pass with 10 checks",
+      "actual": "status pass, 10 checks",
       "status": "pass"
     },
     {

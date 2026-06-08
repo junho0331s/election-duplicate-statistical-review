@@ -3,6 +3,8 @@
   "scope": "submission package integrity summary excluding final zip self-hash",
   "core_claims_status": "pass",
   "core_claims_check_count": 45,
+  "statistical_robustness_audit_status": "pass",
+  "statistical_robustness_audit_check_count": 10,
   "source_provenance_status": "pass",
   "source_provenance_url_count": 15,
   "claim_boundary_audit_status": "pass",
@@ -10,7 +12,7 @@
   "objection_coverage_audit_status": "pass",
   "objection_coverage_audit_check_count": 22,
   "pre_submission_audit_status": "pass",
-  "pre_submission_audit_check_count": 13,
+  "pre_submission_audit_check_count": 14,
   "korean_pdf": {
     "path": "latex/ieie/main.pdf",
     "pages": 15,
@@ -19,7 +21,7 @@
   "english_pdf": {
     "path": "latex/en/main_en.pdf",
     "pages": 18,
-    "sha256": "d18950ef30e0666d801acf90bc2143cd0aca1f02497b1760e76ad60e702c2851",
+    "sha256": "4b778bd13f239b3153d3ac7da1a2ef18371f767883f0ffd6348420ff2adac584",
     "korean_character_count": 0,
     "references_english_evidence_matrix": true,
     "references_korean_evidence_matrix": false

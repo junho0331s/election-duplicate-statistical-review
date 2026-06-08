@@ -149,6 +149,21 @@ def source_provenance_pass() -> AuditCheck:
     )
 
 
+def statistical_robustness_pass() -> AuditCheck:
+    path = OUT / "statistical_robustness_audit.json"
+    if not path.exists():
+        return check(False, "statistical robustness audit", "status pass with 10 checks", "missing statistical_robustness_audit.json")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    status = data.get("status")
+    check_count = int(data.get("check_count", 0))
+    return check(
+        status == "pass" and check_count == 10,
+        "statistical robustness audit",
+        "status pass with 10 checks",
+        f"status {status}, {check_count} checks",
+    )
+
+
 def claim_boundary_pass() -> AuditCheck:
     path = OUT / "claim_boundary_audit.json"
     if not path.exists():
@@ -348,6 +363,7 @@ def audit_checks() -> list[AuditCheck]:
         forbidden_patterns_absent(),
         privacy_and_credential_scan(),
         core_claims_pass(),
+        statistical_robustness_pass(),
         source_provenance_pass(),
         claim_boundary_pass(),
         objection_coverage_pass(),
