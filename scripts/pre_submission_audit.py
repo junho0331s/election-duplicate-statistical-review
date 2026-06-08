@@ -149,6 +149,21 @@ def source_provenance_pass() -> AuditCheck:
     )
 
 
+def claim_boundary_pass() -> AuditCheck:
+    path = OUT / "claim_boundary_audit.json"
+    if not path.exists():
+        return check(False, "claim-boundary audit", "status pass with 18 checks", "missing claim_boundary_audit.json")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    status = data.get("status")
+    check_count = int(data.get("check_count", 0))
+    return check(
+        status == "pass" and check_count == 18,
+        "claim-boundary audit",
+        "status pass with 18 checks",
+        f"status {status}, {check_count} checks",
+    )
+
+
 def english_pdf_has_no_korean() -> AuditCheck:
     try:
         import fitz  # type: ignore[import-not-found]
@@ -319,6 +334,7 @@ def audit_checks() -> list[AuditCheck]:
         privacy_and_credential_scan(),
         core_claims_pass(),
         source_provenance_pass(),
+        claim_boundary_pass(),
         exact_collision_output_present(),
         manuscript_core_numbers_present(),
         english_pdf_has_no_korean(),

@@ -31,6 +31,7 @@ def main() -> None:
 
     core = json.loads((OUT / "core_claims_verification.json").read_text(encoding="utf-8"))
     source = json.loads((OUT / "source_provenance_audit.json").read_text(encoding="utf-8"))
+    claim_boundary = json.loads((OUT / "claim_boundary_audit.json").read_text(encoding="utf-8"))
     audit = json.loads((OUT / "pre_submission_audit.json").read_text(encoding="utf-8"))
     ko_pdf = ROOT / "latex" / "ieie" / "main.pdf"
     en_pdf = ROOT / "latex" / "en" / "main_en.pdf"
@@ -38,12 +39,19 @@ def main() -> None:
     ko_pages, _ = pdf_text(ko_pdf)
 
     summary = {
-        "status": "pass" if core.get("status") == "pass" and source.get("status") == "pass" and audit.get("status") == "pass" else "fail",
+        "status": "pass" if (
+            core.get("status") == "pass"
+            and source.get("status") == "pass"
+            and claim_boundary.get("status") == "pass"
+            and audit.get("status") == "pass"
+        ) else "fail",
         "scope": "submission package integrity summary excluding final zip self-hash",
         "core_claims_status": core.get("status"),
         "core_claims_check_count": core.get("check_count"),
         "source_provenance_status": source.get("status"),
         "source_provenance_url_count": source.get("url_count"),
+        "claim_boundary_audit_status": claim_boundary.get("status"),
+        "claim_boundary_audit_check_count": claim_boundary.get("check_count"),
         "pre_submission_audit_status": audit.get("status"),
         "pre_submission_audit_check_count": audit.get("check_count"),
         "korean_pdf": {
@@ -91,6 +99,7 @@ def main() -> None:
         f"- Scope: {summary['scope']}",
         f"- Core-claims verification: `{summary['core_claims_status']}`, {summary['core_claims_check_count']} checks",
         f"- Source provenance audit: `{summary['source_provenance_status']}`, {summary['source_provenance_url_count']} URLs",
+        f"- Claim-boundary audit: `{summary['claim_boundary_audit_status']}`, {summary['claim_boundary_audit_check_count']} checks",
         f"- Pre-submission audit: `{summary['pre_submission_audit_status']}`, {summary['pre_submission_audit_check_count']} checks",
         "",
         "## PDF Artifacts",

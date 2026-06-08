@@ -1,0 +1,133 @@
+{
+  "status": "pass",
+  "check_count": 18,
+  "scope": "claim-boundary, falsifiability, and raw-data-audit wording audit",
+  "checks": [
+    {
+      "check": "overclaim phrase absence",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "0 legal-finality or non-falsifiable overclaim markers",
+      "actual": "0 hits",
+      "status": "pass"
+    },
+    {
+      "check": "overclaim phrase absence",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "0 legal-finality or non-falsifiable overclaim markers",
+      "actual": "0 hits",
+      "status": "pass"
+    },
+    {
+      "check": "overclaim phrase absence",
+      "file": "submission_memo_ko.md",
+      "expected": "0 legal-finality or non-falsifiable overclaim markers",
+      "actual": "0 hits",
+      "status": "pass"
+    },
+    {
+      "check": "overclaim phrase absence",
+      "file": "submission_memo_en.md",
+      "expected": "0 legal-finality or non-falsifiable overclaim markers",
+      "actual": "0 hits",
+      "status": "pass"
+    },
+    {
+      "check": "overclaim phrase absence",
+      "file": "reviewer_response_ko.md",
+      "expected": "0 legal-finality or non-falsifiable overclaim markers",
+      "actual": "0 hits",
+      "status": "pass"
+    },
+    {
+      "check": "overclaim phrase absence",
+      "file": "reviewer_response_en.md",
+      "expected": "0 legal-finality or non-falsifiable overclaim markers",
+      "actual": "0 hits",
+      "status": "pass"
+    },
+    {
+      "check": "overclaim phrase absence",
+      "file": "latex/ieie/main.pdf",
+      "expected": "0 legal-finality or non-falsifiable overclaim markers",
+      "actual": "0 hits",
+      "status": "pass"
+    },
+    {
+      "check": "overclaim phrase absence",
+      "file": "latex/en/main_en.pdf",
+      "expected": "0 legal-finality or non-falsifiable overclaim markers",
+      "actual": "0 hits",
+      "status": "pass"
+    },
+    {
+      "check": "Korean manuscript boundary markers",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "legal boundary, direct-proof boundary, raw-data audit, and falsifiability are explicit",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "check": "English manuscript boundary markers",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "legal boundary, direct-proof boundary, raw-data audit, and falsifiability are explicit",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "check": "Korean submission memo boundary markers",
+      "file": "submission_memo_ko.md",
+      "expected": "submission memo states the bounded statistical claim and audit remedy",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "check": "English submission memo boundary markers",
+      "file": "submission_memo_en.md",
+      "expected": "submission memo states the bounded statistical claim and audit remedy",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "check": "Korean reviewer-response boundary markers",
+      "file": "reviewer_response_ko.md",
+      "expected": "reviewer response anticipates overclaim and falsifiability objections",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "check": "English reviewer-response boundary markers",
+      "file": "reviewer_response_en.md",
+      "expected": "reviewer response anticipates overclaim and falsifiability objections",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "check": "Korean raw-record requirements",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "raw records needed for causal/legal attribution are listed",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "check": "English raw-record requirements",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "raw records needed for causal/legal attribution are listed",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "check": "Korean PDF claim-boundary rendering",
+      "file": "latex/ieie/main.pdf",
+      "expected": "Korean PDF renders the claim-boundary text",
+      "actual": "present",
+      "status": "pass"
+    },
+    {
+      "check": "English PDF claim-boundary rendering",
+      "file": "latex/en/main_en.pdf",
+      "expected": "English PDF renders the claim-boundary text",
+      "actual": "present",
+      "status": "pass"
+    }
+  ]
+}

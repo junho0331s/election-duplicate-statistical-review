@@ -60,6 +60,7 @@ INCLUDE_FILES = [
     "scripts/analyze_early_day_assembly.py",
     "scripts/verify_core_claims.py",
     "scripts/source_provenance_audit.py",
+    "scripts/claim_boundary_audit.py",
     "scripts/pre_submission_audit.py",
     "scripts/submission_integrity_report.py",
     "scripts/local_ci_validation_report.py",

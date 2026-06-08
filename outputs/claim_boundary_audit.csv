@@ -1,0 +1,19 @@
+check,file,expected,actual,status
+overclaim phrase absence,paper_statistical_implausibility_ko.md,0 legal-finality or non-falsifiable overclaim markers,0 hits,pass
+overclaim phrase absence,paper_statistical_implausibility_en.md,0 legal-finality or non-falsifiable overclaim markers,0 hits,pass
+overclaim phrase absence,submission_memo_ko.md,0 legal-finality or non-falsifiable overclaim markers,0 hits,pass
+overclaim phrase absence,submission_memo_en.md,0 legal-finality or non-falsifiable overclaim markers,0 hits,pass
+overclaim phrase absence,reviewer_response_ko.md,0 legal-finality or non-falsifiable overclaim markers,0 hits,pass
+overclaim phrase absence,reviewer_response_en.md,0 legal-finality or non-falsifiable overclaim markers,0 hits,pass
+overclaim phrase absence,latex/ieie/main.pdf,0 legal-finality or non-falsifiable overclaim markers,0 hits,pass
+overclaim phrase absence,latex/en/main_en.pdf,0 legal-finality or non-falsifiable overclaim markers,0 hits,pass
+Korean manuscript boundary markers,paper_statistical_implausibility_ko.md,"legal boundary, direct-proof boundary, raw-data audit, and falsifiability are explicit",4/4 markers present,pass
+English manuscript boundary markers,paper_statistical_implausibility_en.md,"legal boundary, direct-proof boundary, raw-data audit, and falsifiability are explicit",4/4 markers present,pass
+Korean submission memo boundary markers,submission_memo_ko.md,submission memo states the bounded statistical claim and audit remedy,4/4 markers present,pass
+English submission memo boundary markers,submission_memo_en.md,submission memo states the bounded statistical claim and audit remedy,4/4 markers present,pass
+Korean reviewer-response boundary markers,reviewer_response_ko.md,reviewer response anticipates overclaim and falsifiability objections,3/3 markers present,pass
+English reviewer-response boundary markers,reviewer_response_en.md,reviewer response anticipates overclaim and falsifiability objections,3/3 markers present,pass
+Korean raw-record requirements,paper_statistical_implausibility_ko.md,raw records needed for causal/legal attribution are listed,4/4 markers present,pass
+English raw-record requirements,paper_statistical_implausibility_en.md,raw records needed for causal/legal attribution are listed,4/4 markers present,pass
+Korean PDF claim-boundary rendering,latex/ieie/main.pdf,Korean PDF renders the claim-boundary text,present,pass
+English PDF claim-boundary rendering,latex/en/main_en.pdf,English PDF renders the claim-boundary text,present,pass

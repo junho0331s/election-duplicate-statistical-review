@@ -5,8 +5,10 @@
   "core_claims_check_count": 45,
   "source_provenance_status": "pass",
   "source_provenance_url_count": 15,
+  "claim_boundary_audit_status": "pass",
+  "claim_boundary_audit_check_count": 18,
   "pre_submission_audit_status": "pass",
-  "pre_submission_audit_check_count": 11,
+  "pre_submission_audit_check_count": 12,
   "korean_pdf": {
     "path": "latex/ieie/main.pdf",
     "pages": 15,

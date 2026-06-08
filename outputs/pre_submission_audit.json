@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 11,
+  "check_count": 12,
   "scope": "pre-submission package readiness",
   "checks": [
     {
@@ -31,6 +31,12 @@
       "check": "source provenance audit",
       "expected": "status pass with approved source domains only",
       "actual": "status pass, 15 URLs, 0 failures",
+      "status": "pass"
+    },
+    {
+      "check": "claim-boundary audit",
+      "expected": "status pass with 18 checks",
+      "actual": "status pass, 18 checks",
       "status": "pass"
     },
     {
