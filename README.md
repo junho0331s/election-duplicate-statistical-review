@@ -1,6 +1,6 @@
 # Election Duplicate Vote-Pair Statistical Review / 관내사전투표 동일 득표쌍 통계 검토
 
-This repository contains the Korean and English papers, official-data reproduction scripts, intermediate outputs, cached source files, and the IEIE-style Korean PDF.
+This repository contains the Korean and English papers, official-data reproduction scripts, intermediate outputs, cached source files, and compiled Korean and English PDFs.
 
 이 저장소는 관내사전투표 동일 득표쌍 분석의 한글/영문 원고, 공식자료 재현 스크립트, 중간 산출물, 원자료 캐시, IEIE 형식 한글 PDF를 포함한다.
 
@@ -32,7 +32,9 @@ The repository intentionally excludes informal video-platform materials and vide
 - `paper_statistical_implausibility_ko.md`: 학술 원고 본문
 - `paper_statistical_implausibility_en.md`: English paper
 - `cover_letter_ko.md`: 학회 제출용 커버레터
+- `cover_letter_en.md`: English submission cover letter
 - `submission_memo_ko.md`: 제출 메모, 주장 범위, 한계, 재현 절차, 예상 반론 요약
+- `submission_memo_en.md`: English submission memo
 - `reviewer_response_ko.md`: 심사자 반론 대응 메모
 - `reviewer_response_en.md`: English reviewer objection response memo
 - `evidence_matrix_ko.md`: 핵심 주장과 재현 파일의 대응표
@@ -45,6 +47,8 @@ The repository intentionally excludes informal video-platform materials and vide
 - `data_availability_2026_en.md`: English 2026 data availability memo
 - `latex/ieie/main.tex`: IEIE 템플릿 기반 LaTeX 원고
 - `latex/ieie/main.pdf`: 컴파일된 PDF 원고
+- `latex/en/main_en.tex`: English LaTeX source
+- `latex/en/main_en.pdf`: compiled English PDF
 
 ## 원자료
 
@@ -160,12 +164,21 @@ python3 scripts/create_submission_zip.py
 ## 제출 패키지 구성
 
 - `paper_statistical_implausibility_ko.md`
+- `paper_statistical_implausibility_en.md`
 - `cover_letter_ko.md`
+- `cover_letter_en.md`
 - `submission_memo_ko.md`
+- `submission_memo_en.md`
 - `reviewer_response_ko.md`
+- `reviewer_response_en.md`
+- `evidence_matrix_ko.md`
+- `evidence_matrix_en.md`
 - `REPRODUCIBILITY_CHECKLIST_ko.md`
+- `REPRODUCIBILITY_CHECKLIST_en.md`
 - `STATISTICAL_CALCULATION_NOTE_ko.md`
+- `STATISTICAL_CALCULATION_NOTE_en.md`
 - `data_availability_2026_ko.md`
+- `data_availability_2026_en.md`
 - `README.md`
 - `requirements.txt`
 - `latex/`

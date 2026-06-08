@@ -16,7 +16,9 @@ REQUIRED_FILES = [
     "paper_statistical_implausibility_ko.md",
     "paper_statistical_implausibility_en.md",
     "cover_letter_ko.md",
+    "cover_letter_en.md",
     "submission_memo_ko.md",
+    "submission_memo_en.md",
     "reviewer_response_ko.md",
     "reviewer_response_en.md",
     "evidence_matrix_ko.md",
@@ -279,7 +281,23 @@ def assert_checksums() -> None:
     by_path = {row["path"]: row for row in rows}
     required = [
         "paper_statistical_implausibility_ko.md",
+        "paper_statistical_implausibility_en.md",
+        "cover_letter_ko.md",
+        "cover_letter_en.md",
+        "submission_memo_ko.md",
+        "submission_memo_en.md",
+        "reviewer_response_ko.md",
+        "reviewer_response_en.md",
+        "evidence_matrix_ko.md",
+        "evidence_matrix_en.md",
+        "REPRODUCIBILITY_CHECKLIST_ko.md",
+        "REPRODUCIBILITY_CHECKLIST_en.md",
+        "STATISTICAL_CALCULATION_NOTE_ko.md",
+        "STATISTICAL_CALCULATION_NOTE_en.md",
+        "data_availability_2026_ko.md",
+        "data_availability_2026_en.md",
         "latex/ieie/main.pdf",
+        "latex/en/main_en.pdf",
         "scripts/bootstrap_governor_duplicates.py",
         "outputs/governor_bootstrap_summary.csv",
         "outputs/nec_2026_reported_duplicate_cases.csv",
@@ -296,19 +314,26 @@ def assert_checksums() -> None:
 
 def assert_artifact_freshness() -> None:
     """Guard against submitting a stale PDF, checksum file, or zip bundle."""
-    md = ROOT / "paper_statistical_implausibility_ko.md"
-    converter = ROOT / "latex" / "convert_to_ieie.py"
-    tex = ROOT / "latex" / "ieie" / "main.tex"
-    pdf = ROOT / "latex" / "ieie" / "main.pdf"
+    ko_md = ROOT / "paper_statistical_implausibility_ko.md"
+    ko_converter = ROOT / "latex" / "convert_to_ieie.py"
+    ko_tex = ROOT / "latex" / "ieie" / "main.tex"
+    ko_pdf = ROOT / "latex" / "ieie" / "main.pdf"
+    en_tex = ROOT / "latex" / "en" / "main_en.tex"
+    en_pdf = ROOT / "latex" / "en" / "main_en.pdf"
     checksums = ROOT / "outputs" / "checksums_sha256.csv"
     zip_path = ROOT / "dist" / "election_duplicate_ieie_submission.zip"
 
-    if tex.stat().st_mtime < max(md.stat().st_mtime, converter.stat().st_mtime):
+    if ko_tex.stat().st_mtime < max(ko_md.stat().st_mtime, ko_converter.stat().st_mtime):
         raise AssertionError("main.tex is older than the Markdown source or converter script")
-    if pdf.stat().st_mtime < tex.stat().st_mtime:
+    if ko_pdf.stat().st_mtime < ko_tex.stat().st_mtime:
         raise AssertionError("main.pdf is older than main.tex")
-    if checksums.stat().st_mtime < pdf.stat().st_mtime:
-        raise AssertionError("checksums_sha256.csv is older than main.pdf")
+    if en_pdf.stat().st_mtime < en_tex.stat().st_mtime:
+        raise AssertionError("main_en.pdf is older than main_en.tex")
+
+    package_sources = [ROOT / rel for rel in REQUIRED_FILES if not rel.startswith("dist/")]
+    newest_source = max(path.stat().st_mtime for path in package_sources)
+    if checksums.stat().st_mtime < newest_source:
+        raise AssertionError("checksums_sha256.csv is older than a required package source")
     if zip_path.stat().st_mtime < checksums.stat().st_mtime:
         raise AssertionError("submission zip is older than checksums_sha256.csv")
 
@@ -318,16 +343,30 @@ def assert_zip_package() -> None:
     required = {
         "README.md",
         "paper_statistical_implausibility_ko.md",
+        "paper_statistical_implausibility_en.md",
+        "cover_letter_ko.md",
+        "cover_letter_en.md",
+        "submission_memo_ko.md",
+        "submission_memo_en.md",
+        "reviewer_response_ko.md",
+        "reviewer_response_en.md",
         "latex/ieie/main.tex",
         "latex/ieie/main.pdf",
+        "latex/en/main_en.tex",
+        "latex/en/main_en.pdf",
         "outputs/checksums_sha256.csv",
         "outputs/governor_bootstrap_summary.csv",
         "outputs/nec_2026_gwangju_jeonnam_unit_summary.json",
         "outputs/nec_2026_gwangju_jeonnam_units.csv",
         "outputs/nec_2026_reported_duplicate_cases.csv",
         "evidence_matrix_ko.md",
+        "evidence_matrix_en.md",
         "REPRODUCIBILITY_CHECKLIST_ko.md",
+        "REPRODUCIBILITY_CHECKLIST_en.md",
         "STATISTICAL_CALCULATION_NOTE_ko.md",
+        "STATISTICAL_CALCULATION_NOTE_en.md",
+        "data_availability_2026_ko.md",
+        "data_availability_2026_en.md",
     }
     with ZipFile(zip_path) as zf:
         names = set(zf.namelist())
