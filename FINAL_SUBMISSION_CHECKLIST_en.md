@@ -89,6 +89,7 @@ python3 scripts/validate_package.py
 ## 7. Submission ZIP Contents
 
 - [x] `dist/election_duplicate_ieie_submission.zip` is newer than the checksum file.
+- [x] `dist/election_duplicate_ieie_submission.zip.sha256` and `dist/election_duplicate_ieie_submission_manifest.json` record the submission ZIP's own hash and file count.
 - [x] The ZIP includes Korean and English papers, Korean and English PDFs, cover letters, submission memos, reviewer-response memos, evidence matrices, calculation notes, data-availability memos, audit protocols, reproduction scripts, outputs, and data.
 - [x] The ZIP does not include LaTeX temporary files such as `.aux`, `.log`, `.out`, or `.synctex.gz`.
 - [x] The ZIP may exceed GitHub's recommended file-size warning threshold; if needed, upload it separately for the academic submission system.

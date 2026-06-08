@@ -89,6 +89,7 @@ python3 scripts/validate_package.py
 ## 7. 제출 ZIP 구성
 
 - [x] `dist/election_duplicate_ieie_submission.zip`이 최신 체크섬 파일보다 오래되지 않았다.
+- [x] `dist/election_duplicate_ieie_submission.zip.sha256`와 `dist/election_duplicate_ieie_submission_manifest.json`이 제출 ZIP 자체의 해시와 파일 수를 기록한다.
 - [x] ZIP 안에 한글/영문 원고, 한글/영문 PDF, 커버레터, 제출 메모, 심사자 반론 대응, 증거 매트릭스, 계산 노트, 자료 가용성 메모, 감사 프로토콜, 재현 스크립트, outputs, data가 들어 있다.
 - [x] ZIP 안에 LaTeX 임시 파일 `.aux`, `.log`, `.out`, `.synctex.gz`가 들어 있지 않다.
 - [x] ZIP 크기가 GitHub 권고치보다 클 수 있음을 알고, 필요하면 학회 제출용으로만 별도 업로드한다.

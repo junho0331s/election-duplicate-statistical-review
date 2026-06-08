@@ -47,6 +47,8 @@
 | `outputs/pre_submission_audit.csv` | 제출 전 감사 항목 1개 | 최종 체크리스트, 금지 표현, 영문 PDF 번역, 핵심 검증 상태를 스프레드시트에서 확인 | `check`, `expected`, `actual`, `status` |
 | `outputs/pre_submission_audit.json` | JSON 감사 요약 | 제출 전 감사 항목의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/checksums_sha256.csv` | 패키지 파일 1개 | 제출 패키지 파일 무결성 확인 | `path`, `bytes`, `sha256` |
+| `dist/election_duplicate_ieie_submission.zip.sha256` | 제출 ZIP 1개 | 제출 ZIP 자체의 SHA256 sidecar | `sha256  filename` |
+| `dist/election_duplicate_ieie_submission_manifest.json` | JSON 제출 ZIP 요약 | 제출 ZIP 자체의 크기, SHA256, 내부 파일 수 확인 | `package`, `bytes`, `sha256`, `file_count` |
 
 ## 열 해석상 주의점
 
@@ -72,6 +74,7 @@
 | 2020·2024 총선에서 분석 가능한 전 지역구가 같은 사전투표 방향성을 보인다. | `outputs/early_day_assembly_summary.csv`, `outputs/early_day_assembly_twoparty.csv` |
 | 본문 핵심 수치 45개가 현재 산출물과 일치한다. | `outputs/core_claims_verification.csv`, `outputs/core_claims_verification.json` |
 | 최종 제출 전 감사 항목이 통과한다. | `outputs/pre_submission_audit.csv`, `outputs/pre_submission_audit.json` |
+| 제출 ZIP 자체의 SHA256과 내부 파일 수가 검증된다. | `dist/election_duplicate_ieie_submission.zip.sha256`, `dist/election_duplicate_ieie_submission_manifest.json` |
 
 ## 심사자에게 중요한 경계
 

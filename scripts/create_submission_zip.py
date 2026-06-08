@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import hashlib
+import json
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
@@ -8,6 +10,7 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 PACKAGE_NAME = "election_duplicate_ieie_submission.zip"
+MANIFEST_NAME = "election_duplicate_ieie_submission_manifest.json"
 ZIP_TIMESTAMP = (2026, 6, 9, 0, 0, 0)
 
 INCLUDE_FILES = [
@@ -101,11 +104,25 @@ def package_paths() -> list[Path]:
     return unique
 
 
+def sha256(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
 def main() -> None:
     DIST.mkdir(exist_ok=True)
     zip_path = DIST / PACKAGE_NAME
+    manifest_path = DIST / MANIFEST_NAME
+    sha_path = DIST / f"{PACKAGE_NAME}.sha256"
     if zip_path.exists():
         zip_path.unlink()
+    if manifest_path.exists():
+        manifest_path.unlink()
+    if sha_path.exists():
+        sha_path.unlink()
 
     paths = package_paths()
     with ZipFile(zip_path, "w", compression=ZIP_DEFLATED) as zf:
@@ -122,6 +139,18 @@ def main() -> None:
     missing = sorted(expected - names)
     if missing:
         raise SystemExit(f"Zip missing expected entries: {', '.join(missing)}")
+
+    digest = sha256(zip_path)
+    manifest = {
+        "package": PACKAGE_NAME,
+        "bytes": zip_path.stat().st_size,
+        "sha256": digest,
+        "file_count": len(names),
+        "zip_entry_timestamp": "-".join(str(part) for part in ZIP_TIMESTAMP),
+        "scope": "submission zip sidecar manifest; not embedded in the zip",
+    }
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    sha_path.write_text(f"{digest}  {PACKAGE_NAME}\n", encoding="utf-8")
 
     print(f"Created {zip_path.relative_to(ROOT)} with {len(names)} files.")
 

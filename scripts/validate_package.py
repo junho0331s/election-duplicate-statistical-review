@@ -85,6 +85,8 @@ REQUIRED_FILES = [
     "outputs/pre_submission_audit.json",
     "outputs/checksums_sha256.csv",
     "dist/election_duplicate_ieie_submission.zip",
+    "dist/election_duplicate_ieie_submission.zip.sha256",
+    "dist/election_duplicate_ieie_submission_manifest.json",
 ]
 
 FORBIDDEN_PATTERNS = [
@@ -500,6 +502,8 @@ def assert_english_pdf_translation_coverage() -> None:
 
 def assert_zip_package() -> None:
     zip_path = ROOT / "dist" / "election_duplicate_ieie_submission.zip"
+    manifest_path = ROOT / "dist" / "election_duplicate_ieie_submission_manifest.json"
+    sha_path = ROOT / "dist" / "election_duplicate_ieie_submission.zip.sha256"
     required = {
         "README.md",
         "paper_statistical_implausibility_ko.md",
@@ -611,6 +615,21 @@ def assert_zip_package() -> None:
             "Zip text entries contain forbidden/privacy patterns: "
             + "; ".join(zip_text_hits[:20])
         )
+
+    package_digest = hashlib.sha256(zip_path.read_bytes()).hexdigest()
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("package") != zip_path.name:
+        raise AssertionError(f"Zip manifest package mismatch: {manifest.get('package')}")
+    if manifest.get("sha256") != package_digest:
+        raise AssertionError("Zip manifest sha256 does not match the actual zip")
+    if int(manifest.get("bytes", -1)) != zip_path.stat().st_size:
+        raise AssertionError("Zip manifest byte count does not match the actual zip")
+    if int(manifest.get("file_count", -1)) != len(names):
+        raise AssertionError("Zip manifest file count does not match the actual zip")
+    expected_sha_line = f"{package_digest}  {zip_path.name}"
+    actual_sha_line = sha_path.read_text(encoding="utf-8").strip()
+    if actual_sha_line != expected_sha_line:
+        raise AssertionError("Zip .sha256 sidecar does not match the actual zip")
 
 
 def main() -> None:

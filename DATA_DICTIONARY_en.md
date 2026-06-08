@@ -47,6 +47,8 @@ This document explains the core CSV and JSON outputs under `outputs/`. Its purpo
 | `outputs/pre_submission_audit.csv` | One pre-submission audit check | Spreadsheet-readable check of final checklist completion, forbidden wording, English PDF translation, and core verification status. | `check`, `expected`, `actual`, `status` |
 | `outputs/pre_submission_audit.json` | JSON audit summary | Machine-readable result of the pre-submission audit checks. | `status`, `check_count`, `scope`, `checks` |
 | `outputs/checksums_sha256.csv` | One package file | Verifies integrity of submission-package files. | `path`, `bytes`, `sha256` |
+| `dist/election_duplicate_ieie_submission.zip.sha256` | One submission ZIP | SHA256 sidecar for the submission ZIP itself. | `sha256  filename` |
+| `dist/election_duplicate_ieie_submission_manifest.json` | JSON submission ZIP summary | Verifies the ZIP file's byte size, SHA256, and internal file count. | `package`, `bytes`, `sha256`, `file_count` |
 
 ## Column Interpretation Notes
 
@@ -72,6 +74,7 @@ This document explains the core CSV and JSON outputs under `outputs/`. Its purpo
 | In 2020 and 2024, every analyzable National Assembly constituency shows the same early-vote directional pattern. | `outputs/early_day_assembly_summary.csv`, `outputs/early_day_assembly_twoparty.csv` |
 | The 45 core numerical claims in the manuscript match the current outputs. | `outputs/core_claims_verification.csv`, `outputs/core_claims_verification.json` |
 | The final pre-submission audit checks pass. | `outputs/pre_submission_audit.csv`, `outputs/pre_submission_audit.json` |
+| The submission ZIP's SHA256 and internal file count are verified. | `dist/election_duplicate_ieie_submission.zip.sha256`, `dist/election_duplicate_ieie_submission_manifest.json` |
 
 ## Boundary Important for Reviewers
 

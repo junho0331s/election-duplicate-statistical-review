@@ -133,6 +133,11 @@ cd ../..
 python3 scripts/create_submission_zip.py
 ```
 
+이 명령은 제출 ZIP과 함께 ZIP 자체를 식별하기 위한 sidecar 파일도 생성한다.
+
+- `dist/election_duplicate_ieie_submission.zip.sha256`
+- `dist/election_duplicate_ieie_submission_manifest.json`
+
 ## 주요 출력
 
 - `outputs/duplicate_summary.csv`
@@ -161,6 +166,8 @@ python3 scripts/create_submission_zip.py
 - `outputs/pre_submission_audit.csv`
 - `outputs/pre_submission_audit.json`
 - `outputs/checksums_sha256.csv`
+- `dist/election_duplicate_ieie_submission.zip.sha256`
+- `dist/election_duplicate_ieie_submission_manifest.json`
 
 ## 현재 검증된 핵심 숫자
 
@@ -228,3 +235,5 @@ python3 scripts/create_submission_zip.py
 - `outputs/`
 - `data/`
 - `dist/election_duplicate_ieie_submission.zip`
+- `dist/election_duplicate_ieie_submission.zip.sha256`
+- `dist/election_duplicate_ieie_submission_manifest.json`

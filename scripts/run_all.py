@@ -58,6 +58,8 @@ def main() -> None:
         ROOT / "outputs" / "pre_submission_audit.json",
         ROOT / "outputs" / "checksums_sha256.csv",
         ROOT / "dist" / "election_duplicate_ieie_submission.zip",
+        ROOT / "dist" / "election_duplicate_ieie_submission.zip.sha256",
+        ROOT / "dist" / "election_duplicate_ieie_submission_manifest.json",
     ]
     missing = [str(path.relative_to(ROOT)) for path in expected if not path.exists()]
     if missing:
