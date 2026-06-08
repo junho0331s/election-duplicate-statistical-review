@@ -1,32 +1,32 @@
-\documentclass[11pt]{article}
-\usepackage[margin=0.9in]{geometry}
-\usepackage{fontspec}
-\usepackage{kotex}
+\documentclass[preprint]{../ieie/IEIE}
 \usepackage{amsmath}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{setspace}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{graphicx}
-\usepackage[hidelinks]{hyperref}
-\setmainfont{Times New Roman}
-\setstretch{1.05}
+\usepackage{url}
 \emergencystretch=3em
-\title{Repeated Identical In-District Early-Vote Pairs That Overwhelm the Random-Chance Hypothesis}
-\author{Junho Kim \\ No affiliation \\ e-mail: junhokim0331@gmail.com}
-\date{June 2026}
+\title{Repeated Identical In-District Early-Vote Pairs\\That Overwhelm the Random-Chance Hypothesis}
+\author{Junho Kim \\ No affiliation \\ e-mail : junhokim0331@gmail.com}
+\abstract{
+This paper examines whether the repeated identical vote-count pairs observed in in-district early-vote counting units after the June 3, 2026 Korean local election can be explained by ordinary chance. The twelve event rows and six identical vote pairs are rechecked from official National Election Commission election-statistics HTML pages, and 81,701 historical counting-unit rows from 2014 through 2025 are parsed to construct a baseline. Across 51 historical governor contests, the maximum repeated-pair count within a single contest is three. For the Gwangju-Jeonnam five-pair event, the Poisson approximation gives approximately 0.115\% with \(N=393\) and \(K=100,944.8\). In 200,000 nonparametric resampling trials, five or more repeated pairs occur zero times, with a rule-of-three 95\% upper bound of about 0.0015\%. The paper also checks early-vote versus election-day two-party vote-share differences in the 2016, 2020, and 2024 National Assembly elections. The conclusion is not a legal finding that a specific act of misconduct has been proven. It is a narrower statistical conclusion: the public data contain anomalies that weaken the random-chance hypothesis and require independent access to raw counting records.\\[2mm]\noindent Keywords: in-district early voting, identical vote pair, election integrity, duplicate probability, Poisson approximation, early-vote deviation, raw-data audit
+}
+\makeatletter
+\renewcommand{\maketitle}{
+  \twocolumn[
+    \begin{center}
+      \vspace*{3mm}
+      {\fontsize{18pt}{21.6pt}\selectfont \@title \par}
+      \vspace{12mm}
+      {\fontsize{10pt}{14pt}\selectfont \@author \par}
+      \vspace{8mm}
+    \end{center}
+  ]
+}
+\makeatother
+
 \begin{document}
 \maketitle
-
-\section*{Abstract}
-
-This paper examines whether the repeated identical vote-count pairs observed in in-district early-vote counting units after the June 3, 2026 Korean local election can be explained by ordinary chance. The starting point is the public report of identical vote counts in twelve places nationwide, including ten Gwangju-Jeonnam rows where the same two leading candidates received identical counts across paired counting units. This study rechecks the twelve event rows by extracting them directly from the National Election Commission election-statistics system's official counting-unit HTML pages. The Gwangju-Jeonnam case is defined as five repeated identical vote pairs within the same election, the same top-two candidate combination, and the same in-district early-vote category.
-
-To build a historical baseline, this study parses 81,701 early-vote counting-unit rows from official National Election Commission and public-data files from 2014 through 2025. The primary benchmark is the actual top-two candidate vote-pair distribution in governor races. Across 51 governor constituency contests and approximately 1,514,172 actual comparison pairs, only 15 identical top-two vote pairs are observed, and the maximum repeated-pair count within any one constituency contest is three. Under the expanded benchmark, the probability of observing at least five repeated pairs in the 2026 Gwangju-Jeonnam setting is approximately 0.115\% using a Poisson approximation with \(N=393\) and \(K=100,944.8\). In a nonparametric resampling test drawing 393 units without replacement from the historical governor top-two pair pool, no simulation among 200,000 trials produces five or more repeated pairs; the rule-of-three 95\% upper bound is approximately 0.0015\%.
-
-This paper also checks the difference between early-vote and election-day two-party vote shares in the 2016, 2020, and 2024 National Assembly elections. In 2020 and 2024, every analyzable constituency shows a higher Democratic-party two-party share in early voting than on election day. This auxiliary test is not treated as direct proof of a specific misconduct mechanism, but it reinforces the need for a broader raw-data audit. The conclusion is not a legal finding that a specific act of misconduct has been proven. It is a narrower statistical conclusion: even under conservative assumptions, the public data contain anomalies that weaken the random-chance hypothesis and require independent access to raw counting records.
-
-Keywords: in-district early voting, identical vote pair, election integrity, duplicate probability, Poisson approximation, early-vote deviation, raw-data audit
+\makeabstract
 
 \section{Introduction}
 
@@ -123,7 +123,7 @@ The study uses public National Election Commission and public-data election coun
 
 \begin{center}
 \small
-\begin{longtable}{p{0.23\textwidth} p{0.65\textwidth}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedright\arraybackslash}p{0.63\linewidth}}
 \toprule
 Election & Parsed rows \\
 \midrule
@@ -138,7 +138,7 @@ Election & Parsed rows \\
 2025 presidential & 3,750 \\
 Total & 81,701 \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \end{center}
 
 Aggregate rows, subtotal rows, shipboard/residential special votes, overseas votes, and out-of-country categories are excluded from the main comparison. In-district early voting and out-of-district early voting are separated, and the central analysis uses in-district early-vote rows.
@@ -192,7 +192,7 @@ Reanalysis of the 2014, 2018, and 2022 governor-election in-district early-vote 
 
 \begin{center}
 \small
-\begin{longtable}{p{0.23\textwidth} p{0.65\textwidth}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedright\arraybackslash}p{0.63\linewidth}}
 \toprule
 Quantity & Value \\
 \midrule
@@ -203,7 +203,7 @@ Constituency contests with at least one identical pair & 9 \\
 Maximum identical pairs within one contest & 3 \\
 Constituency contests with five or more pairs & 0 \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \end{center}
 
 The observed historical identical pairs are:
@@ -756,11 +756,12 @@ This study uses only public election data and public reports, and does not analy
 The conclusion of this study is not "misconduct has been legally proven." It is the testable proposition that "the currently public data do not provide a sufficient chance explanation, and an official raw-data audit is required." This distinction is important for research ethics. The study should neither exaggerate a statistical anomaly into direct criminal evidence nor reduce a statistical anomaly to meaningless coincidence.
 
 \clearpage
+\onecolumn
 \section*{Appendix A. Intuitive Meaning of Key Terms}
 
 \begin{center}
 \small
-\begin{longtable}{p{0.23\textwidth} p{0.65\textwidth}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.18\linewidth}>{\raggedright\arraybackslash}p{0.76\linewidth}}
 \toprule
 Term & Intuitive meaning \\
 \midrule
@@ -779,7 +780,7 @@ Law of large numbers & The principle that, as sample size grows, the proportion 
 Sign test & A nonparametric test that focuses on how often the direction of a difference repeats, rather than the size of the difference \\
 Audit trigger & A signal strong enough to require raw-data disclosure and independent verification, without itself proving misconduct \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \end{center}
 
 \section*{Appendix B. Early Voting and the Law of Large Numbers}

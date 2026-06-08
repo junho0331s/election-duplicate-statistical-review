@@ -114,6 +114,10 @@ python3 latex/convert_to_ieie.py
 cd latex/ieie
 xelatex -interaction=nonstopmode -halt-on-error main.tex
 xelatex -interaction=nonstopmode -halt-on-error main.tex
+cd ../en
+xelatex -interaction=nonstopmode -halt-on-error main_en.tex
+xelatex -interaction=nonstopmode -halt-on-error main_en.tex
+cd ../..
 ```
 
 업로드용 zip은 다음 명령으로 생성한다.

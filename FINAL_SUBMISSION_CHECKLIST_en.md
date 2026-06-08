@@ -69,7 +69,8 @@ xelatex -interaction=nonstopmode -halt-on-error main.tex
 xelatex -interaction=nonstopmode -halt-on-error main.tex
 cd ../..
 cd latex/en
-latexmk -xelatex -interaction=nonstopmode -halt-on-error main_en.tex
+xelatex -interaction=nonstopmode -halt-on-error main_en.tex
+xelatex -interaction=nonstopmode -halt-on-error main_en.tex
 cd ../..
 python3 scripts/generate_checksums.py
 python3 scripts/create_submission_zip.py
