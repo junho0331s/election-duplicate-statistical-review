@@ -1,0 +1,161 @@
+{
+  "status": "pass",
+  "check_count": 22,
+  "scope": "coverage audit for expected statistical and evidentiary objections",
+  "checks": [
+    {
+      "objection": "many units can produce one duplicate",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "Korean paper separates one duplicate from the five-pair cluster",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "many units can produce one duplicate",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "English paper separates one duplicate from the five-pair cluster",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "2014 inclusion weakens but does not remove result",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "Korean paper states that including 2014 is conservative",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "2014 inclusion weakens but does not remove result",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "English paper states that including 2014 is conservative",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "three historical pairs versus five observed pairs",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "Korean paper quantifies why three and five are not equivalent",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "three historical pairs versus five observed pairs",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "English paper quantifies why three and five are not equivalent",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "post-search and multiple-comparison objection",
+      "file": "LOOK_ELSEWHERE_ROBUSTNESS_ko.md",
+      "expected": "Korean robustness note separates primary test from post-search context",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "post-search and multiple-comparison objection",
+      "file": "LOOK_ELSEWHERE_ROBUSTNESS_en.md",
+      "expected": "English robustness note separates primary test from post-search context",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "unit heterogeneity and model dependence",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "Korean paper acknowledges non-iid units and reports empirical/sensitivity checks",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "unit heterogeneity and model dependence",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "English paper acknowledges non-iid units and reports empirical/sensitivity checks",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "self-selection objection for early voting",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "Korean paper limits early-vote analysis and acknowledges self-selection",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "self-selection objection for early voting",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "English paper limits early-vote analysis and acknowledges self-selection",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "rare events can occur objection",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "Korean paper distinguishes rarity from impossibility and points to audit",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "rare events can occur objection",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "English paper distinguishes rarity from impossibility and points to audit",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "official integrated file limitation",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "Korean paper states the official-page basis and remaining raw-file limitation",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "official integrated file limitation",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "English paper states the official-page basis and remaining raw-file limitation",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "benign alternatives matrix",
+      "file": "ALTERNATIVE_EXPLANATIONS_MATRIX_ko.md",
+      "expected": "Korean alternatives matrix covers chance, input/display, review-ballot, and event-definition alternatives",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "benign alternatives matrix",
+      "file": "ALTERNATIVE_EXPLANATIONS_MATRIX_en.md",
+      "expected": "English alternatives matrix covers chance, input/display, review-ballot, and event-definition alternatives",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "reviewer response memo coverage",
+      "file": "reviewer_response_ko.md",
+      "expected": "Korean reviewer memo has objection, response, falsifiability, and audit sections",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "reviewer response memo coverage",
+      "file": "reviewer_response_en.md",
+      "expected": "English reviewer memo has objection, response, falsifiability, and audit sections",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "final checklist objection controls",
+      "file": "FINAL_SUBMISSION_CHECKLIST_ko.md",
+      "expected": "Korean final checklist references at least one objection-control category",
+      "actual": "present",
+      "status": "pass"
+    },
+    {
+      "objection": "final checklist objection controls",
+      "file": "FINAL_SUBMISSION_CHECKLIST_en.md",
+      "expected": "English final checklist references at least one objection-control category",
+      "actual": "present",
+      "status": "pass"
+    }
+  ]
+}

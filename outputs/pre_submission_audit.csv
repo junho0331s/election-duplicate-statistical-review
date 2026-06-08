@@ -5,6 +5,7 @@ privacy and credential scan,"only allowed author email; 0 credential, phone, or 
 core claims verification,"status pass, 45 checks","status pass, 45 checks",pass
 source provenance audit,status pass with approved source domains only,"status pass, 15 URLs, 0 failures",pass
 claim-boundary audit,status pass with 18 checks,"status pass, 18 checks",pass
+objection coverage audit,status pass with 22 checks,"status pass, 22 checks",pass
 exact collision probability output,threshold 5 exact probability 0.0012190883791786122,threshold 5 exact probability 0.0012190883791786122,pass
 manuscript core number consistency,core numbers present in Korean/English Markdown and PDFs,0 missing markers,pass
 English PDF translation coverage,0 Korean characters and exact-collision section present,"0 Korean characters, exact section present",pass

@@ -5,7 +5,8 @@
 - Core-claims verification: `pass`, 45 checks
 - Source provenance audit: `pass`, 15 URLs
 - Claim-boundary audit: `pass`, 18 checks
-- Pre-submission audit: `pass`, 12 checks
+- Objection coverage audit: `pass`, 22 checks
+- Pre-submission audit: `pass`, 13 checks
 
 ## PDF Artifacts
 

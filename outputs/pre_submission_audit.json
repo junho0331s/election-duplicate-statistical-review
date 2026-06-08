@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 12,
+  "check_count": 13,
   "scope": "pre-submission package readiness",
   "checks": [
     {
@@ -37,6 +37,12 @@
       "check": "claim-boundary audit",
       "expected": "status pass with 18 checks",
       "actual": "status pass, 18 checks",
+      "status": "pass"
+    },
+    {
+      "check": "objection coverage audit",
+      "expected": "status pass with 22 checks",
+      "actual": "status pass, 22 checks",
       "status": "pass"
     },
     {

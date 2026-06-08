@@ -48,10 +48,12 @@
 | `outputs/source_provenance_audit.json` | JSON 출처 감사 요약 | 원고 및 출처 정책 문서가 승인된 공식자료 또는 명시적 공개 보도 도메인을 쓰는지 검증 | `status`, `url_count`, `allowed_domain_suffixes`, `source_classes`, `failures` |
 | `outputs/claim_boundary_audit.csv` | 주장 범위 감사 행 1개 | 원고가 통계적 이상치와 원자료 감사 요구를 말하면서 근거 없는 법적 확정으로 넘어가지 않는지 스프레드시트에서 확인 | `check`, `file`, `expected`, `actual`, `status` |
 | `outputs/claim_boundary_audit.json` | JSON 주장 범위 감사 요약 | 과장 주장 부재, 반증 가능성 문구, 원자료 요구 항목이 원고·메모·PDF에 있는지 기계가독 검증 | `status`, `check_count`, `scope`, `checks` |
+| `outputs/objection_coverage_audit.csv` | 반론 커버리지 감사 행 1개 | 예상 심사 반론이 원고와 부속 메모에서 다뤄졌는지 스프레드시트에서 확인 | `objection`, `file`, `expected`, `actual`, `status` |
+| `outputs/objection_coverage_audit.json` | JSON 반론 커버리지 감사 요약 | 한 쌍 반론, 2014 포함, 3쌍 대 5쌍, 사후탐색, 이질성, 자기선택, 드문 사건, 공식파일 한계, 대안 설명 반론의 커버리지 검증 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/pre_submission_audit.csv` | 제출 전 감사 행 1개 | 최종 체크리스트, 금지 표현, 개인정보 스캔, 영문 PDF/소스 번역, 증거표 참조, 핵심 검증 상태를 스프레드시트에서 확인 | `check`, `expected`, `actual`, `status` |
-| `outputs/pre_submission_audit.json` | JSON 감사 요약 | 제출 전 감사 12개 항목의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
-| `outputs/submission_integrity_report.md` | 무결성 리포트 1개 | PDF, 핵심 검증, 주장 범위 감사, 제출 전 감사, 핵심 재현 수치를 한 파일에서 확인 | Markdown sections |
-| `outputs/submission_integrity_report.json` | JSON 무결성 리포트 | 최종 ZIP self-hash를 제외한 제출 패키지 무결성 요약 | `status`, `core_claims_check_count`, `claim_boundary_audit_check_count`, `pre_submission_audit_check_count`, `korean_pdf`, `english_pdf`, `key_claims` |
+| `outputs/pre_submission_audit.json` | JSON 감사 요약 | 제출 전 감사 13개 항목의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
+| `outputs/submission_integrity_report.md` | 무결성 리포트 1개 | PDF, 핵심 검증, 주장 범위 감사, 반론 커버리지, 제출 전 감사, 핵심 재현 수치를 한 파일에서 확인 | Markdown sections |
+| `outputs/submission_integrity_report.json` | JSON 무결성 리포트 | 최종 ZIP self-hash를 제외한 제출 패키지 무결성 요약 | `status`, `core_claims_check_count`, `claim_boundary_audit_check_count`, `objection_coverage_audit_check_count`, `pre_submission_audit_check_count`, `korean_pdf`, `english_pdf`, `key_claims` |
 | `outputs/local_ci_validation_report.md` | 제출 ZIP 외부 로컬 CI 리포트 1개 | GitHub Actions 검증 워크플로와 같은 검증을 로컬에서 사람이 읽을 수 있게 요약. ZIP self-hash 순환을 피하려고 ZIP에는 넣지 않음 | Markdown sections |
 | `outputs/local_ci_validation_report.json` | 제출 ZIP 외부 JSON 로컬 CI 리포트 | `validate_package.py`와 최종 ZIP sidecar 일치 여부의 기계가독 검증. ZIP self-hash 순환을 피하려고 ZIP에는 넣지 않음 | `status`, `validate_package`, `zip_sidecar` |
 | `outputs/checksums_sha256.csv` | 패키지 파일 1개 | 제출 패키지 파일 무결성 확인 | `path`, `bytes`, `sha256` |
@@ -83,6 +85,7 @@
 | 본문 핵심 수치 45개가 현재 산출물과 일치한다. | `outputs/core_claims_verification.csv`, `outputs/core_claims_verification.json` |
 | 원고 출처 URL은 승인된 공식자료 또는 명시적 공개 보도 도메인을 사용한다. | `outputs/source_provenance_audit.csv`, `outputs/source_provenance_audit.json` |
 | 원고의 법적·인과적 주장 범위와 원자료 감사 프레이밍이 통과한다. | `outputs/claim_boundary_audit.csv`, `outputs/claim_boundary_audit.json` |
+| 예상 심사 반론이 원고와 부속 메모에서 커버된다. | `outputs/objection_coverage_audit.csv`, `outputs/objection_coverage_audit.json` |
 | 최종 제출 전 감사 항목이 통과한다. | `outputs/pre_submission_audit.csv`, `outputs/pre_submission_audit.json` |
 | 최종 PDF와 제출 무결성 요약이 서로 일관된다. | `outputs/submission_integrity_report.md`, `outputs/submission_integrity_report.json` |
 | GitHub Actions 검증 워크플로와 같은 로컬 검증이 통과한다. | `outputs/local_ci_validation_report.md`, `outputs/local_ci_validation_report.json` |

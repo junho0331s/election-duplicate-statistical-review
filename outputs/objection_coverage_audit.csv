@@ -1,0 +1,23 @@
+objection,file,expected,actual,status
+many units can produce one duplicate,paper_statistical_implausibility_ko.md,Korean paper separates one duplicate from the five-pair cluster,3/3 markers present,pass
+many units can produce one duplicate,paper_statistical_implausibility_en.md,English paper separates one duplicate from the five-pair cluster,3/3 markers present,pass
+2014 inclusion weakens but does not remove result,paper_statistical_implausibility_ko.md,Korean paper states that including 2014 is conservative,3/3 markers present,pass
+2014 inclusion weakens but does not remove result,paper_statistical_implausibility_en.md,English paper states that including 2014 is conservative,3/3 markers present,pass
+three historical pairs versus five observed pairs,paper_statistical_implausibility_ko.md,Korean paper quantifies why three and five are not equivalent,3/3 markers present,pass
+three historical pairs versus five observed pairs,paper_statistical_implausibility_en.md,English paper quantifies why three and five are not equivalent,3/3 markers present,pass
+post-search and multiple-comparison objection,LOOK_ELSEWHERE_ROBUSTNESS_ko.md,Korean robustness note separates primary test from post-search context,4/4 markers present,pass
+post-search and multiple-comparison objection,LOOK_ELSEWHERE_ROBUSTNESS_en.md,English robustness note separates primary test from post-search context,4/4 markers present,pass
+unit heterogeneity and model dependence,paper_statistical_implausibility_ko.md,Korean paper acknowledges non-iid units and reports empirical/sensitivity checks,3/3 markers present,pass
+unit heterogeneity and model dependence,paper_statistical_implausibility_en.md,English paper acknowledges non-iid units and reports empirical/sensitivity checks,3/3 markers present,pass
+self-selection objection for early voting,paper_statistical_implausibility_ko.md,Korean paper limits early-vote analysis and acknowledges self-selection,3/3 markers present,pass
+self-selection objection for early voting,paper_statistical_implausibility_en.md,English paper limits early-vote analysis and acknowledges self-selection,3/3 markers present,pass
+rare events can occur objection,paper_statistical_implausibility_ko.md,Korean paper distinguishes rarity from impossibility and points to audit,3/3 markers present,pass
+rare events can occur objection,paper_statistical_implausibility_en.md,English paper distinguishes rarity from impossibility and points to audit,3/3 markers present,pass
+official integrated file limitation,paper_statistical_implausibility_ko.md,Korean paper states the official-page basis and remaining raw-file limitation,3/3 markers present,pass
+official integrated file limitation,paper_statistical_implausibility_en.md,English paper states the official-page basis and remaining raw-file limitation,3/3 markers present,pass
+benign alternatives matrix,ALTERNATIVE_EXPLANATIONS_MATRIX_ko.md,"Korean alternatives matrix covers chance, input/display, review-ballot, and event-definition alternatives",4/4 markers present,pass
+benign alternatives matrix,ALTERNATIVE_EXPLANATIONS_MATRIX_en.md,"English alternatives matrix covers chance, input/display, review-ballot, and event-definition alternatives",4/4 markers present,pass
+reviewer response memo coverage,reviewer_response_ko.md,"Korean reviewer memo has objection, response, falsifiability, and audit sections",4/4 markers present,pass
+reviewer response memo coverage,reviewer_response_en.md,"English reviewer memo has objection, response, falsifiability, and audit sections",3/3 markers present,pass
+final checklist objection controls,FINAL_SUBMISSION_CHECKLIST_ko.md,Korean final checklist references at least one objection-control category,present,pass
+final checklist objection controls,FINAL_SUBMISSION_CHECKLIST_en.md,English final checklist references at least one objection-control category,present,pass

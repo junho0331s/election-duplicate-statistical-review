@@ -61,6 +61,7 @@ REQUIRED_FILES = [
     "scripts/verify_core_claims.py",
     "scripts/source_provenance_audit.py",
     "scripts/claim_boundary_audit.py",
+    "scripts/objection_coverage_audit.py",
     "scripts/pre_submission_audit.py",
     "scripts/submission_integrity_report.py",
     "scripts/generate_checksums.py",
@@ -89,6 +90,8 @@ REQUIRED_FILES = [
     "outputs/source_provenance_audit.json",
     "outputs/claim_boundary_audit.csv",
     "outputs/claim_boundary_audit.json",
+    "outputs/objection_coverage_audit.csv",
+    "outputs/objection_coverage_audit.json",
     "outputs/pre_submission_audit.csv",
     "outputs/pre_submission_audit.json",
     "outputs/submission_integrity_report.md",
@@ -376,6 +379,7 @@ def assert_pre_submission_audit() -> None:
         "core claims verification",
         "source provenance audit",
         "claim-boundary audit",
+        "objection coverage audit",
         "exact collision probability output",
         "manuscript core number consistency",
         "English PDF translation coverage",
@@ -448,6 +452,42 @@ def assert_claim_boundary_audit() -> None:
         raise AssertionError("Claim-boundary audit CSV contains non-pass status")
 
 
+def assert_objection_coverage_audit() -> None:
+    path = ROOT / "outputs" / "objection_coverage_audit.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if data.get("status") != "pass":
+        raise AssertionError(f"Objection coverage audit status is not pass: {data.get('status')}")
+    if int(data.get("check_count", 0)) < 22:
+        raise AssertionError(f"Objection coverage audit has too few checks: {data.get('check_count')}")
+    checks = data.get("checks")
+    if not isinstance(checks, list) or len(checks) != data.get("check_count"):
+        raise AssertionError("Objection coverage audit checks list does not match check_count")
+    required = {
+        "many units can produce one duplicate",
+        "2014 inclusion weakens but does not remove result",
+        "three historical pairs versus five observed pairs",
+        "post-search and multiple-comparison objection",
+        "unit heterogeneity and model dependence",
+        "self-selection objection for early voting",
+        "rare events can occur objection",
+        "official integrated file limitation",
+        "benign alternatives matrix",
+        "reviewer response memo coverage",
+    }
+    actual = {row.get("objection") for row in checks}
+    missing = sorted(required - actual)
+    if missing:
+        raise AssertionError(f"Objection coverage audit missing objections: {', '.join(missing)}")
+    if any(row.get("status") != "pass" for row in checks):
+        raise AssertionError("Objection coverage audit contains non-pass status")
+
+    rows = list(csv.DictReader((ROOT / "outputs" / "objection_coverage_audit.csv").open(encoding="utf-8")))
+    if len(rows) != data.get("check_count"):
+        raise AssertionError("Objection coverage audit CSV row count does not match check_count")
+    if any(row.get("status") != "pass" for row in rows):
+        raise AssertionError("Objection coverage audit CSV contains non-pass status")
+
+
 def assert_submission_integrity_report() -> None:
     path = ROOT / "outputs" / "submission_integrity_report.json"
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -463,8 +503,12 @@ def assert_submission_integrity_report() -> None:
         raise AssertionError("Submission integrity report does not record passing claim-boundary audit")
     if data.get("claim_boundary_audit_check_count") != 18:
         raise AssertionError("Submission integrity report does not record 18 claim-boundary checks")
-    if data.get("pre_submission_audit_check_count") != 12:
-        raise AssertionError("Submission integrity report does not record 12 audit checks")
+    if data.get("objection_coverage_audit_status") != "pass":
+        raise AssertionError("Submission integrity report does not record passing objection coverage audit")
+    if data.get("objection_coverage_audit_check_count") != 22:
+        raise AssertionError("Submission integrity report does not record 22 objection coverage checks")
+    if data.get("pre_submission_audit_check_count") != 13:
+        raise AssertionError("Submission integrity report does not record 13 audit checks")
 
     english_pdf = data.get("english_pdf", {})
     if english_pdf.get("korean_character_count") != 0:
@@ -559,6 +603,8 @@ def assert_checksums() -> None:
         "outputs/source_provenance_audit.json",
         "outputs/claim_boundary_audit.csv",
         "outputs/claim_boundary_audit.json",
+        "outputs/objection_coverage_audit.csv",
+        "outputs/objection_coverage_audit.json",
         "outputs/pre_submission_audit.csv",
         "outputs/pre_submission_audit.json",
         "outputs/submission_integrity_report.md",
@@ -696,6 +742,8 @@ def assert_zip_package() -> None:
         "outputs/pre_submission_audit.json",
         "outputs/claim_boundary_audit.csv",
         "outputs/claim_boundary_audit.json",
+        "outputs/objection_coverage_audit.csv",
+        "outputs/objection_coverage_audit.json",
         "outputs/probability_exact_collision.csv",
         "evidence_matrix_ko.md",
         "evidence_matrix_en.md",
@@ -719,6 +767,7 @@ def assert_zip_package() -> None:
         "FINAL_SUBMISSION_CHECKLIST_en.md",
         "scripts/pre_submission_audit.py",
         "scripts/claim_boundary_audit.py",
+        "scripts/objection_coverage_audit.py",
     }
     with ZipFile(zip_path) as zf:
         names = set(zf.namelist())
@@ -816,6 +865,7 @@ def main() -> None:
     assert_core_claims_verification()
     assert_source_provenance_audit()
     assert_claim_boundary_audit()
+    assert_objection_coverage_audit()
     assert_pre_submission_audit()
     assert_submission_integrity_report()
     assert_local_ci_validation_report()
