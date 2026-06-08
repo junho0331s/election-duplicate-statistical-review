@@ -39,6 +39,8 @@ The repository intentionally excludes informal video-platform materials and vide
 - `reviewer_response_en.md`: English reviewer objection response memo
 - `evidence_matrix_ko.md`: 핵심 주장과 재현 파일의 대응표
 - `evidence_matrix_en.md`: English claim-to-evidence matrix
+- `DATA_DICTIONARY_ko.md`: 핵심 출력 CSV·JSON 데이터 사전
+- `DATA_DICTIONARY_en.md`: English output data dictionary
 - `REPRODUCIBILITY_CHECKLIST_ko.md`: 독립 검증자용 재현성 점검표
 - `REPRODUCIBILITY_CHECKLIST_en.md`: English reproducibility checklist
 - `STATISTICAL_CALCULATION_NOTE_ko.md`: 핵심 확률값의 공식·입력값·출력 파일 연결 노트
@@ -181,6 +183,8 @@ python3 scripts/create_submission_zip.py
 - `reviewer_response_en.md`
 - `evidence_matrix_ko.md`
 - `evidence_matrix_en.md`
+- `DATA_DICTIONARY_ko.md`
+- `DATA_DICTIONARY_en.md`
 - `REPRODUCIBILITY_CHECKLIST_ko.md`
 - `REPRODUCIBILITY_CHECKLIST_en.md`
 - `STATISTICAL_CALCULATION_NOTE_ko.md`
