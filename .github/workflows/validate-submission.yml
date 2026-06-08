@@ -1,0 +1,49 @@
+name: Validate submission package
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Validate package
+        run: python scripts/validate_package.py
+
+      - name: Verify submission ZIP sidecar
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          zip_path = Path("dist/election_duplicate_ieie_submission.zip")
+          manifest = json.loads(Path("dist/election_duplicate_ieie_submission_manifest.json").read_text())
+          digest = hashlib.sha256(zip_path.read_bytes()).hexdigest()
+          expected_line = f"{digest}  {zip_path.name}"
+          actual_line = Path("dist/election_duplicate_ieie_submission.zip.sha256").read_text().strip()
+
+          assert manifest["sha256"] == digest
+          assert manifest["bytes"] == zip_path.stat().st_size
+          assert actual_line == expected_line
+          print(f"Validated {zip_path} sha256={digest}")
+          PY
