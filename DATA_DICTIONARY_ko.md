@@ -44,8 +44,10 @@
 | `outputs/early_day_assembly_twoparty.csv` | 총선 지역구 1개 | 각 지역구의 민주당 대 보수정당 양자득표율 차이 | `election`, `sido`, `district`, `early_dem_share`, `day_dem_share`, `early_minus_day_pp`, `z` |
 | `outputs/core_claims_verification.csv` | 핵심 검증 명제 1개 | `verify_core_claims.py`가 대조한 45개 핵심 수치를 스프레드시트에서 확인 | `claim`, `expected`, `actual`, `abs_tol`, `status` |
 | `outputs/core_claims_verification.json` | JSON 검증 요약 | 같은 45개 핵심 수치의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
-| `outputs/pre_submission_audit.csv` | 제출 전 감사 항목 1개 | 최종 체크리스트, 금지 표현, 영문 PDF 번역, 핵심 검증 상태를 스프레드시트에서 확인 | `check`, `expected`, `actual`, `status` |
-| `outputs/pre_submission_audit.json` | JSON 감사 요약 | 제출 전 감사 항목의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
+| `outputs/pre_submission_audit.csv` | 제출 전 감사 행 1개 | 최종 체크리스트, 금지 표현, 개인정보 스캔, 영문 PDF/소스 번역, 증거표 참조, 핵심 검증 상태를 스프레드시트에서 확인 | `check`, `expected`, `actual`, `status` |
+| `outputs/pre_submission_audit.json` | JSON 감사 요약 | 제출 전 감사 10개 항목의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
+| `outputs/submission_integrity_report.md` | 무결성 리포트 1개 | PDF, 핵심 검증, 제출 전 감사, 핵심 재현 수치를 한 파일에서 확인 | Markdown sections |
+| `outputs/submission_integrity_report.json` | JSON 무결성 리포트 | 최종 ZIP self-hash를 제외한 제출 패키지 무결성 요약 | `status`, `core_claims_check_count`, `pre_submission_audit_check_count`, `korean_pdf`, `english_pdf`, `key_claims` |
 | `outputs/checksums_sha256.csv` | 패키지 파일 1개 | 제출 패키지 파일 무결성 확인 | `path`, `bytes`, `sha256` |
 | `dist/election_duplicate_ieie_submission.zip.sha256` | 제출 ZIP 1개 | 제출 ZIP 자체의 SHA256 sidecar | `sha256  filename` |
 | `dist/election_duplicate_ieie_submission_manifest.json` | JSON 제출 ZIP 요약 | 제출 ZIP 자체의 크기, SHA256, 내부 파일 수 확인 | `package`, `bytes`, `sha256`, `file_count` |
@@ -74,6 +76,7 @@
 | 2020·2024 총선에서 분석 가능한 전 지역구가 같은 사전투표 방향성을 보인다. | `outputs/early_day_assembly_summary.csv`, `outputs/early_day_assembly_twoparty.csv` |
 | 본문 핵심 수치 45개가 현재 산출물과 일치한다. | `outputs/core_claims_verification.csv`, `outputs/core_claims_verification.json` |
 | 최종 제출 전 감사 항목이 통과한다. | `outputs/pre_submission_audit.csv`, `outputs/pre_submission_audit.json` |
+| 최종 PDF와 제출 무결성 요약이 서로 일관된다. | `outputs/submission_integrity_report.md`, `outputs/submission_integrity_report.json` |
 | 제출 ZIP 자체의 SHA256과 내부 파일 수가 검증된다. | `dist/election_duplicate_ieie_submission.zip.sha256`, `dist/election_duplicate_ieie_submission_manifest.json` |
 
 ## 심사자에게 중요한 경계

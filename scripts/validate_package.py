@@ -60,6 +60,7 @@ REQUIRED_FILES = [
     "scripts/analyze_early_day_assembly.py",
     "scripts/verify_core_claims.py",
     "scripts/pre_submission_audit.py",
+    "scripts/submission_integrity_report.py",
     "scripts/generate_checksums.py",
     "scripts/run_all.py",
     "scripts/validate_package.py",
@@ -84,6 +85,8 @@ REQUIRED_FILES = [
     "outputs/core_claims_verification.json",
     "outputs/pre_submission_audit.csv",
     "outputs/pre_submission_audit.json",
+    "outputs/submission_integrity_report.md",
+    "outputs/submission_integrity_report.json",
     "outputs/checksums_sha256.csv",
     "dist/election_duplicate_ieie_submission.zip",
     "dist/election_duplicate_ieie_submission.zip.sha256",
@@ -378,6 +381,42 @@ def assert_pre_submission_audit() -> None:
         raise AssertionError("Pre-submission audit CSV row count does not match check_count")
 
 
+def assert_submission_integrity_report() -> None:
+    path = ROOT / "outputs" / "submission_integrity_report.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if data.get("status") != "pass":
+        raise AssertionError(f"Submission integrity report status is not pass: {data.get('status')}")
+    if data.get("core_claims_check_count") != 45:
+        raise AssertionError("Submission integrity report does not record 45 core checks")
+    if data.get("pre_submission_audit_check_count") != 10:
+        raise AssertionError("Submission integrity report does not record 10 audit checks")
+
+    english_pdf = data.get("english_pdf", {})
+    if english_pdf.get("korean_character_count") != 0:
+        raise AssertionError("Submission integrity report found Korean characters in English PDF")
+    if not english_pdf.get("references_english_evidence_matrix"):
+        raise AssertionError("Submission integrity report missing English evidence-matrix reference")
+    if english_pdf.get("references_korean_evidence_matrix"):
+        raise AssertionError("Submission integrity report found Korean evidence-matrix reference")
+
+    key_claims = data.get("key_claims", {})
+    required_claims = {
+        "historical_rows": 81701,
+        "historical_governor_contests": 51,
+        "gwangju_jeonnam_units_n": 393,
+        "nec_2026_event_rows": 12,
+        "nec_2026_duplicate_pairs": 6,
+    }
+    for key, expected in required_claims.items():
+        if key_claims.get(key) != expected:
+            raise AssertionError(f"Submission integrity report mismatch for {key}: {key_claims.get(key)}")
+
+    md_text = (ROOT / "outputs" / "submission_integrity_report.md").read_text(encoding="utf-8")
+    for phrase in ["Submission Integrity Report", "Core-claims verification", "English PDF"]:
+        if phrase not in md_text:
+            raise AssertionError(f"Submission integrity markdown missing phrase: {phrase}")
+
+
 def assert_checksums() -> None:
     path = ROOT / "outputs" / "checksums_sha256.csv"
     rows = list(csv.DictReader(path.open(encoding="utf-8")))
@@ -421,6 +460,8 @@ def assert_checksums() -> None:
         "outputs/core_claims_verification.json",
         "outputs/pre_submission_audit.csv",
         "outputs/pre_submission_audit.json",
+        "outputs/submission_integrity_report.md",
+        "outputs/submission_integrity_report.json",
         "outputs/probability_core.csv",
         "outputs/probability_exact_collision.csv",
     ]
@@ -668,6 +709,7 @@ def main() -> None:
     assert_manifest_json()
     assert_core_claims_verification()
     assert_pre_submission_audit()
+    assert_submission_integrity_report()
     assert_checksums()
     assert_artifact_freshness()
     assert_english_pdf_translation_coverage()

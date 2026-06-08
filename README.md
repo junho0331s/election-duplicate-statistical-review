@@ -105,6 +105,8 @@ python3 scripts/analyze_songdo_probability.py
 python3 scripts/probability_sensitivity.py
 python3 scripts/analyze_early_day_assembly.py
 python3 scripts/verify_core_claims.py
+python3 scripts/pre_submission_audit.py
+python3 scripts/submission_integrity_report.py
 python3 scripts/generate_checksums.py
 ```
 
@@ -165,6 +167,8 @@ python3 scripts/create_submission_zip.py
 - `outputs/core_claims_verification.json`
 - `outputs/pre_submission_audit.csv`
 - `outputs/pre_submission_audit.json`
+- `outputs/submission_integrity_report.md`
+- `outputs/submission_integrity_report.json`
 - `outputs/checksums_sha256.csv`
 - `dist/election_duplicate_ieie_submission.zip.sha256`
 - `dist/election_duplicate_ieie_submission_manifest.json`
