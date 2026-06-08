@@ -1,0 +1,309 @@
+{
+  "status": "pass",
+  "check_count": 41,
+  "scope": "core reproducible statistical claims only; causal attribution requires raw administrative records",
+  "checks": [
+    {
+      "claim": "historical parsed rows",
+      "expected": 81701,
+      "actual": 81701,
+      "status": "pass"
+    },
+    {
+      "claim": "historical governor contests",
+      "expected": 51,
+      "actual": 51,
+      "status": "pass"
+    },
+    {
+      "claim": "historical governor comparison pairs",
+      "expected": 1514172,
+      "actual": 1514172,
+      "status": "pass"
+    },
+    {
+      "claim": "historical governor collision pairs",
+      "expected": 15,
+      "actual": 15,
+      "status": "pass"
+    },
+    {
+      "claim": "historical governor duplicate groups",
+      "expected": 15,
+      "actual": 15,
+      "status": "pass"
+    },
+    {
+      "claim": "historical maximum duplicate groups in one contest",
+      "expected": 3,
+      "actual": 3,
+      "status": "pass"
+    },
+    {
+      "claim": "estimated effective pair space khat",
+      "expected": 100944.8,
+      "actual": 100944.8,
+      "abs_tol": 1e-09,
+      "status": "pass"
+    },
+    {
+      "claim": "probability N from official HTML units",
+      "expected": 393,
+      "actual": 393,
+      "status": "pass"
+    },
+    {
+      "claim": "governor baseline p_at_least_5",
+      "expected": 0.0011484064248148407,
+      "actual": 0.0011484064248148407,
+      "abs_tol": 1e-15,
+      "status": "pass"
+    },
+    {
+      "claim": "Poisson probability threshold 3",
+      "expected": 0.04226077201454281,
+      "actual": 0.04226077201454281,
+      "abs_tol": 1e-15,
+      "status": "pass"
+    },
+    {
+      "claim": "Poisson probability threshold 4",
+      "expected": 0.007734837111887716,
+      "actual": 0.007734837111887716,
+      "abs_tol": 1e-15,
+      "status": "pass"
+    },
+    {
+      "claim": "Poisson probability threshold 5",
+      "expected": 0.0011484064248148407,
+      "actual": 0.0011484064248148407,
+      "abs_tol": 1e-15,
+      "status": "pass"
+    },
+    {
+      "claim": "Poisson probability percent threshold 5",
+      "expected": 0.11484064248148407,
+      "actual": 0.11484064248148407,
+      "abs_tol": 1e-12,
+      "status": "pass"
+    },
+    {
+      "claim": "Poisson probability threshold 6",
+      "expected": 0.00014322422035484283,
+      "actual": 0.00014322422035484283,
+      "abs_tol": 1e-15,
+      "status": "pass"
+    },
+    {
+      "claim": "bootstrap sample size",
+      "expected": 393,
+      "actual": 393,
+      "status": "pass"
+    },
+    {
+      "claim": "bootstrap trials",
+      "expected": 200000,
+      "actual": 200000,
+      "status": "pass"
+    },
+    {
+      "claim": "bootstrap threshold 5 exceedances",
+      "expected": 0,
+      "actual": 0,
+      "status": "pass"
+    },
+    {
+      "claim": "bootstrap threshold 5 probability",
+      "expected": 0.0,
+      "actual": 0.0,
+      "abs_tol": 0.0,
+      "status": "pass"
+    },
+    {
+      "claim": "bootstrap rule-of-three upper 95",
+      "expected": 1.5e-05,
+      "actual": 1.5e-05,
+      "abs_tol": 1e-18,
+      "status": "pass"
+    },
+    {
+      "claim": "NEC 2026 Gwangju-Jeonnam towns",
+      "expected": 27,
+      "actual": 27,
+      "status": "pass"
+    },
+    {
+      "claim": "NEC 2026 Gwangju-Jeonnam in-district early units summary",
+      "expected": 393,
+      "actual": 393,
+      "status": "pass"
+    },
+    {
+      "claim": "NEC 2026 Gwangju-Jeonnam in-district early unit rows",
+      "expected": 393,
+      "actual": 393,
+      "status": "pass"
+    },
+    {
+      "claim": "NEC 2026 event rows",
+      "expected": 12,
+      "actual": 12,
+      "status": "pass"
+    },
+    {
+      "claim": "NEC 2026 duplicate pairs",
+      "expected": 6,
+      "actual": 6,
+      "status": "pass"
+    },
+    {
+      "claim": "NEC 2026 Gwangju-Jeonnam Min-Lee duplicate pairs",
+      "expected": 5,
+      "actual": 5,
+      "status": "pass"
+    },
+    {
+      "claim": "NEC 2026 Gwangju-Jeonnam duplicate pair values",
+      "expected": [
+        [
+          "1401",
+          "120"
+        ],
+        [
+          "356",
+          "42"
+        ],
+        [
+          "444",
+          "46"
+        ],
+        [
+          "506",
+          "42"
+        ],
+        [
+          "606",
+          "57"
+        ]
+      ],
+      "actual": [
+        [
+          "1401",
+          "120"
+        ],
+        [
+          "356",
+          "42"
+        ],
+        [
+          "444",
+          "46"
+        ],
+        [
+          "506",
+          "42"
+        ],
+        [
+          "606",
+          "57"
+        ]
+      ],
+      "status": "pass"
+    },
+    {
+      "claim": "Songdo Yeonsu unit count",
+      "expected": 15,
+      "actual": 15,
+      "status": "pass"
+    },
+    {
+      "claim": "Songdo Yeonsu any-pair probability percent",
+      "expected": 0.10396316588441312,
+      "actual": 0.10396316588441312,
+      "abs_tol": 1e-14,
+      "status": "pass"
+    },
+    {
+      "claim": "Songdo designated-pair probability percent",
+      "expected": 0.0009906404292246852,
+      "actual": 0.0009906404292246852,
+      "abs_tol": 1e-18,
+      "status": "pass"
+    },
+    {
+      "claim": "2016 assembly districts",
+      "expected": 229,
+      "actual": 229,
+      "status": "pass"
+    },
+    {
+      "claim": "2016 Democratic early higher count",
+      "expected": 211,
+      "actual": 211,
+      "status": "pass"
+    },
+    {
+      "claim": "2016 Democratic early lower count",
+      "expected": 18,
+      "actual": 18,
+      "status": "pass"
+    },
+    {
+      "claim": "2020 assembly districts",
+      "expected": 236,
+      "actual": 236,
+      "status": "pass"
+    },
+    {
+      "claim": "2020 Democratic early higher count",
+      "expected": 236,
+      "actual": 236,
+      "status": "pass"
+    },
+    {
+      "claim": "2020 Democratic early lower count",
+      "expected": 0,
+      "actual": 0,
+      "status": "pass"
+    },
+    {
+      "claim": "2024 assembly districts",
+      "expected": 245,
+      "actual": 245,
+      "status": "pass"
+    },
+    {
+      "claim": "2024 Democratic early higher count",
+      "expected": 245,
+      "actual": 245,
+      "status": "pass"
+    },
+    {
+      "claim": "2024 Democratic early lower count",
+      "expected": 0,
+      "actual": 0,
+      "status": "pass"
+    },
+    {
+      "claim": "2016 mean early-day difference pp",
+      "expected": 3.902347771407794,
+      "actual": 3.902347771407794,
+      "abs_tol": 1e-12,
+      "status": "pass"
+    },
+    {
+      "claim": "2020 mean early-day difference pp",
+      "expected": 10.881931488172144,
+      "actual": 10.881931488172144,
+      "abs_tol": 1e-12,
+      "status": "pass"
+    },
+    {
+      "claim": "2024 mean early-day difference pp",
+      "expected": 10.351186302658121,
+      "actual": 10.351186302658121,
+      "abs_tol": 1e-12,
+      "status": "pass"
+    }
+  ]
+}

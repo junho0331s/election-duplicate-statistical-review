@@ -52,6 +52,7 @@ INCLUDE_FILES = [
     "scripts/analyze_songdo_probability.py",
     "scripts/probability_sensitivity.py",
     "scripts/analyze_early_day_assembly.py",
+    "scripts/verify_core_claims.py",
     "scripts/generate_checksums.py",
     "scripts/run_all.py",
     "scripts/validate_package.py",

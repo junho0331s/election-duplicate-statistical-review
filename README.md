@@ -97,6 +97,7 @@ python3 scripts/fetch_nec_2026_duplicate_cases.py
 python3 scripts/analyze_songdo_probability.py
 python3 scripts/probability_sensitivity.py
 python3 scripts/analyze_early_day_assembly.py
+python3 scripts/verify_core_claims.py
 python3 scripts/generate_checksums.py
 ```
 
@@ -143,6 +144,7 @@ python3 scripts/create_submission_zip.py
 - `outputs/probability_n_sensitivity.csv`
 - `outputs/early_day_assembly_summary.csv`
 - `outputs/early_day_assembly_twoparty.csv`
+- `outputs/core_claims_verification.json`
 - `outputs/checksums_sha256.csv`
 
 ## 현재 검증된 핵심 숫자

@@ -54,6 +54,7 @@ REQUIRED_FILES = [
     "scripts/analyze_songdo_probability.py",
     "scripts/probability_sensitivity.py",
     "scripts/analyze_early_day_assembly.py",
+    "scripts/verify_core_claims.py",
     "scripts/generate_checksums.py",
     "scripts/run_all.py",
     "scripts/validate_package.py",
@@ -73,6 +74,7 @@ REQUIRED_FILES = [
     "outputs/songdo_official_rows.csv",
     "outputs/probability_core.csv",
     "outputs/early_day_assembly_summary.csv",
+    "outputs/core_claims_verification.json",
     "outputs/checksums_sha256.csv",
     "dist/election_duplicate_ieie_submission.zip",
 ]
@@ -286,6 +288,36 @@ def assert_manifest_json() -> None:
         json.loads(path.read_text(encoding="utf-8"))
 
 
+def assert_core_claims_verification() -> None:
+    path = ROOT / "outputs" / "core_claims_verification.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if data.get("status") != "pass":
+        raise AssertionError(f"Core claim verification status is not pass: {data.get('status')}")
+    if int(data.get("check_count", 0)) < 40:
+        raise AssertionError(f"Core claim verification has too few checks: {data.get('check_count')}")
+    checks = data.get("checks")
+    if not isinstance(checks, list) or len(checks) != data.get("check_count"):
+        raise AssertionError("Core claim verification checks list does not match check_count")
+    required_claims = {
+        "historical parsed rows",
+        "historical governor contests",
+        "historical maximum duplicate groups in one contest",
+        "Poisson probability threshold 5",
+        "bootstrap threshold 5 exceedances",
+        "NEC 2026 Gwangju-Jeonnam in-district early units summary",
+        "NEC 2026 event rows",
+        "NEC 2026 duplicate pairs",
+        "NEC 2026 Gwangju-Jeonnam Min-Lee duplicate pairs",
+        "Songdo designated-pair probability percent",
+        "2020 Democratic early higher count",
+        "2024 Democratic early higher count",
+    }
+    actual_claims = {row.get("claim") for row in checks}
+    missing = sorted(required_claims - actual_claims)
+    if missing:
+        raise AssertionError(f"Core claim verification missing claims: {', '.join(missing)}")
+
+
 def assert_checksums() -> None:
     path = ROOT / "outputs" / "checksums_sha256.csv"
     rows = list(csv.DictReader(path.open(encoding="utf-8")))
@@ -320,8 +352,10 @@ def assert_checksums() -> None:
         "latex/ieie/main.pdf",
         "latex/en/main_en.pdf",
         "scripts/bootstrap_governor_duplicates.py",
+        "scripts/verify_core_claims.py",
         "outputs/governor_bootstrap_summary.csv",
         "outputs/nec_2026_reported_duplicate_cases.csv",
+        "outputs/core_claims_verification.json",
         "outputs/probability_core.csv",
     ]
     missing = [rel for rel in required if rel not in by_path]
@@ -424,6 +458,7 @@ def assert_zip_package() -> None:
         "outputs/nec_2026_gwangju_jeonnam_unit_summary.json",
         "outputs/nec_2026_gwangju_jeonnam_units.csv",
         "outputs/nec_2026_reported_duplicate_cases.csv",
+        "outputs/core_claims_verification.json",
         "evidence_matrix_ko.md",
         "evidence_matrix_en.md",
         "DATA_DICTIONARY_ko.md",
@@ -465,6 +500,7 @@ def main() -> None:
     assert_nec_2026_cases()
     assert_songdo_probability()
     assert_manifest_json()
+    assert_core_claims_verification()
     assert_checksums()
     assert_artifact_freshness()
     assert_english_pdf_translation_coverage()
