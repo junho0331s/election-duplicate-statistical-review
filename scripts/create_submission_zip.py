@@ -19,6 +19,7 @@ INCLUDE_FILES = [
     "reviewer_response_ko.md",
     "reviewer_response_en.md",
     "evidence_matrix_ko.md",
+    "evidence_matrix_en.md",
     "REPRODUCIBILITY_CHECKLIST_ko.md",
     "STATISTICAL_CALCULATION_NOTE_ko.md",
     "data_availability_2026_ko.md",

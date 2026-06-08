@@ -36,6 +36,7 @@ The repository intentionally excludes informal video-platform materials and vide
 - `reviewer_response_ko.md`: 심사자 반론 대응 메모
 - `reviewer_response_en.md`: English reviewer objection response memo
 - `evidence_matrix_ko.md`: 핵심 주장과 재현 파일의 대응표
+- `evidence_matrix_en.md`: English claim-to-evidence matrix
 - `REPRODUCIBILITY_CHECKLIST_ko.md`: 독립 검증자용 재현성 점검표
 - `STATISTICAL_CALCULATION_NOTE_ko.md`: 핵심 확률값의 공식·입력값·출력 파일 연결 노트
 - `data_availability_2026_ko.md`: 2026년 공식 개표자료 가용성 점검 메모
