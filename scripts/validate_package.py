@@ -591,9 +591,10 @@ def assert_english_pdf_translation_coverage() -> None:
         "candidate allocation",
         "reviewed ballots",
         "core verification material",
-        "evidence_matrix_en.md",
     ]
     missing = [phrase for phrase in required_phrases if phrase not in text]
+    if "evidence_matrix_en.md" not in text and "evidence matrix en.md" not in text:
+        missing.append("evidence_matrix_en.md")
     if missing:
         raise AssertionError(f"English PDF missing expected translated content: {', '.join(missing)}")
 
@@ -601,6 +602,7 @@ def assert_english_pdf_translation_coverage() -> None:
         "2016 National Assembly 229 118 111",
         "about 0.35",
         "evidence_matrix_ko.md",
+        "evidence matrix ko.md",
     ]
     stale = [phrase for phrase in stale_phrases if phrase in text]
     if stale:

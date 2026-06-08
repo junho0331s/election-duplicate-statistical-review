@@ -56,8 +56,8 @@ def main() -> None:
             "pages": en_pages,
             "sha256": sha256(en_pdf),
             "korean_character_count": len(re.findall(r"[가-힣]", en_text)),
-            "references_english_evidence_matrix": "evidence_matrix_en.md" in en_text,
-            "references_korean_evidence_matrix": "evidence_matrix_ko.md" in en_text,
+            "references_english_evidence_matrix": "evidence_matrix_en.md" in en_text or "evidence matrix en.md" in en_text,
+            "references_korean_evidence_matrix": "evidence_matrix_ko.md" in en_text or "evidence matrix ko.md" in en_text,
         },
         "key_claims": {
             "historical_rows": 81701,

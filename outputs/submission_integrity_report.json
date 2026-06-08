@@ -14,8 +14,8 @@
   },
   "english_pdf": {
     "path": "latex/en/main_en.pdf",
-    "pages": 19,
-    "sha256": "81fdee9db70f4f38baad2ae53b289d8e29c0fb862eb3e0d38dbaba1ed4f7f0e8",
+    "pages": 18,
+    "sha256": "d18950ef30e0666d801acf90bc2143cd0aca1f02497b1760e76ad60e702c2851",
     "korean_character_count": 0,
     "references_english_evidence_matrix": true,
     "references_korean_evidence_matrix": false

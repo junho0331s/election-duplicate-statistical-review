@@ -191,10 +191,12 @@ def english_pdf_references_english_evidence_matrix() -> AuditCheck:
 
     pdf = fitz.open(ROOT / "latex" / "en" / "main_en.pdf")
     text = "\n".join(page.get_text() for page in pdf)
-    ok = "evidence_matrix_en.md" in text and "evidence_matrix_ko.md" not in text
+    en_present = "evidence_matrix_en.md" in text or "evidence matrix en.md" in text
+    ko_present = "evidence_matrix_ko.md" in text or "evidence matrix ko.md" in text
+    ok = en_present and not ko_present
     actual = (
-        f"en reference {'present' if 'evidence_matrix_en.md' in text else 'missing'}, "
-        f"ko reference {'present' if 'evidence_matrix_ko.md' in text else 'absent'}"
+        f"en reference {'present' if en_present else 'missing'}, "
+        f"ko reference {'present' if ko_present else 'absent'}"
     )
     return check(
         ok,
