@@ -42,7 +42,7 @@
     {
       "check": "source provenance audit",
       "expected": "status pass with approved source domains only",
-      "actual": "status pass, 15 URLs, 0 failures",
+      "actual": "status pass, 24 URLs, 0 failures",
       "status": "pass"
     },
     {

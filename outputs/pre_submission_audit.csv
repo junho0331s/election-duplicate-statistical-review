@@ -5,7 +5,7 @@ privacy and credential scan,"only allowed author email; 0 credential, phone, or 
 core claims verification,"status pass, 45 checks","status pass, 45 checks",pass
 statistical robustness audit,status pass with 10 checks,"status pass, 10 checks",pass
 video source exclusion audit,status pass with 23 checked files and 0 failures,"status pass, 23 files, 0 failures",pass
-source provenance audit,status pass with approved source domains only,"status pass, 15 URLs, 0 failures",pass
+source provenance audit,status pass with approved source domains only,"status pass, 24 URLs, 0 failures",pass
 claim-boundary audit,status pass with 18 checks,"status pass, 18 checks",pass
 objection coverage audit,status pass with 22 checks,"status pass, 22 checks",pass
 exact collision probability output,threshold 5 exact probability 0.0012190883791786122,threshold 5 exact probability 0.0012190883791786122,pass

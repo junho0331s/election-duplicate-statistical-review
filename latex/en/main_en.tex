@@ -856,44 +856,44 @@ The appendix conclusion is therefore narrow. The same-direction early-vote patte
 \section*{Appendix C. References}
 
 \begin{itemize}
-\item National Election Commission, election-statistics system, counting-unit result pages.
-\item Public Data Portal, National Election Commission vote-counting data files for past elections.
-\item Public Data Portal, 2014 nationwide local election counting data.
-\item Public Data Portal, 2016 National Assembly election counting data.
-\item Public Data Portal, 2018 nationwide local election counting data.
-\item Public Data Portal, 2020 National Assembly election counting data.
-\item Public Data Portal, 2022 nationwide local election counting data.
-\item Public Data Portal, 2024 National Assembly election counting data.
-\item News1/Daum, June 6, 2026, report on identical vote counts in Songdo 1-dong and Songdo 2-dong.
-\item Hankyoreh, June 8, 2026, report on the Songdo identical-count controversy and election-management explanation.
-\item TV Chosun, June 8, 2026, report on identical in-district early-vote counts in twelve places nationwide.
+\item TV Chosun. June 8, 2026. "Identical vote counts appear in twelve places nationwide, including Incheon and Jeonnam; controversy spreads despite the explanation of coincidence." https://news.tvchosun.com/site/data/html\_dir/2026/06/08/2026060890338.html
+\item News1/Daum. June 6, 2026. "Why are the vote counts in Songdo 1-dong and Songdo 2-dong the same? Controversy over Park Chan-dae and Yoo Jeong-bok vote counts." https://v.daum.net/v/20260606113452062
+\item Hankyoreh. June 8, 2026. "Regarding the same vote counts for Park Chan-dae and Yoo Jeong-bok in Songdo 1-dong and Songdo 2-dong, the election authority says there was no unlawful counting." https://www.hani.co.kr/arti/area/capital/1262526.html
+\item Public Data Portal. National Election Commission, vote-counting results for the 6th nationwide local election, June 4, 2014. https://www.data.go.kr/data/15048207/fileData.do
+\item Public Data Portal. National Election Commission voting and counting information. https://www.data.go.kr/data/15000900/openapi.do
+\item National Election Commission Open Election Data Portal. Public counting-result files for National Assembly, presidential, and nationwide local elections. https://data.nec.go.kr/
+\item Public Data Portal. National Election Commission election vote-counting result file data. https://www.data.go.kr/
+\item Public Data Portal. Gwangju Metropolitan City community-service-center status. https://www.data.go.kr/data/3082663/fileData.do
+\item Jeollanam-do Provincial Government. General status and administrative districts. https://www.jeonnam.go.kr/contentsView.do?menuId=jeonnam0602030000
 \end{itemize}
 
 \section*{Appendix D. Reproduction Outputs}
 
-Key files in the package include:
-
 \begin{itemize}
-\item \texttt{outputs/dataset\_counts.csv}
-\item \texttt{outputs/duplicate\_summary.csv}
-\item \texttt{outputs/governor\_actual\_top2\_summary.csv}
-\item \texttt{outputs/governor\_actual\_top2\_by\_contest.csv}
-\item \texttt{outputs/governor\_actual\_top2\_duplicates.csv}
-\item \texttt{outputs/governor\_bootstrap\_summary.csv}
-\item \texttt{outputs/governor\_bootstrap\_histogram.csv}
-\item \texttt{outputs/nec\_2026\_gwangju\_jeonnam\_unit\_counts.csv}
-\item \texttt{outputs/nec\_2026\_gwangju\_jeonnam\_units.csv}
-\item \texttt{outputs/nec\_2026\_gwangju\_jeonnam\_unit\_summary.json}
-\item \texttt{outputs/nec\_2026\_reported\_duplicate\_cases.csv}
-\item \texttt{outputs/nec\_2026\_reported\_duplicate\_pairs.csv}
-\item \texttt{outputs/songdo\_probability\_summary.csv}
-\item \texttt{outputs/songdo\_official\_rows.csv}
-\item \texttt{outputs/probability\_core.csv}
-\item \texttt{outputs/probability\_k\_sensitivity.csv}
-\item \texttt{outputs/probability\_n\_sensitivity.csv}
-\item \texttt{outputs/early\_day\_assembly\_summary.csv}
-\item \texttt{outputs/early\_day\_assembly\_twoparty.csv}
-\item \texttt{outputs/checksums\_sha256.csv}
+\item Dependency file: \texttt{requirements.txt}
+\item Full reproduction script: \texttt{scripts/run\_all.py}
+\item Duplicate-analysis script: \texttt{scripts/analyze\_duplicates.py}
+\item Historical governor first- and second-place baseline script: \texttt{scripts/analyze\_governor\_actual\_top2.py}
+\item Governor nonparametric resampling script: \texttt{scripts/bootstrap\_governor\_duplicates.py}
+\item Probability and sensitivity-table reproduction script: \texttt{scripts/probability\_sensitivity.py}
+\item Early-vote/election-day check script: \texttt{scripts/analyze\_early\_day\_assembly.py}
+\item Additional raw data file: \texttt{data/local2014.xlsx}
+\item Existing summary table: \texttt{outputs/duplicate\_summary.csv}
+\item Duplicate groups: \texttt{outputs/duplicate\_groups.csv}
+\item Duplicate examples: \texttt{outputs/duplicate\_examples.csv}
+\item Governor actual first- and second-place baseline summary: \texttt{outputs/governor\_actual\_top2\_summary.csv}
+\item Governor contest-level baseline: \texttt{outputs/governor\_actual\_top2\_by\_contest.csv}
+\item Governor identical vote-pair cases: \texttt{outputs/governor\_actual\_top2\_duplicates.csv}
+\item Governor nonparametric resampling summary: \texttt{outputs/governor\_bootstrap\_summary.csv}
+\item Governor nonparametric resampling histogram: \texttt{outputs/governor\_bootstrap\_histogram.csv}
+\item Core probability table: \texttt{outputs/probability\_core.csv}
+\item Effective pair-space sensitivity table: \texttt{outputs/probability\_k\_sensitivity.csv}
+\item Counting-unit-count sensitivity table: \texttt{outputs/probability\_n\_sensitivity.csv}
+\item Early-vote/election-day summary: \texttt{outputs/early\_day\_assembly\_summary.csv}
+\item Early-vote/election-day constituency-level results: \texttt{outputs/early\_day\_assembly\_twoparty.csv}
+\item This paper: \texttt{paper\_statistical\_implausibility\_en.md}
+\item English LaTeX manuscript: \texttt{latex/en/main\_en.tex}
+\item English PDF manuscript: \texttt{latex/en/main\_en.pdf}
 \end{itemize}
 
 \end{document}

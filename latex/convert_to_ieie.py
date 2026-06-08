@@ -192,10 +192,6 @@ while idx < len(body_lines):
     if stripped.startswith('## '):
         close_list()
         heading = clean_heading(stripped[3:])
-        if heading == '재현 산출물':
-            # Keep the detailed artifact list in Markdown/README, but omit it
-            # from the conference PDF to avoid a visually poor path listing.
-            break
         if heading.startswith('부록 ') or heading == '참고자료':
             if heading.startswith('부록 ') and not in_onecolumn_appendix:
                 out.append(r'\clearpage')

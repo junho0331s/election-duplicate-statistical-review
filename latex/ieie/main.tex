@@ -867,5 +867,33 @@ P(X \ge x) = \sum_{k=x}^{n} \binom{n}{k}\left(\frac{1}{2}\right)^n
 \item 전라남도청. 전남소개 일반현황 행정구역. https://www.jeonnam.go.kr/contentsView.do?menuId=jeonnam0602030000
 \end{itemize}
 
+\section*{재현 산출물}
+
+\begin{itemize}
+\item 의존성 파일: \texttt{requirements.txt}
+\item 전체 재현 스크립트: \texttt{scripts/run\_all.py}
+\item 분석 스크립트: \texttt{scripts/analyze\_duplicates.py}
+\item 시·도지사 실제 1·2위 기준선 스크립트: \texttt{scripts/analyze\_governor\_actual\_top2.py}
+\item 시·도지사 비복원 재표본추출 스크립트: \texttt{scripts/bootstrap\_governor\_duplicates.py}
+\item 확률 및 민감도 표 재현 스크립트: \texttt{scripts/probability\_sensitivity.py}
+\item 사전-당일 검산 스크립트: \texttt{scripts/analyze\_early\_day\_assembly.py}
+\item 추가 원자료: \texttt{data/local2014.xlsx}
+\item 기존 요약표: \texttt{outputs/duplicate\_summary.csv}
+\item 중복 그룹: \texttt{outputs/duplicate\_groups.csv}
+\item 중복 사례: \texttt{outputs/duplicate\_examples.csv}
+\item 시·도지사 실제 1·2위 기준선 요약: \texttt{outputs/governor\_actual\_top2\_summary.csv}
+\item 시·도지사 선거구별 기준선: \texttt{outputs/governor\_actual\_top2\_by\_contest.csv}
+\item 시·도지사 동일 득표쌍 사례: \texttt{outputs/governor\_actual\_top2\_duplicates.csv}
+\item 시·도지사 비복원 재표본추출 요약: \texttt{outputs/governor\_bootstrap\_summary.csv}
+\item 시·도지사 비복원 재표본추출 히스토그램: \texttt{outputs/governor\_bootstrap\_histogram.csv}
+\item 핵심 확률표: \texttt{outputs/probability\_core.csv}
+\item 가능한 득표쌍 범위 민감도 표: \texttt{outputs/probability\_k\_sensitivity.csv}
+\item 개표단위 수 민감도 표: \texttt{outputs/probability\_n\_sensitivity.csv}
+\item 사전-당일 검산 요약: \texttt{outputs/early\_day\_assembly\_summary.csv}
+\item 사전-당일 지역구별 결과: \texttt{outputs/early\_day\_assembly\_twoparty.csv}
+\item 본 논문: \texttt{paper\_statistical\_implausibility\_ko.md}
+\item IEIE LaTeX 원고: \texttt{latex/ieie/main.tex}
+\item IEIE PDF 원고: \texttt{latex/ieie/main.pdf}
+\end{itemize}
 
 \end{document}
