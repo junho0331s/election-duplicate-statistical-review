@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import math
 import re
@@ -553,6 +554,28 @@ def assert_zip_package() -> None:
     bad = sorted(name for name in names if name.endswith(forbidden_suffixes))
     if bad:
         raise AssertionError(f"Zip contains LaTeX build byproducts: {', '.join(bad)}")
+
+    checksum_rows = list(csv.DictReader((ROOT / "outputs" / "checksums_sha256.csv").open(encoding="utf-8")))
+    missing_checksum_entries = sorted(row["path"] for row in checksum_rows if row["path"] not in names)
+    if missing_checksum_entries:
+        raise AssertionError(
+            "Zip missing entries listed in checksums_sha256.csv: "
+            + ", ".join(missing_checksum_entries[:20])
+        )
+    with ZipFile(zip_path) as zf:
+        mismatches = []
+        for row in checksum_rows:
+            rel = row["path"]
+            payload = zf.read(rel)
+            digest = hashlib.sha256(payload).hexdigest()
+            size = len(payload)
+            if digest != row["sha256"] or size != int(row["bytes"]):
+                mismatches.append(rel)
+    if mismatches:
+        raise AssertionError(
+            "Zip entries do not match checksums_sha256.csv: "
+            + ", ".join(mismatches[:20])
+        )
 
 
 def main() -> None:
