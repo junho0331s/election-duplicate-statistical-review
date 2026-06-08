@@ -36,6 +36,7 @@ def main() -> None:
     claim_boundary = json.loads((OUT / "claim_boundary_audit.json").read_text(encoding="utf-8"))
     objection_coverage = json.loads((OUT / "objection_coverage_audit.json").read_text(encoding="utf-8"))
     audit = json.loads((OUT / "pre_submission_audit.json").read_text(encoding="utf-8"))
+    index_audit = json.loads((OUT / "submission_index_audit.json").read_text(encoding="utf-8"))
     ko_pdf = ROOT / "latex" / "ieie" / "main.pdf"
     en_pdf = ROOT / "latex" / "en" / "main_en.pdf"
     en_pages, en_text = pdf_text(en_pdf)
@@ -49,6 +50,7 @@ def main() -> None:
             and claim_boundary.get("status") == "pass"
             and objection_coverage.get("status") == "pass"
             and audit.get("status") == "pass"
+            and index_audit.get("status") == "pass"
         ) else "fail",
         "scope": "submission package integrity summary excluding final zip self-hash",
         "core_claims_status": core.get("status"),
@@ -65,6 +67,8 @@ def main() -> None:
         "objection_coverage_audit_check_count": objection_coverage.get("check_count"),
         "pre_submission_audit_status": audit.get("status"),
         "pre_submission_audit_check_count": audit.get("check_count"),
+        "submission_index_audit_status": index_audit.get("status"),
+        "submission_index_audit_check_count": index_audit.get("check_count"),
         "korean_pdf": {
             "path": "latex/ieie/main.pdf",
             "pages": ko_pages,
@@ -115,6 +119,7 @@ def main() -> None:
         f"- Claim-boundary audit: `{summary['claim_boundary_audit_status']}`, {summary['claim_boundary_audit_check_count']} checks",
         f"- Objection coverage audit: `{summary['objection_coverage_audit_status']}`, {summary['objection_coverage_audit_check_count']} checks",
         f"- Pre-submission audit: `{summary['pre_submission_audit_status']}`, {summary['pre_submission_audit_check_count']} checks",
+        f"- Submission index audit: `{summary['submission_index_audit_status']}`, {summary['submission_index_audit_check_count']} checks",
         "",
         "## PDF Artifacts",
         "",

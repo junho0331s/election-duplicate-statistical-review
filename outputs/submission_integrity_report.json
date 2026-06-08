@@ -15,6 +15,8 @@
   "objection_coverage_audit_check_count": 22,
   "pre_submission_audit_status": "pass",
   "pre_submission_audit_check_count": 15,
+  "submission_index_audit_status": "pass",
+  "submission_index_audit_check_count": 102,
   "korean_pdf": {
     "path": "latex/ieie/main.pdf",
     "pages": 16,

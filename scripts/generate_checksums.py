@@ -13,6 +13,8 @@ OUT.mkdir(parents=True, exist_ok=True)
 INCLUDE_FILES = [
     "README.md",
     "requirements.txt",
+    "SUBMISSION_INDEX_ko.md",
+    "SUBMISSION_INDEX_en.md",
     "paper_statistical_implausibility_ko.md",
     "paper_statistical_implausibility_en.md",
     "cover_letter_ko.md",

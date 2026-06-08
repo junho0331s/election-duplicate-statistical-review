@@ -16,6 +16,8 @@ ZIP_TIMESTAMP = (2026, 6, 9, 0, 0, 0)
 INCLUDE_FILES = [
     "README.md",
     "requirements.txt",
+    "SUBMISSION_INDEX_ko.md",
+    "SUBMISSION_INDEX_en.md",
     "paper_statistical_implausibility_ko.md",
     "paper_statistical_implausibility_en.md",
     "cover_letter_ko.md",
@@ -65,6 +67,7 @@ INCLUDE_FILES = [
     "scripts/claim_boundary_audit.py",
     "scripts/objection_coverage_audit.py",
     "scripts/pre_submission_audit.py",
+    "scripts/submission_index_audit.py",
     "scripts/submission_integrity_report.py",
     "scripts/local_ci_validation_report.py",
     "scripts/generate_checksums.py",

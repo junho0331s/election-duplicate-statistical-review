@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "scope": "submission index references and pre-zip audit-count consistency",
+  "check_count": 102,
+  "failed_checks": []
+}

@@ -31,6 +31,8 @@ The repository intentionally excludes informal video-platform materials and vide
 
 - `paper_statistical_implausibility_ko.md`: 학술 원고 본문
 - `paper_statistical_implausibility_en.md`: English paper
+- `SUBMISSION_INDEX_ko.md`: 제출 패키지 최상위 인덱스
+- `SUBMISSION_INDEX_en.md`: English top-level submission index
 - `cover_letter_ko.md`: 학회 제출용 커버레터
 - `cover_letter_en.md`: English submission cover letter
 - `submission_memo_ko.md`: 제출 메모, 주장 범위, 한계, 재현 절차, 예상 반론 요약
@@ -111,6 +113,7 @@ python3 scripts/source_provenance_audit.py
 python3 scripts/claim_boundary_audit.py
 python3 scripts/objection_coverage_audit.py
 python3 scripts/pre_submission_audit.py
+python3 scripts/submission_index_audit.py
 python3 scripts/submission_integrity_report.py
 python3 scripts/generate_checksums.py
 python3 scripts/create_submission_zip.py

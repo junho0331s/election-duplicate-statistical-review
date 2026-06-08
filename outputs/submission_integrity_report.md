@@ -9,6 +9,7 @@
 - Claim-boundary audit: `pass`, 18 checks
 - Objection coverage audit: `pass`, 22 checks
 - Pre-submission audit: `pass`, 15 checks
+- Submission index audit: `pass`, 102 checks
 
 ## PDF Artifacts
 
