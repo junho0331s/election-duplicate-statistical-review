@@ -16,6 +16,42 @@ def poisson_tail_at_least(lam: float, threshold: int) -> float:
     return 1 - sum(math.exp(-lam) * lam**k / math.factorial(k) for k in range(threshold))
 
 
+def exact_pair_collision_tail(n: int, k_space: int, threshold: int) -> float:
+    """Exact occupancy tail for pair-collision count >= threshold.
+
+    The state keeps only paths whose current pair-collision count is below the
+    threshold. This is enough because all paths at or above the threshold are
+    absorbed into the tail probability.
+    """
+    states: dict[tuple[tuple[int, ...], int], float] = {((0,) * threshold, 0): 1.0}
+    for _ in range(n):
+        next_states: dict[tuple[tuple[int, ...], int], float] = {}
+        for (counts, collision_count), probability in states.items():
+            occupied = sum(counts)
+            empty_probability = (k_space - occupied) / k_space
+            if empty_probability:
+                next_counts = list(counts)
+                next_counts[0] += 1
+                key = (tuple(next_counts), collision_count)
+                next_states[key] = next_states.get(key, 0.0) + probability * empty_probability
+
+            for size in range(1, threshold + 1):
+                boxes = counts[size - 1]
+                if not boxes:
+                    continue
+                next_collision_count = collision_count + size
+                if next_collision_count >= threshold:
+                    continue
+                next_counts = list(counts)
+                next_counts[size - 1] -= 1
+                if size < threshold:
+                    next_counts[size] += 1
+                key = (tuple(next_counts), next_collision_count)
+                next_states[key] = next_states.get(key, 0.0) + probability * boxes / k_space
+        states = next_states
+    return 1 - sum(states.values())
+
+
 def reciprocal(p: float) -> float:
     return float("inf") if p == 0 else 1 / p
 
@@ -65,6 +101,23 @@ def main() -> None:
         n_sensitivity.append(probability_row(n, base_k, 5))
 
     write_csv(OUT / "probability_core.csv", core)
+
+    exact_collision = []
+    rounded_k = round(base_k)
+    for row in core:
+        exact_p = exact_pair_collision_tail(base_n, rounded_k, int(row["threshold"]))
+        exact_collision.append({
+            "n": base_n,
+            "k_space": rounded_k,
+            "threshold": row["threshold"],
+            "poisson_probability": row["probability"],
+            "exact_probability": exact_p,
+            "exact_probability_percent": exact_p * 100,
+            "poisson_minus_exact": row["probability"] - exact_p,
+            "exact_reciprocal": reciprocal(exact_p),
+        })
+    write_csv(OUT / "probability_exact_collision.csv", exact_collision)
+
     write_csv(OUT / "probability_k_sensitivity.csv", k_sensitivity)
     write_csv(OUT / "probability_n_sensitivity.csv", n_sensitivity)
 
@@ -75,6 +128,7 @@ def main() -> None:
         "p_at_least_6": core[3]["probability"],
         "outputs": [
             "outputs/probability_core.csv",
+            "outputs/probability_exact_collision.csv",
             "outputs/probability_k_sensitivity.csv",
             "outputs/probability_n_sensitivity.csv",
         ],

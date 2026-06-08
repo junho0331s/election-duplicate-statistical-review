@@ -12,6 +12,7 @@ This Quickstart checks the following items.
 - `N=393` Gwangju-Jeonnam in-district early-vote counting units from official NEC HTML
 - Historical maximum of `3` repeated pairs inside one constituency contest across `51` governor contests
 - `P(C >= 5) = 0.0011484064`, approximately `0.115%`, under `N=393` and `K=100,944.8`
+- Exact pair-collision `P(C >= 5) = 0.0012190884`, approximately `0.122%`, under `N=393` and `K=100945`
 - `0` occurrences of `C >= 5` in `200,000` nonparametric resampling trials from historical actual vote pairs
 - Sign-test inputs showing that in the 2020 and 2024 National Assembly elections every analyzable constituency had a higher Democratic two-party share in early voting than on election day
 - Auxiliary probability values for the Incheon Songdo case
@@ -73,6 +74,7 @@ Reviewers should inspect these files first.
 | Historical governor baseline summary | `outputs/governor_actual_top2_summary.csv` |
 | Historical governor duplicate details | `outputs/governor_actual_top2_duplicates.csv` |
 | Core Poisson probabilities | `outputs/probability_core.csv` |
+| Exact pair-collision probabilities | `outputs/probability_exact_collision.csv` |
 | Nonparametric resampling result | `outputs/governor_bootstrap_summary.csv` |
 | Early-vote versus election-day sign test | `outputs/early_day_assembly_summary.csv` |
 | Incheon Songdo auxiliary probability | `outputs/songdo_probability_summary.csv` |
@@ -91,6 +93,7 @@ Reviewers should inspect these files first.
 | Gwangju-Jeonnam in-district early-vote units | `393` | `outputs/nec_2026_gwangju_jeonnam_unit_summary.json` |
 | Estimated effective vote-pair space | `100,944.8` | `outputs/governor_actual_top2_summary.csv` |
 | `P(C >= 5)` | `0.0011484064` | `outputs/probability_core.csv` |
+| Exact pair-collision `P(C >= 5)` | `0.0012190884` | `outputs/probability_exact_collision.csv` |
 | Nonparametric resampling `C >= 5` | `0 / 200,000` | `outputs/governor_bootstrap_summary.csv` |
 | 2026 event rows | `12` | `outputs/nec_2026_reported_duplicate_cases.csv` |
 | 2026 identical vote pairs | `6` | `outputs/nec_2026_reported_duplicate_pairs.csv` |

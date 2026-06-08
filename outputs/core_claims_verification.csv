@@ -13,6 +13,10 @@ Poisson probability threshold 4,0.007734837111887716,0.007734837111887716,1e-15,
 Poisson probability threshold 5,0.0011484064248148407,0.0011484064248148407,1e-15,pass
 Poisson probability percent threshold 5,0.11484064248148407,0.11484064248148407,1e-12,pass
 Poisson probability threshold 6,0.00014322422035484283,0.00014322422035484283,1e-15,pass
+exact collision rounded K,100945,100945,,pass
+exact collision probability threshold 5,0.0012190883791786122,0.0012190883791786122,1e-15,pass
+exact collision probability percent threshold 5,0.12190883791786122,0.12190883791786122,1e-12,pass
+exact collision probability threshold 6,0.00016497161821593664,0.00016497161821593664,1e-15,pass
 bootstrap sample size,393,393,,pass
 bootstrap trials,200000,200000,,pass
 bootstrap threshold 5 exceedances,0,0,,pass

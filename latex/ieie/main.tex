@@ -316,6 +316,24 @@ P(C \geq 6) \approx 0.0143\%
 
 이 계산에서 5쌍은 광주전남 내부 사건, 6쌍은 전국 보도 사건을 단순화한 참고값이다. 전국 6쌍은 여러 선거를 함께 훑은 뒤 발견된 값이므로 엄밀한 해석에는 별도 보정이 필요하다.
 
+\subsection{정확 pair-collision 계산}
+
+위 계산은 포아송 근사다. 따라서 "근사식이 희귀성을 과장한 것 아니냐"는 반론을 점검하기 위해, 같은 \(N=393\), 반올림 \(K=100,945\) 기준에서 정확 pair-collision 계산을 별도로 수행했다. 이 계산은 개표단위가 하나씩 배정될 때 아직 임계값에 도달하지 않은 득표쌍 점유 상태를 동적계획법으로 추적하고, 5쌍 이상에 도달하는 경로를 꼬리확률로 흡수한다.
+
+\begin{center}
+\scriptsize
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.293\linewidth}>{\raggedright\arraybackslash}p{0.293\linewidth}>{\raggedright\arraybackslash}p{0.293\linewidth}}
+\toprule
+계산 방식 & \(P(C \geq 5)\) & 해석 \\
+\midrule
+포아송 근사 & 0.0011484064 & 약 0.115\% \\
+정확 pair-collision 계산 & 0.0012190884 & 약 0.122\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+정확 계산값은 포아송 근사보다 약간 크다. 즉 본문의 포아송 근사는 5쌍 사건을 실제보다 더 희귀하게 보이도록 만든 계산이 아니다. 근사식을 exact 계산으로 바꾸어도 광주전남 5쌍 사건은 약 0.12\% 수준의 낮은 꼬리확률 사건으로 남는다.
+
 \subsection{가능한 득표쌍 범위에 대한 민감도 분석}
 
 가능한 득표쌍 범위 \(K\)를 어떻게 잡느냐에 따라 확률은 달라진다. \(N=393\)에서 \(K\)를 바꿔 계산하면 다음과 같다.

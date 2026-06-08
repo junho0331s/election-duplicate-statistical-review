@@ -12,6 +12,7 @@
 - 선관위 공식 HTML 기준 광주전남 관내사전 개표단위 `N=393`
 - 과거 시·도지사 선거 `51`개 선거구 기준 한 선거구 안 최대 반복 `3`쌍
 - `N=393`, `K=100,944.8` 기준 `P(C >= 5) = 0.0011484064`, 약 `0.115%`
+- `N=393`, `K=100945` 기준 정확 pair-collision `P(C >= 5) = 0.0012190884`, 약 `0.122%`
 - 과거 실제 득표쌍 비복원 재표본추출 `200,000`회에서 `C >= 5` 관측 `0`회
 - 2020년과 2024년 총선의 분석 가능 전 지역구에서 민주당 후보의 사전투표 양자득표율이 당일투표보다 높았다는 부호검정 입력값
 - 인천 송도 보조 사례의 조건부 확률과 연수구 단위 확률
@@ -73,6 +74,7 @@ python3 scripts/run_all.py
 | 과거 시·도지사 기준선 요약 | `outputs/governor_actual_top2_summary.csv` |
 | 과거 시·도지사 중복 상세 | `outputs/governor_actual_top2_duplicates.csv` |
 | 포아송 핵심 확률 | `outputs/probability_core.csv` |
+| 정확 pair-collision 확률 | `outputs/probability_exact_collision.csv` |
 | 비복원 재표본추출 결과 | `outputs/governor_bootstrap_summary.csv` |
 | 사전투표·당일투표 부호검정 | `outputs/early_day_assembly_summary.csv` |
 | 인천 송도 보조 확률 | `outputs/songdo_probability_summary.csv` |
@@ -91,6 +93,7 @@ python3 scripts/run_all.py
 | 광주전남 관내사전 개표단위 | `393` | `outputs/nec_2026_gwangju_jeonnam_unit_summary.json` |
 | 추정 가능한 득표쌍 범위 | `100,944.8` | `outputs/governor_actual_top2_summary.csv` |
 | `P(C >= 5)` | `0.0011484064` | `outputs/probability_core.csv` |
+| 정확 pair-collision `P(C >= 5)` | `0.0012190884` | `outputs/probability_exact_collision.csv` |
 | 비복원 재표본추출 `C >= 5` | `0 / 200,000` | `outputs/governor_bootstrap_summary.csv` |
 | 2026년 사건행 | `12` | `outputs/nec_2026_reported_duplicate_cases.csv` |
 | 2026년 동일 득표쌍 | `6` | `outputs/nec_2026_reported_duplicate_pairs.csv` |

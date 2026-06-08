@@ -315,6 +315,24 @@ At least 6 pairs & about 0.0143\% & about 1 in 6,982 \\
 
 In this calculation, five pairs refers to the internal Gwangju-Jeonnam event. Six pairs is a simplified reference value for the nationwide reported event. The nationwide six-pair figure requires additional multiple-search adjustment because it was found after looking across more than one contest.
 
+\subsection{Exact Pair-Collision Calculation}
+
+The calculation above is a Poisson approximation. To check the objection that the approximation may exaggerate rarity, the study also computes the exact pair-collision tail probability under the same \(N=393\) and rounded \(K=100,945\) baseline. The exact calculation uses dynamic programming over the occupancy states that remain below the threshold and absorbs every path that reaches five or more repeated pairs into the tail probability.
+
+\begin{center}
+\small
+\begin{tabular}{l l l}
+\toprule
+Calculation & \(P(C \geq 5)\) & Interpretation \\
+\midrule
+Poisson approximation & 0.0011484064 & about 0.115\% \\
+Exact pair-collision calculation & 0.0012190884 & about 0.122\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The exact probability is slightly larger than the Poisson approximation. In other words, the Poisson approximation is not making the five-pair event look artificially rarer. Even under exact calculation, the Gwangju-Jeonnam five-pair event remains a low-tail event of about 0.12\%.
+
 \subsection{Sensitivity to the Effective Pair Space}
 
 The probability changes depending on how the effective pair space \(K\) is set. With \(N=393\), the sensitivity calculation is:

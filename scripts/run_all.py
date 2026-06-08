@@ -46,6 +46,7 @@ def main() -> None:
         ROOT / "outputs" / "songdo_probability_summary.csv",
         ROOT / "outputs" / "songdo_official_rows.csv",
         ROOT / "outputs" / "probability_core.csv",
+        ROOT / "outputs" / "probability_exact_collision.csv",
         ROOT / "outputs" / "probability_k_sensitivity.csv",
         ROOT / "outputs" / "probability_n_sensitivity.csv",
         ROOT / "outputs" / "early_day_assembly_summary.csv",

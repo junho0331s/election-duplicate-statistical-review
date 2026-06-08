@@ -65,7 +65,22 @@ The Poisson approximation depends on the selected \(K\) and \(N\). The package t
 
 The purpose of this sensitivity analysis is to avoid overclaiming one exact probability value. Even under a conservative \(K=50,000\), which makes collisions easier, \(P(C \geq 5)\) is about 2.05%; the five-pair Gwangju-Jeonnam event does not become an ordinary background event.
 
-## 3. Nonparametric Resampling From Historical Actual Vote Pairs
+## 3. Exact Pair-Collision Calculation
+
+The Poisson formula is a standard approximation for rare collision counts. A reviewer may still ask whether the approximation itself exaggerates the conclusion. The package therefore recomputes the same question with an exact birthday-problem dynamic program.
+
+The exact calculation uses \(N=393\) and rounded \(K=100945\). It sequentially assigns counting units to possible vote-pair cells and tracks only states whose current pair-collision count is still below the threshold. If a cell already contains \(s\) units, assigning a new unit to that cell adds \(s\) pair collisions. Paths that reach or exceed the threshold are absorbed into the tail probability.
+
+The result is written to `outputs/probability_exact_collision.csv`.
+
+| Baseline | \(P(C \ge 5)\) | Interpretation |
+| --- | ---: | --- |
+| Poisson approximation | 0.0011484064 | about 0.115% |
+| Exact pair-collision calculation | 0.0012190884 | about 0.122% |
+
+The exact calculation is slightly larger than the Poisson approximation. Therefore the 0.115% value used in the manuscript is not an artifact that makes the event artificially rarer; it is a close approximation to the exact low-tail probability under the same baseline.
+
+## 4. Nonparametric Resampling From Historical Actual Vote Pairs
 
 Because the Poisson approximation contains model assumptions, the package also performs an empirical resampling test using the historical actual vote-pair pool.
 
@@ -97,7 +112,7 @@ Reproduction command:
 python3 scripts/bootstrap_governor_duplicates.py
 ```
 
-## 4. Songdo Probability Calculation
+## 5. Songdo Probability Calculation
 
 The Incheon Songdo case is treated separately from the Gwangju-Jeonnam main test. It uses the Yeonsu official HTML and the same effective \(K=100,944.8\) baseline.
 
@@ -115,7 +130,7 @@ Reproduction command:
 python3 scripts/analyze_songdo_probability.py
 ```
 
-## 5. Interpretation Allowed by These Calculations
+## 6. Interpretation Allowed by These Calculations
 
 The calculations support the following statement:
 
@@ -126,4 +141,3 @@ The calculations do not, by themselves, establish the following statement:
 > A specific actor, device, or input procedure intentionally produced the result.
 
 Maintaining this distinction is the paper's central defensive boundary. The calculations support the need for audit, but causal attribution requires original counting statements, first-pass sorter outputs, reviewed-ballot allocation records, and electronic input logs.
-

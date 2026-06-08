@@ -29,6 +29,7 @@ This document explains the core CSV and JSON outputs under `outputs/`. Its purpo
 | `outputs/governor_bootstrap_summary.csv` | One resampling condition | Checks how often five or more pairs occur when sampling without replacement from historical actual vote pairs. | `sample_size`, `trials`, `threshold`, `exceedances`, `probability`, `rule_of_three_upper_95` |
 | `outputs/governor_bootstrap_histogram.csv` | One observed duplicate-group count in resampling | Shows the shape of the resampling distribution. | `duplicate_groups`, `trials`, `share` |
 | `outputs/probability_core.csv` | One probability scenario | Main Poisson-approximation probability table. | `n`, `k_space`, `threshold`, `lambda`, `probability`, `probability_percent`, `reciprocal` |
+| `outputs/probability_exact_collision.csv` | One exact pair-collision scenario | Recomputes the same question as the Poisson approximation using an exact birthday-problem dynamic program. | `n`, `k_space`, `threshold`, `poisson_probability`, `exact_probability`, `exact_probability_percent`, `poisson_minus_exact`, `exact_reciprocal` |
 | `outputs/probability_k_sensitivity.csv` | One effective pair-space assumption | Sensitivity analysis for changes in `K`. | `k_space`, `threshold`, `probability_percent`, `reciprocal` |
 | `outputs/probability_n_sensitivity.csv` | One counting-unit count assumption | Sensitivity analysis for changes in `N`. | `n`, `threshold`, `probability_percent`, `reciprocal` |
 | `outputs/nec_2026_gwangju_jeonnam_units.csv` | One 2026 Gwangju or Jeonnam in-district early-vote counting unit | Official-HTML basis for `N=393`. | `city`, `town`, `unit`, `vote_class`, `electors`, `turnout`, `source_file` |
@@ -63,6 +64,7 @@ This document explains the core CSV and JSON outputs under `outputs/`. Its purpo
 | The Gwangju-Jeonnam in-district early-vote counting-unit count is 393. | `outputs/nec_2026_gwangju_jeonnam_units.csv`, `outputs/nec_2026_gwangju_jeonnam_unit_summary.json` |
 | Across 51 historical governor contests, the maximum identical-pair count inside one contest is three. | `outputs/governor_actual_top2_summary.csv`, `outputs/governor_actual_top2_by_contest.csv`, `outputs/governor_actual_top2_duplicates.csv` |
 | The Poisson approximation for five or more Gwangju-Jeonnam pairs is about 0.115%. | `outputs/probability_core.csv`, `outputs/governor_actual_top2_summary.csv` |
+| The exact pair-collision probability under the same baseline is about 0.122%. | `outputs/probability_exact_collision.csv` |
 | Historical actual-pair resampling produces zero five-or-more-pair trials in 200,000 trials. | `outputs/governor_bootstrap_summary.csv`, `outputs/governor_bootstrap_histogram.csv` |
 | Songdo is a separate auxiliary audit signal, not part of the Gwangju-Jeonnam core test. | `outputs/songdo_official_rows.csv`, `outputs/songdo_probability_summary.csv` |
 | In 2020 and 2024, every analyzable National Assembly constituency shows the same early-vote directional pattern. | `outputs/early_day_assembly_summary.csv`, `outputs/early_day_assembly_twoparty.csv` |

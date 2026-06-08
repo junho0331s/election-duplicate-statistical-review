@@ -75,6 +75,7 @@ REQUIRED_FILES = [
     "outputs/songdo_probability_summary.csv",
     "outputs/songdo_official_rows.csv",
     "outputs/probability_core.csv",
+    "outputs/probability_exact_collision.csv",
     "outputs/early_day_assembly_summary.csv",
     "outputs/core_claims_verification.csv",
     "outputs/core_claims_verification.json",
@@ -306,6 +307,7 @@ def assert_core_claims_verification() -> None:
         "historical governor contests",
         "historical maximum duplicate groups in one contest",
         "Poisson probability threshold 5",
+        "exact collision probability threshold 5",
         "bootstrap threshold 5 exceedances",
         "NEC 2026 Gwangju-Jeonnam in-district early units summary",
         "NEC 2026 event rows",
@@ -377,6 +379,7 @@ def assert_checksums() -> None:
         "outputs/core_claims_verification.csv",
         "outputs/core_claims_verification.json",
         "outputs/probability_core.csv",
+        "outputs/probability_exact_collision.csv",
     ]
     missing = [rel for rel in required if rel not in by_path]
     if missing:
@@ -480,6 +483,7 @@ def assert_zip_package() -> None:
         "outputs/nec_2026_reported_duplicate_cases.csv",
         "outputs/core_claims_verification.csv",
         "outputs/core_claims_verification.json",
+        "outputs/probability_exact_collision.csv",
         "evidence_matrix_ko.md",
         "evidence_matrix_en.md",
         "DATA_DICTIONARY_ko.md",

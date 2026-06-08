@@ -151,6 +151,7 @@ python3 scripts/create_submission_zip.py
 - `outputs/songdo_probability_summary.csv`
 - `outputs/songdo_official_rows.csv`
 - `outputs/probability_core.csv`
+- `outputs/probability_exact_collision.csv`
 - `outputs/probability_k_sensitivity.csv`
 - `outputs/probability_n_sensitivity.csv`
 - `outputs/early_day_assembly_summary.csv`
@@ -169,6 +170,7 @@ python3 scripts/create_submission_zip.py
 - 선관위 공식 HTML 기준 광주전남 관내사전 개표단위: `393`
 - 추정 \(K\): `100,944.8`
 - `N=393` 기준 `P(C >= 5)`: `0.0011484064`, 약 `0.115%`
+- `N=393`, `K=100945` 기준 정확 pair-collision `P(C >= 5)`: `0.0012190884`, 약 `0.122%`
 - `N=393` 기준 `P(C >= 6)`: `0.0001432242`, 약 `0.0143%`
 - 연수구 관내사전 15개 단위 중 한 쌍 이상 동일 득표쌍 확률: 약 `0.104%`
 - 특정 송도1동-송도2동 두 단위가 같은 득표쌍을 가질 조건부 확률: 약 `0.000991%`

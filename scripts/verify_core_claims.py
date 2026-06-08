@@ -79,6 +79,14 @@ def main() -> None:
         require_close("Poisson probability threshold 6", float(probability_rows[6]["probability"]), 0.00014322422035484283, 1e-15),
     ])
 
+    exact_rows = {int(row["threshold"]): row for row in read_csv("outputs/probability_exact_collision.csv")}
+    checks.extend([
+        require_equal("exact collision rounded K", int(exact_rows[5]["k_space"]), 100_945),
+        require_close("exact collision probability threshold 5", float(exact_rows[5]["exact_probability"]), 0.0012190883791786122, 1e-15),
+        require_close("exact collision probability percent threshold 5", float(exact_rows[5]["exact_probability_percent"]), 0.12190883791786122, 1e-12),
+        require_close("exact collision probability threshold 6", float(exact_rows[6]["exact_probability"]), 0.00016497161821593664, 1e-15),
+    ])
+
     bootstrap_rows = {int(row["threshold"]): row for row in read_csv("outputs/governor_bootstrap_summary.csv")}
     bootstrap_5 = bootstrap_rows[5]
     checks.extend([

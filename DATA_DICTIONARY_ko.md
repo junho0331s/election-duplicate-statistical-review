@@ -29,6 +29,7 @@
 | `outputs/governor_bootstrap_summary.csv` | 비복원 재표본추출 조건 1개 | 과거 실제 득표쌍 풀에서 5쌍 이상이 얼마나 나오는지 확인 | `sample_size`, `trials`, `threshold`, `exceedances`, `probability`, `rule_of_three_upper_95` |
 | `outputs/governor_bootstrap_histogram.csv` | 재표본추출에서 관찰된 중복 그룹 수 | 재표본추출 분포의 형태 확인 | `duplicate_groups`, `trials`, `share` |
 | `outputs/probability_core.csv` | 확률 계산 시나리오 1개 | 본문 핵심 포아송 근사 확률 표 | `n`, `k_space`, `threshold`, `lambda`, `probability`, `probability_percent`, `reciprocal` |
+| `outputs/probability_exact_collision.csv` | 정확 pair-collision 계산 시나리오 1개 | 포아송 근사와 같은 질문을 정확 생일문제식 동적계획법으로 재계산 | `n`, `k_space`, `threshold`, `poisson_probability`, `exact_probability`, `exact_probability_percent`, `poisson_minus_exact`, `exact_reciprocal` |
 | `outputs/probability_k_sensitivity.csv` | 가능한 득표쌍 범위 `K` 가정 1개 | `K` 변화에 대한 민감도 분석 | `k_space`, `threshold`, `probability_percent`, `reciprocal` |
 | `outputs/probability_n_sensitivity.csv` | 개표단위 수 `N` 가정 1개 | `N` 변화에 대한 민감도 분석 | `n`, `threshold`, `probability_percent`, `reciprocal` |
 | `outputs/nec_2026_gwangju_jeonnam_units.csv` | 2026년 광주·전남 시·도지사 관내사전 개표단위 1개 | `N=393`의 공식 HTML 기반 산출 근거 | `city`, `town`, `unit`, `vote_class`, `electors`, `turnout`, `source_file` |
@@ -63,6 +64,7 @@
 | 광주·전남 관내사전 개표단위 수는 393개다. | `outputs/nec_2026_gwangju_jeonnam_units.csv`, `outputs/nec_2026_gwangju_jeonnam_unit_summary.json` |
 | 과거 시·도지사 51개 선거구에서 한 선거구 안 최대 동일 득표쌍 수는 3쌍이다. | `outputs/governor_actual_top2_summary.csv`, `outputs/governor_actual_top2_by_contest.csv`, `outputs/governor_actual_top2_duplicates.csv` |
 | 광주전남 5쌍 이상 반복의 포아송 근사 확률은 약 0.115%다. | `outputs/probability_core.csv`, `outputs/governor_actual_top2_summary.csv` |
+| 같은 기준의 정확 pair-collision 확률은 약 0.122%다. | `outputs/probability_exact_collision.csv` |
 | 과거 실제 득표쌍 풀의 비복원 재표본추출에서 5쌍 이상은 200,000회 중 0회다. | `outputs/governor_bootstrap_summary.csv`, `outputs/governor_bootstrap_histogram.csv` |
 | 송도 사례는 광주전남 핵심 검정과 분리된 보조 감사 신호다. | `outputs/songdo_official_rows.csv`, `outputs/songdo_probability_summary.csv` |
 | 2020·2024 총선에서 분석 가능한 전 지역구가 같은 사전투표 방향성을 보인다. | `outputs/early_day_assembly_summary.csv`, `outputs/early_day_assembly_twoparty.csv` |

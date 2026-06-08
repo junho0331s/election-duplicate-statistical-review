@@ -239,7 +239,18 @@ The computed probabilities are:
 
 In this calculation, five pairs refers to the internal Gwangju-Jeonnam event. Six pairs is a simplified reference value for the nationwide reported event. The nationwide six-pair figure requires additional multiple-search adjustment because it was found after looking across more than one contest.
 
-### 5.3 Sensitivity to the Effective Pair Space
+### 5.3 Exact Pair-Collision Calculation
+
+The calculation above is a Poisson approximation. To check the objection that the approximation may exaggerate rarity, the study also computes the exact pair-collision tail probability under the same \(N=393\) and rounded \(K=100,945\) baseline. The exact calculation uses dynamic programming over the occupancy states that remain below the threshold and absorbs every path that reaches five or more repeated pairs into the tail probability.
+
+| Calculation | \(P(C \geq 5)\) | Interpretation |
+| --- | ---: | ---: |
+| Poisson approximation | 0.0011484064 | about 0.115% |
+| Exact pair-collision calculation | 0.0012190884 | about 0.122% |
+
+The exact probability is slightly larger than the Poisson approximation. In other words, the Poisson approximation is not making the five-pair event look artificially rarer. Even under exact calculation, the Gwangju-Jeonnam five-pair event remains a low-tail event of about 0.12%.
+
+### 5.4 Sensitivity to the Effective Pair Space
 
 The probability changes depending on how the effective pair space \(K\) is set. With \(N=393\), the sensitivity calculation is:
 
@@ -254,7 +265,7 @@ The probability changes depending on how the effective pair space \(K\) is set. 
 
 Even under a highly conservative \(K=50,000\) assumption, which makes duplicate pairs much easier to produce, the probability of at least five pairs is about 2.05%. That is not impossibility, but it remains a low-tail event. Under the expanded historical governor benchmark, \(K=100,945\), the probability is about 0.115%. This is sufficiently rare to function as an audit trigger even after including the smaller early-vote scale of 2014 in the historical baseline.
 
-### 5.4 Sensitivity to the Number of Counting Units
+### 5.5 Sensitivity to the Number of Counting Units
 
 The official HTML-based baseline is \(N=393\). To check whether the conclusion depends narrowly on that value, the paper also holds \(K=100,945\) fixed and varies \(N\) from 350 to 450.
 
@@ -269,7 +280,7 @@ The official HTML-based baseline is \(N=393\). To check whether the conclusion d
 
 The table shows that the assumed unit count changes the exact probability but not the direction of the conclusion. Even at \(N=450\), at least five repeated pairs remains below 0.4%. The Gwangju-Jeonnam five-pair result therefore does not depend only on the single \(N=393\) baseline.
 
-### 5.5 Nonparametric Resampling Test
+### 5.6 Nonparametric Resampling Test
 
 The Poisson approximation is useful because it is easy to interpret, but it still contains the model assumption of an effective pair space \(K\). To reduce model dependence, this paper directly resamples actual historical top-two vote pairs from governor in-district early-vote data.
 
