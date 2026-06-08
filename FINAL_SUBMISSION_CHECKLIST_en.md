@@ -2,20 +2,22 @@
 
 This checklist is for the final pass before academic submission. It verifies that the manuscript and reproduction package state the same conclusion, numbers, limitations, and audit request.
 
+Verification status: as of 2026-06-09 KST, `python3 scripts/run_all.py` and `python3 scripts/validate_package.py` pass. The core-claim verification file `outputs/core_claims_verification.json` reports `pass` with 45 checks.
+
 ## 1. Claim Boundary
 
-- [ ] The manuscript does not state that a specific person, institution, or party has been legally proven to have committed a crime.
-- [ ] The conclusion remains: public data show a statistical anomaly requiring raw-data disclosure and independent audit.
-- [ ] The paper distinguishes "very low probability under the chance hypothesis" from "direct proof of misconduct."
-- [ ] The Gwangju-Jeonnam five-pair cluster is the primary test; the nationwide six-pair set and the Songdo case are kept separate or auxiliary.
-- [ ] The early-vote versus election-day analysis is framed as an auxiliary anomaly indicator and does not claim to remove voter self-selection, party mobilization, or other lawful explanations.
+- [x] The manuscript does not state that a specific person, institution, or party has been legally proven to have committed a crime.
+- [x] The conclusion remains: public data show a statistical anomaly requiring raw-data disclosure and independent audit.
+- [x] The paper distinguishes "very low probability under the chance hypothesis" from "direct proof of misconduct."
+- [x] The Gwangju-Jeonnam five-pair cluster is the primary test; the nationwide six-pair set and the Songdo case are kept separate or auxiliary.
+- [x] The early-vote versus election-day analysis is framed as an auxiliary anomaly indicator and does not claim to remove voter self-selection, party mobilization, or other lawful explanations.
 
 ## 2. Source and Evidence Policy
 
-- [ ] The manuscript and support documents do not use informal video-platform materials, subtitles, or video-derived claims as evidence.
-- [ ] The 2026 event rows are described as values rechecked against cached official NEC election-statistics HTML and parsed outputs.
-- [ ] The historical baseline is reproducible from public official election files and public-data files.
-- [ ] Media reports are used only to define the initially reported event and public context; the core numerical checks are tied to official page values and reproducible scripts.
+- [x] The manuscript and support documents do not use informal video-platform materials, subtitles, or video-derived claims as evidence.
+- [x] The 2026 event rows are described as values rechecked against cached official NEC election-statistics HTML and parsed outputs.
+- [x] The historical baseline is reproducible from public official election files and public-data files.
+- [x] Media reports are used only to define the initially reported event and public context; the core numerical checks are tied to official page values and reproducible scripts.
 
 ## 3. Core Numerical Consistency
 
@@ -31,6 +33,7 @@ Before submission, verify that the following values match across the README, Kor
 | Gwangju-Jeonnam in-district early-vote units | 393 |
 | Empirical \(K\) | 100,944.8 |
 | \(P(C \ge 5)\), \(N=393\) | 0.0011484064, about 0.115% |
+| Exact pair-collision \(P(C \ge 5)\), \(N=393\), \(K=100,945\) | 0.0012190884, about 0.122% |
 | \(P(C \ge 6)\), \(N=393\) | 0.0001432242, about 0.0143% |
 | Nonparametric resampling trials | 200,000 |
 | Nonparametric resampling \(C \ge 5\) | 0 hits |
@@ -41,20 +44,20 @@ Before submission, verify that the following values match across the README, Kor
 
 ## 4. Korean and English Manuscripts and PDFs
 
-- [ ] Korean PDF `latex/ieie/main.pdf` is newer than `latex/ieie/main.tex`.
-- [ ] English PDF `latex/en/main_en.pdf` is newer than `latex/en/main_en.tex`.
-- [ ] The English PDF is a full translation and includes the conclusion, data and code availability, research ethics, appendices, references, and reproduction outputs.
-- [ ] The English PDF contains no Korean body-text fragments.
-- [ ] The English early-vote/election-day table does not contain stale `2016 118/111` or `about 0.35` values.
-- [ ] The English manuscript uses the current checked values: 2016 211/18, mean +3.90 percentage points, and all-constituency directionality in 2020 and 2024.
+- [x] Korean PDF `latex/ieie/main.pdf` is newer than `latex/ieie/main.tex`.
+- [x] English PDF `latex/en/main_en.pdf` is newer than `latex/en/main_en.tex`.
+- [x] The English PDF is a full translation and includes the conclusion, data and code availability, research ethics, appendices, references, and reproduction outputs.
+- [x] The English PDF contains no Korean body-text fragments.
+- [x] The English early-vote/election-day table does not contain stale `2016 118/111` or `about 0.35` values.
+- [x] The English manuscript uses the current checked values: 2016 211/18, mean +3.90 percentage points, and all-constituency directionality in 2020 and 2024.
 
 ## 5. Raw-Data Limitation and Audit Request
 
-- [ ] The manuscript does not hide the limitation that the 2026 official integrated XLSX file or original counting statements have not yet been obtained.
-- [ ] This limitation is used to bound the conclusion as a statistical anomaly requiring raw-data audit, not as a legal finding.
-- [ ] `AUDIT_PROTOCOL_ko.md` and `AUDIT_PROTOCOL_en.md` are included in the submission package.
-- [ ] The audit protocol requests original counting statements, first-pass ballot-sorter results, candidate allocation of reviewed ballots, data-entry/correction logs, and file hashes.
-- [ ] The audit protocol includes falsification criteria. If raw records explain the anomaly through ordinary chance or lawful procedure, that conclusion must be accepted.
+- [x] The manuscript does not hide the limitation that the 2026 official integrated XLSX file or original counting statements have not yet been obtained.
+- [x] This limitation is used to bound the conclusion as a statistical anomaly requiring raw-data audit, not as a legal finding.
+- [x] `AUDIT_PROTOCOL_ko.md` and `AUDIT_PROTOCOL_en.md` are included in the submission package.
+- [x] The audit protocol requests original counting statements, first-pass ballot-sorter results, candidate allocation of reviewed ballots, data-entry/correction logs, and file hashes.
+- [x] The audit protocol includes falsification criteria. If raw records explain the anomaly through ordinary chance or lawful procedure, that conclusion must be accepted.
 
 ## 6. Reproduction and Package Validation
 
@@ -85,10 +88,10 @@ python3 scripts/validate_package.py
 
 ## 7. Submission ZIP Contents
 
-- [ ] `dist/election_duplicate_ieie_submission.zip` is newer than the checksum file.
-- [ ] The ZIP includes Korean and English papers, Korean and English PDFs, cover letters, submission memos, reviewer-response memos, evidence matrices, calculation notes, data-availability memos, audit protocols, reproduction scripts, outputs, and data.
-- [ ] The ZIP does not include LaTeX temporary files such as `.aux`, `.log`, `.out`, or `.synctex.gz`.
-- [ ] The ZIP may exceed GitHub's recommended file-size warning threshold; if needed, upload it separately for the academic submission system.
+- [x] `dist/election_duplicate_ieie_submission.zip` is newer than the checksum file.
+- [x] The ZIP includes Korean and English papers, Korean and English PDFs, cover letters, submission memos, reviewer-response memos, evidence matrices, calculation notes, data-availability memos, audit protocols, reproduction scripts, outputs, and data.
+- [x] The ZIP does not include LaTeX temporary files such as `.aux`, `.log`, `.out`, or `.synctex.gz`.
+- [x] The ZIP may exceed GitHub's recommended file-size warning threshold; if needed, upload it separately for the academic submission system.
 
 ## 8. Final Sentence Check
 
