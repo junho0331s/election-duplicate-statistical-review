@@ -76,6 +76,7 @@ REQUIRED_FILES = [
     "outputs/songdo_official_rows.csv",
     "outputs/probability_core.csv",
     "outputs/early_day_assembly_summary.csv",
+    "outputs/core_claims_verification.csv",
     "outputs/core_claims_verification.json",
     "outputs/checksums_sha256.csv",
     "dist/election_duplicate_ieie_submission.zip",
@@ -319,6 +320,20 @@ def assert_core_claims_verification() -> None:
     if missing:
         raise AssertionError(f"Core claim verification missing claims: {', '.join(missing)}")
 
+    csv_path = ROOT / "outputs" / "core_claims_verification.csv"
+    csv_rows = list(csv.DictReader(csv_path.open(encoding="utf-8")))
+    if len(csv_rows) != data.get("check_count"):
+        raise AssertionError(
+            "Core claim verification CSV row count does not match check_count: "
+            f"{len(csv_rows)} != {data.get('check_count')}"
+        )
+    if any(row.get("status") != "pass" for row in csv_rows):
+        raise AssertionError("Core claim verification CSV contains non-pass status")
+    csv_claims = {row.get("claim") for row in csv_rows}
+    missing_csv_claims = sorted(actual_claims - csv_claims)
+    if missing_csv_claims:
+        raise AssertionError(f"Core claim verification CSV missing claims: {', '.join(missing_csv_claims)}")
+
 
 def assert_checksums() -> None:
     path = ROOT / "outputs" / "checksums_sha256.csv"
@@ -359,6 +374,7 @@ def assert_checksums() -> None:
         "scripts/verify_core_claims.py",
         "outputs/governor_bootstrap_summary.csv",
         "outputs/nec_2026_reported_duplicate_cases.csv",
+        "outputs/core_claims_verification.csv",
         "outputs/core_claims_verification.json",
         "outputs/probability_core.csv",
     ]
@@ -462,6 +478,7 @@ def assert_zip_package() -> None:
         "outputs/nec_2026_gwangju_jeonnam_unit_summary.json",
         "outputs/nec_2026_gwangju_jeonnam_units.csv",
         "outputs/nec_2026_reported_duplicate_cases.csv",
+        "outputs/core_claims_verification.csv",
         "outputs/core_claims_verification.json",
         "evidence_matrix_ko.md",
         "evidence_matrix_en.md",

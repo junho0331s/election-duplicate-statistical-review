@@ -33,6 +33,21 @@ def require_close(name: str, actual: float, expected: float, abs_tol: float) -> 
     return {"claim": name, "expected": expected, "actual": actual, "abs_tol": abs_tol, "status": "pass"}
 
 
+def write_checks_csv(checks: list[dict[str, Any]], path: Path) -> None:
+    fieldnames = ["claim", "expected", "actual", "abs_tol", "status"]
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
+        writer.writeheader()
+        for check in checks:
+            row: dict[str, Any] = {}
+            for key in fieldnames:
+                value = check.get(key, "")
+                if isinstance(value, (list, dict, tuple)):
+                    value = json.dumps(value, ensure_ascii=False, sort_keys=True)
+                row[key] = value
+            writer.writerow(row)
+
+
 def main() -> None:
     checks: list[dict[str, Any]] = []
 
@@ -132,8 +147,11 @@ def main() -> None:
     }
     out_path = OUT / "core_claims_verification.json"
     out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    csv_path = OUT / "core_claims_verification.csv"
+    write_checks_csv(checks, csv_path)
     print(f"Core claim verification passed with {len(checks)} checks.")
     print(f"Wrote {out_path.relative_to(ROOT)}")
+    print(f"Wrote {csv_path.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

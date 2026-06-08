@@ -1,0 +1,42 @@
+claim,expected,actual,abs_tol,status
+historical parsed rows,81701,81701,,pass
+historical governor contests,51,51,,pass
+historical governor comparison pairs,1514172,1514172,,pass
+historical governor collision pairs,15,15,,pass
+historical governor duplicate groups,15,15,,pass
+historical maximum duplicate groups in one contest,3,3,,pass
+estimated effective pair space khat,100944.8,100944.8,1e-09,pass
+probability N from official HTML units,393,393,,pass
+governor baseline p_at_least_5,0.0011484064248148407,0.0011484064248148407,1e-15,pass
+Poisson probability threshold 3,0.04226077201454281,0.04226077201454281,1e-15,pass
+Poisson probability threshold 4,0.007734837111887716,0.007734837111887716,1e-15,pass
+Poisson probability threshold 5,0.0011484064248148407,0.0011484064248148407,1e-15,pass
+Poisson probability percent threshold 5,0.11484064248148407,0.11484064248148407,1e-12,pass
+Poisson probability threshold 6,0.00014322422035484283,0.00014322422035484283,1e-15,pass
+bootstrap sample size,393,393,,pass
+bootstrap trials,200000,200000,,pass
+bootstrap threshold 5 exceedances,0,0,,pass
+bootstrap threshold 5 probability,0.0,0.0,0.0,pass
+bootstrap rule-of-three upper 95,1.5e-05,1.5e-05,1e-18,pass
+NEC 2026 Gwangju-Jeonnam towns,27,27,,pass
+NEC 2026 Gwangju-Jeonnam in-district early units summary,393,393,,pass
+NEC 2026 Gwangju-Jeonnam in-district early unit rows,393,393,,pass
+NEC 2026 event rows,12,12,,pass
+NEC 2026 duplicate pairs,6,6,,pass
+NEC 2026 Gwangju-Jeonnam Min-Lee duplicate pairs,5,5,,pass
+NEC 2026 Gwangju-Jeonnam duplicate pair values,"[[""1401"", ""120""], [""356"", ""42""], [""444"", ""46""], [""506"", ""42""], [""606"", ""57""]]","[[""1401"", ""120""], [""356"", ""42""], [""444"", ""46""], [""506"", ""42""], [""606"", ""57""]]",,pass
+Songdo Yeonsu unit count,15,15,,pass
+Songdo Yeonsu any-pair probability percent,0.10396316588441312,0.10396316588441312,1e-14,pass
+Songdo designated-pair probability percent,0.0009906404292246852,0.0009906404292246852,1e-18,pass
+2016 assembly districts,229,229,,pass
+2016 Democratic early higher count,211,211,,pass
+2016 Democratic early lower count,18,18,,pass
+2020 assembly districts,236,236,,pass
+2020 Democratic early higher count,236,236,,pass
+2020 Democratic early lower count,0,0,,pass
+2024 assembly districts,245,245,,pass
+2024 Democratic early higher count,245,245,,pass
+2024 Democratic early lower count,0,0,,pass
+2016 mean early-day difference pp,3.902347771407794,3.902347771407794,1e-12,pass
+2020 mean early-day difference pp,10.881931488172144,10.881931488172144,1e-12,pass
+2024 mean early-day difference pp,10.351186302658121,10.351186302658121,1e-12,pass

@@ -56,6 +56,7 @@ python3 scripts/run_all.py
 The expected result is successful completion of all analysis scripts, core-claim verification, checksum generation, ZIP generation, and package validation. After reproduction, check that the following files were refreshed.
 
 - `outputs/core_claims_verification.json`
+- `outputs/core_claims_verification.csv`
 - `outputs/checksums_sha256.csv`
 - `dist/election_duplicate_ieie_submission.zip`
 
@@ -66,6 +67,7 @@ Reviewers should inspect these files first.
 | Purpose | File |
 |---|---|
 | Machine-readable core-claim verification | `outputs/core_claims_verification.json` |
+| Spreadsheet-readable core-claim verification | `outputs/core_claims_verification.csv` |
 | 2026 event rows | `outputs/nec_2026_reported_duplicate_cases.csv` |
 | 2026 identical vote pairs | `outputs/nec_2026_reported_duplicate_pairs.csv` |
 | Historical governor baseline summary | `outputs/governor_actual_top2_summary.csv` |

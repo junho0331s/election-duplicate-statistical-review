@@ -50,6 +50,7 @@ def main() -> None:
         ROOT / "outputs" / "probability_n_sensitivity.csv",
         ROOT / "outputs" / "early_day_assembly_summary.csv",
         ROOT / "outputs" / "early_day_assembly_twoparty.csv",
+        ROOT / "outputs" / "core_claims_verification.csv",
         ROOT / "outputs" / "core_claims_verification.json",
         ROOT / "outputs" / "checksums_sha256.csv",
         ROOT / "dist" / "election_duplicate_ieie_submission.zip",

@@ -155,6 +155,7 @@ python3 scripts/create_submission_zip.py
 - `outputs/probability_n_sensitivity.csv`
 - `outputs/early_day_assembly_summary.csv`
 - `outputs/early_day_assembly_twoparty.csv`
+- `outputs/core_claims_verification.csv`
 - `outputs/core_claims_verification.json`
 - `outputs/checksums_sha256.csv`
 

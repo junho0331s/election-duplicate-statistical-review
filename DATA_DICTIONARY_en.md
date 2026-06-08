@@ -41,6 +41,8 @@ This document explains the core CSV and JSON outputs under `outputs/`. Its purpo
 | `outputs/songdo_probability_summary.csv` | One Songdo probability scenario | Calculates Songdo as a separate auxiliary audit signal. | `case`, `n_units`, `comparison_pairs`, `k_space`, `probability_percent`, `reciprocal` |
 | `outputs/early_day_assembly_summary.csv` | One National Assembly election | Summarizes the auxiliary early-vote versus election-day vote-share pattern. | `election`, `districts`, `mean_early_minus_day_pp`, `dem_early_higher_count`, `sign_test_p_one_sided`, `max_abs_z` |
 | `outputs/early_day_assembly_twoparty.csv` | One National Assembly constituency | Shows two-party Democratic-versus-conservative early/election-day vote-share differences by constituency. | `election`, `sido`, `district`, `early_dem_share`, `day_dem_share`, `early_minus_day_pp`, `z` |
+| `outputs/core_claims_verification.csv` | One core verification claim | Spreadsheet-readable list of the 41 core values checked by `verify_core_claims.py`. | `claim`, `expected`, `actual`, `abs_tol`, `status` |
+| `outputs/core_claims_verification.json` | JSON verification summary | Machine-readable verification result for the same 41 core values. | `status`, `check_count`, `scope`, `checks` |
 | `outputs/checksums_sha256.csv` | One package file | Verifies integrity of submission-package files. | `path`, `bytes`, `sha256` |
 
 ## Column Interpretation Notes
@@ -64,6 +66,7 @@ This document explains the core CSV and JSON outputs under `outputs/`. Its purpo
 | Historical actual-pair resampling produces zero five-or-more-pair trials in 200,000 trials. | `outputs/governor_bootstrap_summary.csv`, `outputs/governor_bootstrap_histogram.csv` |
 | Songdo is a separate auxiliary audit signal, not part of the Gwangju-Jeonnam core test. | `outputs/songdo_official_rows.csv`, `outputs/songdo_probability_summary.csv` |
 | In 2020 and 2024, every analyzable National Assembly constituency shows the same early-vote directional pattern. | `outputs/early_day_assembly_summary.csv`, `outputs/early_day_assembly_twoparty.csv` |
+| The 41 core numerical claims in the manuscript match the current outputs. | `outputs/core_claims_verification.csv`, `outputs/core_claims_verification.json` |
 
 ## Boundary Important for Reviewers
 

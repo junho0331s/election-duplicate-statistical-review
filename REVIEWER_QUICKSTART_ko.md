@@ -56,6 +56,7 @@ python3 scripts/run_all.py
 기대 결과는 전체 분석 스크립트, 핵심 주장 검증, 체크섬 생성, ZIP 생성, 패키지 검증이 모두 완료되는 것이다. 재현 뒤에는 다음 파일들이 갱신되었는지 확인한다.
 
 - `outputs/core_claims_verification.json`
+- `outputs/core_claims_verification.csv`
 - `outputs/checksums_sha256.csv`
 - `dist/election_duplicate_ieie_submission.zip`
 
@@ -66,6 +67,7 @@ python3 scripts/run_all.py
 | 목적 | 파일 |
 |---|---|
 | 핵심 주장 자동 검증 결과 | `outputs/core_claims_verification.json` |
+| 핵심 주장 자동 검증 결과의 표 형식 | `outputs/core_claims_verification.csv` |
 | 2026년 사건행 | `outputs/nec_2026_reported_duplicate_cases.csv` |
 | 2026년 동일 득표쌍 | `outputs/nec_2026_reported_duplicate_pairs.csv` |
 | 과거 시·도지사 기준선 요약 | `outputs/governor_actual_top2_summary.csv` |
