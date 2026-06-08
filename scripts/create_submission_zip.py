@@ -30,6 +30,8 @@ INCLUDE_FILES = [
     "data_availability_2026_en.md",
     "AUDIT_PROTOCOL_ko.md",
     "AUDIT_PROTOCOL_en.md",
+    "LOOK_ELSEWHERE_ROBUSTNESS_ko.md",
+    "LOOK_ELSEWHERE_ROBUSTNESS_en.md",
     "FINAL_SUBMISSION_CHECKLIST_ko.md",
     "FINAL_SUBMISSION_CHECKLIST_en.md",
     "latex/convert_to_ieie.py",
