@@ -197,10 +197,12 @@ while idx < len(body_lines):
             # from the conference PDF to avoid a visually poor path listing.
             break
         if heading.startswith('부록 ') or heading == '참고자료':
-            out.append(r'\clearpage')
             if heading.startswith('부록 ') and not in_onecolumn_appendix:
+                out.append(r'\clearpage')
                 out.append(r'\onecolumn')
                 in_onecolumn_appendix = True
+            elif in_onecolumn_appendix:
+                out.append(r'\vspace{1em}')
         if heading == '연구윤리 및 이해상충':
             out.append(r'\enlargethispage{3\baselineskip}')
         if heading.startswith('부록 ') or heading in {'참고자료', '재현 산출물'}:
