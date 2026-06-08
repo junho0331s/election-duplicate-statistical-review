@@ -1,0 +1,13 @@
+pair_id,city,town,unit,vote_class,candidate_1,candidate_1_votes,candidate_2,candidate_2_votes,electors,turnout,invalid_votes,abstentions,source_file,source_url
+incheon_songdo,인천광역시,연수구,송도1동,관내사전투표,박찬대,3030,유정복,1440,4548,4546,15,2,data/nec_2026_official_html/2800_2804_연수구.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08
+incheon_songdo,인천광역시,연수구,송도2동,관내사전투표,박찬대,3030,유정복,1440,4540,4539,22,1,data/nec_2026_official_html/2800_2804_연수구.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08
+gwangju_goheung,광주광역시,광산구,송정1동,관내사전투표,민형배,1401,이정현,120,1764,1764,27,0,data/nec_2026_official_html/2900_2905_광산구.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08
+gwangju_goheung,전라남도,고흥군,금산면,관내사전투표,민형배,1401,이정현,120,1828,1827,181,1,data/nec_2026_official_html/4600_4612_고흥군.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08
+sinan_yeosu,전라남도,신안군,하의면,관내사전투표,민형배,506,이정현,42,642,642,58,0,data/nec_2026_official_html/4600_4624_신안군.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08
+sinan_yeosu,전라남도,여수시,삼일동,관내사전투표,민형배,506,이정현,42,587,587,18,0,data/nec_2026_official_html/4600_4602_여수시.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08
+hampyeong_jangseong,전라남도,함평군,엄다면,관내사전투표,민형배,606,이정현,57,754,754,48,0,data/nec_2026_official_html/4600_4623_함평군.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08
+hampyeong_jangseong,전라남도,장성군,북하면,관내사전투표,민형배,606,이정현,57,775,775,52,0,data/nec_2026_official_html/4600_4609_장성군.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08
+boseong_sinan,전라남도,보성군,노동면,관내사전투표,민형배,356,이정현,42,476,476,30,0,data/nec_2026_official_html/4600_4613_보성군.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08
+boseong_sinan,전라남도,신안군,팔금면,관내사전투표,민형배,356,이정현,42,486,486,58,0,data/nec_2026_official_html/4600_4624_신안군.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08
+hwasun_gangjin,전라남도,화순군,이양면,관내사전투표,민형배,444,이정현,46,578,578,37,0,data/nec_2026_official_html/4600_4614_화순군.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08
+hwasun_gangjin,전라남도,강진군,병영면,관내사전투표,민형배,444,이정현,46,654,654,46,0,data/nec_2026_official_html/4600_4616_강진군.html,https://info.nec.go.kr/main/showDocument.xhtml?electionId=0020260603&topMenuId=VC&secondMenuId=VCCP08

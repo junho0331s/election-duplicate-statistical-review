@@ -1,0 +1,41 @@
+{
+  "datasets": [
+    {
+      "dataset": "2014-local",
+      "rows": 25600
+    },
+    {
+      "dataset": "2016-assembly",
+      "rows": 3661
+    },
+    {
+      "dataset": "2017-presidential",
+      "rows": 3684
+    },
+    {
+      "dataset": "2018-local",
+      "rows": 22926
+    },
+    {
+      "dataset": "2020-assembly",
+      "rows": 3681
+    },
+    {
+      "dataset": "2022-presidential",
+      "rows": 3703
+    },
+    {
+      "dataset": "2022-local",
+      "rows": 10942
+    },
+    {
+      "dataset": "2024-assembly",
+      "rows": 3754
+    },
+    {
+      "dataset": "2025-presidential",
+      "rows": 3750
+    }
+  ],
+  "record_count": 81701
+}

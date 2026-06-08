@@ -1,0 +1,4 @@
+sample_size,trials,seed,historical_signatures,unique_historical_signatures,threshold,exceedances,probability,plus_one_probability,resolution,rule_of_three_upper_95
+393,200000,20260609,10322,10233,3,77,0.000385,0.00038999805000974994,5e-06,
+393,200000,20260609,10322,10233,4,4,2e-05,2.4999875000624998e-05,5e-06,
+393,200000,20260609,10322,10233,5,0,0.0,4.9999750001249995e-06,5e-06,1.5e-05

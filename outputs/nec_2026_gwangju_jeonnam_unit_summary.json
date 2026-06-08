@@ -1,0 +1,13 @@
+{
+  "source": "NEC election statistics system VCCP08 official result HTML",
+  "election_id": "0020260603",
+  "election_code": 3,
+  "regions": [
+    "광주광역시",
+    "전라남도"
+  ],
+  "towns": 27,
+  "in_district_early_units": 393,
+  "output_counts": "outputs/nec_2026_gwangju_jeonnam_unit_counts.csv",
+  "output_units": "outputs/nec_2026_gwangju_jeonnam_units.csv"
+}

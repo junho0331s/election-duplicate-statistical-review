@@ -1,0 +1,79 @@
+{
+  "source": "NEC election statistics system VCCP08 official result HTML",
+  "election_id": "0020260603",
+  "election_code": 3,
+  "case_rows": 12,
+  "duplicate_pairs": 6,
+  "towns": [
+    {
+      "city": "인천광역시",
+      "town": "연수구",
+      "town_code": "2804",
+      "source_file": "data/nec_2026_official_html/2800_2804_연수구.html",
+      "rows": 49
+    },
+    {
+      "city": "광주광역시",
+      "town": "광산구",
+      "town_code": "2905",
+      "source_file": "data/nec_2026_official_html/2900_2905_광산구.html",
+      "rows": 67
+    },
+    {
+      "city": "전라남도",
+      "town": "여수시",
+      "town_code": "4602",
+      "source_file": "data/nec_2026_official_html/4600_4602_여수시.html",
+      "rows": 85
+    },
+    {
+      "city": "전라남도",
+      "town": "장성군",
+      "town_code": "4609",
+      "source_file": "data/nec_2026_official_html/4600_4609_장성군.html",
+      "rows": 37
+    },
+    {
+      "city": "전라남도",
+      "town": "고흥군",
+      "town_code": "4612",
+      "source_file": "data/nec_2026_official_html/4600_4612_고흥군.html",
+      "rows": 52
+    },
+    {
+      "city": "전라남도",
+      "town": "보성군",
+      "town_code": "4613",
+      "source_file": "data/nec_2026_official_html/4600_4613_보성군.html",
+      "rows": 40
+    },
+    {
+      "city": "전라남도",
+      "town": "화순군",
+      "town_code": "4614",
+      "source_file": "data/nec_2026_official_html/4600_4614_화순군.html",
+      "rows": 43
+    },
+    {
+      "city": "전라남도",
+      "town": "강진군",
+      "town_code": "4616",
+      "source_file": "data/nec_2026_official_html/4600_4616_강진군.html",
+      "rows": 37
+    },
+    {
+      "city": "전라남도",
+      "town": "함평군",
+      "town_code": "4623",
+      "source_file": "data/nec_2026_official_html/4600_4623_함평군.html",
+      "rows": 31
+    },
+    {
+      "city": "전라남도",
+      "town": "신안군",
+      "town_code": "4624",
+      "source_file": "data/nec_2026_official_html/4600_4624_신안군.html",
+      "rows": 46
+    }
+  ]
+}

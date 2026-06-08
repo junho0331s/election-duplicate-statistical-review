@@ -1,0 +1,3 @@
+case,description,n_units,comparison_pairs,k_space,lambda,probability,probability_percent,reciprocal
+yeonsu_any_pair,연수구 관내사전 개표단위 15개 중 어딘가 한 쌍 이상 같은 1·2위 득표쌍,15,105,100944.8,0.0010401724506859194,0.0010396316588441312,0.10396316588441312,961.879134300129
+songdo1_songdo2_designated_pair,특정된 송도1동-송도2동 두 개표단위가 같은 1·2위 득표쌍을 갖는 조건부 확률,2,1,100944.8,,9.906404292246851e-06,0.0009906404292246852,100944.8

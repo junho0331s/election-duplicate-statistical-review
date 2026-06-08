@@ -1,0 +1,164 @@
+# Election Duplicate Vote-Pair Statistical Review / 관내사전투표 동일 득표쌍 통계 검토
+
+This repository contains the Korean and English papers, official-data reproduction scripts, intermediate outputs, cached source files, and the IEIE-style Korean PDF.
+
+이 저장소는 관내사전투표 동일 득표쌍 분석의 한글/영문 원고, 공식자료 재현 스크립트, 중간 산출물, 원자료 캐시, IEIE 형식 한글 PDF를 포함한다.
+
+- 저자: 김준호
+- 소속: 없음
+- 이메일: junhokim0331@gmail.com
+
+## Read the Papers
+
+| Language | Markdown | PDF / LaTeX |
+|---|---|---|
+| Korean | [`paper_statistical_implausibility_ko.md`](paper_statistical_implausibility_ko.md) | [`latex/ieie/main.pdf`](latex/ieie/main.pdf), [`latex/ieie/main.tex`](latex/ieie/main.tex) |
+| English | [`paper_statistical_implausibility_en.md`](paper_statistical_implausibility_en.md) | [`latex/en/main_en.pdf`](latex/en/main_en.pdf), [`latex/en/main_en.tex`](latex/en/main_en.tex) |
+
+## Scope
+
+The papers argue that the repeated identical in-district early-vote pairs are not adequately explained by ordinary chance under the reported statistical tests. They do not, by themselves, identify a perpetrator or establish a legal finding of election fraud. The requested remedy is raw-data disclosure and independent audit.
+
+한글 원고의 결론은 특정 개인이나 기관의 범죄를 통계만으로 법적으로 단정하는 것이 아니라, 우연가설만으로 해소되지 않는 통계적 이상치이므로 원자료 공개와 독립 감사가 필요하다는 것이다.
+
+## 주요 문서
+
+- `paper_statistical_implausibility_ko.md`: 학술 원고 본문
+- `paper_statistical_implausibility_en.md`: English paper
+- `cover_letter_ko.md`: 학회 제출용 커버레터
+- `submission_memo_ko.md`: 제출 메모, 주장 범위, 한계, 재현 절차, 예상 반론 요약
+- `reviewer_response_ko.md`: 심사자 반론 대응 메모
+- `evidence_matrix_ko.md`: 핵심 주장과 재현 파일의 대응표
+- `REPRODUCIBILITY_CHECKLIST_ko.md`: 독립 검증자용 재현성 점검표
+- `STATISTICAL_CALCULATION_NOTE_ko.md`: 핵심 확률값의 공식·입력값·출력 파일 연결 노트
+- `data_availability_2026_ko.md`: 2026년 공식 개표자료 가용성 점검 메모
+- `latex/ieie/main.tex`: IEIE 템플릿 기반 LaTeX 원고
+- `latex/ieie/main.pdf`: 컴파일된 PDF 원고
+
+## 원자료
+
+공개된 과거 선거자료는 `data/`에 정리했다.
+
+- `local2014.xlsx`
+- `assembly2016.xlsx`
+- `pres2017.xlsx`
+- `local2018.xlsx`
+- `assembly2020.xlsx`
+- `pres2022.xlsx`
+- `local2022.xlsx`
+- `assembly2024.xlsx`
+- `pres2025.xlsx`
+- `nec_2026_official_html/`: 중앙선거관리위원회 선거통계시스템 개표단위별 개표결과 공식 HTML 캐시
+
+2026년 지방선거의 공공데이터포털 공식 통합 XLSX 개표 원자료는 이 패키지에 포함되어 있지 않다. 본 원고 작성 시점에는 과거 기준선 자료와 같은 방식의 공식 통합 파일을 확보하지 못했기 때문이다. 다만 2026년 12개 사건행의 득표값은 중앙선거관리위원회 선거통계시스템의 개표단위별 개표결과 공식 HTML에서 직접 추출해 대조했다. 원본 HTML 캐시는 `data/nec_2026_official_html/`에, 파싱 결과는 `outputs/nec_2026_reported_duplicate_cases.csv`와 `outputs/nec_2026_reported_duplicate_pairs.csv`에 정리했다. 자세한 점검 내용은 `data_availability_2026_ko.md`에 정리했다.
+
+## 재현 방법
+
+패키지 루트에서 의존성을 설치한 뒤 전체 재현 스크립트를 실행한다.
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 scripts/run_all.py
+```
+
+개별 스크립트를 직접 실행할 수도 있다.
+
+```bash
+python3 scripts/analyze_duplicates.py
+python3 scripts/count_nec_2026_gwangju_jeonnam_units.py
+python3 scripts/analyze_governor_actual_top2.py
+python3 scripts/bootstrap_governor_duplicates.py
+python3 scripts/fetch_nec_2026_duplicate_cases.py
+python3 scripts/analyze_songdo_probability.py
+python3 scripts/probability_sensitivity.py
+python3 scripts/analyze_early_day_assembly.py
+python3 scripts/generate_checksums.py
+```
+
+2026년 선관위 공식 HTML 캐시를 새로 내려받아 재검증하려면 다음처럼 실행한다.
+
+```bash
+python3 scripts/fetch_nec_2026_duplicate_cases.py --fetch
+```
+
+LaTeX 제출본은 다음 명령으로 다시 생성하고 컴파일할 수 있다.
+
+```bash
+python3 latex/convert_to_ieie.py
+cd latex/ieie
+xelatex -interaction=nonstopmode -halt-on-error main.tex
+xelatex -interaction=nonstopmode -halt-on-error main.tex
+```
+
+업로드용 zip은 다음 명령으로 생성한다.
+
+```bash
+python3 scripts/create_submission_zip.py
+```
+
+## 주요 출력
+
+- `outputs/duplicate_summary.csv`
+- `outputs/duplicate_groups.csv`
+- `outputs/governor_actual_top2_summary.csv`
+- `outputs/governor_actual_top2_by_contest.csv`
+- `outputs/governor_actual_top2_duplicates.csv`
+- `outputs/governor_bootstrap_summary.csv`
+- `outputs/governor_bootstrap_histogram.csv`
+- `outputs/nec_2026_gwangju_jeonnam_unit_counts.csv`
+- `outputs/nec_2026_gwangju_jeonnam_units.csv`
+- `outputs/nec_2026_gwangju_jeonnam_unit_summary.json`
+- `outputs/nec_2026_reported_duplicate_cases.csv`
+- `outputs/nec_2026_reported_duplicate_pairs.csv`
+- `outputs/nec_2026_fetch_manifest.json`
+- `outputs/songdo_probability_summary.csv`
+- `outputs/songdo_official_rows.csv`
+- `outputs/probability_core.csv`
+- `outputs/probability_k_sensitivity.csv`
+- `outputs/probability_n_sensitivity.csv`
+- `outputs/early_day_assembly_summary.csv`
+- `outputs/early_day_assembly_twoparty.csv`
+- `outputs/checksums_sha256.csv`
+
+## 현재 검증된 핵심 숫자
+
+- 과거 파싱 행: `81,701`
+- 과거 시·도지사 선거구: `51`
+- 시·도지사 실제 1·2위 비교쌍: `1,514,172`
+- 시·도지사 실제 1·2위 동일 득표쌍: `15`
+- 과거 한 선거구 안 최대 반복: `3쌍`
+- 선관위 공식 HTML 기준 광주전남 관내사전 개표단위: `393`
+- 추정 \(K\): `100,944.8`
+- `N=393` 기준 `P(C >= 5)`: `0.0011484064`, 약 `0.115%`
+- `N=393` 기준 `P(C >= 6)`: `0.0001432242`, 약 `0.0143%`
+- 연수구 관내사전 15개 단위 중 한 쌍 이상 동일 득표쌍 확률: 약 `0.104%`
+- 특정 송도1동-송도2동 두 단위가 같은 득표쌍을 가질 조건부 확률: 약 `0.000991%`
+- 시·도지사 실제 득표쌍 비복원 재표본추출: `200,000`회
+- 비복원 재표본추출 `C >= 5`: `0`회, 관측해상도 기준 `<0.0005%`, 3의 법칙 95% 상한 약 `0.0015%`
+- 선관위 선거통계시스템 공식 HTML에서 재확인한 2026년 사건행: `12`
+- 선관위 선거통계시스템 공식 HTML에서 재확인한 2026년 동일 득표쌍: `6`
+
+## 출처 정책
+
+원고는 과거 공식 선거자료, 공공데이터포털 설명, 2026년 사건 정의를 위한 공개 기사에 의존한다. 인용하지 않은 임시 매체 산출물은 원고와 재현 패키지에서 제외했다.
+
+## 주장 범위
+
+이 원고는 특정 개인이나 기관의 개표 조작이 법적으로 입증되었다고 주장하지 않는다. 원고의 주장은 더 좁고 재현 가능하다. 과거 시·도지사 관내사전투표 기준선과 본문에서 정의한 사건 기준을 적용하면, 선관위 선거통계시스템 공식 화면에서 재확인되는 2026년 광주전남 5쌍 동일 득표 반복은 개표상황표 원본과 1차 분류기 결과의 독립 감사가 필요한 통계적 이상치라는 것이다.
+
+## 제출 패키지 구성
+
+- `paper_statistical_implausibility_ko.md`
+- `cover_letter_ko.md`
+- `submission_memo_ko.md`
+- `reviewer_response_ko.md`
+- `REPRODUCIBILITY_CHECKLIST_ko.md`
+- `STATISTICAL_CALCULATION_NOTE_ko.md`
+- `data_availability_2026_ko.md`
+- `README.md`
+- `requirements.txt`
+- `latex/`
+- `scripts/`
+- `outputs/`
+- `data/`
+- `dist/election_duplicate_ieie_submission.zip`

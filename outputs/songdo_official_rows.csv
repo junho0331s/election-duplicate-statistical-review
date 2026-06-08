@@ -1,0 +1,3 @@
+unit,candidate_1,candidate_1_votes,candidate_2,candidate_2_votes,electors,turnout,invalid_votes,abstentions,source_file
+송도1동,박찬대,3030,유정복,1440,4548,4546,15,2,data/nec_2026_official_html/2800_2804_연수구.html
+송도2동,박찬대,3030,유정복,1440,4540,4539,22,1,data/nec_2026_official_html/2800_2804_연수구.html
