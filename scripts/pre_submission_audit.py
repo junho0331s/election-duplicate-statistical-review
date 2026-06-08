@@ -75,6 +75,39 @@ def forbidden_patterns_absent() -> AuditCheck:
     return check(not hits, "forbidden patterns absent", "0 hits", f"{len(hits)} hits")
 
 
+def privacy_and_credential_scan() -> AuditCheck:
+    allowed_emails = {"junhokim0331@gmail.com"}
+    email_pattern = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
+    token_patterns = [
+        re.compile(r"gh[pousr]_[A-Za-z0-9_]{20,}"),
+        re.compile(r"github" + r"_pat_[A-Za-z0-9_]{20,}"),
+    ]
+    phone_pattern = re.compile(r"\b01[016789]-?\d{3,4}-?\d{4}\b")
+    korean_rrn_pattern = re.compile(r"\b\d{6}-[1-4]\d{6}\b")
+
+    hits: list[str] = []
+    for path in text_files():
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        rel = path.relative_to(ROOT)
+        for email in email_pattern.findall(text):
+            if email not in allowed_emails:
+                hits.append(f"{rel}:email:{email}")
+        for pattern in token_patterns:
+            if pattern.search(text):
+                hits.append(f"{rel}:credential-token-pattern")
+        if phone_pattern.search(text):
+            hits.append(f"{rel}:phone-number-pattern")
+        if korean_rrn_pattern.search(text):
+            hits.append(f"{rel}:korean-rrn-pattern")
+
+    return check(
+        not hits,
+        "privacy and credential scan",
+        "only allowed author email; 0 credential, phone, or resident-number patterns",
+        f"{len(hits)} hits",
+    )
+
+
 def checklist_items_complete() -> AuditCheck:
     checklist_paths = [
         "FINAL_SUBMISSION_CHECKLIST_ko.md",
@@ -228,6 +261,7 @@ def audit_checks() -> list[AuditCheck]:
     return [
         checklist_items_complete(),
         forbidden_patterns_absent(),
+        privacy_and_credential_scan(),
         core_claims_pass(),
         exact_collision_output_present(),
         manuscript_core_numbers_present(),

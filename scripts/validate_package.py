@@ -351,6 +351,7 @@ def assert_pre_submission_audit() -> None:
     required = {
         "final checklist items complete",
         "forbidden patterns absent",
+        "privacy and credential scan",
         "core claims verification",
         "exact collision probability output",
         "manuscript core number consistency",

@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 7,
+  "check_count": 8,
   "scope": "pre-submission package readiness",
   "checks": [
     {
@@ -12,6 +12,12 @@
     {
       "check": "forbidden patterns absent",
       "expected": "0 hits",
+      "actual": "0 hits",
+      "status": "pass"
+    },
+    {
+      "check": "privacy and credential scan",
+      "expected": "only allowed author email; 0 credential, phone, or resident-number patterns",
       "actual": "0 hits",
       "status": "pass"
     },
