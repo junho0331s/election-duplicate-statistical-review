@@ -28,6 +28,8 @@ INCLUDE_FILES = [
     "STATISTICAL_CALCULATION_NOTE_en.md",
     "data_availability_2026_ko.md",
     "data_availability_2026_en.md",
+    "AUDIT_PROTOCOL_ko.md",
+    "AUDIT_PROTOCOL_en.md",
     "latex/convert_to_ieie.py",
     "latex/ieie/IEIE.cls",
     "latex/ieie/main.tex",

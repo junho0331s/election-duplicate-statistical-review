@@ -45,6 +45,8 @@ The repository intentionally excludes informal video-platform materials and vide
 - `STATISTICAL_CALCULATION_NOTE_en.md`: English statistical calculation note
 - `data_availability_2026_ko.md`: 2026년 공식 개표자료 가용성 점검 메모
 - `data_availability_2026_en.md`: English 2026 data availability memo
+- `AUDIT_PROTOCOL_ko.md`: 독립 원자료 감사 프로토콜
+- `AUDIT_PROTOCOL_en.md`: English independent raw-data audit protocol
 - `latex/ieie/main.tex`: IEIE 템플릿 기반 LaTeX 원고
 - `latex/ieie/main.pdf`: 컴파일된 PDF 원고
 - `latex/en/main_en.tex`: English LaTeX source
@@ -179,6 +181,8 @@ python3 scripts/create_submission_zip.py
 - `STATISTICAL_CALCULATION_NOTE_en.md`
 - `data_availability_2026_ko.md`
 - `data_availability_2026_en.md`
+- `AUDIT_PROTOCOL_ko.md`
+- `AUDIT_PROTOCOL_en.md`
 - `README.md`
 - `requirements.txt`
 - `latex/`

@@ -29,6 +29,8 @@ REQUIRED_FILES = [
     "STATISTICAL_CALCULATION_NOTE_en.md",
     "data_availability_2026_ko.md",
     "data_availability_2026_en.md",
+    "AUDIT_PROTOCOL_ko.md",
+    "AUDIT_PROTOCOL_en.md",
     "latex/convert_to_ieie.py",
     "latex/ieie/IEIE.cls",
     "latex/ieie/main.tex",
@@ -296,6 +298,8 @@ def assert_checksums() -> None:
         "STATISTICAL_CALCULATION_NOTE_en.md",
         "data_availability_2026_ko.md",
         "data_availability_2026_en.md",
+        "AUDIT_PROTOCOL_ko.md",
+        "AUDIT_PROTOCOL_en.md",
         "latex/ieie/main.pdf",
         "latex/en/main_en.pdf",
         "scripts/bootstrap_governor_duplicates.py",
@@ -367,6 +371,8 @@ def assert_zip_package() -> None:
         "STATISTICAL_CALCULATION_NOTE_en.md",
         "data_availability_2026_ko.md",
         "data_availability_2026_en.md",
+        "AUDIT_PROTOCOL_ko.md",
+        "AUDIT_PROTOCOL_en.md",
     }
     with ZipFile(zip_path) as zf:
         names = set(zf.namelist())

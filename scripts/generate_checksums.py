@@ -29,6 +29,8 @@ INCLUDE_FILES = [
     "STATISTICAL_CALCULATION_NOTE_en.md",
     "data_availability_2026_ko.md",
     "data_availability_2026_en.md",
+    "AUDIT_PROTOCOL_ko.md",
+    "AUDIT_PROTOCOL_en.md",
     "latex/convert_to_ieie.py",
     "latex/ieie/IEIE.cls",
     "latex/ieie/main.tex",
@@ -93,7 +95,7 @@ def main() -> None:
 
     out_path = OUT / "checksums_sha256.csv"
     with out_path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["path", "bytes", "sha256"])
+        writer = csv.DictWriter(f, fieldnames=["path", "bytes", "sha256"], lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     print(f"Wrote {out_path.relative_to(ROOT)} with {len(rows)} rows.")
