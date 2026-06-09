@@ -15,6 +15,8 @@ INCLUDE_FILES = [
     "requirements.txt",
     "SUBMISSION_INDEX_ko.md",
     "SUBMISSION_INDEX_en.md",
+    "PUBLIC_DISCUSSION_CLAIMS_ko.md",
+    "PUBLIC_DISCUSSION_CLAIMS_en.md",
     "paper_statistical_implausibility_ko.md",
     "paper_statistical_implausibility_en.md",
     "cover_letter_ko.md",

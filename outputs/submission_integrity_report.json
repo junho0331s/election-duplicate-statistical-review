@@ -6,7 +6,7 @@
   "statistical_robustness_audit_status": "pass",
   "statistical_robustness_audit_check_count": 10,
   "video_source_exclusion_status": "pass",
-  "video_source_exclusion_check_count": 23,
+  "video_source_exclusion_check_count": 25,
   "source_provenance_status": "pass",
   "source_provenance_url_count": 24,
   "claim_boundary_audit_status": "pass",
@@ -15,17 +15,19 @@
   "objection_coverage_audit_check_count": 22,
   "pre_submission_audit_status": "pass",
   "pre_submission_audit_check_count": 15,
+  "public_discussion_claims_audit_status": "pass",
+  "public_discussion_claims_audit_row_count": 2,
   "submission_index_audit_status": "pass",
-  "submission_index_audit_check_count": 102,
+  "submission_index_audit_check_count": 112,
   "korean_pdf": {
     "path": "latex/ieie/main.pdf",
     "pages": 16,
-    "sha256": "01334699241c28c67ae224f60fcd82f12be6fff1f580140b161e2661fcaa9ddd"
+    "sha256": "a8f2321ee6b22e60b04f46b02fa7234203945815ab153f5e12a787902acc6d9e"
   },
   "english_pdf": {
     "path": "latex/en/main_en.pdf",
     "pages": 20,
-    "sha256": "63fa036b25a9bc2548fc7fc3a372d5d275a1e0d38bb0a4862e305e4d0b3c533f",
+    "sha256": "f58991f1879af7ff95a7b9c10e04d6dc82dfa701bfc31b318de0f943bf500ed6",
     "korean_character_count": 0,
     "references_english_evidence_matrix": true,
     "references_korean_evidence_matrix": false

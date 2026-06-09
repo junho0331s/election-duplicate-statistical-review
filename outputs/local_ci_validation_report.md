@@ -4,8 +4,8 @@
 - Scope: local equivalent of .github/workflows/validate-submission.yml
 - Validation command: `python scripts/validate_package.py`
 - Validation return code: `0`
-- ZIP file count: `141`
-- ZIP SHA256: `fff7c34f57c74d6d70812cd6f7b3ecb8394d3f2fc21f800e7d5476c80f8c689a`
+- ZIP file count: `146`
+- ZIP SHA256: `243809e596e236b99f375df867accd53ce12f645abf823e1335b25be6c3f3e9f`
 - ZIP reproduction audit command: `python scripts/zip_reproduction_audit.py`
 - ZIP reproduction audit return code: `0`
 - Manifest SHA256 matches ZIP: `True`

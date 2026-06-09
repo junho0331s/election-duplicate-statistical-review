@@ -3,7 +3,7 @@
   "scope": "fresh extraction of the submission ZIP into an isolated temporary directory",
   "package": "election_duplicate_ieie_submission.zip",
   "required_extracted_files": {
-    "checked": 11,
+    "checked": 13,
     "missing": []
   },
   "commands": [
@@ -15,6 +15,14 @@
         "Core claim verification passed with 45 checks.",
         "Wrote outputs/core_claims_verification.json",
         "Wrote outputs/core_claims_verification.csv"
+      ]
+    },
+    {
+      "command": "python scripts/verify_public_discussion_claims.py",
+      "returncode": 0,
+      "passed": true,
+      "output_tail": [
+        "Public-discussion claim check passed with 2 official rows."
       ]
     },
     {
@@ -30,7 +38,7 @@
       "returncode": 0,
       "passed": true,
       "output_tail": [
-        "Video source exclusion audit passed for 23 files."
+        "Video source exclusion audit passed for 25 files."
       ]
     },
     {

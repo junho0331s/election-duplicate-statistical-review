@@ -22,6 +22,8 @@ SOURCE_FILES = [
     "cover_letter_en.md",
     "submission_memo_ko.md",
     "submission_memo_en.md",
+    "PUBLIC_DISCUSSION_CLAIMS_ko.md",
+    "PUBLIC_DISCUSSION_CLAIMS_en.md",
     "reviewer_response_ko.md",
     "reviewer_response_en.md",
     "evidence_matrix_ko.md",

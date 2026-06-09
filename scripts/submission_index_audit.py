@@ -24,6 +24,8 @@ REQUIRED_REFERENCES = [
     "latex/en/main_en.tex",
     "paper_statistical_implausibility_ko.md",
     "paper_statistical_implausibility_en.md",
+    "PUBLIC_DISCUSSION_CLAIMS_ko.md",
+    "PUBLIC_DISCUSSION_CLAIMS_en.md",
     "evidence_matrix_ko.md",
     "evidence_matrix_en.md",
     "DATA_DICTIONARY_ko.md",
@@ -51,6 +53,7 @@ REQUIRED_REFERENCES = [
     "outputs/claim_boundary_audit.json",
     "outputs/objection_coverage_audit.json",
     "outputs/pre_submission_audit.json",
+    "outputs/public_discussion_claims_audit.json",
     "outputs/submission_integrity_report.json",
     "outputs/submission_index_audit.json",
     "outputs/zip_reproduction_audit.json",
@@ -58,13 +61,15 @@ REQUIRED_REFERENCES = [
     "requirements.txt",
     "scripts/run_all.py",
     "scripts/validate_package.py",
+    "scripts/verify_public_discussion_claims.py",
 ]
 
 EXPECTED_OUTPUTS = {
     "outputs/core_claims_verification.json": ("check_count", 45),
     "outputs/statistical_robustness_audit.json": ("check_count", 10),
-    "outputs/video_source_exclusion_audit.json": ("check_count", 23),
+    "outputs/video_source_exclusion_audit.json": ("check_count", 25),
     "outputs/source_provenance_audit.json": ("url_count", 24),
+    "outputs/public_discussion_claims_audit.json": ("row_count", 2),
     "outputs/claim_boundary_audit.json": ("check_count", 18),
     "outputs/objection_coverage_audit.json": ("check_count", 22),
     "outputs/pre_submission_audit.json": ("check_count", 15),

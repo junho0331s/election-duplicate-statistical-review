@@ -16,6 +16,7 @@ ZIP_PATH = ROOT / "dist" / "election_duplicate_ieie_submission.zip"
 
 COMMANDS = [
     ["scripts/verify_core_claims.py"],
+    ["scripts/verify_public_discussion_claims.py"],
     ["scripts/statistical_robustness_audit.py"],
     ["scripts/video_source_exclusion_audit.py"],
     ["scripts/source_provenance_audit.py"],
@@ -31,8 +32,10 @@ REQUIRED_EXTRACTED_FILES = [
     "latex/ieie/main.pdf",
     "latex/en/main_en.pdf",
     "scripts/verify_core_claims.py",
+    "scripts/verify_public_discussion_claims.py",
     "scripts/zip_reproduction_audit.py",
     "outputs/core_claims_verification.json",
+    "outputs/public_discussion_claims_audit.json",
     "outputs/statistical_robustness_audit.json",
     "outputs/video_source_exclusion_audit.json",
     "outputs/pre_submission_audit.json",

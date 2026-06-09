@@ -18,6 +18,8 @@ REQUIRED_FILES = [
     "requirements.txt",
     "SUBMISSION_INDEX_ko.md",
     "SUBMISSION_INDEX_en.md",
+    "PUBLIC_DISCUSSION_CLAIMS_ko.md",
+    "PUBLIC_DISCUSSION_CLAIMS_en.md",
     "paper_statistical_implausibility_ko.md",
     "paper_statistical_implausibility_en.md",
     "cover_letter_ko.md",
@@ -60,6 +62,7 @@ REQUIRED_FILES = [
     "scripts/analyze_songdo_probability.py",
     "scripts/probability_sensitivity.py",
     "scripts/analyze_early_day_assembly.py",
+    "scripts/verify_public_discussion_claims.py",
     "scripts/verify_core_claims.py",
     "scripts/statistical_robustness_audit.py",
     "scripts/video_source_exclusion_audit.py",
@@ -90,6 +93,8 @@ REQUIRED_FILES = [
     "outputs/probability_core.csv",
     "outputs/probability_exact_collision.csv",
     "outputs/early_day_assembly_summary.csv",
+    "outputs/public_discussion_claims_audit.csv",
+    "outputs/public_discussion_claims_audit.json",
     "outputs/core_claims_verification.csv",
     "outputs/core_claims_verification.json",
     "outputs/statistical_robustness_audit.csv",
@@ -438,7 +443,7 @@ def assert_video_source_exclusion_audit() -> None:
     data = json.loads(path.read_text(encoding="utf-8"))
     if data.get("status") != "pass":
         raise AssertionError(f"Video source exclusion audit status is not pass: {data.get('status')}")
-    if int(data.get("check_count", 0)) != 23:
+    if int(data.get("check_count", 0)) != 25:
         raise AssertionError(f"Video source exclusion audit check count mismatch: {data.get('check_count')}")
     if data.get("failures"):
         raise AssertionError(f"Video source exclusion audit contains failures: {data.get('failures')}")
@@ -484,6 +489,25 @@ def assert_statistical_robustness_audit() -> None:
         raise AssertionError("Statistical robustness audit CSV row count does not match check_count")
     if any(row.get("status") != "pass" for row in rows):
         raise AssertionError("Statistical robustness audit CSV contains non-pass status")
+
+
+def assert_public_discussion_claims_audit() -> None:
+    path = ROOT / "outputs" / "public_discussion_claims_audit.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if data.get("status") != "pass":
+        raise AssertionError(f"Public-discussion claim audit status is not pass: {data.get('status')}")
+    if data.get("row_count") != 2:
+        raise AssertionError("Public-discussion claim audit does not record two official rows")
+    pair = data.get("confirmed_pair", {})
+    if pair.get("lee_jae_myung") != 131 or pair.get("yoon_suk_yeol") != 618:
+        raise AssertionError("Public-discussion claim audit records unexpected candidate values")
+
+    rows = list(csv.DictReader((ROOT / "outputs" / "public_discussion_claims_audit.csv").open(encoding="utf-8")))
+    if len(rows) != 2:
+        raise AssertionError("Public-discussion claim audit CSV row count mismatch")
+    stations = {row.get("polling_station") for row in rows}
+    if stations != {"비산1동제3투", "비산1동제4투"}:
+        raise AssertionError(f"Public-discussion claim audit has unexpected polling stations: {stations}")
 
 
 def assert_claim_boundary_audit() -> None:
@@ -572,8 +596,12 @@ def assert_submission_integrity_report() -> None:
         raise AssertionError("Submission integrity report does not record 10 statistical robustness checks")
     if data.get("video_source_exclusion_status") != "pass":
         raise AssertionError("Submission integrity report does not record passing video source exclusion audit")
-    if data.get("video_source_exclusion_check_count") != 23:
-        raise AssertionError("Submission integrity report does not record 23 video source exclusion file checks")
+    if data.get("video_source_exclusion_check_count") != 25:
+        raise AssertionError("Submission integrity report does not record 25 video source exclusion file checks")
+    if data.get("public_discussion_claims_audit_status") != "pass":
+        raise AssertionError("Submission integrity report does not record passing public-discussion claim audit")
+    if data.get("public_discussion_claims_audit_row_count") != 2:
+        raise AssertionError("Submission integrity report does not record two public-discussion claim rows")
     if data.get("claim_boundary_audit_status") != "pass":
         raise AssertionError("Submission integrity report does not record passing claim-boundary audit")
     if data.get("claim_boundary_audit_check_count") != 18:
@@ -645,6 +673,8 @@ def assert_checksums() -> None:
         "paper_statistical_implausibility_en.md",
         "SUBMISSION_INDEX_ko.md",
         "SUBMISSION_INDEX_en.md",
+        "PUBLIC_DISCUSSION_CLAIMS_ko.md",
+        "PUBLIC_DISCUSSION_CLAIMS_en.md",
         "cover_letter_ko.md",
         "cover_letter_en.md",
         "submission_memo_ko.md",
@@ -674,6 +704,7 @@ def assert_checksums() -> None:
         "latex/ieie/main.pdf",
         "latex/en/main_en.pdf",
         "scripts/bootstrap_governor_duplicates.py",
+        "scripts/verify_public_discussion_claims.py",
         "scripts/verify_core_claims.py",
         "scripts/statistical_robustness_audit.py",
         "scripts/video_source_exclusion_audit.py",
@@ -684,6 +715,8 @@ def assert_checksums() -> None:
         "outputs/core_claims_verification.json",
         "outputs/statistical_robustness_audit.csv",
         "outputs/statistical_robustness_audit.json",
+        "outputs/public_discussion_claims_audit.csv",
+        "outputs/public_discussion_claims_audit.json",
         "outputs/video_source_exclusion_audit.csv",
         "outputs/video_source_exclusion_audit.json",
         "outputs/source_provenance_audit.csv",
@@ -808,6 +841,8 @@ def assert_zip_package() -> None:
         "README.md",
         "paper_statistical_implausibility_ko.md",
         "paper_statistical_implausibility_en.md",
+        "PUBLIC_DISCUSSION_CLAIMS_ko.md",
+        "PUBLIC_DISCUSSION_CLAIMS_en.md",
         "cover_letter_ko.md",
         "cover_letter_en.md",
         "submission_memo_ko.md",
@@ -827,6 +862,8 @@ def assert_zip_package() -> None:
         "outputs/core_claims_verification.json",
         "outputs/statistical_robustness_audit.csv",
         "outputs/statistical_robustness_audit.json",
+        "outputs/public_discussion_claims_audit.csv",
+        "outputs/public_discussion_claims_audit.json",
         "outputs/video_source_exclusion_audit.csv",
         "outputs/video_source_exclusion_audit.json",
         "outputs/pre_submission_audit.csv",
@@ -859,6 +896,7 @@ def assert_zip_package() -> None:
         "FINAL_SUBMISSION_CHECKLIST_ko.md",
         "FINAL_SUBMISSION_CHECKLIST_en.md",
         "scripts/pre_submission_audit.py",
+        "scripts/verify_public_discussion_claims.py",
         "scripts/submission_index_audit.py",
         "scripts/video_source_exclusion_audit.py",
         "scripts/zip_reproduction_audit.py",
@@ -960,6 +998,7 @@ def main() -> None:
     assert_manifest_json()
     assert_core_claims_verification()
     assert_statistical_robustness_audit()
+    assert_public_discussion_claims_audit()
     assert_video_source_exclusion_audit()
     assert_source_provenance_audit()
     assert_claim_boundary_audit()

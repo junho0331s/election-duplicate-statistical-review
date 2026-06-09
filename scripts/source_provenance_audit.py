@@ -16,6 +16,8 @@ SOURCE_FILES = [
     "paper_statistical_implausibility_ko.md",
     "paper_statistical_implausibility_en.md",
     "README.md",
+    "PUBLIC_DISCUSSION_CLAIMS_ko.md",
+    "PUBLIC_DISCUSSION_CLAIMS_en.md",
     "data_availability_2026_ko.md",
     "data_availability_2026_en.md",
     "evidence_matrix_ko.md",

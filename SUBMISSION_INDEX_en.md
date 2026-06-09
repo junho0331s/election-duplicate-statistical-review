@@ -31,6 +31,7 @@ The ZIP hash is recorded in an external sidecar after ZIP creation. The final ZI
 - Alternative-explanations matrix: `ALTERNATIVE_EXPLANATIONS_MATRIX_ko.md`, `ALTERNATIVE_EXPLANATIONS_MATRIX_en.md`
 - Look-elsewhere robustness note: `LOOK_ELSEWHERE_ROBUSTNESS_ko.md`, `LOOK_ELSEWHERE_ROBUSTNESS_en.md`
 - Final submission checklist: `FINAL_SUBMISSION_CHECKLIST_ko.md`, `FINAL_SUBMISSION_CHECKLIST_en.md`
+- Public-discussion auxiliary claim check: `PUBLIC_DISCUSSION_CLAIMS_ko.md`, `PUBLIC_DISCUSSION_CLAIMS_en.md`
 
 ## 4. Core Verification Outputs
 
@@ -41,6 +42,7 @@ The ZIP hash is recorded in an external sidecar after ZIP creation. The final ZI
 - Claim-boundary audit: `outputs/claim_boundary_audit.json` (`pass`, 18 checks)
 - Objection coverage audit: `outputs/objection_coverage_audit.json` (`pass`, 22 checks)
 - Pre-submission audit: `outputs/pre_submission_audit.json` (`pass`, 15 checks)
+- Public-discussion auxiliary claim audit: `outputs/public_discussion_claims_audit.json`
 - Submission integrity report: `outputs/submission_integrity_report.json`
 - Submission index audit: `outputs/submission_index_audit.json`
 
@@ -59,3 +61,5 @@ python3 scripts/run_all.py
 ```
 
 If the full reproduction succeeds, the artifacts under `outputs/`, `latex/`, and `dist/` are regenerated and `scripts/validate_package.py` verifies the submission package structure.
+
+The public-discussion auxiliary claim is separately checked against the official 2022 presidential file by `scripts/verify_public_discussion_claims.py`.

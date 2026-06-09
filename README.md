@@ -33,6 +33,8 @@ The repository intentionally excludes informal video-platform materials and vide
 - `paper_statistical_implausibility_en.md`: English paper
 - `SUBMISSION_INDEX_ko.md`: 제출 패키지 최상위 인덱스
 - `SUBMISSION_INDEX_en.md`: English top-level submission index
+- `PUBLIC_DISCUSSION_CLAIMS_ko.md`: 공개 논의 보조 주장 공식자료 검산 메모
+- `PUBLIC_DISCUSSION_CLAIMS_en.md`: English public-discussion auxiliary claim check memo
 - `cover_letter_ko.md`: 학회 제출용 커버레터
 - `cover_letter_en.md`: English submission cover letter
 - `submission_memo_ko.md`: 제출 메모, 주장 범위, 한계, 재현 절차, 예상 반론 요약
@@ -106,6 +108,7 @@ python3 scripts/fetch_nec_2026_duplicate_cases.py
 python3 scripts/analyze_songdo_probability.py
 python3 scripts/probability_sensitivity.py
 python3 scripts/analyze_early_day_assembly.py
+python3 scripts/verify_public_discussion_claims.py
 python3 scripts/verify_core_claims.py
 python3 scripts/statistical_robustness_audit.py
 python3 scripts/video_source_exclusion_audit.py

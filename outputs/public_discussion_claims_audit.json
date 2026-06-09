@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "scope": "official-data check of a public-discussion auxiliary identical-pair claim",
+  "source_file": "data/pres2022.xlsx",
+  "row_count": 2,
+  "confirmed_pair": {
+    "lee_jae_myung": 131,
+    "yoon_suk_yeol": 618
+  },
+  "classification": "auxiliary one-pair election-day polling-station case, not pooled into the primary in-district early-vote five-pair test",
+  "failures": []
+}

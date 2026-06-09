@@ -35,8 +35,8 @@
     },
     {
       "check": "video source exclusion audit",
-      "expected": "status pass with 23 checked files and 0 failures",
-      "actual": "status pass, 23 files, 0 failures",
+      "expected": "status pass with 25 checked files and 0 failures",
+      "actual": "status pass, 25 files, 0 failures",
       "status": "pass"
     },
     {

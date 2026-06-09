@@ -9,6 +9,8 @@ SUBMISSION_INDEX_ko.md references latex/ieie/main.tex,pass,latex/ieie/main.tex
 SUBMISSION_INDEX_ko.md references latex/en/main_en.tex,pass,latex/en/main_en.tex
 SUBMISSION_INDEX_ko.md references paper_statistical_implausibility_ko.md,pass,paper_statistical_implausibility_ko.md
 SUBMISSION_INDEX_ko.md references paper_statistical_implausibility_en.md,pass,paper_statistical_implausibility_en.md
+SUBMISSION_INDEX_ko.md references PUBLIC_DISCUSSION_CLAIMS_ko.md,pass,PUBLIC_DISCUSSION_CLAIMS_ko.md
+SUBMISSION_INDEX_ko.md references PUBLIC_DISCUSSION_CLAIMS_en.md,pass,PUBLIC_DISCUSSION_CLAIMS_en.md
 SUBMISSION_INDEX_ko.md references evidence_matrix_ko.md,pass,evidence_matrix_ko.md
 SUBMISSION_INDEX_ko.md references evidence_matrix_en.md,pass,evidence_matrix_en.md
 SUBMISSION_INDEX_ko.md references DATA_DICTIONARY_ko.md,pass,DATA_DICTIONARY_ko.md
@@ -36,6 +38,7 @@ SUBMISSION_INDEX_ko.md references outputs/source_provenance_audit.json,pass,outp
 SUBMISSION_INDEX_ko.md references outputs/claim_boundary_audit.json,pass,outputs/claim_boundary_audit.json
 SUBMISSION_INDEX_ko.md references outputs/objection_coverage_audit.json,pass,outputs/objection_coverage_audit.json
 SUBMISSION_INDEX_ko.md references outputs/pre_submission_audit.json,pass,outputs/pre_submission_audit.json
+SUBMISSION_INDEX_ko.md references outputs/public_discussion_claims_audit.json,pass,outputs/public_discussion_claims_audit.json
 SUBMISSION_INDEX_ko.md references outputs/submission_integrity_report.json,pass,outputs/submission_integrity_report.json
 SUBMISSION_INDEX_ko.md references outputs/submission_index_audit.json,pass,outputs/submission_index_audit.json
 SUBMISSION_INDEX_ko.md references outputs/zip_reproduction_audit.json,pass,outputs/zip_reproduction_audit.json
@@ -43,6 +46,7 @@ SUBMISSION_INDEX_ko.md references outputs/local_ci_validation_report.json,pass,o
 SUBMISSION_INDEX_ko.md references requirements.txt,pass,requirements.txt
 SUBMISSION_INDEX_ko.md references scripts/run_all.py,pass,scripts/run_all.py
 SUBMISSION_INDEX_ko.md references scripts/validate_package.py,pass,scripts/validate_package.py
+SUBMISSION_INDEX_ko.md references scripts/verify_public_discussion_claims.py,pass,scripts/verify_public_discussion_claims.py
 SUBMISSION_INDEX_en.md exists,pass,SUBMISSION_INDEX_en.md
 SUBMISSION_INDEX_en.md references dist/election_duplicate_ieie_submission.zip,pass,dist/election_duplicate_ieie_submission.zip
 SUBMISSION_INDEX_en.md references dist/election_duplicate_ieie_submission.zip.sha256,pass,dist/election_duplicate_ieie_submission.zip.sha256
@@ -53,6 +57,8 @@ SUBMISSION_INDEX_en.md references latex/ieie/main.tex,pass,latex/ieie/main.tex
 SUBMISSION_INDEX_en.md references latex/en/main_en.tex,pass,latex/en/main_en.tex
 SUBMISSION_INDEX_en.md references paper_statistical_implausibility_ko.md,pass,paper_statistical_implausibility_ko.md
 SUBMISSION_INDEX_en.md references paper_statistical_implausibility_en.md,pass,paper_statistical_implausibility_en.md
+SUBMISSION_INDEX_en.md references PUBLIC_DISCUSSION_CLAIMS_ko.md,pass,PUBLIC_DISCUSSION_CLAIMS_ko.md
+SUBMISSION_INDEX_en.md references PUBLIC_DISCUSSION_CLAIMS_en.md,pass,PUBLIC_DISCUSSION_CLAIMS_en.md
 SUBMISSION_INDEX_en.md references evidence_matrix_ko.md,pass,evidence_matrix_ko.md
 SUBMISSION_INDEX_en.md references evidence_matrix_en.md,pass,evidence_matrix_en.md
 SUBMISSION_INDEX_en.md references DATA_DICTIONARY_ko.md,pass,DATA_DICTIONARY_ko.md
@@ -80,6 +86,7 @@ SUBMISSION_INDEX_en.md references outputs/source_provenance_audit.json,pass,outp
 SUBMISSION_INDEX_en.md references outputs/claim_boundary_audit.json,pass,outputs/claim_boundary_audit.json
 SUBMISSION_INDEX_en.md references outputs/objection_coverage_audit.json,pass,outputs/objection_coverage_audit.json
 SUBMISSION_INDEX_en.md references outputs/pre_submission_audit.json,pass,outputs/pre_submission_audit.json
+SUBMISSION_INDEX_en.md references outputs/public_discussion_claims_audit.json,pass,outputs/public_discussion_claims_audit.json
 SUBMISSION_INDEX_en.md references outputs/submission_integrity_report.json,pass,outputs/submission_integrity_report.json
 SUBMISSION_INDEX_en.md references outputs/submission_index_audit.json,pass,outputs/submission_index_audit.json
 SUBMISSION_INDEX_en.md references outputs/zip_reproduction_audit.json,pass,outputs/zip_reproduction_audit.json
@@ -87,14 +94,17 @@ SUBMISSION_INDEX_en.md references outputs/local_ci_validation_report.json,pass,o
 SUBMISSION_INDEX_en.md references requirements.txt,pass,requirements.txt
 SUBMISSION_INDEX_en.md references scripts/run_all.py,pass,scripts/run_all.py
 SUBMISSION_INDEX_en.md references scripts/validate_package.py,pass,scripts/validate_package.py
+SUBMISSION_INDEX_en.md references scripts/verify_public_discussion_claims.py,pass,scripts/verify_public_discussion_claims.py
 outputs/core_claims_verification.json status pass,pass,pass
 outputs/core_claims_verification.json check_count 45,pass,45
 outputs/statistical_robustness_audit.json status pass,pass,pass
 outputs/statistical_robustness_audit.json check_count 10,pass,10
 outputs/video_source_exclusion_audit.json status pass,pass,pass
-outputs/video_source_exclusion_audit.json check_count 23,pass,23
+outputs/video_source_exclusion_audit.json check_count 25,pass,25
 outputs/source_provenance_audit.json status pass,pass,pass
 outputs/source_provenance_audit.json url_count 24,pass,24
+outputs/public_discussion_claims_audit.json status pass,pass,pass
+outputs/public_discussion_claims_audit.json row_count 2,pass,2
 outputs/claim_boundary_audit.json status pass,pass,pass
 outputs/claim_boundary_audit.json check_count 18,pass,18
 outputs/objection_coverage_audit.json status pass,pass,pass

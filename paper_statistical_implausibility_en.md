@@ -317,6 +317,8 @@ When the number of counting units is large, one identical pair can easily appear
 
 For \(N=393\), there are 77,028 unit pairs. In a comparison space that large, one matching vote pair somewhere is not by itself an anomaly. This paper therefore does not treat one identical pair as suspicious by itself.
 
+The 2022 Daegu Seo-gu Bisan 1-dong polling-station example, often mentioned in public discussion, illustrates this distinction. Rechecking `data/pres2022.xlsx` confirms that polling stations 3 and 4 both gave Lee Jae-myung 131 votes and Yoon Suk-yeol 618 votes. But that case is one election-day polling-station pair in a presidential election. The primary event in this paper is five repeated pairs for the same candidate combination in in-district early-vote eup/myeon/dong counting units in a local governor election. The Bisan 1-dong example honestly acknowledges that one-pair cases have appeared before; it is not pooled into, and does not invalidate, the Gwangju-Jeonnam five-pair test.
+
 Five pairs are a different object. If \(C\) is the number of identical vote-pair collisions in the contest environment, the relevant question is not \(C \ge 1\), but \(C \ge 5\). In the Poisson approximation, the probability of at least \(m\) repeated pairs is:
 
 \[
