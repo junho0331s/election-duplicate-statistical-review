@@ -37,12 +37,12 @@ ZIP 해시는 ZIP 생성 이후 외부 사이드카 파일에 기록한다. ZIP 
 
 - 핵심 주장 검증: `outputs/core_claims_verification.json` (`pass`, 45 checks)
 - 통계 강건성 감사: `outputs/statistical_robustness_audit.json` (`pass`, 10 checks)
-- 비공식 영상 출처 배제 감사: `outputs/video_source_exclusion_audit.json` (`pass`, 23 files)
+- 비공식 영상 출처 배제 감사: `outputs/video_source_exclusion_audit.json` (`pass`, 25 files)
 - 출처 추적 감사: `outputs/source_provenance_audit.json` (`pass`, 24 URLs)
 - 주장 범위 감사: `outputs/claim_boundary_audit.json` (`pass`, 18 checks)
 - 예상 반론 포괄성 감사: `outputs/objection_coverage_audit.json` (`pass`, 22 checks)
 - 제출 전 자동 감사: `outputs/pre_submission_audit.json` (`pass`, 15 checks)
-- 공개 논의 보조 주장 감사: `outputs/public_discussion_claims_audit.json`
+- 공개 논의 보조 주장 감사: `outputs/public_discussion_claims_audit.json` (`pass`, 2 official rows)
 - 제출 무결성 보고서: `outputs/submission_integrity_report.json`
 - 제출 인덱스 감사: `outputs/submission_index_audit.json`
 

@@ -18,7 +18,7 @@
   "public_discussion_claims_audit_status": "pass",
   "public_discussion_claims_audit_row_count": 2,
   "submission_index_audit_status": "pass",
-  "submission_index_audit_check_count": 112,
+  "submission_index_audit_check_count": 128,
   "korean_pdf": {
     "path": "latex/ieie/main.pdf",
     "pages": 16,

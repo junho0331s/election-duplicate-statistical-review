@@ -75,6 +75,17 @@ EXPECTED_OUTPUTS = {
     "outputs/pre_submission_audit.json": ("check_count", 15),
 }
 
+EXPECTED_INDEX_MARKERS = {
+    "outputs/core_claims_verification.json": "45 checks",
+    "outputs/statistical_robustness_audit.json": "10 checks",
+    "outputs/video_source_exclusion_audit.json": "25 files",
+    "outputs/source_provenance_audit.json": "24 URLs",
+    "outputs/public_discussion_claims_audit.json": "2 official rows",
+    "outputs/claim_boundary_audit.json": "18 checks",
+    "outputs/objection_coverage_audit.json": "22 checks",
+    "outputs/pre_submission_audit.json": "15 checks",
+}
+
 
 def read_json(rel: str) -> dict:
     return json.loads((ROOT / rel).read_text(encoding="utf-8"))
@@ -100,6 +111,12 @@ def main() -> None:
                 "check": f"{rel} references {ref}",
                 "status": "pass" if ref in text else "fail",
                 "detail": ref,
+            })
+        for ref, marker in EXPECTED_INDEX_MARKERS.items():
+            rows.append({
+                "check": f"{rel} describes {ref} as {marker}",
+                "status": "pass" if ref in text and marker in text else "fail",
+                "detail": marker,
             })
 
     for rel, (field, expected) in EXPECTED_OUTPUTS.items():

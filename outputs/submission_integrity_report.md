@@ -10,7 +10,7 @@
 - Objection coverage audit: `pass`, 22 checks
 - Pre-submission audit: `pass`, 15 checks
 - Public-discussion claim audit: `pass`, 2 official rows
-- Submission index audit: `pass`, 112 checks
+- Submission index audit: `pass`, 128 checks
 
 ## PDF Artifacts
 
