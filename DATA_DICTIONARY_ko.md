@@ -60,6 +60,8 @@
 | `outputs/pre_submission_audit.json` | JSON 감사 요약 | 제출 전 감사 15개 항목의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/submission_integrity_report.md` | 무결성 리포트 1개 | PDF, 핵심 검증, 통계 강건성, 비공식 영상 출처 배제, 주장 범위 감사, 반론 커버리지, 제출 전 감사, 핵심 재현 수치를 한 파일에서 확인 | Markdown sections |
 | `outputs/submission_integrity_report.json` | JSON 무결성 리포트 | 최종 ZIP self-hash를 제외한 제출 패키지 무결성 요약 | `status`, `core_claims_check_count`, `statistical_robustness_audit_check_count`, `video_source_exclusion_check_count`, `public_discussion_claims_audit_row_count`, `claim_boundary_audit_check_count`, `objection_coverage_audit_check_count`, `pre_submission_audit_check_count`, `korean_pdf`, `english_pdf`, `key_claims` |
+| `outputs/zip_reproduction_audit.md` | 제출 ZIP 외부 재현 감사 리포트 1개 | 제출 ZIP을 임시 디렉터리에 풀어 핵심 감사 스크립트가 실행되는지 사람이 읽을 수 있게 요약. ZIP self-hash 순환을 피하려고 ZIP에는 넣지 않음 | Markdown sections |
+| `outputs/zip_reproduction_audit.json` | 제출 ZIP 외부 JSON 재현 감사 리포트 | 제출 ZIP 독립 압축해제, 필수 파일 존재, 핵심 감사 스크립트 실행 결과의 기계가독 검증. ZIP self-hash 순환을 피하려고 ZIP에는 넣지 않음 | `status`, `required_extracted_files`, `commands` |
 | `outputs/local_ci_validation_report.md` | 제출 ZIP 외부 로컬 CI 리포트 1개 | GitHub Actions 검증 워크플로와 같은 검증을 로컬에서 사람이 읽을 수 있게 요약. ZIP self-hash 순환을 피하려고 ZIP에는 넣지 않음 | Markdown sections |
 | `outputs/local_ci_validation_report.json` | 제출 ZIP 외부 JSON 로컬 CI 리포트 | `validate_package.py`와 최종 ZIP sidecar 일치 여부의 기계가독 검증. ZIP self-hash 순환을 피하려고 ZIP에는 넣지 않음 | `status`, `validate_package`, `zip_sidecar` |
 | `outputs/checksums_sha256.csv` | 패키지 파일 1개 | 제출 패키지 파일 무결성 확인 | `path`, `bytes`, `sha256` |
@@ -97,6 +99,7 @@
 | 예상 심사 반론이 원고와 부속 메모에서 커버된다. | `outputs/objection_coverage_audit.csv`, `outputs/objection_coverage_audit.json` |
 | 최종 제출 전 감사 항목이 통과한다. | `outputs/pre_submission_audit.csv`, `outputs/pre_submission_audit.json` |
 | 최종 PDF와 제출 무결성 요약이 서로 일관된다. | `outputs/submission_integrity_report.md`, `outputs/submission_integrity_report.json` |
+| 제출 ZIP을 새 임시 디렉터리에 풀어 핵심 감사 스크립트를 다시 실행할 수 있다. | `outputs/zip_reproduction_audit.md`, `outputs/zip_reproduction_audit.json` |
 | GitHub Actions 검증 워크플로와 같은 로컬 검증이 통과한다. | `outputs/local_ci_validation_report.md`, `outputs/local_ci_validation_report.json` |
 | 제출 ZIP 자체의 SHA256과 내부 파일 수가 검증된다. | `dist/election_duplicate_ieie_submission.zip.sha256`, `dist/election_duplicate_ieie_submission_manifest.json` |
 

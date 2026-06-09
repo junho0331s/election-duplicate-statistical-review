@@ -908,6 +908,18 @@ def assert_zip_package() -> None:
     missing = sorted(required - names)
     if missing:
         raise AssertionError(f"Zip missing required entries: {', '.join(missing)}")
+    external_reports = {
+        "outputs/local_ci_validation_report.md",
+        "outputs/local_ci_validation_report.json",
+        "outputs/zip_reproduction_audit.md",
+        "outputs/zip_reproduction_audit.json",
+    }
+    embedded_external_reports = sorted(external_reports & names)
+    if embedded_external_reports:
+        raise AssertionError(
+            "Zip contains external post-zip reports: "
+            + ", ".join(embedded_external_reports)
+        )
     forbidden_suffixes = (".aux", ".log", ".out", ".synctex.gz")
     bad = sorted(name for name in names if name.endswith(forbidden_suffixes))
     if bad:

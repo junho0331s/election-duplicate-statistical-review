@@ -97,7 +97,7 @@ EXCLUDE_NAMES = {
     "__pycache__",
 }
 
-EXCLUDE_RELATIVE = {
+EXTERNAL_REPORTS = {
     "outputs/local_ci_validation_report.md",
     "outputs/local_ci_validation_report.json",
     "outputs/zip_reproduction_audit.md",
@@ -107,7 +107,7 @@ EXCLUDE_RELATIVE = {
 
 def should_include(path: Path) -> bool:
     rel = path.relative_to(ROOT).as_posix()
-    if rel in EXCLUDE_RELATIVE:
+    if rel in EXTERNAL_REPORTS:
         return False
     if any(part in EXCLUDE_NAMES for part in path.parts):
         return False
@@ -163,6 +163,9 @@ def main() -> None:
     missing = sorted(expected - names)
     if missing:
         raise SystemExit(f"Zip missing expected entries: {', '.join(missing)}")
+    external = sorted(EXTERNAL_REPORTS & names)
+    if external:
+        raise SystemExit(f"Zip contains external post-zip reports: {', '.join(external)}")
 
     digest = sha256(zip_path)
     manifest = {

@@ -11,8 +11,8 @@
   },
   "zip_sidecar": {
     "package": "election_duplicate_ieie_submission.zip",
-    "bytes": 54431222,
-    "sha256": "8e085e6668de22ad2099eb1031102fd2ce07247693bc8336787d27efed48e2a3",
+    "bytes": 54431679,
+    "sha256": "6ce8f217d44e807ae27b2a22c00eb887bfe1cafee6ea1ccfb1d387010082e065",
     "manifest_sha256_matches": true,
     "manifest_bytes_matches": true,
     "sha256_sidecar_matches": true,

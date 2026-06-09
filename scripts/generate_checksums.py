@@ -64,7 +64,7 @@ EXCLUDE_NAMES = {
     "__pycache__",
 }
 
-EXCLUDE_RELATIVE = {
+EXTERNAL_REPORTS = {
     "outputs/checksums_sha256.csv",
     "outputs/local_ci_validation_report.md",
     "outputs/local_ci_validation_report.json",
@@ -77,7 +77,7 @@ def should_include(path: Path) -> bool:
     if not path.is_file():
         return False
     rel = path.relative_to(ROOT).as_posix()
-    if rel in EXCLUDE_RELATIVE:
+    if rel in EXTERNAL_REPORTS:
         return False
     if any(part in EXCLUDE_NAMES for part in path.parts):
         return False

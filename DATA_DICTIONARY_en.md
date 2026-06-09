@@ -60,6 +60,8 @@ This document explains the core CSV and JSON outputs under `outputs/`. Its purpo
 | `outputs/pre_submission_audit.json` | JSON audit summary | Machine-readable result of the 15 pre-submission audit checks. | `status`, `check_count`, `scope`, `checks` |
 | `outputs/submission_integrity_report.md` | One integrity report | Human-readable final integrity summary for PDFs, core checks, statistical robustness, video-source exclusion, claim-boundary checks, objection coverage, audit checks, and key reproducible numbers. | Markdown sections |
 | `outputs/submission_integrity_report.json` | JSON integrity report | Machine-readable final integrity summary excluding the final ZIP self-hash. | `status`, `core_claims_check_count`, `statistical_robustness_audit_check_count`, `video_source_exclusion_check_count`, `public_discussion_claims_audit_row_count`, `claim_boundary_audit_check_count`, `objection_coverage_audit_check_count`, `pre_submission_audit_check_count`, `korean_pdf`, `english_pdf`, `key_claims` |
+| `outputs/zip_reproduction_audit.md` | One ZIP reproduction report outside the submission ZIP | Human-readable summary showing that the submission ZIP can be extracted into a temporary directory and core audit scripts can run. Excluded from the ZIP to avoid a self-hash cycle. | Markdown sections |
+| `outputs/zip_reproduction_audit.json` | JSON ZIP reproduction report outside the submission ZIP | Machine-readable validation of fresh ZIP extraction, required-file presence, and core audit-script execution. Excluded from the ZIP to avoid a self-hash cycle. | `status`, `required_extracted_files`, `commands` |
 | `outputs/local_ci_validation_report.md` | One local CI report outside the submission ZIP | Human-readable local equivalent of the GitHub Actions validation workflow. Excluded from the ZIP to avoid a self-hash cycle. | Markdown sections |
 | `outputs/local_ci_validation_report.json` | JSON local CI report outside the submission ZIP | Machine-readable validation of `validate_package.py` and final ZIP sidecar consistency. Excluded from the ZIP to avoid a self-hash cycle. | `status`, `validate_package`, `zip_sidecar` |
 | `outputs/checksums_sha256.csv` | One package file | Verifies integrity of submission-package files. | `path`, `bytes`, `sha256` |
@@ -97,6 +99,7 @@ This document explains the core CSV and JSON outputs under `outputs/`. Its purpo
 | Expected reviewer objections are covered in the paper and support memos. | `outputs/objection_coverage_audit.csv`, `outputs/objection_coverage_audit.json` |
 | The final pre-submission audit checks pass. | `outputs/pre_submission_audit.csv`, `outputs/pre_submission_audit.json` |
 | The final PDF and submission integrity summary are internally consistent. | `outputs/submission_integrity_report.md`, `outputs/submission_integrity_report.json` |
+| The submission ZIP can be extracted into a fresh temporary directory and rerun core audit scripts. | `outputs/zip_reproduction_audit.md`, `outputs/zip_reproduction_audit.json` |
 | The local equivalent of the GitHub Actions validation workflow passes. | `outputs/local_ci_validation_report.md`, `outputs/local_ci_validation_report.json` |
 | The submission ZIP's SHA256 and internal file count are verified. | `dist/election_duplicate_ieie_submission.zip.sha256`, `dist/election_duplicate_ieie_submission_manifest.json` |
 
