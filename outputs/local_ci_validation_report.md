@@ -5,7 +5,7 @@
 - Validation command: `python scripts/validate_package.py`
 - Validation return code: `0`
 - ZIP file count: `146`
-- ZIP SHA256: `3770d519a2adb95572674424223a197ea4daee9a8c0abc6a527f27610ea034d5`
+- ZIP SHA256: `66be64c55d867d6116a99a1f7618316854025b9984d9db8fb140ad7fbff33856`
 - ZIP reproduction audit command: `python scripts/zip_reproduction_audit.py`
 - ZIP reproduction audit return code: `0`
 - Manifest SHA256 matches ZIP: `True`

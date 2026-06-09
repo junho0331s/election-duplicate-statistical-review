@@ -405,6 +405,7 @@ def assert_pre_submission_audit() -> None:
         "English source translation scan",
         "English PDF evidence-matrix reference",
         "submission source files present",
+        "2026 data availability boundary",
     }
     checks = data.get("checks")
     if not isinstance(checks, list):
@@ -419,6 +420,8 @@ def assert_pre_submission_audit() -> None:
     csv_rows = list(csv.DictReader((ROOT / "outputs" / "pre_submission_audit.csv").open(encoding="utf-8")))
     if len(csv_rows) != data.get("check_count"):
         raise AssertionError("Pre-submission audit CSV row count does not match check_count")
+    if any(row.get("status") != "pass" for row in csv_rows):
+        raise AssertionError("Pre-submission audit CSV contains non-pass status")
 
 
 def assert_source_provenance_audit() -> None:
