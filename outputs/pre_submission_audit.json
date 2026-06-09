@@ -53,8 +53,8 @@
     },
     {
       "check": "objection coverage audit",
-      "expected": "status pass with 22 checks",
-      "actual": "status pass, 22 checks",
+      "expected": "status pass with 24 checks",
+      "actual": "status pass, 24 checks",
       "status": "pass"
     },
     {

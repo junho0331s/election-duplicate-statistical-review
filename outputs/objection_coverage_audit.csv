@@ -21,3 +21,5 @@ reviewer response memo coverage,reviewer_response_ko.md,"Korean reviewer memo ha
 reviewer response memo coverage,reviewer_response_en.md,"English reviewer memo has objection, response, falsifiability, and audit sections",3/3 markers present,pass
 final checklist objection controls,FINAL_SUBMISSION_CHECKLIST_ko.md,Korean final checklist references at least one objection-control category,present,pass
 final checklist objection controls,FINAL_SUBMISSION_CHECKLIST_en.md,English final checklist references at least one objection-control category,present,pass
+Korean PDF objection controls render,latex/ieie/main.pdf,"Korean submission PDF renders post-search, primary-cluster, and direct-proof boundaries",4/4 markers present,pass
+English PDF objection controls render,latex/en/main_en.pdf,"English submission PDF renders multiple-comparison, primary-cluster, and self-selection boundaries",4/4 markers present,pass

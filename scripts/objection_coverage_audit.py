@@ -24,6 +24,13 @@ def read(path: str) -> str:
     return (ROOT / path).read_text(encoding="utf-8", errors="ignore")
 
 
+def pdf_text(path: str) -> str:
+    import fitz  # type: ignore[import-not-found]
+
+    pdf = fitz.open(ROOT / path)
+    return "\n".join(page.get_text() for page in pdf)
+
+
 def ok(condition: bool) -> str:
     return "pass" if condition else "fail"
 
@@ -49,6 +56,18 @@ def check_any(path: str, objection: str, alternatives: list[str], expected: str)
         expected=expected,
         actual="present" if hit else "missing",
         status=ok(hit),
+    )
+
+
+def check_pdf(path: str, objection: str, needles: list[str], expected: str) -> ObjectionCheck:
+    body = pdf_text(path)
+    hits = [needle for needle in needles if needle in body]
+    return ObjectionCheck(
+        objection=objection,
+        file=path,
+        expected=expected,
+        actual=f"{len(hits)}/{len(needles)} markers present",
+        status=ok(len(hits) == len(needles)),
     )
 
 
@@ -185,6 +204,18 @@ def audit_checks() -> list[ObjectionCheck]:
             "final checklist objection controls",
             ["look-elsewhere", "self-selection", "alternative explanations"],
             "English final checklist references at least one objection-control category",
+        ),
+        check_pdf(
+            "latex/ieie/main.pdf",
+            "Korean PDF objection controls render",
+            ["사후탐색", "광주전남", "5쌍", "직접증명"],
+            "Korean submission PDF renders post-search, primary-cluster, and direct-proof boundaries",
+        ),
+        check_pdf(
+            "latex/en/main_en.pdf",
+            "English PDF objection controls render",
+            ["multiple", "Gwangju-Jeonnam", "five-pair", "voter self-selection"],
+            "English submission PDF renders multiple-comparison, primary-cluster, and self-selection boundaries",
         ),
     ]
     return checks

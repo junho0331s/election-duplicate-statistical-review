@@ -548,7 +548,7 @@ def assert_objection_coverage_audit() -> None:
     data = json.loads(path.read_text(encoding="utf-8"))
     if data.get("status") != "pass":
         raise AssertionError(f"Objection coverage audit status is not pass: {data.get('status')}")
-    if int(data.get("check_count", 0)) < 22:
+    if int(data.get("check_count", 0)) < 24:
         raise AssertionError(f"Objection coverage audit has too few checks: {data.get('check_count')}")
     checks = data.get("checks")
     if not isinstance(checks, list) or len(checks) != data.get("check_count"):
@@ -564,6 +564,8 @@ def assert_objection_coverage_audit() -> None:
         "official integrated file limitation",
         "benign alternatives matrix",
         "reviewer response memo coverage",
+        "Korean PDF objection controls render",
+        "English PDF objection controls render",
     }
     actual = {row.get("objection") for row in checks}
     missing = sorted(required - actual)
@@ -608,8 +610,8 @@ def assert_submission_integrity_report() -> None:
         raise AssertionError("Submission integrity report does not record 18 claim-boundary checks")
     if data.get("objection_coverage_audit_status") != "pass":
         raise AssertionError("Submission integrity report does not record passing objection coverage audit")
-    if data.get("objection_coverage_audit_check_count") != 22:
-        raise AssertionError("Submission integrity report does not record 22 objection coverage checks")
+    if data.get("objection_coverage_audit_check_count") != 24:
+        raise AssertionError("Submission integrity report does not record 24 objection coverage checks")
     if data.get("pre_submission_audit_check_count") != 15:
         raise AssertionError("Submission integrity report does not record 15 audit checks")
 

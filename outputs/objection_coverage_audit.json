@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 22,
+  "check_count": 24,
   "scope": "coverage audit for expected statistical and evidentiary objections",
   "checks": [
     {
@@ -155,6 +155,20 @@
       "file": "FINAL_SUBMISSION_CHECKLIST_en.md",
       "expected": "English final checklist references at least one objection-control category",
       "actual": "present",
+      "status": "pass"
+    },
+    {
+      "objection": "Korean PDF objection controls render",
+      "file": "latex/ieie/main.pdf",
+      "expected": "Korean submission PDF renders post-search, primary-cluster, and direct-proof boundaries",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "English PDF objection controls render",
+      "file": "latex/en/main_en.pdf",
+      "expected": "English submission PDF renders multiple-comparison, primary-cluster, and self-selection boundaries",
+      "actual": "4/4 markers present",
       "status": "pass"
     }
   ]
