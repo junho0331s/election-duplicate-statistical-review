@@ -42,12 +42,14 @@
 | `outputs/songdo_probability_summary.csv` | 송도 확률 계산 조건 1개 | 송도 사례의 보조 감사 신호 계산 | `case`, `n_units`, `comparison_pairs`, `k_space`, `probability_percent`, `reciprocal` |
 | `outputs/early_day_assembly_summary.csv` | 총선 1개 | 사전-당일 득표율 차이의 보조 이상성 요약 | `election`, `districts`, `mean_early_minus_day_pp`, `dem_early_higher_count`, `sign_test_p_one_sided`, `max_abs_z` |
 | `outputs/early_day_assembly_twoparty.csv` | 총선 지역구 1개 | 각 지역구의 민주당 대 보수정당 양자득표율 차이 | `election`, `sido`, `district`, `early_dem_share`, `day_dem_share`, `early_minus_day_pp`, `z` |
+| `outputs/public_discussion_claims_audit.csv` | 공개 논의 보조 주장 검산 행 1개 | 공개 협업형 백과나 온라인 논의에서 나온 확인 가능한 보조 주장을 공식자료로만 재검산 | `election`, `city`, `district`, `polling_station`, `lee_jae_myung`, `yoon_suk_yeol`, `ballots_cast`, `registered_voters` |
+| `outputs/public_discussion_claims_audit.json` | JSON 공개 논의 보조 주장 검산 요약 | 2022년 비산1동 제3·제4투표소 동일 득표쌍 주장이 공식 대통령선거 파일에서 확인되는지 기계가독 검증 | `status`, `row_count`, `confirmed_pair`, `classification`, `failures` |
 | `outputs/core_claims_verification.csv` | 핵심 검증 명제 1개 | `verify_core_claims.py`가 대조한 45개 핵심 수치를 스프레드시트에서 확인 | `claim`, `expected`, `actual`, `abs_tol`, `status` |
 | `outputs/core_claims_verification.json` | JSON 검증 요약 | 같은 45개 핵심 수치의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/statistical_robustness_audit.csv` | 통계 강건성 감사 행 1개 | 포아송 근사, 정확계산, 민감도 분석, 재표본추출, 과거 최대값이 같은 결론을 지지하는지 확인 | `check`, `expected`, `actual`, `status` |
 | `outputs/statistical_robustness_audit.json` | JSON 통계 강건성 감사 요약 | 같은 10개 강건성 감사 항목의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/video_source_exclusion_audit.csv` | 비공식 영상 출처 배제 감사 행 1개 | 원고·제출 문서가 비공식 동영상 플랫폼 기반 자료에 의존하지 않는지 스프레드시트에서 확인 | `file`, `video_url_count`, `informal_marker_count`, `status` |
-| `outputs/video_source_exclusion_audit.json` | JSON 비공식 영상 출처 배제 감사 요약 | 원고·제출 문서 23개 파일에서 비공식 동영상 플랫폼 URL과 그 기반 의존 문구가 없는지 기계가독 검증 | `status`, `check_count`, `checked_files`, `failures` |
+| `outputs/video_source_exclusion_audit.json` | JSON 비공식 영상 출처 배제 감사 요약 | 원고·제출 문서 25개 파일에서 비공식 동영상 플랫폼 URL과 그 기반 의존 문구가 없는지 기계가독 검증 | `status`, `check_count`, `checked_files`, `failures` |
 | `outputs/source_provenance_audit.csv` | 출처 URL 1개 | 원고 및 출처 정책 문서의 URL과 출처 분류를 스프레드시트에서 확인 | `file`, `url`, `domain`, `source_class`, `status` |
 | `outputs/source_provenance_audit.json` | JSON 출처 감사 요약 | 원고 및 출처 정책 문서가 승인된 공식자료 또는 명시적 공개 보도 도메인을 쓰는지 검증 | `status`, `url_count`, `allowed_domain_suffixes`, `source_classes`, `failures` |
 | `outputs/claim_boundary_audit.csv` | 주장 범위 감사 행 1개 | 원고가 통계적 이상치와 원자료 감사 요구를 말하면서 근거 없는 법적 확정으로 넘어가지 않는지 스프레드시트에서 확인 | `check`, `file`, `expected`, `actual`, `status` |
@@ -57,7 +59,7 @@
 | `outputs/pre_submission_audit.csv` | 제출 전 감사 행 1개 | 최종 체크리스트, 금지 표현, 개인정보 스캔, 영문 PDF/소스 번역, 증거표 참조, 핵심 검증 상태를 스프레드시트에서 확인 | `check`, `expected`, `actual`, `status` |
 | `outputs/pre_submission_audit.json` | JSON 감사 요약 | 제출 전 감사 15개 항목의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/submission_integrity_report.md` | 무결성 리포트 1개 | PDF, 핵심 검증, 통계 강건성, 비공식 영상 출처 배제, 주장 범위 감사, 반론 커버리지, 제출 전 감사, 핵심 재현 수치를 한 파일에서 확인 | Markdown sections |
-| `outputs/submission_integrity_report.json` | JSON 무결성 리포트 | 최종 ZIP self-hash를 제외한 제출 패키지 무결성 요약 | `status`, `core_claims_check_count`, `statistical_robustness_audit_check_count`, `video_source_exclusion_check_count`, `claim_boundary_audit_check_count`, `objection_coverage_audit_check_count`, `pre_submission_audit_check_count`, `korean_pdf`, `english_pdf`, `key_claims` |
+| `outputs/submission_integrity_report.json` | JSON 무결성 리포트 | 최종 ZIP self-hash를 제외한 제출 패키지 무결성 요약 | `status`, `core_claims_check_count`, `statistical_robustness_audit_check_count`, `video_source_exclusion_check_count`, `public_discussion_claims_audit_row_count`, `claim_boundary_audit_check_count`, `objection_coverage_audit_check_count`, `pre_submission_audit_check_count`, `korean_pdf`, `english_pdf`, `key_claims` |
 | `outputs/local_ci_validation_report.md` | 제출 ZIP 외부 로컬 CI 리포트 1개 | GitHub Actions 검증 워크플로와 같은 검증을 로컬에서 사람이 읽을 수 있게 요약. ZIP self-hash 순환을 피하려고 ZIP에는 넣지 않음 | Markdown sections |
 | `outputs/local_ci_validation_report.json` | 제출 ZIP 외부 JSON 로컬 CI 리포트 | `validate_package.py`와 최종 ZIP sidecar 일치 여부의 기계가독 검증. ZIP self-hash 순환을 피하려고 ZIP에는 넣지 않음 | `status`, `validate_package`, `zip_sidecar` |
 | `outputs/checksums_sha256.csv` | 패키지 파일 1개 | 제출 패키지 파일 무결성 확인 | `path`, `bytes`, `sha256` |
@@ -88,6 +90,7 @@
 | 원고와 제출 문서는 비공식 동영상 플랫폼 기반 자료를 증거 출처로 사용하지 않는다. | `outputs/video_source_exclusion_audit.csv`, `outputs/video_source_exclusion_audit.json` |
 | 송도 사례는 광주전남 핵심 검정과 분리된 보조 감사 신호다. | `outputs/songdo_official_rows.csv`, `outputs/songdo_probability_summary.csv` |
 | 2020·2024 총선에서 분석 가능한 전 지역구가 같은 사전투표 방향성을 보인다. | `outputs/early_day_assembly_summary.csv`, `outputs/early_day_assembly_twoparty.csv` |
+| 공개 논의에서 제기된 2022년 비산1동 한 쌍 사례는 공식자료로 확인되지만 광주전남 5쌍 검정에는 합산하지 않는다. | `outputs/public_discussion_claims_audit.csv`, `outputs/public_discussion_claims_audit.json` |
 | 본문 핵심 수치 45개가 현재 산출물과 일치한다. | `outputs/core_claims_verification.csv`, `outputs/core_claims_verification.json` |
 | 원고 출처 URL은 승인된 공식자료 또는 명시적 공개 보도 도메인을 사용한다. | `outputs/source_provenance_audit.csv`, `outputs/source_provenance_audit.json` |
 | 원고의 법적·인과적 주장 범위와 원자료 감사 프레이밍이 통과한다. | `outputs/claim_boundary_audit.csv`, `outputs/claim_boundary_audit.json` |

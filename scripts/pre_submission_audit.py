@@ -273,16 +273,38 @@ def submission_sources_present() -> AuditCheck:
         "paper_statistical_implausibility_en.md",
         "latex/ieie/main.pdf",
         "latex/en/main_en.pdf",
+        "PUBLIC_DISCUSSION_CLAIMS_ko.md",
+        "PUBLIC_DISCUSSION_CLAIMS_en.md",
+        "outputs/public_discussion_claims_audit.json",
         "outputs/core_claims_verification.json",
         "FINAL_SUBMISSION_CHECKLIST_ko.md",
         "FINAL_SUBMISSION_CHECKLIST_en.md",
     }
     missing = sorted(rel for rel in required if not (ROOT / rel).exists())
+    docs = {
+        "DATA_DICTIONARY_ko.md": read_text("DATA_DICTIONARY_ko.md"),
+        "DATA_DICTIONARY_en.md": read_text("DATA_DICTIONARY_en.md"),
+        "FINAL_SUBMISSION_CHECKLIST_ko.md": read_text("FINAL_SUBMISSION_CHECKLIST_ko.md"),
+        "FINAL_SUBMISSION_CHECKLIST_en.md": read_text("FINAL_SUBMISSION_CHECKLIST_en.md"),
+    }
+    stale_markers = [
+        f"{path}: stale 23-file video audit count"
+        for path, text in docs.items()
+        if "23개 파일" in text or "23 checked files" in text or "23 manuscript-facing files" in text
+    ]
+    public_discussion_refs = [
+        path
+        for path, text in docs.items()
+        if "public_discussion_claims_audit" in text or "공개 논의 보조 주장" in text
+    ]
+    failures = missing + stale_markers
+    if len(public_discussion_refs) != len(docs):
+        failures.append("public-discussion audit not referenced by all checklist/data-dictionary docs")
     return check(
-        not missing,
+        not failures,
         "submission source files present",
-        "required source files present",
-        f"missing {len(missing)}",
+        "required source files present and documentation audit counts current",
+        f"{len(failures)} failures",
     )
 
 

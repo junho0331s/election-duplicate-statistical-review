@@ -177,6 +177,8 @@ python3 scripts/create_submission_zip.py
 - `outputs/probability_n_sensitivity.csv`
 - `outputs/early_day_assembly_summary.csv`
 - `outputs/early_day_assembly_twoparty.csv`
+- `outputs/public_discussion_claims_audit.csv`
+- `outputs/public_discussion_claims_audit.json`
 - `outputs/core_claims_verification.csv`
 - `outputs/core_claims_verification.json`
 - `outputs/statistical_robustness_audit.csv`

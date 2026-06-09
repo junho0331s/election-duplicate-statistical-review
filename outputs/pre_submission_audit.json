@@ -89,8 +89,8 @@
     },
     {
       "check": "submission source files present",
-      "expected": "required source files present",
-      "actual": "missing 0",
+      "expected": "required source files present and documentation audit counts current",
+      "actual": "0 failures",
       "status": "pass"
     }
   ]

@@ -13,4 +13,4 @@ manuscript core number consistency,core numbers present in Korean/English Markdo
 English PDF translation coverage,0 Korean characters and exact-collision section present,"0 Korean characters, exact section present",pass
 English source translation scan,0 Korean fragments in *_en.md and latex/en/main_en.tex,0 files with Korean fragments,pass
 English PDF evidence-matrix reference,evidence_matrix_en.md present and evidence_matrix_ko.md absent,"en reference present, ko reference absent",pass
-submission source files present,required source files present,missing 0,pass
+submission source files present,required source files present and documentation audit counts current,0 failures,pass
