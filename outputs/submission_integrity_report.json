@@ -22,12 +22,12 @@
   "korean_pdf": {
     "path": "latex/ieie/main.pdf",
     "pages": 16,
-    "sha256": "38154dcf4b09be33ba938c6e8c046977c51de214e0f9c62e78952d88e8b52d87"
+    "sha256": "a5d35998090fda8f69d5f9d7279d85989f75dfbcbd7f025a1247a12b55075b43"
   },
   "english_pdf": {
     "path": "latex/en/main_en.pdf",
     "pages": 21,
-    "sha256": "17441843f824d60d1ce6a573f7c6e139fb76f238b318534e41acf0fcd48a94f7",
+    "sha256": "021d16f0375e0c28aeb8b6ddef5a46bb1b9a1e56040577ec4b1d25c664d1c73e",
     "korean_character_count": 0,
     "references_english_evidence_matrix": true,
     "references_korean_evidence_matrix": false

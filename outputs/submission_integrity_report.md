@@ -14,8 +14,8 @@
 
 ## PDF Artifacts
 
-- Korean PDF: `latex/ieie/main.pdf`, 16 pages, sha256 `38154dcf4b09be33ba938c6e8c046977c51de214e0f9c62e78952d88e8b52d87`
-- English PDF: `latex/en/main_en.pdf`, 21 pages, sha256 `17441843f824d60d1ce6a573f7c6e139fb76f238b318534e41acf0fcd48a94f7`
+- Korean PDF: `latex/ieie/main.pdf`, 16 pages, sha256 `a5d35998090fda8f69d5f9d7279d85989f75dfbcbd7f025a1247a12b55075b43`
+- English PDF: `latex/en/main_en.pdf`, 21 pages, sha256 `021d16f0375e0c28aeb8b6ddef5a46bb1b9a1e56040577ec4b1d25c664d1c73e`
 - English PDF Korean-character count: `0`
 - English PDF references `evidence_matrix_en.md`: `True`
 - English PDF references `evidence_matrix_ko.md`: `False`
