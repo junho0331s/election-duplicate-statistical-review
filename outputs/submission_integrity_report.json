@@ -39,6 +39,7 @@
     "effective_pair_space_k": 100944.8,
     "poisson_p_at_least_5": 0.0011484064248148407,
     "exact_collision_p_at_least_5": 0.0012190883791786122,
+    "designated_five_pair_conditional_probability": 9.540700009422666e-26,
     "bootstrap_trials": 200000,
     "bootstrap_at_least_5_exceedances": 0,
     "nec_2026_event_rows": 12,

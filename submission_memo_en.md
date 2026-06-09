@@ -24,9 +24,10 @@ The Gwangju-Jeonnam five-pair repetition in the 2026 in-district early-vote resu
 2. The paper recalculates 51 governor in-district early-vote contests from 2014, 2018, and 2022 using actual first- and second-place candidates.
 3. In that historical governor benchmark, the maximum repeated identical top-two pair count within one contest is three, and no contest reaches five.
 4. With \(K=100,944.8\) inferred from historical data and \(N=393\) official-page Gwangju-Jeonnam in-district early-vote units, the probability of five or more repeated pairs is approximately 0.115%.
-5. In 200,000 nonparametric resampling trials drawing 393 units without replacement from historical governor actual vote pairs, five or more repeated pairs occur zero times; the rule-of-three 95% upper bound is approximately 0.0015%.
-6. The Incheon Songdo case is analyzed separately as an auxiliary audit signal. The probability that the specific Songdo 1-dong and Songdo 2-dong pair shares the same top-two vote pair is approximately 0.000991% under the same \(K\) benchmark.
-7. The 2016, 2020, and 2024 National Assembly early-vote/election-day comparison is included only as an auxiliary directional-pattern check, not as direct proof of misconduct.
+5. If the five observed Gwangju-Jeonnam pairings are treated as designated pairings, the conditional probability that all five match is approximately \(9.54\times10^{-26}\), or about one in \(1.05\times10^{25}\), under the same \(K\) benchmark.
+6. In 200,000 nonparametric resampling trials drawing 393 units without replacement from historical governor actual vote pairs, five or more repeated pairs occur zero times; the rule-of-three 95% upper bound is approximately 0.0015%.
+7. The Incheon Songdo case is analyzed separately as an auxiliary audit signal. The probability that the specific Songdo 1-dong and Songdo 2-dong pair shares the same top-two vote pair is approximately 0.000991% under the same \(K\) benchmark.
+8. The 2016, 2020, and 2024 National Assembly early-vote/election-day comparison is included only as an auxiliary directional-pattern check, not as direct proof of misconduct.
 
 ## Claim Boundary
 
@@ -61,6 +62,7 @@ python3 scripts/run_all.py
 | Historical maximum within one contest | 3 pairs |
 | Estimated \(K\) | 100,944.8 |
 | \(N=393\), probability of five or more pairs | 0.115% |
+| Conditional probability that all five designated Gwangju-Jeonnam pairings match | \(9.54\times10^{-26}\) |
 | \(N=393\), probability of six or more pairs | 0.0143% |
 | Yeonsu in-district early-vote probability of at least one duplicate pair | 0.104% |
 | Conditional probability for the specific Songdo 1/Songdo 2 pair | 0.000991% |

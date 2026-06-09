@@ -11,6 +11,7 @@ The manuscript makes three main contributions.
 1. It provides a reproducible package built from 81,701 official counting-unit rows from public election files covering 2014 through 2025.
 2. It constructs a historical benchmark using actual first- and second-place candidate vote pairs in 51 governor contests from the 2014, 2018, and 2022 local elections, finding that the historical maximum repeated-pair count within one contest is three.
 3. It shows that, using \(N=393\) official-page Gwangju-Jeonnam in-district early-vote units and \(K=100,944.8\) inferred from historical official data, the Poisson-approximation probability of observing five or more repeated pairs is approximately 0.115%.
+4. It separately reports that, if the five observed Gwangju-Jeonnam pairings are treated as designated pairings, the conditional probability that all five match is approximately \(9.54\times10^{-26}\).
 
 The paper does not claim that a specific person, institution, or procedure has been legally proven to have committed misconduct. Its claim is narrower and reproducible: under the stated event definition and currently available official-page values, the Gwangju-Jeonnam five-pair repetition is difficult to close as ordinary chance without disclosure and independent verification of original counting statements, first-pass sorter outputs, reviewed-ballot allocation records, and related logs.
 

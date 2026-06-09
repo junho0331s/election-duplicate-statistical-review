@@ -654,6 +654,7 @@ def assert_submission_integrity_report() -> None:
         "historical_rows": 81701,
         "historical_governor_contests": 51,
         "gwangju_jeonnam_units_n": 393,
+        "designated_five_pair_conditional_probability": 9.540700009422666e-26,
         "nec_2026_event_rows": 12,
         "nec_2026_duplicate_pairs": 6,
     }
