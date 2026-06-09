@@ -364,6 +364,44 @@ def media_source_role_boundary_present() -> AuditCheck:
         for needle in needles:
             if needle not in text:
                 missing.append(f"{rel}:{needle}")
+
+    try:
+        import fitz  # type: ignore[import-not-found]
+    except ImportError:
+        missing.append("PDF media-source role boundary:PyMuPDF unavailable")
+    else:
+        pdf_sources = {
+            "latex/ieie/main.pdf": "".join(
+                page.get_text() for page in fitz.open(ROOT / "latex" / "ieie" / "main.pdf")
+            ),
+            "latex/en/main_en.pdf": "\n".join(
+                page.get_text() for page in fitz.open(ROOT / "latex" / "en" / "main_en.pdf")
+            ),
+        }
+        compact_pdf_sources = {
+            rel: "".join(text.split()) for rel, text in pdf_sources.items()
+        }
+        pdf_required = {
+            "latex/ieie/main.pdf": [
+                "공식화면HTML",
+                "12개사건행",
+                "보도화면에만의존하지않는다",
+                "전국12곳은보조적맥락",
+                "확률산정대상이아니다",
+            ],
+            "latex/en/main_en.pdf": [
+                "The twelve event rows",
+                "election-statistics HTML pages",
+                "no longer depend only on a media screenshot",
+                "The nationwide twelve cases are contextual",
+            ],
+        }
+        for rel, needles in pdf_required.items():
+            text = pdf_sources[rel]
+            compact = compact_pdf_sources[rel]
+            for needle in needles:
+                if needle not in text and "".join(needle.split()) not in compact:
+                    missing.append(f"{rel}:{needle}")
     return check(
         not missing,
         "media source role boundary",
