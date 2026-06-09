@@ -41,6 +41,7 @@ An independent audit requires at least the following records.
 | Counting-table and review-table logs | Locate the processing stage where candidate totals changed |
 | Data-entry, correction, and publication logs | Check for input error, correction, or republishing |
 | Sorter identifiers and batch identifiers | Test whether repetitions concentrate by equipment or batch |
+| Ballot-box and counting-batch chain-of-custody records | Trace the equipment, timestamp, and review-table path for affected ballots |
 | Observer objection records | Check whether concerns were raised during the count |
 | File hashes and creation timestamps | Control for later alteration of audit materials |
 
@@ -165,6 +166,7 @@ The audit should publish at least:
 - recomputed identical-vote-pair CSV;
 - analysis scripts and execution logs;
 - file-hash list for audit materials;
+- ballot-box and counting-batch chain-of-custody reconciliation table;
 - decision table by explanation.
 
 ## 8. Research Ethics and Disclosure Principle

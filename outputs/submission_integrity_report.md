@@ -7,15 +7,15 @@
 - Video/source exclusion audit: `pass`, 25 files
 - Source provenance audit: `pass`, 24 URLs
 - Claim-boundary audit: `pass`, 18 checks
-- Objection coverage audit: `pass`, 24 checks
+- Objection coverage audit: `pass`, 26 checks
 - Pre-submission audit: `pass`, 17 checks
 - Public-discussion claim audit: `pass`, 2 official rows
 - Submission index audit: `pass`, 128 checks
 
 ## PDF Artifacts
 
-- Korean PDF: `latex/ieie/main.pdf`, 16 pages, sha256 `a8f2321ee6b22e60b04f46b02fa7234203945815ab153f5e12a787902acc6d9e`
-- English PDF: `latex/en/main_en.pdf`, 20 pages, sha256 `f58991f1879af7ff95a7b9c10e04d6dc82dfa701bfc31b318de0f943bf500ed6`
+- Korean PDF: `latex/ieie/main.pdf`, 16 pages, sha256 `b74f33da3a4b1181c82f1825ce218384568a4670ef47956db90c315f26964a86`
+- English PDF: `latex/en/main_en.pdf`, 20 pages, sha256 `e70640ab74f37a6a5b8b28eae52696747db311a675a7a44fac62553fd60d6903`
 - English PDF Korean-character count: `0`
 - English PDF references `evidence_matrix_en.md`: `True`
 - English PDF references `evidence_matrix_ko.md`: `False`

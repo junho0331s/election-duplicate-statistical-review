@@ -19,6 +19,8 @@ benign alternatives matrix,ALTERNATIVE_EXPLANATIONS_MATRIX_ko.md,"Korean alterna
 benign alternatives matrix,ALTERNATIVE_EXPLANATIONS_MATRIX_en.md,"English alternatives matrix covers chance, input/display, review-ballot, and event-definition alternatives",4/4 markers present,pass
 reviewer response memo coverage,reviewer_response_ko.md,"Korean reviewer memo has objection, response, falsifiability, and audit sections",4/4 markers present,pass
 reviewer response memo coverage,reviewer_response_en.md,"English reviewer memo has objection, response, falsifiability, and audit sections",3/3 markers present,pass
+chain-of-custody raw-record requirement,paper_statistical_implausibility_ko.md,Korean paper requires custody/batch records as a raw-data audit discriminator,3/3 markers present,pass
+chain-of-custody raw-record requirement,paper_statistical_implausibility_en.md,English paper requires custody/batch records as a raw-data audit discriminator,3/3 markers present,pass
 final checklist objection controls,FINAL_SUBMISSION_CHECKLIST_ko.md,Korean final checklist references at least one objection-control category,present,pass
 final checklist objection controls,FINAL_SUBMISSION_CHECKLIST_en.md,English final checklist references at least one objection-control category,present,pass
 Korean PDF objection controls render,latex/ieie/main.pdf,"Korean submission PDF renders post-search, primary-cluster, and direct-proof boundaries",4/4 markers present,pass

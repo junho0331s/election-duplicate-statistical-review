@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 24,
+  "check_count": 26,
   "scope": "coverage audit for expected statistical and evidentiary objections",
   "checks": [
     {
@@ -140,6 +140,20 @@
       "objection": "reviewer response memo coverage",
       "file": "reviewer_response_en.md",
       "expected": "English reviewer memo has objection, response, falsifiability, and audit sections",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "chain-of-custody raw-record requirement",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "Korean paper requires custody/batch records as a raw-data audit discriminator",
+      "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "chain-of-custody raw-record requirement",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "English paper requires custody/batch records as a raw-data audit discriminator",
       "actual": "3/3 markers present",
       "status": "pass"
     },

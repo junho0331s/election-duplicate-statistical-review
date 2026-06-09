@@ -37,6 +37,7 @@ This document separates the paper's main claims, the reproducible files supporti
 | Reviewed-ballot candidate allocation | Same-direction candidate adjustments recur across multiple pairs. | Reviewed-ballot allocation is unrelated to the final identical pairs. |
 | Data-entry logs | Unusual correction or re-entry patterns concentrate around event rows. | Logs are chronological, internally consistent, and show no relevant corrections. |
 | In-district/out-of-district split data | Identical-pair repetition concentrates in in-district early voting. | Comparable repetition appears in out-of-district and election-day rows as well. |
+| Ballot-box and counting-batch chain-of-custody records | Affected batches concentrate in the same equipment, timestamp, review table, or batch flow. | Batch movement and handling are independent, chronological, and fully reconciled. |
 
 ## Submission-Ready Conclusion
 
@@ -45,4 +46,3 @@ The strongest conclusion supported by the current package is:
 > Taken together, the NEC official page values and the historical official-data baseline indicate that the 2026 Gwangju-Jeonnam five-pair repetition is a statistical anomaly difficult to reconcile with the ordinary-randomness hypothesis, and it cannot be statistically closed without independent verification of original counting statements and first-pass sorter records.
 
 This is not a sentence legally determining a specific cause. It is a reproducible statistical statement supporting public raw-data audit.
-

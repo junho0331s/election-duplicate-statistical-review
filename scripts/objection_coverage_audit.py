@@ -193,6 +193,18 @@ def audit_checks() -> list[ObjectionCheck]:
             ["Main Objections and Responses", "Falsification Conditions", "Raw-Data Audit Criteria"],
             "English reviewer memo has objection, response, falsifiability, and audit sections",
         ),
+        check(
+            "paper_statistical_implausibility_ko.md",
+            "chain-of-custody raw-record requirement",
+            ["투표함·개표배치 인수인계 기록", "장비·시간대·심사 흐름", "배치 흐름"],
+            "Korean paper requires custody/batch records as a raw-data audit discriminator",
+        ),
+        check(
+            "paper_statistical_implausibility_en.md",
+            "chain-of-custody raw-record requirement",
+            ["chain-of-custody records", "equipment, timestamp, review-table, or batch flow", "Batch movement"],
+            "English paper requires custody/batch records as a raw-data audit discriminator",
+        ),
         check_any(
             "FINAL_SUBMISSION_CHECKLIST_ko.md",
             "final checklist objection controls",

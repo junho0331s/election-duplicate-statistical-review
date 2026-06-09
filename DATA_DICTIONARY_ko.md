@@ -55,7 +55,7 @@
 | `outputs/claim_boundary_audit.csv` | 주장 범위 감사 행 1개 | 원고가 통계적 이상치와 원자료 감사 요구를 말하면서 근거 없는 법적 확정으로 넘어가지 않는지 스프레드시트에서 확인 | `check`, `file`, `expected`, `actual`, `status` |
 | `outputs/claim_boundary_audit.json` | JSON 주장 범위 감사 요약 | 과장 주장 부재, 반증 가능성 문구, 원자료 요구 항목이 원고·메모·PDF에 있는지 기계가독 검증 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/objection_coverage_audit.csv` | 반론 커버리지 감사 행 1개 | 예상 심사 반론이 원고와 부속 메모에서 다뤄졌는지 스프레드시트에서 확인 | `objection`, `file`, `expected`, `actual`, `status` |
-| `outputs/objection_coverage_audit.json` | JSON 반론 커버리지 감사 요약 | 한 쌍 반론, 2014 포함, 3쌍 대 5쌍, 사후탐색, 이질성, 자기선택, 드문 사건, 공식파일 한계, 대안 설명 반론의 커버리지 검증 | `status`, `check_count`, `scope`, `checks` |
+| `outputs/objection_coverage_audit.json` | JSON 반론 커버리지 감사 요약 | 한 쌍 반론, 2014 포함, 3쌍 대 5쌍, 사후탐색, 이질성, 자기선택, 드문 사건, 공식파일 한계, 대안 설명, 인수인계 원자료 요구 반론의 커버리지 검증 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/pre_submission_audit.csv` | 제출 전 감사 행 1개 | 최종 체크리스트, 금지 표현, 개인정보 스캔, 영문 PDF/소스 번역, 증거표 참조, 핵심 검증 상태를 스프레드시트에서 확인 | `check`, `expected`, `actual`, `status` |
 | `outputs/pre_submission_audit.json` | JSON 감사 요약 | 제출 전 감사 17개 항목의 기계가독 검증 결과 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/submission_integrity_report.md` | 무결성 리포트 1개 | PDF, 핵심 검증, 통계 강건성, 비공식 영상 출처 배제, 주장 범위 감사, 반론 커버리지, 제출 전 감사, 핵심 재현 수치를 한 파일에서 확인 | Markdown sections |

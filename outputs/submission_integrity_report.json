@@ -12,7 +12,7 @@
   "claim_boundary_audit_status": "pass",
   "claim_boundary_audit_check_count": 18,
   "objection_coverage_audit_status": "pass",
-  "objection_coverage_audit_check_count": 24,
+  "objection_coverage_audit_check_count": 26,
   "pre_submission_audit_status": "pass",
   "pre_submission_audit_check_count": 17,
   "public_discussion_claims_audit_status": "pass",
@@ -22,12 +22,12 @@
   "korean_pdf": {
     "path": "latex/ieie/main.pdf",
     "pages": 16,
-    "sha256": "a8f2321ee6b22e60b04f46b02fa7234203945815ab153f5e12a787902acc6d9e"
+    "sha256": "b74f33da3a4b1181c82f1825ce218384568a4670ef47956db90c315f26964a86"
   },
   "english_pdf": {
     "path": "latex/en/main_en.pdf",
     "pages": 20,
-    "sha256": "f58991f1879af7ff95a7b9c10e04d6dc82dfa701bfc31b318de0f943bf500ed6",
+    "sha256": "e70640ab74f37a6a5b8b28eae52696747db311a675a7a44fac62553fd60d6903",
     "korean_character_count": 0,
     "references_english_evidence_matrix": true,
     "references_korean_evidence_matrix": false
