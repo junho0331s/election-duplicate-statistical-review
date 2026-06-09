@@ -585,6 +585,7 @@ def assert_objection_coverage_audit() -> None:
         "official integrated file limitation",
         "benign alternatives matrix",
         "reviewer response memo coverage",
+        "designated five-pair probability interpretation",
         "post-disclosure reviewer decision tree",
         "chain-of-custody raw-record requirement",
         "Korean PDF objection controls render",
@@ -633,8 +634,8 @@ def assert_submission_integrity_report() -> None:
         raise AssertionError("Submission integrity report does not record 22 claim-boundary checks")
     if data.get("objection_coverage_audit_status") != "pass":
         raise AssertionError("Submission integrity report does not record passing objection coverage audit")
-    if data.get("objection_coverage_audit_check_count") != 28:
-        raise AssertionError("Submission integrity report does not record 28 objection coverage checks")
+    if data.get("objection_coverage_audit_check_count") != 30:
+        raise AssertionError("Submission integrity report does not record 30 objection coverage checks")
     if data.get("pre_submission_audit_check_count") != 17:
         raise AssertionError("Submission integrity report does not record 17 audit checks")
     if data.get("submission_index_audit_check_count") != 132:

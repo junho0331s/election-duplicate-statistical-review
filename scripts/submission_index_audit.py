@@ -73,7 +73,7 @@ EXPECTED_OUTPUTS = {
     "outputs/source_provenance_audit.json": ("url_count", 24),
     "outputs/public_discussion_claims_audit.json": ("row_count", 2),
     "outputs/claim_boundary_audit.json": ("check_count", 22),
-    "outputs/objection_coverage_audit.json": ("check_count", 28),
+    "outputs/objection_coverage_audit.json": ("check_count", 30),
     "outputs/pre_submission_audit.json": ("check_count", 17),
 }
 
@@ -84,7 +84,7 @@ EXPECTED_INDEX_MARKERS = {
     "outputs/source_provenance_audit.json": "24 URLs",
     "outputs/public_discussion_claims_audit.json": "2 official rows",
     "outputs/claim_boundary_audit.json": "22 checks",
-    "outputs/objection_coverage_audit.json": "28 checks",
+    "outputs/objection_coverage_audit.json": "30 checks",
     "outputs/pre_submission_audit.json": "17 checks",
 }
 

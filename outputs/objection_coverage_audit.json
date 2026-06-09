@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 28,
+  "check_count": 30,
   "scope": "coverage audit for expected statistical and evidentiary objections",
   "checks": [
     {
@@ -141,6 +141,20 @@
       "file": "reviewer_response_en.md",
       "expected": "English reviewer memo has objection, response, falsifiability, and audit sections",
       "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "designated five-pair probability interpretation",
+      "file": "reviewer_response_ko.md",
+      "expected": "Korean reviewer memo separates broad Poisson probability from designated five-pair conditional probability",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "designated five-pair probability interpretation",
+      "file": "reviewer_response_en.md",
+      "expected": "English reviewer memo separates broad Poisson probability from designated five-pair conditional probability",
+      "actual": "4/4 markers present",
       "status": "pass"
     },
     {

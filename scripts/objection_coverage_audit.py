@@ -195,6 +195,18 @@ def audit_checks() -> list[ObjectionCheck]:
         ),
         check(
             "reviewer_response_ko.md",
+            "designated five-pair probability interpretation",
+            ["0.115%는 사건을 넓게 잡은 주검정", "사전 지정 대응쌍", "9.54\\times10^{-26}", "probability_designated_pairs.csv"],
+            "Korean reviewer memo separates broad Poisson probability from designated five-pair conditional probability",
+        ),
+        check(
+            "reviewer_response_en.md",
+            "designated five-pair probability interpretation",
+            ["0.115% value is the broad primary test", "pre-designated pairings", "9.54\\times10^{-26}", "probability_designated_pairs.csv"],
+            "English reviewer memo separates broad Poisson probability from designated five-pair conditional probability",
+        ),
+        check(
+            "reviewer_response_ko.md",
             "post-disclosure reviewer decision tree",
             ["원자료 공개 후 판정 트리", "약화 또는 철회", "행정적으로 설명된 사건", "원인조사 단계", "독립 감사의 대상"],
             "Korean reviewer memo states the conditional decision path after raw-record disclosure",

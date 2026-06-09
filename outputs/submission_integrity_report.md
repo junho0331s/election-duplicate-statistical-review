@@ -7,7 +7,7 @@
 - Video/source exclusion audit: `pass`, 25 files
 - Source provenance audit: `pass`, 24 URLs
 - Claim-boundary audit: `pass`, 22 checks
-- Objection coverage audit: `pass`, 28 checks
+- Objection coverage audit: `pass`, 30 checks
 - Pre-submission audit: `pass`, 17 checks
 - Public-discussion claim audit: `pass`, 2 official rows
 - Submission index audit: `pass`, 132 checks

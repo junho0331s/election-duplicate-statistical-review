@@ -19,6 +19,8 @@ benign alternatives matrix,ALTERNATIVE_EXPLANATIONS_MATRIX_ko.md,"Korean alterna
 benign alternatives matrix,ALTERNATIVE_EXPLANATIONS_MATRIX_en.md,"English alternatives matrix covers chance, input/display, review-ballot, and event-definition alternatives",4/4 markers present,pass
 reviewer response memo coverage,reviewer_response_ko.md,"Korean reviewer memo has objection, response, falsifiability, and audit sections",4/4 markers present,pass
 reviewer response memo coverage,reviewer_response_en.md,"English reviewer memo has objection, response, falsifiability, and audit sections",3/3 markers present,pass
+designated five-pair probability interpretation,reviewer_response_ko.md,Korean reviewer memo separates broad Poisson probability from designated five-pair conditional probability,4/4 markers present,pass
+designated five-pair probability interpretation,reviewer_response_en.md,English reviewer memo separates broad Poisson probability from designated five-pair conditional probability,4/4 markers present,pass
 post-disclosure reviewer decision tree,reviewer_response_ko.md,Korean reviewer memo states the conditional decision path after raw-record disclosure,5/5 markers present,pass
 post-disclosure reviewer decision tree,reviewer_response_en.md,English reviewer memo states the conditional decision path after raw-record disclosure,5/5 markers present,pass
 chain-of-custody raw-record requirement,paper_statistical_implausibility_ko.md,Korean paper requires custody/batch records as a raw-data audit discriminator,3/3 markers present,pass

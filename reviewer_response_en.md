@@ -29,6 +29,7 @@ The paper does not prove, from the currently public data alone, that a specific 
 | 2026 official-page event rows | 12 | `outputs/nec_2026_reported_duplicate_cases.csv` |
 | 2026 official-page identical pairs | 6 pairs | `outputs/nec_2026_reported_duplicate_pairs.csv` |
 | \(P(C \geq 5)\), \(N=393, K=100,944.8\) | 0.115% | `outputs/probability_core.csv` |
+| Conditional probability that all five Gwangju-Jeonnam pairings match when treated as pre-designated pairings | \(9.54\times10^{-26}\), about one in \(1.05\times10^{25}\) | `outputs/probability_designated_pairs.csv` |
 | \(P(C \geq 5)\), \(N=450, K=100,944.8\) | 0.367% | `outputs/probability_n_sensitivity.csv` |
 | \(P(C \geq 5)\), \(N=393, K=50,000\) | 2.055% | `outputs/probability_k_sensitivity.csv` |
 | Conditional probability for the specific Songdo 1/Songdo 2 pair | 0.000991% | `outputs/songdo_probability_summary.csv` |
@@ -76,19 +77,25 @@ The package reproduces the twelve event rows and six identical pairs from offici
 
 The conclusion is therefore: the current official-page data are sufficient to require raw-data audit. They are not sufficient to end the causal inquiry.
 
-### 7. "The Songdo pair is weak because it was found in a nationwide search."
+### 7. "If 0.115% is not astronomically small, couldn't this still be chance?"
+
+The 0.115% value is the broad primary test. It counts success whenever any unit pairing, with any repeated vote-pair value, produces five or more identical vote-pair collisions among the 393 Gwangju-Jeonnam counting units. It is therefore not the probability of the exact observed five pairings all matching. It is a conservative broad-collision probability.
+
+If the observed five Gwangju-Jeonnam pairings are instead treated as pre-designated pairings, then under the same \(K=100,944.8\) baseline the conditional probability that all five match is \((1/K)^5 \approx 9.54\times10^{-26}\), about one in \(1.05\times10^{25}\). The paper does not mix these two values. The broad primary test is 0.115%; the designated-five-pair conditional calculation is \(9.54\times10^{-26}\). The event definitions differ, but both make the Gwangju-Jeonnam five-pair repetition difficult to dismiss as ordinary chance.
+
+### 8. "The Songdo pair is weak because it was found in a nationwide search."
 
 The paper does not merge Songdo into the Gwangju-Jeonnam main test. It treats Songdo as a separate auxiliary case.
 
 For the specific Songdo 1-dong and Songdo 2-dong pair, the conditional probability under \(K=100,944.8\) is about 0.000991%. This does not prove a nationwide conclusion. It supports a narrower audit question: how did different first-pass or auxiliary counts lead to the same final top-two pair, and can the review-ballot records reconcile that process?
 
-### 8. "Early-vote and election-day differences can arise from voter self-selection."
+### 9. "Early-vote and election-day differences can arise from voter self-selection."
 
 Yes. The paper does not use the early-vote/election-day analysis as direct proof of misconduct.
 
 The auxiliary point is that all 236 analyzable constituencies in 2020 and all 245 analyzable constituencies in 2024 show the same direction of Democratic early-vote two-party advantage. A self-selection explanation may be correct, but it must show that age, occupation, mobility, region, party mobilization, pandemic-era behavior, and other lawful variables remove the residual pattern.
 
-### 9. "The Poisson approximation may be inaccurate."
+### 10. "The Poisson approximation may be inaccurate."
 
 Possible. The Poisson approximation is a first-order rare-collision model.
 
