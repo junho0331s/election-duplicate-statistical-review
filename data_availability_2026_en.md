@@ -29,6 +29,7 @@ This document explains which official 2026 materials were available for the in-d
 
 - Search terms checked: Korean-language queries for the National Election Commission 9th nationwide local-election vote-count result and the 9th nationwide local-election vote-count result.
 - Check result: at the time of review, the package did not identify an official integrated XLSX file corresponding to the 9th nationwide local-election vote-count result.
+- Additional refresh: as of 2026-06-09 KST, Public Data Portal search results still list National Election Commission voting/counting information coverage for nationwide local elections as the 3rd through 8th elections, and no integrated XLSX file for the 9th nationwide local-election vote-count result was identified.
 
 ### 4. NEC election-statistics system: counting-unit result page
 
