@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 16,
+  "check_count": 17,
   "scope": "pre-submission package readiness",
   "checks": [
     {
@@ -96,6 +96,12 @@
     {
       "check": "2026 data availability boundary",
       "expected": "Korean/English data-availability notes preserve official-file limitation and supported wording",
+      "actual": "0 missing markers",
+      "status": "pass"
+    },
+    {
+      "check": "media source role boundary",
+      "expected": "public reports are limited to event-definition/context while official pages and reproducible scripts support the analysis",
       "actual": "0 missing markers",
       "status": "pass"
     }

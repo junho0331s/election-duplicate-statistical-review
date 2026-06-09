@@ -337,6 +337,41 @@ def data_availability_boundary_present() -> AuditCheck:
     )
 
 
+def media_source_role_boundary_present() -> AuditCheck:
+    required_by_file = {
+        "README.md": [
+            "media reports only to define the initially reported 2026 event rows before official-page rechecking",
+            "2026년 사건행 정의를 위한 명시적 보도자료",
+            "공식 선거자료",
+            "선관위 선거통계시스템 HTML",
+        ],
+        "paper_statistical_implausibility_ko.md": [
+            "분석의 출발점은 공개 보도",
+            "HTML에서 직접 추출해 대조",
+            "더 이상 보도 화면에만 의존하지 않는다",
+            "전국 12곳은 보조적 맥락이지",
+        ],
+        "paper_statistical_implausibility_en.md": [
+            "The starting point is the public report",
+            "extracting them directly from the National Election Commission election-statistics system",
+            "no longer depend only on a media screenshot",
+            "The nationwide twelve cases are contextual",
+        ],
+    }
+    missing: list[str] = []
+    for rel, needles in required_by_file.items():
+        text = read_text(rel)
+        for needle in needles:
+            if needle not in text:
+                missing.append(f"{rel}:{needle}")
+    return check(
+        not missing,
+        "media source role boundary",
+        "public reports are limited to event-definition/context while official pages and reproducible scripts support the analysis",
+        f"{len(missing)} missing markers",
+    )
+
+
 def exact_collision_output_present() -> AuditCheck:
     rows = list(csv.DictReader((OUT / "probability_exact_collision.csv").open(encoding="utf-8")))
     by_threshold = {int(row["threshold"]): row for row in rows}
@@ -442,6 +477,7 @@ def audit_checks() -> list[AuditCheck]:
         english_pdf_references_english_evidence_matrix(),
         submission_sources_present(),
         data_availability_boundary_present(),
+        media_source_role_boundary_present(),
     ]
 
 

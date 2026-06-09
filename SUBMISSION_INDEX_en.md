@@ -41,7 +41,7 @@ The ZIP hash is recorded in an external sidecar after ZIP creation. The final ZI
 - Source provenance audit: `outputs/source_provenance_audit.json` (`pass`, 24 URLs)
 - Claim-boundary audit: `outputs/claim_boundary_audit.json` (`pass`, 18 checks)
 - Objection coverage audit: `outputs/objection_coverage_audit.json` (`pass`, 24 checks)
-- Pre-submission audit: `outputs/pre_submission_audit.json` (`pass`, 16 checks)
+- Pre-submission audit: `outputs/pre_submission_audit.json` (`pass`, 17 checks)
 - Public-discussion auxiliary claim audit: `outputs/public_discussion_claims_audit.json` (`pass`, 2 official rows)
 - Submission integrity report: `outputs/submission_integrity_report.json`
 - Submission index audit: `outputs/submission_index_audit.json`

@@ -72,7 +72,7 @@ EXPECTED_OUTPUTS = {
     "outputs/public_discussion_claims_audit.json": ("row_count", 2),
     "outputs/claim_boundary_audit.json": ("check_count", 18),
     "outputs/objection_coverage_audit.json": ("check_count", 24),
-    "outputs/pre_submission_audit.json": ("check_count", 16),
+    "outputs/pre_submission_audit.json": ("check_count", 17),
 }
 
 EXPECTED_INDEX_MARKERS = {
@@ -83,7 +83,7 @@ EXPECTED_INDEX_MARKERS = {
     "outputs/public_discussion_claims_audit.json": "2 official rows",
     "outputs/claim_boundary_audit.json": "18 checks",
     "outputs/objection_coverage_audit.json": "24 checks",
-    "outputs/pre_submission_audit.json": "16 checks",
+    "outputs/pre_submission_audit.json": "17 checks",
 }
 
 

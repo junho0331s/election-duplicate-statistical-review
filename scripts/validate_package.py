@@ -406,6 +406,7 @@ def assert_pre_submission_audit() -> None:
         "English PDF evidence-matrix reference",
         "submission source files present",
         "2026 data availability boundary",
+        "media source role boundary",
     }
     checks = data.get("checks")
     if not isinstance(checks, list):
@@ -615,8 +616,8 @@ def assert_submission_integrity_report() -> None:
         raise AssertionError("Submission integrity report does not record passing objection coverage audit")
     if data.get("objection_coverage_audit_check_count") != 24:
         raise AssertionError("Submission integrity report does not record 24 objection coverage checks")
-    if data.get("pre_submission_audit_check_count") != 16:
-        raise AssertionError("Submission integrity report does not record 16 audit checks")
+    if data.get("pre_submission_audit_check_count") != 17:
+        raise AssertionError("Submission integrity report does not record 17 audit checks")
 
     english_pdf = data.get("english_pdf", {})
     if english_pdf.get("korean_character_count") != 0:

@@ -54,7 +54,7 @@ SUBMISSION_INDEX_ko.md describes outputs/source_provenance_audit.json as 24 URLs
 SUBMISSION_INDEX_ko.md describes outputs/public_discussion_claims_audit.json as 2 official rows,pass,2 official rows
 SUBMISSION_INDEX_ko.md describes outputs/claim_boundary_audit.json as 18 checks,pass,18 checks
 SUBMISSION_INDEX_ko.md describes outputs/objection_coverage_audit.json as 24 checks,pass,24 checks
-SUBMISSION_INDEX_ko.md describes outputs/pre_submission_audit.json as 16 checks,pass,16 checks
+SUBMISSION_INDEX_ko.md describes outputs/pre_submission_audit.json as 17 checks,pass,17 checks
 SUBMISSION_INDEX_en.md exists,pass,SUBMISSION_INDEX_en.md
 SUBMISSION_INDEX_en.md references dist/election_duplicate_ieie_submission.zip,pass,dist/election_duplicate_ieie_submission.zip
 SUBMISSION_INDEX_en.md references dist/election_duplicate_ieie_submission.zip.sha256,pass,dist/election_duplicate_ieie_submission.zip.sha256
@@ -110,7 +110,7 @@ SUBMISSION_INDEX_en.md describes outputs/source_provenance_audit.json as 24 URLs
 SUBMISSION_INDEX_en.md describes outputs/public_discussion_claims_audit.json as 2 official rows,pass,2 official rows
 SUBMISSION_INDEX_en.md describes outputs/claim_boundary_audit.json as 18 checks,pass,18 checks
 SUBMISSION_INDEX_en.md describes outputs/objection_coverage_audit.json as 24 checks,pass,24 checks
-SUBMISSION_INDEX_en.md describes outputs/pre_submission_audit.json as 16 checks,pass,16 checks
+SUBMISSION_INDEX_en.md describes outputs/pre_submission_audit.json as 17 checks,pass,17 checks
 outputs/core_claims_verification.json status pass,pass,pass
 outputs/core_claims_verification.json check_count 45,pass,45
 outputs/statistical_robustness_audit.json status pass,pass,pass
@@ -126,4 +126,4 @@ outputs/claim_boundary_audit.json check_count 18,pass,18
 outputs/objection_coverage_audit.json status pass,pass,pass
 outputs/objection_coverage_audit.json check_count 24,pass,24
 outputs/pre_submission_audit.json status pass,pass,pass
-outputs/pre_submission_audit.json check_count 16,pass,16
+outputs/pre_submission_audit.json check_count 17,pass,17
