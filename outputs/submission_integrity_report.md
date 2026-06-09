@@ -2,20 +2,20 @@
 
 - Status: `pass`
 - Scope: submission package integrity summary excluding final zip self-hash
-- Core-claims verification: `pass`, 45 checks
-- Statistical robustness audit: `pass`, 10 checks
+- Core-claims verification: `pass`, 47 checks
+- Statistical robustness audit: `pass`, 11 checks
 - Video/source exclusion audit: `pass`, 25 files
 - Source provenance audit: `pass`, 24 URLs
 - Claim-boundary audit: `pass`, 22 checks
-- Objection coverage audit: `pass`, 26 checks
+- Objection coverage audit: `pass`, 28 checks
 - Pre-submission audit: `pass`, 17 checks
 - Public-discussion claim audit: `pass`, 2 official rows
-- Submission index audit: `pass`, 128 checks
+- Submission index audit: `pass`, 132 checks
 
 ## PDF Artifacts
 
-- Korean PDF: `latex/ieie/main.pdf`, 16 pages, sha256 `ed1efe7fe827d64b9797f5751ed6dc3a3c2043bd60d2d0d1048af94311212c80`
-- English PDF: `latex/en/main_en.pdf`, 20 pages, sha256 `8124bf9d60ce734fb36c5c1038bafe9ccb062858da2c9bd510c6b9d23cf23526`
+- Korean PDF: `latex/ieie/main.pdf`, 16 pages, sha256 `38154dcf4b09be33ba938c6e8c046977c51de214e0f9c62e78952d88e8b52d87`
+- English PDF: `latex/en/main_en.pdf`, 21 pages, sha256 `17441843f824d60d1ce6a573f7c6e139fb76f238b318534e41acf0fcd48a94f7`
 - English PDF Korean-character count: `0`
 - English PDF references `evidence_matrix_en.md`: `True`
 - English PDF references `evidence_matrix_ko.md`: `False`

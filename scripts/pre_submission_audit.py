@@ -126,9 +126,9 @@ def core_claims_pass() -> AuditCheck:
     status = data.get("status")
     check_count = int(data.get("check_count", 0))
     return check(
-        status == "pass" and check_count == 45,
+        status == "pass" and check_count == 47,
         "core claims verification",
-        "status pass, 45 checks",
+        "status pass, 47 checks",
         f"status {status}, {check_count} checks",
     )
 
@@ -168,14 +168,14 @@ def video_source_exclusion_pass() -> AuditCheck:
 def statistical_robustness_pass() -> AuditCheck:
     path = OUT / "statistical_robustness_audit.json"
     if not path.exists():
-        return check(False, "statistical robustness audit", "status pass with 10 checks", "missing statistical_robustness_audit.json")
+        return check(False, "statistical robustness audit", "status pass with 11 checks", "missing statistical_robustness_audit.json")
     data = json.loads(path.read_text(encoding="utf-8"))
     status = data.get("status")
     check_count = int(data.get("check_count", 0))
     return check(
-        status == "pass" and check_count == 10,
+        status == "pass" and check_count == 11,
         "statistical robustness audit",
-        "status pass with 10 checks",
+        "status pass with 11 checks",
         f"status {status}, {check_count} checks",
     )
 
@@ -198,14 +198,14 @@ def claim_boundary_pass() -> AuditCheck:
 def objection_coverage_pass() -> AuditCheck:
     path = OUT / "objection_coverage_audit.json"
     if not path.exists():
-        return check(False, "objection coverage audit", "status pass with 26 checks", "missing objection_coverage_audit.json")
+        return check(False, "objection coverage audit", "status pass with 28 checks", "missing objection_coverage_audit.json")
     data = json.loads(path.read_text(encoding="utf-8"))
     status = data.get("status")
     check_count = int(data.get("check_count", 0))
     return check(
-        status == "pass" and check_count == 26,
+        status == "pass" and check_count == 28,
         "objection coverage audit",
-        "status pass with 26 checks",
+        "status pass with 28 checks",
         f"status {status}, {check_count} checks",
     )
 

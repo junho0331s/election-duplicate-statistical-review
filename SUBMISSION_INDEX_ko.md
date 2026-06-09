@@ -30,17 +30,18 @@ ZIP 해시는 ZIP 생성 이후 외부 사이드카 파일에 기록한다. ZIP 
 - 원자료 감사 프로토콜: `AUDIT_PROTOCOL_ko.md`, `AUDIT_PROTOCOL_en.md`
 - 대안 설명 매트릭스: `ALTERNATIVE_EXPLANATIONS_MATRIX_ko.md`, `ALTERNATIVE_EXPLANATIONS_MATRIX_en.md`
 - 사후탐색 강건성 노트: `LOOK_ELSEWHERE_ROBUSTNESS_ko.md`, `LOOK_ELSEWHERE_ROBUSTNESS_en.md`
+- 심사자 반론 대응 메모: `reviewer_response_ko.md`, `reviewer_response_en.md`
 - 최종 제출 점검표: `FINAL_SUBMISSION_CHECKLIST_ko.md`, `FINAL_SUBMISSION_CHECKLIST_en.md`
 - 공개 논의 보조 주장 검산: `PUBLIC_DISCUSSION_CLAIMS_ko.md`, `PUBLIC_DISCUSSION_CLAIMS_en.md`
 
 ## 4. 핵심 검증 산출물
 
-- 핵심 주장 검증: `outputs/core_claims_verification.json` (`pass`, 45 checks)
-- 통계 강건성 감사: `outputs/statistical_robustness_audit.json` (`pass`, 10 checks)
+- 핵심 주장 검증: `outputs/core_claims_verification.json` (`pass`, 47 checks)
+- 통계 강건성 감사: `outputs/statistical_robustness_audit.json` (`pass`, 11 checks)
 - 비공식 영상 출처 배제 감사: `outputs/video_source_exclusion_audit.json` (`pass`, 25 files)
 - 출처 추적 감사: `outputs/source_provenance_audit.json` (`pass`, 24 URLs)
 - 주장 범위 감사: `outputs/claim_boundary_audit.json` (`pass`, 22 checks)
-- 예상 반론 포괄성 감사: `outputs/objection_coverage_audit.json` (`pass`, 26 checks)
+- 예상 반론 포괄성 감사: `outputs/objection_coverage_audit.json` (`pass`, 28 checks)
 - 제출 전 자동 감사: `outputs/pre_submission_audit.json` (`pass`, 17 checks)
 - 공개 논의 보조 주장 감사: `outputs/public_discussion_claims_audit.json` (`pass`, 2 official rows)
 - 제출 무결성 보고서: `outputs/submission_integrity_report.json`

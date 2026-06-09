@@ -17,6 +17,8 @@ exact collision rounded K,100945,100945,,pass
 exact collision probability threshold 5,0.0012190883791786122,0.0012190883791786122,1e-15,pass
 exact collision probability percent threshold 5,0.12190883791786122,0.12190883791786122,1e-12,pass
 exact collision probability threshold 6,0.00016497161821593664,0.00016497161821593664,1e-15,pass
+pre-designated Gwangju-Jeonnam pair count,5,5,,pass
+pre-designated five-pair conditional probability,9.540700009422666e-26,9.540700009422666e-26,1e-38,pass
 bootstrap sample size,393,393,,pass
 bootstrap trials,200000,200000,,pass
 bootstrap threshold 5 exceedances,0,0,,pass

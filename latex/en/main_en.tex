@@ -318,6 +318,16 @@ At least 6 pairs & about 0.0143\% & about 1 in 6,982 \\
 
 In this calculation, five pairs refers to the internal Gwangju-Jeonnam event. Six pairs is a simplified reference value for the nationwide reported event. The nationwide six-pair figure requires additional multiple-search adjustment because it was found after looking across more than one contest.
 
+\subsection{Conditional Probability for the Five Designated Pairings}
+
+The \(P(C \geq 5)\) calculation above uses a broad event definition: within the 393 Gwangju-Jeonnam counting units, any unit pair can collide and any vote-pair value can be the repeated value. A separate conditional calculation asks a narrower question. If the five observed Gwangju-Jeonnam pairings are treated as pre-designated pairings, what is the probability that all five pairings have identical top-two vote pairs? Using the same empirical \(K=100,944.8\), one designated pairing matches with probability \(1/K\), so five designated pairings all match with probability:
+
+\[
+\left(\frac{1}{100,944.8}\right)^5 \approx 9.54 \times 10^{-26}.
+\]
+
+In reciprocal form, this is about one in \(1.05\times 10^{25}\). The value is written to \texttt{outputs/probability\_designated\_pairs.csv}. The paper therefore distinguishes two probability claims. \(P(C \geq 5)\) is the broad primary test for at least five collisions in the Gwangju-Jeonnam space. \((1/K)^5\) is the conditional calculation when the observed five pairings are treated as pre-designated pairings. The event definitions differ, but both point in the same direction: the five-pair Gwangju-Jeonnam pattern is difficult to dismiss as ordinary chance.
+
 \subsection{Exact Pair-Collision Calculation}
 
 The calculation above is a Poisson approximation. To check the objection that the approximation may exaggerate rarity, the study also computes the exact pair-collision tail probability under the same \(N=393\) and rounded \(K=100,945\) baseline. The exact calculation uses dynamic programming over the occupancy states that remain below the threshold and absorbs every path that reaches five or more repeated pairs into the tail probability.

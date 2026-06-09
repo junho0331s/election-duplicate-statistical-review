@@ -43,6 +43,7 @@ def row_by(rows: list[dict[str, str]], **criteria: str) -> dict[str, str]:
 def audit_checks() -> list[RobustnessCheck]:
     core = read_csv("probability_core.csv")
     exact = read_csv("probability_exact_collision.csv")
+    designated = read_csv("probability_designated_pairs.csv")
     k_sens = read_csv("probability_k_sensitivity.csv")
     n_sens = read_csv("probability_n_sensitivity.csv")
     bootstrap = read_csv("governor_bootstrap_summary.csv")
@@ -50,6 +51,7 @@ def audit_checks() -> list[RobustnessCheck]:
 
     core5 = row_by(core, threshold="5")
     exact5 = row_by(exact, threshold="5")
+    designated5 = row_by(designated, case="gwangju_jeonnam_5_pre_designated_pairs")
     boot5 = row_by(bootstrap, threshold="5")
     k50 = row_by(k_sens, k_space="50000", threshold="5")
     k100 = row_by(k_sens, k_space="100944.8", threshold="5")
@@ -60,6 +62,7 @@ def audit_checks() -> list[RobustnessCheck]:
 
     p_core5 = float(core5["probability"])
     p_exact5 = float(exact5["exact_probability"])
+    p_designated5 = float(designated5["probability"])
     p_k50 = float(k50["probability"])
     p_k100 = float(k100["probability"])
     p_k200 = float(k200["probability"])
@@ -95,6 +98,13 @@ def audit_checks() -> list[RobustnessCheck]:
             "Poisson and exact agreement",
             "absolute difference below 0.0001",
             f"diff {abs(p_exact5 - p_core5)}",
+        ),
+        check(
+            math.isclose(p_designated5, 9.540700009422666e-26, rel_tol=0, abs_tol=1e-38)
+            and int(designated5["designated_pairs"]) == 5,
+            "pre-designated five-pair conditional probability",
+            "P equals (1/K)^5 = 9.540700009422666e-26 for five designated pairs",
+            f"{p_designated5}",
         ),
         check(
             boot_exceed == 0 and boot_trials == 200000,

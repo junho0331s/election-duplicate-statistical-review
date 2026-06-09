@@ -118,6 +118,12 @@ If a reviewer asks what exactly must be checked, the answer can be limited to th
 
 This table does not predetermine the conclusion. It separates what can be concluded from public data now from what can only be concluded after raw records are released.
 
+## Post-Disclosure Decision Tree
+
+Once raw records are disclosed, the paper's judgment should be updated by the following conditional rule. First, if the original counting statements or official integrated file differ from the current official-page values and the twelve event rows or six identical pairs disappear, the event definition should be weakened or withdrawn. Second, if the values match but first-pass sorter results, reviewed-ballot allocations, input logs, and ballot-box or counting-batch custody records are chronological, internally consistent, and document each equal-pair formation, the event should be downgraded to an administratively explained event. Third, if first-pass values differ but reviewed-ballot, input, or batch-movement steps repeatedly create equal pairs in the same candidate direction, the claim should escalate from statistical anomaly to causal-investigation stage. Fourth, if original values match but logs or batch records are missing, inconsistent, or concentrated around corrections, the event remains an object of independent audit.
+
+This decision tree does not fix the conclusion in advance. It brings the strongest possible reviewer objection, that raw records may explain the pattern, into the study design itself. The current conclusion is therefore a statistical audit signal before raw-record disclosure; the post-disclosure conclusion depends on which of the four conditions is documented.
+
 ## Submission Wording
 
 Recommended wording:
@@ -129,4 +135,3 @@ Wording to avoid:
 > The current public data identify a specific actor and method.
 
 The package's strength is not an overextended causal claim. Its strength is that public data and reproducible code narrow the issue to a strong and auditable statistical anomaly.
-

@@ -173,6 +173,7 @@ python3 scripts/create_submission_zip.py
 - `outputs/songdo_official_rows.csv`
 - `outputs/probability_core.csv`
 - `outputs/probability_exact_collision.csv`
+- `outputs/probability_designated_pairs.csv`
 - `outputs/probability_k_sensitivity.csv`
 - `outputs/probability_n_sensitivity.csv`
 - `outputs/early_day_assembly_summary.csv`

@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 26,
+  "check_count": 28,
   "scope": "coverage audit for expected statistical and evidentiary objections",
   "checks": [
     {
@@ -141,6 +141,20 @@
       "file": "reviewer_response_en.md",
       "expected": "English reviewer memo has objection, response, falsifiability, and audit sections",
       "actual": "3/3 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "post-disclosure reviewer decision tree",
+      "file": "reviewer_response_ko.md",
+      "expected": "Korean reviewer memo states the conditional decision path after raw-record disclosure",
+      "actual": "5/5 markers present",
+      "status": "pass"
+    },
+    {
+      "objection": "post-disclosure reviewer decision tree",
+      "file": "reviewer_response_en.md",
+      "expected": "English reviewer memo states the conditional decision path after raw-record disclosure",
+      "actual": "5/5 markers present",
       "status": "pass"
     },
     {

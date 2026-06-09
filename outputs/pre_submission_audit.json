@@ -23,14 +23,14 @@
     },
     {
       "check": "core claims verification",
-      "expected": "status pass, 45 checks",
-      "actual": "status pass, 45 checks",
+      "expected": "status pass, 47 checks",
+      "actual": "status pass, 47 checks",
       "status": "pass"
     },
     {
       "check": "statistical robustness audit",
-      "expected": "status pass with 10 checks",
-      "actual": "status pass, 10 checks",
+      "expected": "status pass with 11 checks",
+      "actual": "status pass, 11 checks",
       "status": "pass"
     },
     {
@@ -53,8 +53,8 @@
     },
     {
       "check": "objection coverage audit",
-      "expected": "status pass with 26 checks",
-      "actual": "status pass, 26 checks",
+      "expected": "status pass with 28 checks",
+      "actual": "status pass, 28 checks",
       "status": "pass"
     },
     {

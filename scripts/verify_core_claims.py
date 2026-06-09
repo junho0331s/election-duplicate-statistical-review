@@ -87,6 +87,13 @@ def main() -> None:
         require_close("exact collision probability threshold 6", float(exact_rows[6]["exact_probability"]), 0.00016497161821593664, 1e-15),
     ])
 
+    designated_rows = {row["case"]: row for row in read_csv("outputs/probability_designated_pairs.csv")}
+    designated_5 = designated_rows["gwangju_jeonnam_5_pre_designated_pairs"]
+    checks.extend([
+        require_equal("pre-designated Gwangju-Jeonnam pair count", int(designated_5["designated_pairs"]), 5),
+        require_close("pre-designated five-pair conditional probability", float(designated_5["probability"]), 9.540700009422666e-26, 1e-38),
+    ])
+
     bootstrap_rows = {int(row["threshold"]): row for row in read_csv("outputs/governor_bootstrap_summary.csv")}
     bootstrap_5 = bootstrap_rows[5]
     checks.extend([

@@ -30,17 +30,18 @@ The ZIP hash is recorded in an external sidecar after ZIP creation. The final ZI
 - Raw-data audit protocol: `AUDIT_PROTOCOL_ko.md`, `AUDIT_PROTOCOL_en.md`
 - Alternative-explanations matrix: `ALTERNATIVE_EXPLANATIONS_MATRIX_ko.md`, `ALTERNATIVE_EXPLANATIONS_MATRIX_en.md`
 - Look-elsewhere robustness note: `LOOK_ELSEWHERE_ROBUSTNESS_ko.md`, `LOOK_ELSEWHERE_ROBUSTNESS_en.md`
+- Reviewer objection response memo: `reviewer_response_ko.md`, `reviewer_response_en.md`
 - Final submission checklist: `FINAL_SUBMISSION_CHECKLIST_ko.md`, `FINAL_SUBMISSION_CHECKLIST_en.md`
 - Public-discussion auxiliary claim check: `PUBLIC_DISCUSSION_CLAIMS_ko.md`, `PUBLIC_DISCUSSION_CLAIMS_en.md`
 
 ## 4. Core Verification Outputs
 
-- Core-claims verification: `outputs/core_claims_verification.json` (`pass`, 45 checks)
-- Statistical robustness audit: `outputs/statistical_robustness_audit.json` (`pass`, 10 checks)
+- Core-claims verification: `outputs/core_claims_verification.json` (`pass`, 47 checks)
+- Statistical robustness audit: `outputs/statistical_robustness_audit.json` (`pass`, 11 checks)
 - Informal video-source exclusion audit: `outputs/video_source_exclusion_audit.json` (`pass`, 25 files)
 - Source provenance audit: `outputs/source_provenance_audit.json` (`pass`, 24 URLs)
 - Claim-boundary audit: `outputs/claim_boundary_audit.json` (`pass`, 22 checks)
-- Objection coverage audit: `outputs/objection_coverage_audit.json` (`pass`, 26 checks)
+- Objection coverage audit: `outputs/objection_coverage_audit.json` (`pass`, 28 checks)
 - Pre-submission audit: `outputs/pre_submission_audit.json` (`pass`, 17 checks)
 - Public-discussion auxiliary claim audit: `outputs/public_discussion_claims_audit.json` (`pass`, 2 official rows)
 - Submission integrity report: `outputs/submission_integrity_report.json`

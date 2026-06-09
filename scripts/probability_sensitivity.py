@@ -80,6 +80,18 @@ def probability_row(n: int, k_space: float, threshold: int) -> dict[str, Any]:
     }
 
 
+def designated_pair_row(case: str, k_space: float, designated_pairs: int) -> dict[str, Any]:
+    p = (1 / k_space) ** designated_pairs
+    return {
+        "case": case,
+        "k_space": k_space,
+        "designated_pairs": designated_pairs,
+        "probability": p,
+        "probability_percent": p * 100,
+        "reciprocal": reciprocal(p),
+    }
+
+
 def main() -> None:
     base_n = 393
     base_k = 100_944.8
@@ -100,6 +112,11 @@ def main() -> None:
     for n in [350, 390, 393, 400, 430, 450]:
         n_sensitivity.append(probability_row(n, base_k, 5))
 
+    designated_pairs = [
+        designated_pair_row("gwangju_jeonnam_5_pre_designated_pairs", base_k, 5),
+        designated_pair_row("nationwide_6_pre_designated_pairs", base_k, 6),
+    ]
+
     write_csv(OUT / "probability_core.csv", core)
 
     exact_collision = []
@@ -118,6 +135,7 @@ def main() -> None:
         })
     write_csv(OUT / "probability_exact_collision.csv", exact_collision)
 
+    write_csv(OUT / "probability_designated_pairs.csv", designated_pairs)
     write_csv(OUT / "probability_k_sensitivity.csv", k_sensitivity)
     write_csv(OUT / "probability_n_sensitivity.csv", n_sensitivity)
 
@@ -129,6 +147,7 @@ def main() -> None:
         "outputs": [
             "outputs/probability_core.csv",
             "outputs/probability_exact_collision.csv",
+            "outputs/probability_designated_pairs.csv",
             "outputs/probability_k_sensitivity.csv",
             "outputs/probability_n_sensitivity.csv",
         ],

@@ -239,7 +239,17 @@ The computed probabilities are:
 
 In this calculation, five pairs refers to the internal Gwangju-Jeonnam event. Six pairs is a simplified reference value for the nationwide reported event. The nationwide six-pair figure requires additional multiple-search adjustment because it was found after looking across more than one contest.
 
-### 5.3 Exact Pair-Collision Calculation
+### 5.3 Conditional Probability for the Five Designated Pairings
+
+The \(P(C \geq 5)\) calculation above uses a broad event definition: within the 393 Gwangju-Jeonnam counting units, any unit pair can collide and any vote-pair value can be the repeated value. A separate conditional calculation asks a narrower question. If the five observed Gwangju-Jeonnam pairings are treated as pre-designated pairings, what is the probability that all five pairings have identical top-two vote pairs? Using the same empirical \(K=100,944.8\), one designated pairing matches with probability \(1/K\), so five designated pairings all match with probability:
+
+\[
+\left(\frac{1}{100,944.8}\right)^5 \approx 9.54 \times 10^{-26}.
+\]
+
+In reciprocal form, this is about one in \(1.05\times 10^{25}\). The value is written to `outputs/probability_designated_pairs.csv`. The paper therefore distinguishes two probability claims. \(P(C \geq 5)\) is the broad primary test for at least five collisions in the Gwangju-Jeonnam space. \((1/K)^5\) is the conditional calculation when the observed five pairings are treated as pre-designated pairings. The event definitions differ, but both point in the same direction: the five-pair Gwangju-Jeonnam pattern is difficult to dismiss as ordinary chance.
+
+### 5.4 Exact Pair-Collision Calculation
 
 The calculation above is a Poisson approximation. To check the objection that the approximation may exaggerate rarity, the study also computes the exact pair-collision tail probability under the same \(N=393\) and rounded \(K=100,945\) baseline. The exact calculation uses dynamic programming over the occupancy states that remain below the threshold and absorbs every path that reaches five or more repeated pairs into the tail probability.
 
@@ -250,7 +260,7 @@ The calculation above is a Poisson approximation. To check the objection that th
 
 The exact probability is slightly larger than the Poisson approximation. In other words, the Poisson approximation is not making the five-pair event look artificially rarer. Even under exact calculation, the Gwangju-Jeonnam five-pair event remains a low-tail event of about 0.12%.
 
-### 5.4 Sensitivity to the Effective Pair Space
+### 5.5 Sensitivity to the Effective Pair Space
 
 The probability changes depending on how the effective pair space \(K\) is set. With \(N=393\), the sensitivity calculation is:
 
@@ -265,7 +275,7 @@ The probability changes depending on how the effective pair space \(K\) is set. 
 
 Even under a highly conservative \(K=50,000\) assumption, which makes duplicate pairs much easier to produce, the probability of at least five pairs is about 2.05%. That is not impossibility, but it remains a low-tail event. Under the expanded historical governor benchmark, \(K=100,945\), the probability is about 0.115%. This is sufficiently rare to function as an audit trigger even after including the smaller early-vote scale of 2014 in the historical baseline.
 
-### 5.5 Sensitivity to the Number of Counting Units
+### 5.6 Sensitivity to the Number of Counting Units
 
 The official HTML-based baseline is \(N=393\). To check whether the conclusion depends narrowly on that value, the paper also holds \(K=100,945\) fixed and varies \(N\) from 350 to 450.
 
@@ -280,7 +290,7 @@ The official HTML-based baseline is \(N=393\). To check whether the conclusion d
 
 The table shows that the assumed unit count changes the exact probability but not the direction of the conclusion. Even at \(N=450\), at least five repeated pairs remains below 0.4%. The Gwangju-Jeonnam five-pair result therefore does not depend only on the single \(N=393\) baseline.
 
-### 5.6 Nonparametric Resampling Test
+### 5.7 Nonparametric Resampling Test
 
 The Poisson approximation is useful because it is easy to interpret, but it still contains the model assumption of an effective pair space \(K\). To reduce model dependence, this paper directly resamples actual historical top-two vote pairs from governor in-district early-vote data.
 

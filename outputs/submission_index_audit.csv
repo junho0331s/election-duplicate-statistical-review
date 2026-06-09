@@ -29,6 +29,8 @@ SUBMISSION_INDEX_ko.md references ALTERNATIVE_EXPLANATIONS_MATRIX_ko.md,pass,ALT
 SUBMISSION_INDEX_ko.md references ALTERNATIVE_EXPLANATIONS_MATRIX_en.md,pass,ALTERNATIVE_EXPLANATIONS_MATRIX_en.md
 SUBMISSION_INDEX_ko.md references LOOK_ELSEWHERE_ROBUSTNESS_ko.md,pass,LOOK_ELSEWHERE_ROBUSTNESS_ko.md
 SUBMISSION_INDEX_ko.md references LOOK_ELSEWHERE_ROBUSTNESS_en.md,pass,LOOK_ELSEWHERE_ROBUSTNESS_en.md
+SUBMISSION_INDEX_ko.md references reviewer_response_ko.md,pass,reviewer_response_ko.md
+SUBMISSION_INDEX_ko.md references reviewer_response_en.md,pass,reviewer_response_en.md
 SUBMISSION_INDEX_ko.md references FINAL_SUBMISSION_CHECKLIST_ko.md,pass,FINAL_SUBMISSION_CHECKLIST_ko.md
 SUBMISSION_INDEX_ko.md references FINAL_SUBMISSION_CHECKLIST_en.md,pass,FINAL_SUBMISSION_CHECKLIST_en.md
 SUBMISSION_INDEX_ko.md references outputs/core_claims_verification.json,pass,outputs/core_claims_verification.json
@@ -47,13 +49,13 @@ SUBMISSION_INDEX_ko.md references requirements.txt,pass,requirements.txt
 SUBMISSION_INDEX_ko.md references scripts/run_all.py,pass,scripts/run_all.py
 SUBMISSION_INDEX_ko.md references scripts/validate_package.py,pass,scripts/validate_package.py
 SUBMISSION_INDEX_ko.md references scripts/verify_public_discussion_claims.py,pass,scripts/verify_public_discussion_claims.py
-SUBMISSION_INDEX_ko.md describes outputs/core_claims_verification.json as 45 checks,pass,45 checks
-SUBMISSION_INDEX_ko.md describes outputs/statistical_robustness_audit.json as 10 checks,pass,10 checks
+SUBMISSION_INDEX_ko.md describes outputs/core_claims_verification.json as 47 checks,pass,47 checks
+SUBMISSION_INDEX_ko.md describes outputs/statistical_robustness_audit.json as 11 checks,pass,11 checks
 SUBMISSION_INDEX_ko.md describes outputs/video_source_exclusion_audit.json as 25 files,pass,25 files
 SUBMISSION_INDEX_ko.md describes outputs/source_provenance_audit.json as 24 URLs,pass,24 URLs
 SUBMISSION_INDEX_ko.md describes outputs/public_discussion_claims_audit.json as 2 official rows,pass,2 official rows
 SUBMISSION_INDEX_ko.md describes outputs/claim_boundary_audit.json as 22 checks,pass,22 checks
-SUBMISSION_INDEX_ko.md describes outputs/objection_coverage_audit.json as 26 checks,pass,26 checks
+SUBMISSION_INDEX_ko.md describes outputs/objection_coverage_audit.json as 28 checks,pass,28 checks
 SUBMISSION_INDEX_ko.md describes outputs/pre_submission_audit.json as 17 checks,pass,17 checks
 SUBMISSION_INDEX_en.md exists,pass,SUBMISSION_INDEX_en.md
 SUBMISSION_INDEX_en.md references dist/election_duplicate_ieie_submission.zip,pass,dist/election_duplicate_ieie_submission.zip
@@ -85,6 +87,8 @@ SUBMISSION_INDEX_en.md references ALTERNATIVE_EXPLANATIONS_MATRIX_ko.md,pass,ALT
 SUBMISSION_INDEX_en.md references ALTERNATIVE_EXPLANATIONS_MATRIX_en.md,pass,ALTERNATIVE_EXPLANATIONS_MATRIX_en.md
 SUBMISSION_INDEX_en.md references LOOK_ELSEWHERE_ROBUSTNESS_ko.md,pass,LOOK_ELSEWHERE_ROBUSTNESS_ko.md
 SUBMISSION_INDEX_en.md references LOOK_ELSEWHERE_ROBUSTNESS_en.md,pass,LOOK_ELSEWHERE_ROBUSTNESS_en.md
+SUBMISSION_INDEX_en.md references reviewer_response_ko.md,pass,reviewer_response_ko.md
+SUBMISSION_INDEX_en.md references reviewer_response_en.md,pass,reviewer_response_en.md
 SUBMISSION_INDEX_en.md references FINAL_SUBMISSION_CHECKLIST_ko.md,pass,FINAL_SUBMISSION_CHECKLIST_ko.md
 SUBMISSION_INDEX_en.md references FINAL_SUBMISSION_CHECKLIST_en.md,pass,FINAL_SUBMISSION_CHECKLIST_en.md
 SUBMISSION_INDEX_en.md references outputs/core_claims_verification.json,pass,outputs/core_claims_verification.json
@@ -103,18 +107,18 @@ SUBMISSION_INDEX_en.md references requirements.txt,pass,requirements.txt
 SUBMISSION_INDEX_en.md references scripts/run_all.py,pass,scripts/run_all.py
 SUBMISSION_INDEX_en.md references scripts/validate_package.py,pass,scripts/validate_package.py
 SUBMISSION_INDEX_en.md references scripts/verify_public_discussion_claims.py,pass,scripts/verify_public_discussion_claims.py
-SUBMISSION_INDEX_en.md describes outputs/core_claims_verification.json as 45 checks,pass,45 checks
-SUBMISSION_INDEX_en.md describes outputs/statistical_robustness_audit.json as 10 checks,pass,10 checks
+SUBMISSION_INDEX_en.md describes outputs/core_claims_verification.json as 47 checks,pass,47 checks
+SUBMISSION_INDEX_en.md describes outputs/statistical_robustness_audit.json as 11 checks,pass,11 checks
 SUBMISSION_INDEX_en.md describes outputs/video_source_exclusion_audit.json as 25 files,pass,25 files
 SUBMISSION_INDEX_en.md describes outputs/source_provenance_audit.json as 24 URLs,pass,24 URLs
 SUBMISSION_INDEX_en.md describes outputs/public_discussion_claims_audit.json as 2 official rows,pass,2 official rows
 SUBMISSION_INDEX_en.md describes outputs/claim_boundary_audit.json as 22 checks,pass,22 checks
-SUBMISSION_INDEX_en.md describes outputs/objection_coverage_audit.json as 26 checks,pass,26 checks
+SUBMISSION_INDEX_en.md describes outputs/objection_coverage_audit.json as 28 checks,pass,28 checks
 SUBMISSION_INDEX_en.md describes outputs/pre_submission_audit.json as 17 checks,pass,17 checks
 outputs/core_claims_verification.json status pass,pass,pass
-outputs/core_claims_verification.json check_count 45,pass,45
+outputs/core_claims_verification.json check_count 47,pass,47
 outputs/statistical_robustness_audit.json status pass,pass,pass
-outputs/statistical_robustness_audit.json check_count 10,pass,10
+outputs/statistical_robustness_audit.json check_count 11,pass,11
 outputs/video_source_exclusion_audit.json status pass,pass,pass
 outputs/video_source_exclusion_audit.json check_count 25,pass,25
 outputs/source_provenance_audit.json status pass,pass,pass
@@ -124,6 +128,6 @@ outputs/public_discussion_claims_audit.json row_count 2,pass,2
 outputs/claim_boundary_audit.json status pass,pass,pass
 outputs/claim_boundary_audit.json check_count 22,pass,22
 outputs/objection_coverage_audit.json status pass,pass,pass
-outputs/objection_coverage_audit.json check_count 26,pass,26
+outputs/objection_coverage_audit.json check_count 28,pass,28
 outputs/pre_submission_audit.json status pass,pass,pass
 outputs/pre_submission_audit.json check_count 17,pass,17

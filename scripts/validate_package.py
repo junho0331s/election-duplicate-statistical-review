@@ -92,6 +92,7 @@ REQUIRED_FILES = [
     "outputs/songdo_official_rows.csv",
     "outputs/probability_core.csv",
     "outputs/probability_exact_collision.csv",
+    "outputs/probability_designated_pairs.csv",
     "outputs/early_day_assembly_summary.csv",
     "outputs/public_discussion_claims_audit.csv",
     "outputs/public_discussion_claims_audit.json",
@@ -220,6 +221,16 @@ def assert_probability_core() -> None:
         actual = p_by_threshold.get(threshold)
         if actual is None or not math.isclose(actual, value, rel_tol=0, abs_tol=1e-15):
             raise AssertionError(f"probability threshold {threshold}: expected {value}, got {actual}")
+
+    designated_rows = list(csv.DictReader((ROOT / "outputs" / "probability_designated_pairs.csv").open(encoding="utf-8")))
+    designated = {row["case"]: row for row in designated_rows}
+    row5 = designated.get("gwangju_jeonnam_5_pre_designated_pairs")
+    if row5 is None:
+        raise AssertionError("Missing designated five-pair probability row")
+    if int(row5["designated_pairs"]) != 5:
+        raise AssertionError(f"Expected five designated pairs, got {row5['designated_pairs']}")
+    if not math.isclose(float(row5["probability"]), 9.540700009422666e-26, rel_tol=0, abs_tol=1e-38):
+        raise AssertionError(f"Designated five-pair probability mismatch: {row5['probability']}")
 
 
 def assert_bootstrap_summary() -> None:
@@ -353,6 +364,7 @@ def assert_core_claims_verification() -> None:
         "historical maximum duplicate groups in one contest",
         "Poisson probability threshold 5",
         "exact collision probability threshold 5",
+        "pre-designated five-pair conditional probability",
         "bootstrap threshold 5 exceedances",
         "NEC 2026 Gwangju-Jeonnam in-district early units summary",
         "NEC 2026 event rows",
@@ -464,7 +476,7 @@ def assert_statistical_robustness_audit() -> None:
     data = json.loads(path.read_text(encoding="utf-8"))
     if data.get("status") != "pass":
         raise AssertionError(f"Statistical robustness audit status is not pass: {data.get('status')}")
-    if int(data.get("check_count", 0)) != 10:
+    if int(data.get("check_count", 0)) != 11:
         raise AssertionError(f"Statistical robustness audit check count mismatch: {data.get('check_count')}")
     checks = data.get("checks")
     if not isinstance(checks, list) or len(checks) != data.get("check_count"):
@@ -474,6 +486,7 @@ def assert_statistical_robustness_audit() -> None:
         "Poisson baseline probability",
         "exact collision probability",
         "Poisson and exact agreement",
+        "pre-designated five-pair conditional probability",
         "nonparametric resampling threshold 5",
         "rule-of-three upper bound",
         "effective-pair-space sensitivity",
@@ -572,6 +585,7 @@ def assert_objection_coverage_audit() -> None:
         "official integrated file limitation",
         "benign alternatives matrix",
         "reviewer response memo coverage",
+        "post-disclosure reviewer decision tree",
         "chain-of-custody raw-record requirement",
         "Korean PDF objection controls render",
         "English PDF objection controls render",
@@ -595,16 +609,16 @@ def assert_submission_integrity_report() -> None:
     data = json.loads(path.read_text(encoding="utf-8"))
     if data.get("status") != "pass":
         raise AssertionError(f"Submission integrity report status is not pass: {data.get('status')}")
-    if data.get("core_claims_check_count") != 45:
-        raise AssertionError("Submission integrity report does not record 45 core checks")
+    if data.get("core_claims_check_count") != 47:
+        raise AssertionError("Submission integrity report does not record 47 core checks")
     if data.get("source_provenance_status") != "pass":
         raise AssertionError("Submission integrity report does not record passing source provenance audit")
     if int(data.get("source_provenance_url_count", 0)) <= 0:
         raise AssertionError("Submission integrity report does not record source URLs")
     if data.get("statistical_robustness_audit_status") != "pass":
         raise AssertionError("Submission integrity report does not record passing statistical robustness audit")
-    if data.get("statistical_robustness_audit_check_count") != 10:
-        raise AssertionError("Submission integrity report does not record 10 statistical robustness checks")
+    if data.get("statistical_robustness_audit_check_count") != 11:
+        raise AssertionError("Submission integrity report does not record 11 statistical robustness checks")
     if data.get("video_source_exclusion_status") != "pass":
         raise AssertionError("Submission integrity report does not record passing video source exclusion audit")
     if data.get("video_source_exclusion_check_count") != 25:
@@ -619,10 +633,12 @@ def assert_submission_integrity_report() -> None:
         raise AssertionError("Submission integrity report does not record 22 claim-boundary checks")
     if data.get("objection_coverage_audit_status") != "pass":
         raise AssertionError("Submission integrity report does not record passing objection coverage audit")
-    if data.get("objection_coverage_audit_check_count") != 26:
-        raise AssertionError("Submission integrity report does not record 26 objection coverage checks")
+    if data.get("objection_coverage_audit_check_count") != 28:
+        raise AssertionError("Submission integrity report does not record 28 objection coverage checks")
     if data.get("pre_submission_audit_check_count") != 17:
         raise AssertionError("Submission integrity report does not record 17 audit checks")
+    if data.get("submission_index_audit_check_count") != 132:
+        raise AssertionError("Submission integrity report does not record 132 submission-index checks")
 
     english_pdf = data.get("english_pdf", {})
     if english_pdf.get("korean_character_count") != 0:
@@ -742,6 +758,7 @@ def assert_checksums() -> None:
         "outputs/submission_integrity_report.json",
         "outputs/probability_core.csv",
         "outputs/probability_exact_collision.csv",
+        "outputs/probability_designated_pairs.csv",
     ]
     missing = [rel for rel in required if rel not in by_path]
     if missing:

@@ -2,12 +2,12 @@ check,expected,actual,status
 final checklist items complete,0 unchecked boxes,0 unchecked boxes,pass
 forbidden patterns absent,0 hits,0 hits,pass
 privacy and credential scan,"only allowed author email; 0 credential, phone, or resident-number patterns",0 hits,pass
-core claims verification,"status pass, 45 checks","status pass, 45 checks",pass
-statistical robustness audit,status pass with 10 checks,"status pass, 10 checks",pass
+core claims verification,"status pass, 47 checks","status pass, 47 checks",pass
+statistical robustness audit,status pass with 11 checks,"status pass, 11 checks",pass
 video source exclusion audit,status pass with 25 checked files and 0 failures,"status pass, 25 files, 0 failures",pass
 source provenance audit,status pass with approved source domains only,"status pass, 24 URLs, 0 failures",pass
 claim-boundary audit,status pass with 22 checks,"status pass, 22 checks",pass
-objection coverage audit,status pass with 26 checks,"status pass, 26 checks",pass
+objection coverage audit,status pass with 28 checks,"status pass, 28 checks",pass
 exact collision probability output,threshold 5 exact probability 0.0012190883791786122,threshold 5 exact probability 0.0012190883791786122,pass
 manuscript core number consistency,core numbers present in Korean/English Markdown and PDFs,0 missing markers,pass
 English PDF translation coverage,0 Korean characters and exact-collision section present,"0 Korean characters, exact section present",pass

@@ -12,7 +12,7 @@
       "returncode": 0,
       "passed": true,
       "output_tail": [
-        "Core claim verification passed with 45 checks.",
+        "Core claim verification passed with 47 checks.",
         "Wrote outputs/core_claims_verification.json",
         "Wrote outputs/core_claims_verification.csv"
       ]
@@ -30,7 +30,7 @@
       "returncode": 0,
       "passed": true,
       "output_tail": [
-        "Statistical robustness audit passed with 10 checks."
+        "Statistical robustness audit passed with 11 checks."
       ]
     },
     {
@@ -62,7 +62,7 @@
       "returncode": 0,
       "passed": true,
       "output_tail": [
-        "Objection coverage audit passed with 26 checks."
+        "Objection coverage audit passed with 28 checks."
       ]
     },
     {

@@ -194,6 +194,18 @@ def audit_checks() -> list[ObjectionCheck]:
             "English reviewer memo has objection, response, falsifiability, and audit sections",
         ),
         check(
+            "reviewer_response_ko.md",
+            "post-disclosure reviewer decision tree",
+            ["원자료 공개 후 판정 트리", "약화 또는 철회", "행정적으로 설명된 사건", "원인조사 단계", "독립 감사의 대상"],
+            "Korean reviewer memo states the conditional decision path after raw-record disclosure",
+        ),
+        check(
+            "reviewer_response_en.md",
+            "post-disclosure reviewer decision tree",
+            ["Post-Disclosure Decision Tree", "weakened or withdrawn", "administratively explained event", "causal-investigation stage", "object of independent audit"],
+            "English reviewer memo states the conditional decision path after raw-record disclosure",
+        ),
+        check(
             "paper_statistical_implausibility_ko.md",
             "chain-of-custody raw-record requirement",
             ["투표함·개표배치 인수인계 기록", "장비·시간대·심사 흐름", "배치 흐름"],

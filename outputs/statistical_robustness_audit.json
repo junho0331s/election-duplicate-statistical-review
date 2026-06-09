@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 10,
+  "check_count": 11,
   "scope": "statistical robustness audit for probability, exact-collision, sensitivity, and resampling outputs",
   "checks": [
     {
@@ -25,6 +25,12 @@
       "check": "Poisson and exact agreement",
       "expected": "absolute difference below 0.0001",
       "actual": "diff 7.068195436377156e-05",
+      "status": "pass"
+    },
+    {
+      "check": "pre-designated five-pair conditional probability",
+      "expected": "P equals (1/K)^5 = 9.540700009422666e-26 for five designated pairs",
+      "actual": "9.540700009422666e-26",
       "status": "pass"
     },
     {

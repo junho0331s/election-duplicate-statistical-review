@@ -80,7 +80,19 @@ The result is written to `outputs/probability_exact_collision.csv`.
 
 The exact calculation is slightly larger than the Poisson approximation. Therefore the 0.115% value used in the manuscript is not an artifact that makes the event artificially rarer; it is a close approximation to the exact low-tail probability under the same baseline.
 
-## 4. Nonparametric Resampling From Historical Actual Vote Pairs
+## 4. Conditional Calculation for Five Designated Pairings
+
+The manuscript's primary test, \(P(C \geq 5)\), asks whether any five or more identical vote-pair collisions arise among the 393 Gwangju-Jeonnam counting units. A separate conditional calculation treats the observed five Gwangju-Jeonnam pairings as pre-designated pairings and asks whether all five pairings would match.
+
+Using the same \(K=100,944.8\), one designated pairing matches with probability \(1/K\). Five designated pairings all match with probability:
+
+\[
+(1/K)^5 \approx 9.54 \times 10^{-26}.
+\]
+
+The reciprocal is about one in \(1.05\times10^{25}\). The result is written to `outputs/probability_designated_pairs.csv`. This value has a different event definition from the broad primary \(P(C \geq 5)\) test, so the manuscript reports the two values separately.
+
+## 5. Nonparametric Resampling From Historical Actual Vote Pairs
 
 Because the Poisson approximation contains model assumptions, the package also performs an empirical resampling test using the historical actual vote-pair pool.
 
@@ -112,7 +124,7 @@ Reproduction command:
 python3 scripts/bootstrap_governor_duplicates.py
 ```
 
-## 5. Songdo Probability Calculation
+## 6. Songdo Probability Calculation
 
 The Incheon Songdo case is treated separately from the Gwangju-Jeonnam main test. It uses the Yeonsu official HTML and the same effective \(K=100,944.8\) baseline.
 

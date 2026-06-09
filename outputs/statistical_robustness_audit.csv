@@ -3,6 +3,7 @@ historical empirical upper bound,51 governor contests and historical maximum 3 r
 Poisson baseline probability,P(C>=5) equals 0.0011484064248148407,0.0011484064248148407,pass
 exact collision probability,exact P(C>=5) equals 0.0012190883791786122,0.0012190883791786122,pass
 Poisson and exact agreement,absolute difference below 0.0001,diff 7.068195436377156e-05,pass
+pre-designated five-pair conditional probability,P equals (1/K)^5 = 9.540700009422666e-26 for five designated pairs,9.540700009422666e-26,pass
 nonparametric resampling threshold 5,"0 exceedances in 200,000 trials",0 exceedances in 200000 trials,pass
 rule-of-three upper bound,95% upper bound equals 0.000015,1.5e-05,pass
 effective-pair-space sensitivity,"K=50,000 remains below 2.1%, baseline below 0.12%, K=200,000 below 0.006%","K50 0.02054999234891819, baseline 0.0011484064248148407, K200 5.130716523893408e-05",pass

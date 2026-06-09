@@ -44,6 +44,8 @@ REQUIRED_REFERENCES = [
     "ALTERNATIVE_EXPLANATIONS_MATRIX_en.md",
     "LOOK_ELSEWHERE_ROBUSTNESS_ko.md",
     "LOOK_ELSEWHERE_ROBUSTNESS_en.md",
+    "reviewer_response_ko.md",
+    "reviewer_response_en.md",
     "FINAL_SUBMISSION_CHECKLIST_ko.md",
     "FINAL_SUBMISSION_CHECKLIST_en.md",
     "outputs/core_claims_verification.json",
@@ -65,24 +67,24 @@ REQUIRED_REFERENCES = [
 ]
 
 EXPECTED_OUTPUTS = {
-    "outputs/core_claims_verification.json": ("check_count", 45),
-    "outputs/statistical_robustness_audit.json": ("check_count", 10),
+    "outputs/core_claims_verification.json": ("check_count", 47),
+    "outputs/statistical_robustness_audit.json": ("check_count", 11),
     "outputs/video_source_exclusion_audit.json": ("check_count", 25),
     "outputs/source_provenance_audit.json": ("url_count", 24),
     "outputs/public_discussion_claims_audit.json": ("row_count", 2),
     "outputs/claim_boundary_audit.json": ("check_count", 22),
-    "outputs/objection_coverage_audit.json": ("check_count", 26),
+    "outputs/objection_coverage_audit.json": ("check_count", 28),
     "outputs/pre_submission_audit.json": ("check_count", 17),
 }
 
 EXPECTED_INDEX_MARKERS = {
-    "outputs/core_claims_verification.json": "45 checks",
-    "outputs/statistical_robustness_audit.json": "10 checks",
+    "outputs/core_claims_verification.json": "47 checks",
+    "outputs/statistical_robustness_audit.json": "11 checks",
     "outputs/video_source_exclusion_audit.json": "25 files",
     "outputs/source_provenance_audit.json": "24 URLs",
     "outputs/public_discussion_claims_audit.json": "2 official rows",
     "outputs/claim_boundary_audit.json": "22 checks",
-    "outputs/objection_coverage_audit.json": "26 checks",
+    "outputs/objection_coverage_audit.json": "28 checks",
     "outputs/pre_submission_audit.json": "17 checks",
 }
 

@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 45,
+  "check_count": 47,
   "scope": "core reproducible statistical claims only; causal attribution requires raw administrative records",
   "checks": [
     {
@@ -119,6 +119,19 @@
       "expected": 0.00016497161821593664,
       "actual": 0.00016497161821593664,
       "abs_tol": 1e-15,
+      "status": "pass"
+    },
+    {
+      "claim": "pre-designated Gwangju-Jeonnam pair count",
+      "expected": 5,
+      "actual": 5,
+      "status": "pass"
+    },
+    {
+      "claim": "pre-designated five-pair conditional probability",
+      "expected": 9.540700009422666e-26,
+      "actual": 9.540700009422666e-26,
+      "abs_tol": 1e-38,
       "status": "pass"
     },
     {
