@@ -74,6 +74,7 @@ INCLUDE_FILES = [
     "scripts/submission_integrity_report.py",
     "scripts/local_ci_validation_report.py",
     "scripts/generate_checksums.py",
+    "scripts/create_arxiv_package.py",
     "scripts/run_all.py",
     "scripts/validate_package.py",
     "scripts/create_submission_zip.py",

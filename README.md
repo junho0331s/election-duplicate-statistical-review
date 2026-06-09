@@ -8,6 +8,12 @@ This repository contains the Korean and English papers, official-data reproducti
 - 소속: 없음
 - 이메일: junhokim0331@gmail.com
 
+## Public DOI
+
+- Zenodo preprint: https://doi.org/10.5281/zenodo.20606531
+- Zenodo software/reproducibility archive: https://doi.org/10.5281/zenodo.20606449
+- GitHub repository: https://github.com/junho0331s/election-duplicate-statistical-review
+
 ## Read the Papers
 
 | Language | Markdown | PDF / LaTeX |
