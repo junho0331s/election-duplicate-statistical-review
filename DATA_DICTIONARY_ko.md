@@ -53,7 +53,7 @@
 | `outputs/source_provenance_audit.csv` | 출처 URL 1개 | 원고 및 출처 정책 문서의 URL과 출처 분류를 스프레드시트에서 확인 | `file`, `url`, `domain`, `source_class`, `status` |
 | `outputs/source_provenance_audit.json` | JSON 출처 감사 요약 | 원고 및 출처 정책 문서가 승인된 공식자료 또는 명시적 공개 보도 도메인을 쓰는지 검증 | `status`, `url_count`, `allowed_domain_suffixes`, `source_classes`, `failures` |
 | `outputs/claim_boundary_audit.csv` | 주장 범위 감사 행 1개 | 원고가 통계적 이상치와 원자료 감사 요구를 말하면서 근거 없는 법적 확정으로 넘어가지 않는지 스프레드시트에서 확인 | `check`, `file`, `expected`, `actual`, `status` |
-| `outputs/claim_boundary_audit.json` | JSON 주장 범위 감사 요약 | 과장 주장 부재, 반증 가능성 문구, 원자료 요구 항목이 원고·메모·PDF에 있는지 기계가독 검증 | `status`, `check_count`, `scope`, `checks` |
+| `outputs/claim_boundary_audit.json` | JSON 주장 범위 감사 요약 | 과장 주장 부재, 반증 가능성 문구, 원자료 요구 항목과 원자료 공개 후 판정 단계가 원고·메모·PDF에 있는지 기계가독 검증 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/objection_coverage_audit.csv` | 반론 커버리지 감사 행 1개 | 예상 심사 반론이 원고와 부속 메모에서 다뤄졌는지 스프레드시트에서 확인 | `objection`, `file`, `expected`, `actual`, `status` |
 | `outputs/objection_coverage_audit.json` | JSON 반론 커버리지 감사 요약 | 한 쌍 반론, 2014 포함, 3쌍 대 5쌍, 사후탐색, 이질성, 자기선택, 드문 사건, 공식파일 한계, 대안 설명, 인수인계 원자료 요구 반론의 커버리지 검증 | `status`, `check_count`, `scope`, `checks` |
 | `outputs/pre_submission_audit.csv` | 제출 전 감사 행 1개 | 최종 체크리스트, 금지 표현, 개인정보 스캔, 영문 PDF/소스 번역, 증거표 참조, 핵심 검증 상태를 스프레드시트에서 확인 | `check`, `expected`, `actual`, `status` |

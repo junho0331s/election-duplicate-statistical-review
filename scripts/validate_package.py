@@ -519,7 +519,7 @@ def assert_claim_boundary_audit() -> None:
     data = json.loads(path.read_text(encoding="utf-8"))
     if data.get("status") != "pass":
         raise AssertionError(f"Claim-boundary audit status is not pass: {data.get('status')}")
-    if int(data.get("check_count", 0)) < 18:
+    if int(data.get("check_count", 0)) < 22:
         raise AssertionError(f"Claim-boundary audit has too few checks: {data.get('check_count')}")
     checks = data.get("checks")
     if not isinstance(checks, list) or len(checks) != data.get("check_count"):
@@ -530,6 +530,10 @@ def assert_claim_boundary_audit() -> None:
         "English manuscript boundary markers",
         "Korean raw-record requirements",
         "English raw-record requirements",
+        "Korean post-disclosure decision levels",
+        "English post-disclosure decision levels",
+        "Korean PDF post-disclosure decision levels",
+        "English PDF post-disclosure decision levels",
         "Korean PDF claim-boundary rendering",
         "English PDF claim-boundary rendering",
     }
@@ -611,8 +615,8 @@ def assert_submission_integrity_report() -> None:
         raise AssertionError("Submission integrity report does not record two public-discussion claim rows")
     if data.get("claim_boundary_audit_status") != "pass":
         raise AssertionError("Submission integrity report does not record passing claim-boundary audit")
-    if data.get("claim_boundary_audit_check_count") != 18:
-        raise AssertionError("Submission integrity report does not record 18 claim-boundary checks")
+    if data.get("claim_boundary_audit_check_count") != 22:
+        raise AssertionError("Submission integrity report does not record 22 claim-boundary checks")
     if data.get("objection_coverage_audit_status") != "pass":
         raise AssertionError("Submission integrity report does not record passing objection coverage audit")
     if data.get("objection_coverage_audit_check_count") != 26:

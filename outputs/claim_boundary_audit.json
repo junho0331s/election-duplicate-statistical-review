@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 18,
+  "check_count": 22,
   "scope": "claim-boundary, falsifiability, and raw-data-audit wording audit",
   "checks": [
     {
@@ -113,6 +113,34 @@
       "file": "paper_statistical_implausibility_en.md",
       "expected": "raw records needed for causal/legal attribution are listed",
       "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "check": "Korean post-disclosure decision levels",
+      "file": "paper_statistical_implausibility_ko.md",
+      "expected": "post-disclosure decision levels state how raw records weaken, explain, strengthen, or keep audit open",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "check": "English post-disclosure decision levels",
+      "file": "paper_statistical_implausibility_en.md",
+      "expected": "post-disclosure decision levels state how raw records weaken, explain, strengthen, or keep audit open",
+      "actual": "4/4 markers present",
+      "status": "pass"
+    },
+    {
+      "check": "Korean PDF post-disclosure decision levels",
+      "file": "latex/ieie/main.pdf",
+      "expected": "Korean PDF renders post-disclosure decision levels",
+      "actual": "4/4 compact markers present",
+      "status": "pass"
+    },
+    {
+      "check": "English PDF post-disclosure decision levels",
+      "file": "latex/en/main_en.pdf",
+      "expected": "English PDF renders post-disclosure decision levels",
+      "actual": "4/4 compact markers present",
       "status": "pass"
     },
     {

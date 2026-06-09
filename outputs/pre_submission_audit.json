@@ -47,8 +47,8 @@
     },
     {
       "check": "claim-boundary audit",
-      "expected": "status pass with 18 checks",
-      "actual": "status pass, 18 checks",
+      "expected": "status pass with 22 checks",
+      "actual": "status pass, 22 checks",
       "status": "pass"
     },
     {

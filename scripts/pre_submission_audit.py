@@ -183,14 +183,14 @@ def statistical_robustness_pass() -> AuditCheck:
 def claim_boundary_pass() -> AuditCheck:
     path = OUT / "claim_boundary_audit.json"
     if not path.exists():
-        return check(False, "claim-boundary audit", "status pass with 18 checks", "missing claim_boundary_audit.json")
+        return check(False, "claim-boundary audit", "status pass with 22 checks", "missing claim_boundary_audit.json")
     data = json.loads(path.read_text(encoding="utf-8"))
     status = data.get("status")
     check_count = int(data.get("check_count", 0))
     return check(
-        status == "pass" and check_count == 18,
+        status == "pass" and check_count == 22,
         "claim-boundary audit",
-        "status pass with 18 checks",
+        "status pass with 22 checks",
         f"status {status}, {check_count} checks",
     )
 

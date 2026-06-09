@@ -76,6 +76,18 @@ def check_required(path: str, body: str, name: str, needles: list[str], expected
     )
 
 
+def check_required_compact(path: str, body: str, name: str, needles: list[str], expected: str) -> BoundaryCheck:
+    body_compact = compact(body).lower()
+    hits = [needle for needle in needles if needle.lower() in body_compact]
+    return BoundaryCheck(
+        check=name,
+        file=path,
+        expected=expected,
+        actual=f"{len(hits)}/{len(needles)} compact markers present",
+        status=pass_fail(len(hits) == len(needles)),
+    )
+
+
 def check_any(path: str, body: str, name: str, alternatives: list[str], expected: str) -> BoundaryCheck:
     ok = contains_any(body, alternatives)
     return BoundaryCheck(
@@ -201,6 +213,34 @@ def audit_checks() -> list[BoundaryCheck]:
             "English raw-record requirements",
             ["original counting statements", "first-pass sorter results", "reviewed-ballot allocation records", "input logs"],
             "raw records needed for causal/legal attribution are listed",
+        ),
+        check_required(
+            "paper_statistical_implausibility_ko.md",
+            sources["paper_statistical_implausibility_ko.md"],
+            "Korean post-disclosure decision levels",
+            ["약화 또는 철회", "행정적으로 설명된 사건", "원인조사 단계", "독립 감사의 대상"],
+            "post-disclosure decision levels state how raw records weaken, explain, strengthen, or keep audit open",
+        ),
+        check_required(
+            "paper_statistical_implausibility_en.md",
+            sources["paper_statistical_implausibility_en.md"],
+            "English post-disclosure decision levels",
+            ["weakened or withdrawn", "administratively explained", "causal-investigation stage", "object of independent audit"],
+            "post-disclosure decision levels state how raw records weaken, explain, strengthen, or keep audit open",
+        ),
+        check_required_compact(
+            "latex/ieie/main.pdf",
+            sources["latex/ieie/main.pdf"],
+            "Korean PDF post-disclosure decision levels",
+            ["약화또는철회", "행정적으로설명된사건", "원인조사단계", "독립감사의대상"],
+            "Korean PDF renders post-disclosure decision levels",
+        ),
+        check_required_compact(
+            "latex/en/main_en.pdf",
+            sources["latex/en/main_en.pdf"],
+            "English PDF post-disclosure decision levels",
+            ["weakenedorwithdrawn", "eventbecomesadmin-istrativelyexplained", "causal-investigationstage", "objectofindependentaudit"],
+            "English PDF renders post-disclosure decision levels",
         ),
         check_any(
             "latex/ieie/main.pdf",

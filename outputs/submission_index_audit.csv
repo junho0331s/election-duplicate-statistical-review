@@ -52,7 +52,7 @@ SUBMISSION_INDEX_ko.md describes outputs/statistical_robustness_audit.json as 10
 SUBMISSION_INDEX_ko.md describes outputs/video_source_exclusion_audit.json as 25 files,pass,25 files
 SUBMISSION_INDEX_ko.md describes outputs/source_provenance_audit.json as 24 URLs,pass,24 URLs
 SUBMISSION_INDEX_ko.md describes outputs/public_discussion_claims_audit.json as 2 official rows,pass,2 official rows
-SUBMISSION_INDEX_ko.md describes outputs/claim_boundary_audit.json as 18 checks,pass,18 checks
+SUBMISSION_INDEX_ko.md describes outputs/claim_boundary_audit.json as 22 checks,pass,22 checks
 SUBMISSION_INDEX_ko.md describes outputs/objection_coverage_audit.json as 26 checks,pass,26 checks
 SUBMISSION_INDEX_ko.md describes outputs/pre_submission_audit.json as 17 checks,pass,17 checks
 SUBMISSION_INDEX_en.md exists,pass,SUBMISSION_INDEX_en.md
@@ -108,7 +108,7 @@ SUBMISSION_INDEX_en.md describes outputs/statistical_robustness_audit.json as 10
 SUBMISSION_INDEX_en.md describes outputs/video_source_exclusion_audit.json as 25 files,pass,25 files
 SUBMISSION_INDEX_en.md describes outputs/source_provenance_audit.json as 24 URLs,pass,24 URLs
 SUBMISSION_INDEX_en.md describes outputs/public_discussion_claims_audit.json as 2 official rows,pass,2 official rows
-SUBMISSION_INDEX_en.md describes outputs/claim_boundary_audit.json as 18 checks,pass,18 checks
+SUBMISSION_INDEX_en.md describes outputs/claim_boundary_audit.json as 22 checks,pass,22 checks
 SUBMISSION_INDEX_en.md describes outputs/objection_coverage_audit.json as 26 checks,pass,26 checks
 SUBMISSION_INDEX_en.md describes outputs/pre_submission_audit.json as 17 checks,pass,17 checks
 outputs/core_claims_verification.json status pass,pass,pass
@@ -122,7 +122,7 @@ outputs/source_provenance_audit.json url_count 24,pass,24
 outputs/public_discussion_claims_audit.json status pass,pass,pass
 outputs/public_discussion_claims_audit.json row_count 2,pass,2
 outputs/claim_boundary_audit.json status pass,pass,pass
-outputs/claim_boundary_audit.json check_count 18,pass,18
+outputs/claim_boundary_audit.json check_count 22,pass,22
 outputs/objection_coverage_audit.json status pass,pass,pass
 outputs/objection_coverage_audit.json check_count 26,pass,26
 outputs/pre_submission_audit.json status pass,pass,pass

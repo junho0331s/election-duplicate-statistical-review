@@ -46,3 +46,12 @@ The strongest conclusion supported by the current package is:
 > Taken together, the NEC official page values and the historical official-data baseline indicate that the 2026 Gwangju-Jeonnam five-pair repetition is a statistical anomaly difficult to reconcile with the ordinary-randomness hypothesis, and it cannot be statistically closed without independent verification of original counting statements and first-pass sorter records.
 
 This is not a sentence legally determining a specific cause. It is a reproducible statistical statement supporting public raw-data audit.
+
+## Post-Disclosure Decision Levels
+
+| Level | Condition | Treatment of the conclusion |
+| --- | --- | --- |
+| Weaken or withdraw | The official integrated file or original counting statements remove the event-row identical pairs. | Revise the core statistical-anomaly conclusion. |
+| Downgrade to administrative explanation | Original values match, but every candidate-level change from first pass to final publication is fully reconciled by reviewed-ballot, input-log, and batch records. | Treat the audit request as satisfied and do not assert causal misconduct. |
+| Escalate to causal investigation | Original values match and multiple pairs repeatedly move toward final identical values. | Strengthen the statistical-anomaly conclusion into a causal-investigation requirement. |
+| Keep independent audit open | Raw records are missing, or counting statements, first-pass outputs, reviewed-ballot records, logs, and custody records conflict. | The chance explanation is not restored; the missing or inconsistent records become the audit object. |

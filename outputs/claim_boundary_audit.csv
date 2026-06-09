@@ -15,5 +15,9 @@ Korean reviewer-response boundary markers,reviewer_response_ko.md,reviewer respo
 English reviewer-response boundary markers,reviewer_response_en.md,reviewer response anticipates overclaim and falsifiability objections,3/3 markers present,pass
 Korean raw-record requirements,paper_statistical_implausibility_ko.md,raw records needed for causal/legal attribution are listed,4/4 markers present,pass
 English raw-record requirements,paper_statistical_implausibility_en.md,raw records needed for causal/legal attribution are listed,4/4 markers present,pass
+Korean post-disclosure decision levels,paper_statistical_implausibility_ko.md,"post-disclosure decision levels state how raw records weaken, explain, strengthen, or keep audit open",4/4 markers present,pass
+English post-disclosure decision levels,paper_statistical_implausibility_en.md,"post-disclosure decision levels state how raw records weaken, explain, strengthen, or keep audit open",4/4 markers present,pass
+Korean PDF post-disclosure decision levels,latex/ieie/main.pdf,Korean PDF renders post-disclosure decision levels,4/4 compact markers present,pass
+English PDF post-disclosure decision levels,latex/en/main_en.pdf,English PDF renders post-disclosure decision levels,4/4 compact markers present,pass
 Korean PDF claim-boundary rendering,latex/ieie/main.pdf,Korean PDF renders the claim-boundary text,present,pass
 English PDF claim-boundary rendering,latex/en/main_en.pdf,English PDF renders the claim-boundary text,present,pass
