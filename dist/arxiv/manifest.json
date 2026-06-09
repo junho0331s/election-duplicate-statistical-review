@@ -1,0 +1,18 @@
+{
+  "package": "dist/arxiv/election_duplicate_arxiv_source.zip",
+  "pdf_copy": "dist/arxiv/election_duplicate_arxiv_pdf.pdf",
+  "generated_pdf": "dist/arxiv/source/main.pdf",
+  "source_files": [
+    "main.tex",
+    "IEIE.cls"
+  ],
+  "checksums": {
+    "dist/arxiv/election_duplicate_arxiv_source.zip": "34ad4fdd12baafe8534c510ce74340e1aa4325cf38b0ab5e4e9a1a1f01052fbe",
+    "dist/arxiv/election_duplicate_arxiv_pdf.pdf": "021d16f0375e0c28aeb8b6ddef5a46bb1b9a1e56040577ec4b1d25c664d1c73e",
+    "dist/arxiv/source/main.pdf": "b14c06598a96ef45dad0634ff2aaedec6cc5e46ce93d67c9117ef0d71097496b"
+  },
+  "notes": [
+    "Prepared for arXiv-style source upload.",
+    "Final arXiv submission requires the author's arXiv account, category selection, metadata confirmation, and explicit final-submit approval."
+  ]
+}
