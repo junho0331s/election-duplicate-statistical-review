@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "check_count": 15,
+  "check_count": 16,
   "scope": "pre-submission package readiness",
   "checks": [
     {
@@ -91,6 +91,12 @@
       "check": "submission source files present",
       "expected": "required source files present and documentation audit counts current",
       "actual": "0 failures",
+      "status": "pass"
+    },
+    {
+      "check": "2026 data availability boundary",
+      "expected": "Korean/English data-availability notes preserve official-file limitation and supported wording",
+      "actual": "0 missing markers",
       "status": "pass"
     }
   ]

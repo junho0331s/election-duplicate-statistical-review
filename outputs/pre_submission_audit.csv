@@ -14,3 +14,4 @@ English PDF translation coverage,0 Korean characters and exact-collision section
 English source translation scan,0 Korean fragments in *_en.md and latex/en/main_en.tex,0 files with Korean fragments,pass
 English PDF evidence-matrix reference,evidence_matrix_en.md present and evidence_matrix_ko.md absent,"en reference present, ko reference absent",pass
 submission source files present,required source files present and documentation audit counts current,0 failures,pass
+2026 data availability boundary,Korean/English data-availability notes preserve official-file limitation and supported wording,0 missing markers,pass

@@ -8,7 +8,7 @@
 - Source provenance audit: `pass`, 24 URLs
 - Claim-boundary audit: `pass`, 18 checks
 - Objection coverage audit: `pass`, 24 checks
-- Pre-submission audit: `pass`, 15 checks
+- Pre-submission audit: `pass`, 16 checks
 - Public-discussion claim audit: `pass`, 2 official rows
 - Submission index audit: `pass`, 128 checks
 

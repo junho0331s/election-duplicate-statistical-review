@@ -308,6 +308,35 @@ def submission_sources_present() -> AuditCheck:
     )
 
 
+def data_availability_boundary_present() -> AuditCheck:
+    required_by_file = {
+        "data_availability_2026_ko.md": [
+            "제3회부터 제8회까지",
+            "제9회 전국동시지방선거 개표결과 통합 XLSX 파일은 확인되지 않았다",
+            "공식 화면값은 통합 XLSX 파일 또는 개표상황표 원본과 동일한 층위의 원자료는 아니다",
+            "피해야 할 표현",
+        ],
+        "data_availability_2026_en.md": [
+            "3rd through 8th elections",
+            "no integrated XLSX file for the 9th nationwide local-election vote-count result was identified",
+            "official page values are not the same evidentiary layer as an integrated XLSX file or original counting statements",
+            "Wording to avoid",
+        ],
+    }
+    missing: list[str] = []
+    for rel, needles in required_by_file.items():
+        text = read_text(rel)
+        for needle in needles:
+            if needle not in text:
+                missing.append(f"{rel}:{needle}")
+    return check(
+        not missing,
+        "2026 data availability boundary",
+        "Korean/English data-availability notes preserve official-file limitation and supported wording",
+        f"{len(missing)} missing markers",
+    )
+
+
 def exact_collision_output_present() -> AuditCheck:
     rows = list(csv.DictReader((OUT / "probability_exact_collision.csv").open(encoding="utf-8")))
     by_threshold = {int(row["threshold"]): row for row in rows}
@@ -412,6 +441,7 @@ def audit_checks() -> list[AuditCheck]:
         english_sources_have_no_korean(),
         english_pdf_references_english_evidence_matrix(),
         submission_sources_present(),
+        data_availability_boundary_present(),
     ]
 
 
